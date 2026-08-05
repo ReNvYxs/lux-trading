@@ -1,0 +1,440 @@
+{
+ "bar_1d": 180,
+ "bar_4h": 1080,
+ "bias_konteks_multi": {
+  "long": 162,
+  "netral": 433,
+  "short": 185
+ },
+ "dua_puncak_4h": {
+  "diterima_modul": 327,
+  "ditolak_padahal_dalam_5_persen": 216,
+  "pasangan_lolos_jarak": 574,
+  "sebaran_kesamaan": {
+   "0.012_0.03": 144,
+   "0.03_0.05": 72,
+   "gt_0.05": 31,
+   "le_0.012": 327
+  },
+  "toleransi_modul": 0.012
+ },
+ "ema200_4h": {
+  "bar_diperiksa": 780,
+  "kondisi_modul_long": "(low - ema) <= 0.75*atr DAN low >= ema - 1.0*atr",
+  "pita_modul_long": 86,
+  "rasio_pita_terhadap_sentuhan": 1.3231,
+  "sentuhan_ketat_low_le_ema_le_high": 65
+ },
+ "galat": [],
+ "garis_tren_4h": {
+  "fraksi_atas_dilanggar": 1.0,
+  "fraksi_bawah_dilanggar": 1.0,
+  "garis_atas_dilanggar_pivotnya_sendiri": 780,
+  "garis_bawah_dilanggar_pivotnya_sendiri": 780,
+  "kasus_tiga_pivot": 780,
+  "selisih_regresi_vs_dua_titik_dalam_atr": {
+   "maks": 1.621772,
+   "min": 0.0,
+   "n": 780,
+   "p50": 0.119298,
+   "p90": 0.655638,
+   "rata": 0.248349
+  },
+  "sisa_maks_atas_dalam_atr": {
+   "maks": 2.342741,
+   "min": 0.003803,
+   "n": 780,
+   "p50": 0.294221,
+   "p90": 1.21981,
+   "rata": 0.479699
+  }
+ },
+ "kontrak_skor_multi": {
+  "breaker_block": {
+   "ambang": 65.0,
+   "bobot_komponen": {
+    "jenis_peristiwa": 1.0,
+    "kesegaran_breaker": 0.9,
+    "konfirmasi_volume": 0.6,
+    "zona_tidak_terlalu_tebal": 0.7
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 3.2,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.238095,
+   "skor_maksimum_tercapai": {
+    "0.0": 76.1905,
+    "0.5": 88.0952,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.853125,
+    "0.5": 0.696875,
+    "1.0": 0.540625
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 180
+  },
+  "donchian_breakout": {
+   "ambang": 60.0,
+   "bobot_komponen": {
+    "channel_tidak_terlalu_lebar": 0.6,
+    "ketegasan_tembusan": 1.0,
+    "konfirmasi_volume": 1.0
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.6,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.277778,
+   "skor_maksimum_tercapai": {
+    "0.0": 72.2222,
+    "0.5": 86.1111,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.830769,
+    "0.5": 0.638462,
+    "1.0": 0.446154
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 56
+  },
+  "fib_golden_pocket": {
+   "ambang": 63.0,
+   "bobot_komponen": {
+    "candle_konfirmasi": 0.8,
+    "kekuatan_impuls": 1.0,
+    "ketepatan_zona": 1.0
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.8,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.263158,
+   "skor_maksimum_tercapai": {
+    "0.0": 73.6842,
+    "0.5": 86.8421,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.855,
+    "0.5": 0.676429,
+    "1.0": 0.497857
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 18
+  },
+  "fvg_fill": {
+   "ambang": 61.0,
+   "bobot_komponen": {
+    "kesegaran_gap": 0.9,
+    "reaksi_candle": 0.8,
+    "ukuran_gap": 1.0
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.7,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.27027,
+   "skor_maksimum_tercapai": {
+    "0.0": 72.973,
+    "0.5": 86.4865,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.835926,
+    "0.5": 0.650741,
+    "1.0": 0.465556
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 67
+  },
+  "keltner_reversi": {
+   "ambang": 61.0,
+   "bobot_komponen": {
+    "penutupan_balik": 0.7,
+    "peregangan_sebelumnya": 1.0,
+    "rezim_menyamping": 1.0
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.7,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 4
+  },
+  "level_bulat": {
+   "ambang": 59.0,
+   "bobot_komponen": {},
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 0,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 0
+  },
+  "market_structure_shift": {
+   "ambang": 63.0,
+   "bobot_komponen": {
+    "ada_sapuan_likuiditas": 1.2,
+    "belum_terlalu_jauh": 0.8,
+    "kebaruan_choch": 0.9
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.9,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.25641,
+   "skor_maksimum_tercapai": {
+    "0.0": 74.359,
+    "0.5": 87.1795,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.847241,
+    "0.5": 0.674828,
+    "1.0": 0.502414
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 83
+  },
+  "order_block_retest": {
+   "ambang": 62.0,
+   "bobot_komponen": {
+    "kesegaran_ob": 1.0,
+    "konfirmasi_volume": 0.7,
+    "zona_rapat": 0.8
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.5,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.285714,
+   "skor_maksimum_tercapai": {
+    "0.0": 71.4286,
+    "0.5": 85.7143,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.868,
+    "0.5": 0.668,
+    "1.0": 0.468
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 144
+  },
+  "pivot_reversal": {
+   "ambang": 60.0,
+   "bobot_komponen": {
+    "jarak_ke_pivot": 0.6,
+    "konfirmasi_volume": 0.7,
+    "penolakan_sumbu": 1.0
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.3,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 265
+  },
+  "squeeze_breakout": {
+   "ambang": 62.0,
+   "bobot_komponen": {
+    "durasi_squeeze": 1.0,
+    "kekuatan_dorongan": 0.9,
+    "konfirmasi_volume": 1.1
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 3.0,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.25,
+   "skor_maksimum_tercapai": {
+    "0.0": 75.0,
+    "0.5": 87.5,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.826667,
+    "0.5": 0.66,
+    "1.0": 0.493333
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 43
+  },
+  "supertrend_flip": {
+   "ambang": 60.0,
+   "bobot_komponen": {
+    "dukungan_kemiringan_ema": 1.0,
+    "jarak_ke_garis": 0.6,
+    "kekuatan_tren": 0.9
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.5,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.285714,
+   "skor_maksimum_tercapai": {
+    "0.0": 71.4286,
+    "0.5": 85.7143,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.84,
+    "0.5": 0.64,
+    "1.0": 0.44
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 20
+  },
+  "vp_tepi_value_area": {
+   "ambang": 61.0,
+   "bobot_komponen": {
+    "penolakan_sumbu": 1.0,
+    "ruang_ke_poc": 1.0,
+    "value_area_terbentuk": 0.7
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.7,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 109
+  },
+  "vwap_reclaim": {
+   "ambang": 62.0,
+   "bobot_komponen": {
+    "kedalaman_flush": 1.0,
+    "kerapatan_ke_vwap": 1.0,
+    "konfirmasi_volume": 1.0,
+    "pemisahan_tren": 0.8
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 3.8,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 337
+  },
+  "vwap_reversi_pita": {
+   "ambang": 63.0,
+   "bobot_komponen": {
+    "lebar_pita_sehat": 0.6,
+    "peregangan": 1.2,
+    "rezim_menyamping": 1.0
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.8,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 14
+  }
+ },
+ "parameter_vs_sumber": {
+  "bar_per_hari": {
+   "15m": 96,
+   "1d": 1,
+   "1h": 24,
+   "4h": 6,
+   "5m": 288
+  },
+  "cup_and_handle_retrace_handle_maks": {
+   "modul": 0.4,
+   "selisih_relatif": 0.2,
+   "sumber_sepertiga_kedalaman_cup": 0.333333
+  },
+  "double_top_jarak_maks_70_bar_dalam_jam": {
+   "15m": 17.5,
+   "1d": 1680.0,
+   "1h": 70.0,
+   "4h": 280.0,
+   "5m": 5.833
+  },
+  "gerbang_rezim_adx": {
+   "ambang_tren_wilder": 25.0,
+   "keltner_reversi_tolak_di_atas": 22.0,
+   "vwap_reversi_pita_tolak_di_atas": 25.0
+  },
+  "jendela_volume_profile_240_bar_dalam_jam": {
+   "15m": 60.0,
+   "1d": 5760.0,
+   "1h": 240.0,
+   "4h": 960.0,
+   "5m": 20.0
+  },
+  "tp_pola_klasik": {
+   "catatan": "tp1 0.618 adalah tambahan parsial, bukan aturan measured move baku",
+   "measured_move_baku": [
+    1.0
+   ],
+   "modul": [
+    0.618,
+    1.0
+   ]
+  }
+ },
+ "pivot_4h": {
+  "bar": 1080,
+  "cocok_dengan_modul": true,
+  "high_aturan_ketat": 146,
+  "high_aturan_longgar": 146,
+  "high_hilang_karena_seri": 0,
+  "low_aturan_ketat": 147,
+  "low_aturan_longgar": 147,
+  "low_hilang_karena_seri": 0,
+  "pivot_modul_total": 293
+ },
+ "pivot_harian_4h": {
+  "bar_dibandingkan": 780,
+  "bar_per_hari_dipakai_modul": 6,
+  "catatan": "modul memakai blok bergulir bar i-2n+1..i-n; kalender memakai lilin 1d terakhir yang sudah tutup",
+  "fraksi_identik": 0.0,
+  "level_identik": 0,
+  "pemicu_long": {
+   "hanya_kalender": 96,
+   "hanya_modul": 69,
+   "keduanya": 60
+  },
+  "pemicu_short": {
+   "hanya_kalender": 92,
+   "hanya_modul": 89,
+   "keduanya": 67
+  },
+  "selisih_R1_dalam_atr": {
+   "maks": 4.951058,
+   "min": 0.001012,
+   "n": 780,
+   "p50": 0.584556,
+   "p90": 1.888495,
+   "rata": 0.827553
+  },
+  "selisih_S1_dalam_atr": {
+   "maks": 4.809802,
+   "min": 0.00065,
+   "n": 780,
+   "p50": 0.652247,
+   "p90": 1.632258,
+   "rata": 0.782175
+  }
+ },
+ "sl_donchian_4h": {
+  "bar_breakout_long": 58,
+  "catatan": "sl = min(kanal_bawah, harga - 2*atr); nilai lebih rendah = stop lebih lebar",
+  "fraksi_stop_lebih_lebar_dari_2N": 1.0,
+  "jarak_ke_kanal_bawah_dalam_atr": {
+   "maks": 6.775016,
+   "min": 2.894646,
+   "n": 58,
+   "p50": 4.349682,
+   "p90": 5.713567,
+   "rata": 4.377266
+  },
+  "kanal_berlawanan_mengikat": 58,
+  "stop_2atr_mengikat": 0
+ }
+}
+galat=0
+rc=0

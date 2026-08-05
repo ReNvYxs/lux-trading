@@ -1,0 +1,1464 @@
+{
+ "bar_1d": 180,
+ "bar_4h": 1080,
+ "dua_puncak_4h": {
+  "diterima_modul": 327,
+  "ditolak_padahal_dalam_5_persen": 216,
+  "pasangan_lolos_jarak": 574,
+  "sebaran_kesamaan": {
+   "0.012_0.03": 144,
+   "0.03_0.05": 72,
+   "gt_0.05": 31,
+   "le_0.012": 327
+  },
+  "toleransi_modul": 0.012
+ },
+ "ema200_4h": {
+  "bar_diperiksa": 780,
+  "kondisi_modul_long": "(low - ema) <= 0.75*atr DAN low >= ema - 1.0*atr",
+  "pita_modul_long": 86,
+  "rasio_pita_terhadap_sentuhan": 1.3231,
+  "sentuhan_ketat_low_le_ema_le_high": 65
+ },
+ "galat": [],
+ "garis_tren_4h": {
+  "fraksi_atas_dilanggar": 1.0,
+  "fraksi_bawah_dilanggar": 1.0,
+  "garis_atas_dilanggar_pivotnya_sendiri": 780,
+  "garis_bawah_dilanggar_pivotnya_sendiri": 780,
+  "kasus_tiga_pivot": 780,
+  "selisih_regresi_vs_dua_titik_dalam_atr": {
+   "maks": 1.621772,
+   "min": 0.0,
+   "n": 780,
+   "p50": 0.119298,
+   "p90": 0.655638,
+   "rata": 0.248349
+  },
+  "sisa_maks_atas_dalam_atr": {
+   "maks": 2.342741,
+   "min": 0.003803,
+   "n": 780,
+   "p50": 0.294221,
+   "p90": 1.21981,
+   "rata": 0.479699
+  }
+ },
+ "kontrak_skor_multi": {
+  "breaker_block": {
+   "ambang": 65.0,
+   "bobot_komponen": {
+    "jenis_peristiwa": 1.0,
+    "kesegaran_breaker": 0.9,
+    "konfirmasi_volume": 0.6,
+    "zona_tidak_terlalu_tebal": 0.7
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 3.2,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.238095,
+   "skor_maksimum_tercapai": {
+    "0.0": 76.1905,
+    "0.5": 88.0952,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.853125,
+    "0.5": 0.696875,
+    "1.0": 0.540625
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 180
+  },
+  "donchian_breakout": {
+   "ambang": 60.0,
+   "bobot_komponen": {
+    "channel_tidak_terlalu_lebar": 0.6,
+    "ketegasan_tembusan": 1.0,
+    "konfirmasi_volume": 1.0
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.6,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.277778,
+   "skor_maksimum_tercapai": {
+    "0.0": 72.2222,
+    "0.5": 86.1111,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.830769,
+    "0.5": 0.638462,
+    "1.0": 0.446154
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 56
+  },
+  "fib_golden_pocket": {
+   "ambang": 63.0,
+   "bobot_komponen": {
+    "candle_konfirmasi": 0.8,
+    "kekuatan_impuls": 1.0,
+    "ketepatan_zona": 1.0
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.8,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.263158,
+   "skor_maksimum_tercapai": {
+    "0.0": 73.6842,
+    "0.5": 86.8421,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.855,
+    "0.5": 0.676429,
+    "1.0": 0.497857
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 18
+  },
+  "fvg_fill": {
+   "ambang": 61.0,
+   "bobot_komponen": {
+    "kesegaran_gap": 0.9,
+    "reaksi_candle": 0.8,
+    "ukuran_gap": 1.0
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.7,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.27027,
+   "skor_maksimum_tercapai": {
+    "0.0": 72.973,
+    "0.5": 86.4865,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.835926,
+    "0.5": 0.650741,
+    "1.0": 0.465556
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 67
+  },
+  "keltner_reversi": {
+   "ambang": 61.0,
+   "bobot_komponen": {
+    "penutupan_balik": 0.7,
+    "peregangan_sebelumnya": 1.0,
+    "rezim_menyamping": 1.0
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.7,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 4
+  },
+  "level_bulat": {
+   "ambang": 59.0,
+   "bobot_komponen": {},
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 0,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 0
+  },
+  "market_structure_shift": {
+   "ambang": 63.0,
+   "bobot_komponen": {
+    "ada_sapuan_likuiditas": 1.2,
+    "belum_terlalu_jauh": 0.8,
+    "kebaruan_choch": 0.9
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.9,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.25641,
+   "skor_maksimum_tercapai": {
+    "0.0": 74.359,
+    "0.5": 87.1795,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.847241,
+    "0.5": 0.674828,
+    "1.0": 0.502414
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 83
+  },
+  "order_block_retest": {
+   "ambang": 62.0,
+   "bobot_komponen": {
+    "kesegaran_ob": 1.0,
+    "konfirmasi_volume": 0.7,
+    "zona_rapat": 0.8
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.5,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.285714,
+   "skor_maksimum_tercapai": {
+    "0.0": 71.4286,
+    "0.5": 85.7143,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.868,
+    "0.5": 0.668,
+    "1.0": 0.468
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 144
+  },
+  "pivot_reversal": {
+   "ambang": 60.0,
+   "bobot_komponen": {
+    "jarak_ke_pivot": 0.6,
+    "konfirmasi_volume": 0.7,
+    "penolakan_sumbu": 1.0
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.3,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 265
+  },
+  "squeeze_breakout": {
+   "ambang": 62.0,
+   "bobot_komponen": {
+    "durasi_squeeze": 1.0,
+    "kekuatan_dorongan": 0.9,
+    "konfirmasi_volume": 1.1
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 3.0,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.25,
+   "skor_maksimum_tercapai": {
+    "0.0": 75.0,
+    "0.5": 87.5,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.826667,
+    "0.5": 0.66,
+    "1.0": 0.493333
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 43
+  },
+  "supertrend_flip": {
+   "ambang": 60.0,
+   "bobot_komponen": {
+    "dukungan_kemiringan_ema": 1.0,
+    "jarak_ke_garis": 0.6,
+    "kekuatan_tren": 0.9
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.5,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.285714,
+   "skor_maksimum_tercapai": {
+    "0.0": 71.4286,
+    "0.5": 85.7143,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.84,
+    "0.5": 0.64,
+    "1.0": 0.44
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 20
+  },
+  "vp_tepi_value_area": {
+   "ambang": 61.0,
+   "bobot_komponen": {
+    "penolakan_sumbu": 1.0,
+    "ruang_ke_poc": 1.0,
+    "value_area_terbentuk": 0.7
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.7,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 109
+  },
+  "vwap_reclaim": {
+   "ambang": 62.0,
+   "bobot_komponen": {
+    "kedalaman_flush": 1.0,
+    "kerapatan_ke_vwap": 1.0,
+    "konfirmasi_volume": 1.0,
+    "pemisahan_tren": 0.8
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 3.8,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 337
+  },
+  "vwap_reversi_pita": {
+   "ambang": 63.0,
+   "bobot_komponen": {
+    "lebar_pita_sehat": 0.6,
+    "peregangan": 1.2,
+    "rezim_menyamping": 1.0
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.8,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 14
+  }
+ },
+ "kontrak_skor_single": {
+  "breaker_block": {
+   "ambang": 65.0,
+   "bobot_komponen": {
+    "jenis_peristiwa": 1.0,
+    "kesegaran_breaker": 0.9,
+    "konfirmasi_volume": 0.6,
+    "zona_tidak_terlalu_tebal": 0.7
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 3.2,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.238095,
+   "skor_maksimum_tercapai": {
+    "0.0": 76.1905,
+    "0.5": 88.0952,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.853125,
+    "0.5": 0.696875,
+    "1.0": 0.540625
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 180
+  },
+  "donchian_breakout": {
+   "ambang": 60.0,
+   "bobot_komponen": {
+    "channel_tidak_terlalu_lebar": 0.6,
+    "ketegasan_tembusan": 1.0,
+    "konfirmasi_volume": 1.0
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.6,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.277778,
+   "skor_maksimum_tercapai": {
+    "0.0": 72.2222,
+    "0.5": 86.1111,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.830769,
+    "0.5": 0.638462,
+    "1.0": 0.446154
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 56
+  },
+  "fib_golden_pocket": {
+   "ambang": 63.0,
+   "bobot_komponen": {
+    "candle_konfirmasi": 0.8,
+    "kekuatan_impuls": 1.0,
+    "ketepatan_zona": 1.0
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.8,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.263158,
+   "skor_maksimum_tercapai": {
+    "0.0": 73.6842,
+    "0.5": 86.8421,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.855,
+    "0.5": 0.676429,
+    "1.0": 0.497857
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 18
+  },
+  "fvg_fill": {
+   "ambang": 61.0,
+   "bobot_komponen": {
+    "kesegaran_gap": 0.9,
+    "reaksi_candle": 0.8,
+    "ukuran_gap": 1.0
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.7,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.27027,
+   "skor_maksimum_tercapai": {
+    "0.0": 72.973,
+    "0.5": 86.4865,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.835926,
+    "0.5": 0.650741,
+    "1.0": 0.465556
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 67
+  },
+  "keltner_reversi": {
+   "ambang": 61.0,
+   "bobot_komponen": {
+    "penutupan_balik": 0.7,
+    "peregangan_sebelumnya": 1.0,
+    "rezim_menyamping": 1.0
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.7,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 4
+  },
+  "level_bulat": {
+   "ambang": 59.0,
+   "bobot_komponen": {},
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 0,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 0
+  },
+  "market_structure_shift": {
+   "ambang": 63.0,
+   "bobot_komponen": {
+    "ada_sapuan_likuiditas": 1.2,
+    "belum_terlalu_jauh": 0.8,
+    "kebaruan_choch": 0.9
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.9,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.25641,
+   "skor_maksimum_tercapai": {
+    "0.0": 74.359,
+    "0.5": 87.1795,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.847241,
+    "0.5": 0.674828,
+    "1.0": 0.502414
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 83
+  },
+  "order_block_retest": {
+   "ambang": 62.0,
+   "bobot_komponen": {
+    "kesegaran_ob": 1.0,
+    "konfirmasi_volume": 0.7,
+    "zona_rapat": 0.8
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.5,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.285714,
+   "skor_maksimum_tercapai": {
+    "0.0": 71.4286,
+    "0.5": 85.7143,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.868,
+    "0.5": 0.668,
+    "1.0": 0.468
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 144
+  },
+  "pivot_reversal": {
+   "ambang": 60.0,
+   "bobot_komponen": {
+    "jarak_ke_pivot": 0.6,
+    "konfirmasi_volume": 0.7,
+    "penolakan_sumbu": 1.0
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.3,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 265
+  },
+  "squeeze_breakout": {
+   "ambang": 62.0,
+   "bobot_komponen": {
+    "durasi_squeeze": 1.0,
+    "kekuatan_dorongan": 0.9,
+    "konfirmasi_volume": 1.1
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 3.0,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.25,
+   "skor_maksimum_tercapai": {
+    "0.0": 75.0,
+    "0.5": 87.5,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.826667,
+    "0.5": 0.66,
+    "1.0": 0.493333
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 43
+  },
+  "supertrend_flip": {
+   "ambang": 60.0,
+   "bobot_komponen": {
+    "dukungan_kemiringan_ema": 1.0,
+    "jarak_ke_garis": 0.6,
+    "kekuatan_tren": 0.9
+   },
+   "bobot_konteks_disuntik": 1.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.5,
+   "konteks_dibutuhkan": 1,
+   "pangsa_bobot_konteks": 0.285714,
+   "skor_maksimum_tercapai": {
+    "0.0": 71.4286,
+    "0.5": 85.7143,
+    "1.0": 100.0
+   },
+   "skor_sendiri_minimum": {
+    "0.0": 0.84,
+    "0.5": 0.64,
+    "1.0": 0.44
+   },
+   "terkunci_bila_konteks_menolak": false,
+   "terpicu": 20
+  },
+  "vp_tepi_value_area": {
+   "ambang": 61.0,
+   "bobot_komponen": {
+    "penolakan_sumbu": 1.0,
+    "ruang_ke_poc": 1.0,
+    "value_area_terbentuk": 0.7
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.7,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 109
+  },
+  "vwap_reclaim": {
+   "ambang": 62.0,
+   "bobot_komponen": {
+    "kedalaman_flush": 1.0,
+    "kerapatan_ke_vwap": 1.0,
+    "konfirmasi_volume": 1.0,
+    "pemisahan_tren": 0.8
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 3.8,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 337
+  },
+  "vwap_reversi_pita": {
+   "ambang": 63.0,
+   "bobot_komponen": {
+    "lebar_pita_sehat": 0.6,
+    "peregangan": 1.2,
+    "rezim_menyamping": 1.0
+   },
+   "bobot_konteks_disuntik": 0.0,
+   "galat_detektor": 0,
+   "jumlah_bobot_sendiri": 2.8,
+   "konteks_dibutuhkan": 0,
+   "pangsa_bobot_konteks": 0.0,
+   "terpicu": 14
+  }
+ },
+ "mulai_indeks": 300,
+ "parameter_vs_sumber": {
+  "bar_per_hari": {
+   "15m": 96,
+   "1d": 1,
+   "1h": 24,
+   "4h": 6,
+   "5m": 288
+  },
+  "cup_and_handle_retrace_handle_maks": {
+   "modul": 0.4,
+   "selisih_relatif": 0.2,
+   "sumber_sepertiga_kedalaman_cup": 0.333333
+  },
+  "double_top_jarak_maks_70_bar_dalam_jam": {
+   "15m": 17.5,
+   "1d": 1680.0,
+   "1h": 70.0,
+   "4h": 280.0,
+   "5m": 5.833
+  },
+  "gerbang_rezim_adx": {
+   "ambang_tren_wilder": 25.0,
+   "keltner_reversi_tolak_di_atas": 22.0,
+   "vwap_reversi_pita_tolak_di_atas": 25.0
+  },
+  "jendela_volume_profile_240_bar_dalam_jam": {
+   "15m": 60.0,
+   "1d": 5760.0,
+   "1h": 240.0,
+   "4h": 960.0,
+   "5m": 20.0
+  },
+  "tp_pola_klasik": {
+   "catatan": "tp1 0.618 adalah tambahan parsial, bukan aturan measured move baku",
+   "measured_move_baku": [
+    1.0
+   ],
+   "modul": [
+    0.618,
+    1.0
+   ]
+  }
+ },
+ "pivot_harian_4h": {
+  "bar_dibandingkan": 780,
+  "bar_per_hari_dipakai_modul": 6,
+  "catatan": "modul memakai blok bergulir bar i-2n+1..i-n; kalender memakai lilin 1d terakhir yang sudah tutup",
+  "fraksi_identik": 0.0,
+  "level_identik": 0,
+  "pemicu_long": {
+   "hanya_kalender": 96,
+   "hanya_modul": 69,
+   "keduanya": 60
+  },
+  "pemicu_short": {
+   "hanya_kalender": 92,
+   "hanya_modul": 89,
+   "keduanya": 67
+  },
+  "selisih_R1_dalam_atr": {
+   "maks": 4.951058,
+   "min": 0.001012,
+   "n": 780,
+   "p50": 0.584556,
+   "p90": 1.888495,
+   "rata": 0.827553
+  },
+  "selisih_S1_dalam_atr": {
+   "maks": 4.809802,
+   "min": 0.00065,
+   "n": 780,
+   "p50": 0.652247,
+   "p90": 1.632258,
+   "rata": 0.782175
+  }
+ },
+ "pivot_ketat_vs_longgar_1d": {
+  "bar": 180,
+  "cocok_dengan_modul": true,
+  "high_aturan_ketat": 25,
+  "high_aturan_longgar": 25,
+  "high_hilang_karena_seri": 0,
+  "low_aturan_ketat": 25,
+  "low_aturan_longgar": 25,
+  "low_hilang_karena_seri": 0,
+  "pivot_modul_total": 50
+ },
+ "pivot_ketat_vs_longgar_4h": {
+  "bar": 1080,
+  "cocok_dengan_modul": true,
+  "high_aturan_ketat": 146,
+  "high_aturan_longgar": 146,
+  "high_hilang_karena_seri": 0,
+  "low_aturan_ketat": 147,
+  "low_aturan_longgar": 147,
+  "low_hilang_karena_seri": 0,
+  "pivot_modul_total": 293
+ },
+ "registry_multi_4h_ctx1d": {
+  "bar_dievaluasi": 780,
+  "bias_konteks": {
+   "long": 162,
+   "netral": 433,
+   "short": 185
+  },
+  "per_strategi": {
+   "breaker_block": {
+    "lolos_ambang": 112,
+    "skor_ringkas": {
+     "maks": 99.954187,
+     "min": 39.412916,
+     "n": 180,
+     "p50": 71.723513,
+     "p90": 86.392978,
+     "rata": 70.500239
+    },
+    "tolak": {
+     "tak_ada_setup": 600
+    },
+    "verdict": 180
+   },
+   "breakout_volume": {
+    "lolos_ambang": 8,
+    "skor_ringkas": {
+     "maks": 80.114146,
+     "min": 29.019521,
+     "n": 18,
+     "p50": 53.133518,
+     "p90": 79.370175,
+     "rata": 55.519205
+    },
+    "tolak": {
+     "tak_ada_setup": 762
+    },
+    "verdict": 18
+   },
+   "cup_and_handle": {
+    "lolos_ambang": 8,
+    "skor_ringkas": {
+     "maks": 81.818521,
+     "min": 28.09191,
+     "n": 21,
+     "p50": 61.082464,
+     "p90": 78.22915,
+     "rata": 59.946142
+    },
+    "tolak": {
+     "tak_ada_setup": 759
+    },
+    "verdict": 21
+   },
+   "donchian_breakout": {
+    "lolos_ambang": 32,
+    "skor_ringkas": {
+     "maks": 100.0,
+     "min": 18.36004,
+     "n": 56,
+     "p50": 65.058273,
+     "p90": 87.927983,
+     "rata": 63.462534
+    },
+    "tolak": {
+     "tak_ada_setup": 724
+    },
+    "verdict": 56
+   },
+   "double_bottom": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "maks": 47.663741,
+     "min": 27.485654,
+     "n": 3,
+     "p50": 38.136419,
+     "p90": 47.663741,
+     "rata": 37.761938
+    },
+    "tolak": {
+     "tak_ada_setup": 777
+    },
+    "verdict": 3
+   },
+   "double_top": {
+    "lolos_ambang": 1,
+    "skor_ringkas": {
+     "maks": 68.677464,
+     "min": 30.985838,
+     "n": 8,
+     "p50": 45.92712,
+     "p90": 68.677464,
+     "rata": 48.022416
+    },
+    "tolak": {
+     "tak_ada_setup": 772
+    },
+    "verdict": 8
+   },
+   "ema_bounce_200": {
+    "lolos_ambang": 2,
+    "skor_ringkas": {
+     "maks": 66.039616,
+     "min": 12.18093,
+     "n": 57,
+     "p50": 35.26887,
+     "p90": 51.099904,
+     "rata": 36.574146
+    },
+    "tolak": {
+     "tak_ada_setup": 723
+    },
+    "verdict": 57
+   },
+   "fib_golden_pocket": {
+    "lolos_ambang": 1,
+    "skor_ringkas": {
+     "maks": 65.918212,
+     "min": 21.087731,
+     "n": 18,
+     "p50": 33.338606,
+     "p90": 51.671952,
+     "rata": 35.401115
+    },
+    "tolak": {
+     "tak_ada_setup": 762
+    },
+    "verdict": 18
+   },
+   "fvg_fill": {
+    "lolos_ambang": 32,
+    "skor_ringkas": {
+     "maks": 87.997743,
+     "min": 23.97452,
+     "n": 67,
+     "p50": 60.36036,
+     "p90": 76.811466,
+     "rata": 60.137606
+    },
+    "tolak": {
+     "tak_ada_setup": 713
+    },
+    "verdict": 67
+   },
+   "head_shoulders": {
+    "lolos_ambang": 5,
+    "skor_ringkas": {
+     "maks": 76.95314,
+     "min": 33.9432,
+     "n": 15,
+     "p50": 47.10649,
+     "p90": 74.674806,
+     "rata": 53.593987
+    },
+    "tolak": {
+     "tak_ada_setup": 765
+    },
+    "verdict": 15
+   },
+   "ict_liquidity_sweep": {
+    "lolos_ambang": 4,
+    "skor_ringkas": {
+     "maks": 82.771052,
+     "min": 23.043337,
+     "n": 19,
+     "p50": 45.624613,
+     "p90": 69.042733,
+     "rata": 48.237636
+    },
+    "tolak": {
+     "tak_ada_setup": 761
+    },
+    "verdict": 19
+   },
+   "keltner_reversi": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "maks": 25.66778,
+     "min": 7.650484,
+     "n": 4,
+     "p50": 11.047802,
+     "p90": 25.66778,
+     "rata": 13.853467
+    },
+    "tolak": {
+     "tak_ada_setup": 776
+    },
+    "verdict": 4
+   },
+   "level_bulat": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "tak_ada_setup": 780
+    },
+    "verdict": 0
+   },
+   "macd_rsi_trendbreak": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "tak_ada_setup": 780
+    },
+    "verdict": 0
+   },
+   "market_structure_shift": {
+    "lolos_ambang": 48,
+    "skor_ringkas": {
+     "maks": 100.0,
+     "min": 28.106243,
+     "n": 83,
+     "p50": 64.841882,
+     "p90": 83.455401,
+     "rata": 64.815603
+    },
+    "tolak": {
+     "tak_ada_setup": 697
+    },
+    "verdict": 83
+   },
+   "order_block_retest": {
+    "lolos_ambang": 82,
+    "skor_ringkas": {
+     "maks": 100.0,
+     "min": 26.748449,
+     "n": 144,
+     "p50": 64.242096,
+     "p90": 88.545958,
+     "rata": 66.385777
+    },
+    "tolak": {
+     "tak_ada_setup": 636
+    },
+    "verdict": 144
+   },
+   "pivot_reversal": {
+    "lolos_ambang": 55,
+    "skor_ringkas": {
+     "maks": 99.924382,
+     "min": 16.321595,
+     "n": 265,
+     "p50": 40.786747,
+     "p90": 75.306105,
+     "rata": 44.930812
+    },
+    "tolak": {
+     "tak_ada_setup": 515
+    },
+    "verdict": 265
+   },
+   "rsi_divergence": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "maks": 45.204842,
+     "min": 6.085682,
+     "n": 6,
+     "p50": 22.671128,
+     "p90": 45.204842,
+     "rata": 22.491612
+    },
+    "tolak": {
+     "tak_ada_setup": 774
+    },
+    "verdict": 6
+   },
+   "smc_ob_fvg": {
+    "lolos_ambang": 51,
+    "skor_ringkas": {
+     "maks": 94.574752,
+     "min": 47.438567,
+     "n": 136,
+     "p50": 61.060365,
+     "p90": 76.518265,
+     "rata": 63.406809
+    },
+    "tolak": {
+     "tak_ada_setup": 644
+    },
+    "verdict": 136
+   },
+   "squeeze_breakout": {
+    "lolos_ambang": 22,
+    "skor_ringkas": {
+     "maks": 87.5,
+     "min": 23.063044,
+     "n": 43,
+     "p50": 62.5,
+     "p90": 78.125,
+     "rata": 56.478813
+    },
+    "tolak": {
+     "tak_ada_setup": 737
+    },
+    "verdict": 43
+   },
+   "supertrend_flip": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "maks": 44.699139,
+     "min": 6.348737,
+     "n": 20,
+     "p50": 30.204952,
+     "p90": 42.633098,
+     "rata": 29.405268
+    },
+    "tolak": {
+     "tak_ada_setup": 760
+    },
+    "verdict": 20
+   },
+   "triangle_breakout": {
+    "lolos_ambang": 13,
+    "skor_ringkas": {
+     "maks": 82.838537,
+     "min": 24.378715,
+     "n": 41,
+     "p50": 55.903434,
+     "p90": 69.062422,
+     "rata": 54.469654
+    },
+    "tolak": {
+     "tak_ada_setup": 739
+    },
+    "verdict": 41
+   },
+   "vp_tepi_value_area": {
+    "lolos_ambang": 31,
+    "skor_ringkas": {
+     "maks": 99.7435,
+     "min": 9.124836,
+     "n": 109,
+     "p50": 47.868995,
+     "p90": 75.839385,
+     "rata": 48.270671
+    },
+    "tolak": {
+     "tak_ada_setup": 671
+    },
+    "verdict": 109
+   },
+   "vwap_reclaim": {
+    "lolos_ambang": 92,
+    "skor_ringkas": {
+     "maks": 98.968174,
+     "min": 9.069482,
+     "n": 337,
+     "p50": 52.338703,
+     "p90": 69.918129,
+     "rata": 52.590467
+    },
+    "tolak": {
+     "tak_ada_setup": 443
+    },
+    "verdict": 337
+   },
+   "vwap_reversi_pita": {
+    "lolos_ambang": 1,
+    "skor_ringkas": {
+     "maks": 65.970991,
+     "min": 8.478348,
+     "n": 14,
+     "p50": 30.292862,
+     "p90": 62.673929,
+     "rata": 33.724418
+    },
+    "tolak": {
+     "tak_ada_setup": 766
+    },
+    "verdict": 14
+   },
+   "wedge_breakout": {
+    "lolos_ambang": 1,
+    "skor_ringkas": {
+     "maks": 68.277137,
+     "min": 19.671184,
+     "n": 22,
+     "p50": 41.037067,
+     "p90": 57.671024,
+     "rata": 41.993576
+    },
+    "tolak": {
+     "tak_ada_setup": 758
+    },
+    "verdict": 22
+   }
+  }
+ },
+ "registry_single_4h": {
+  "bar_dievaluasi": 780,
+  "bias_konteks": {
+   "long": 0,
+   "netral": 0,
+   "short": 0
+  },
+  "per_strategi": {
+   "breaker_block": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "peran_tf_tak_terpenuhi": 780
+    },
+    "verdict": 0
+   },
+   "breakout_volume": {
+    "lolos_ambang": 8,
+    "skor_ringkas": {
+     "maks": 80.114146,
+     "min": 29.019521,
+     "n": 18,
+     "p50": 53.133518,
+     "p90": 79.370175,
+     "rata": 55.519205
+    },
+    "tolak": {
+     "tak_ada_setup": 762
+    },
+    "verdict": 18
+   },
+   "cup_and_handle": {
+    "lolos_ambang": 8,
+    "skor_ringkas": {
+     "maks": 81.818521,
+     "min": 28.09191,
+     "n": 21,
+     "p50": 61.082464,
+     "p90": 78.22915,
+     "rata": 59.946142
+    },
+    "tolak": {
+     "tak_ada_setup": 759
+    },
+    "verdict": 21
+   },
+   "donchian_breakout": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "peran_tf_tak_terpenuhi": 780
+    },
+    "verdict": 0
+   },
+   "double_bottom": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "maks": 47.663741,
+     "min": 27.485654,
+     "n": 3,
+     "p50": 38.136419,
+     "p90": 47.663741,
+     "rata": 37.761938
+    },
+    "tolak": {
+     "tak_ada_setup": 777
+    },
+    "verdict": 3
+   },
+   "double_top": {
+    "lolos_ambang": 1,
+    "skor_ringkas": {
+     "maks": 68.677464,
+     "min": 30.985838,
+     "n": 8,
+     "p50": 45.92712,
+     "p90": 68.677464,
+     "rata": 48.022416
+    },
+    "tolak": {
+     "tak_ada_setup": 772
+    },
+    "verdict": 8
+   },
+   "ema_bounce_200": {
+    "lolos_ambang": 2,
+    "skor_ringkas": {
+     "maks": 66.039616,
+     "min": 12.18093,
+     "n": 57,
+     "p50": 35.26887,
+     "p90": 51.099904,
+     "rata": 36.574146
+    },
+    "tolak": {
+     "tak_ada_setup": 723
+    },
+    "verdict": 57
+   },
+   "fib_golden_pocket": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "peran_tf_tak_terpenuhi": 780
+    },
+    "verdict": 0
+   },
+   "fvg_fill": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "peran_tf_tak_terpenuhi": 780
+    },
+    "verdict": 0
+   },
+   "head_shoulders": {
+    "lolos_ambang": 5,
+    "skor_ringkas": {
+     "maks": 76.95314,
+     "min": 33.9432,
+     "n": 15,
+     "p50": 47.10649,
+     "p90": 74.674806,
+     "rata": 53.593987
+    },
+    "tolak": {
+     "tak_ada_setup": 765
+    },
+    "verdict": 15
+   },
+   "ict_liquidity_sweep": {
+    "lolos_ambang": 4,
+    "skor_ringkas": {
+     "maks": 82.771052,
+     "min": 23.043337,
+     "n": 19,
+     "p50": 45.624613,
+     "p90": 69.042733,
+     "rata": 48.237636
+    },
+    "tolak": {
+     "tak_ada_setup": 761
+    },
+    "verdict": 19
+   },
+   "keltner_reversi": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "maks": 25.66778,
+     "min": 7.650484,
+     "n": 4,
+     "p50": 11.047802,
+     "p90": 25.66778,
+     "rata": 13.853467
+    },
+    "tolak": {
+     "tak_ada_setup": 776
+    },
+    "verdict": 4
+   },
+   "level_bulat": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "tak_ada_setup": 780
+    },
+    "verdict": 0
+   },
+   "macd_rsi_trendbreak": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "peran_tf_tak_terpenuhi": 780
+    },
+    "verdict": 0
+   },
+   "market_structure_shift": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "peran_tf_tak_terpenuhi": 780
+    },
+    "verdict": 0
+   },
+   "order_block_retest": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "peran_tf_tak_terpenuhi": 780
+    },
+    "verdict": 0
+   },
+   "pivot_reversal": {
+    "lolos_ambang": 55,
+    "skor_ringkas": {
+     "maks": 99.924382,
+     "min": 16.321595,
+     "n": 265,
+     "p50": 40.786747,
+     "p90": 75.306105,
+     "rata": 44.930812
+    },
+    "tolak": {
+     "tak_ada_setup": 515
+    },
+    "verdict": 265
+   },
+   "rsi_divergence": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "maks": 45.204842,
+     "min": 6.085682,
+     "n": 6,
+     "p50": 22.671128,
+     "p90": 45.204842,
+     "rata": 22.491612
+    },
+    "tolak": {
+     "tak_ada_setup": 774
+    },
+    "verdict": 6
+   },
+   "smc_ob_fvg": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "peran_tf_tak_terpenuhi": 780
+    },
+    "verdict": 0
+   },
+   "squeeze_breakout": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "peran_tf_tak_terpenuhi": 780
+    },
+    "verdict": 0
+   },
+   "supertrend_flip": {
+    "lolos_ambang": 0,
+    "skor_ringkas": {
+     "n": 0
+    },
+    "tolak": {
+     "peran_tf_tak_terpenuhi": 780
+    },
+    "verdict": 0
+   },
+   "triangle_breakout": {
+    "lolos_ambang": 13,
+    "skor_ringkas": {
+     "maks": 82.838537,
+     "min": 24.378715,
+     "n": 41,
+     "p50": 55.903434,
+     "p90": 69.062422,
+     "rata": 54.469654
+    },
+    "tolak": {
+     "tak_ada_setup": 739
+    },
+    "verdict": 41
+   },
+   "vp_tepi_value_area": {
+    "lolos_ambang": 31,
+    "skor_ringkas": {
+     "maks": 99.7435,
+     "min": 9.124836,
+     "n": 109,
+     "p50": 47.868995,
+     "p90": 75.839385,
+     "rata": 48.270671
+    },
+    "tolak": {
+     "tak_ada_setup": 671
+    },
+    "verdict": 109
+   },
+   "vwap_reclaim": {
+    "lolos_ambang": 92,
+    "skor_ringkas": {
+     "maks": 98.968174,
+     "min": 9.069482,
+     "n": 337,
+     "p50": 52.338703,
+     "p90": 69.918129,
+     "rata": 52.590467
+    },
+    "tolak": {
+     "tak_ada_setup": 443
+    },
+    "verdict": 337
+   },
+   "vwap_reversi_pita": {
+    "lolos_ambang": 1,
+    "skor_ringkas": {
+     "maks": 65.970991,
+     "min": 8.478348,
+     "n": 14,
+     "p50": 30.292862,
+     "p90": 62.673929,
+     "rata": 33.724418
+    },
+    "tolak": {
+     "tak_ada_setup": 766
+    },
+    "verdict": 14
+   },
+   "wedge_breakout": {
+    "lolos_ambang": 1,
+    "skor_ringkas": {
+     "maks": 68.277137,
+     "min": 19.671184,
+     "n": 22,
+     "p50": 41.037067,
+     "p90": 57.671024,
+     "rata": 41.993576
+    },
+    "tolak": {
+     "tak_ada_setup": 758
+    },
+    "verdict": 22
+   }
+  }
+ },
+ "sl_donchian_4h": {
+  "bar_breakout_long": 58,
+  "catatan": "sl = min(kanal_bawah, harga - 2*atr); nilai lebih rendah = stop lebih lebar",
+  "fraksi_stop_lebih_lebar_dari_2N": 1.0,
+  "jarak_ke_kanal_bawah_dalam_atr": {
+   "maks": 6.775016,
+   "min": 2.894646,
+   "n": 58,
+   "p50": 4.349682,
+   "p90": 5.713567,
+   "rata": 4.377266
+  },
+  "kanal_berlawanan_mengikat": 58,
+  "stop_2atr_mengikat": 0
+ }
+}
