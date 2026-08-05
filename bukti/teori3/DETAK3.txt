@@ -1,0 +1,6 @@
+2026-08-05T22:24:45Z
+sha=3c15023b7594f004e70bc08cb8884692436debb0
+ref=main
+Python 3.12.3
+BTC_1d.csv
+BTC_4h.csv
