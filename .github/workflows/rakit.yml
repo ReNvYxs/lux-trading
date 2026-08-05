@@ -17,6 +17,8 @@ env:
   FIX_REPO: EnVyxS/uji-trading
   FIX_REF: c1749202dc31be1f995485dfc5c549c077338ecf
   GIT_TERMINAL_PROMPT: '0'
+  SUMBER_BASE: /tmp/sumber_base
+  SUMBER_FIX: /tmp/sumber_fix
 jobs:
   bedah:
     runs-on: ubuntu-latest
@@ -27,14 +29,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: klon sumber
+      - name: klon sumber ke luar worktree
         run: bash alat/klon.sh
       - name: bedah beda
         continue-on-error: true
         run: |
           set +e
-          python3 alat/bedah_gabung.py 2>&1 | tee bukti/log_bedah.txt
-          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/log_bedah.txt
+          python3 alat/bedah_gabung.py 2>&1 | tee bukti/jejak_bedah.txt
+          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/jejak_bedah.txt
 
       - name: rakit isi repo
         run: bash alat/rakit.sh
@@ -44,13 +46,19 @@ jobs:
         run: |
           set +e
           python -m pip install --quiet --upgrade pip
-          python -m pip install --quiet -r requirements.txt 2>&1 | tee bukti/log_dependensi.txt
-          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/log_dependensi.txt
+          python -m pip install --quiet -r requirements.txt 2>&1 | tee bukti/jejak_dependensi.txt
+          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/jejak_dependensi.txt
           python -m pip freeze 2>&1 | tee bukti/pip_freeze.txt
 
       - name: periksa rakitan
         continue-on-error: true
         run: bash alat/periksa.sh
+
+      - name: bersihkan gitlink sisa rakitan pertama
+        if: always()
+        run: |
+          git rm -r --cached --ignore-unmatch -q sumber_base sumber_fix || true
+          rm -rf sumber_base sumber_fix || true
 
       - name: rekam hasil rakitan
         if: always()
@@ -58,6 +66,8 @@ jobs:
           git config user.name "rakit-bot"
           git config user.email "rakit-bot@users.noreply.github.com"
           git add -A
+          git add -A -f bukti || true
+          if [ -d dataset_masuk ]; then git add -A -f dataset_masuk || true; fi
           git commit -q -m "[rakit] modul terbaru + lapisan aman + bukti ${GITHUB_SHA} [skip ci]" || echo "tidak ada perubahan"
           for i in 1 2 3 4 5; do
             git pull --rebase --autostash -q && git push -q && break

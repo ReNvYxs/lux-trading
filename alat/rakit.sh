@@ -1,47 +1,60 @@
 #!/usr/bin/env bash
 # Rakit isi repo secara reproducible dari sumber yang sudah diklon ter-pin SHA.
-# Tidak ada salin-tempel manual: apa pun yang ada di repo ini dihasilkan skrip.
 set -uo pipefail
 mkdir -p bukti
 
-if [ ! -d sumber_base/lux_modul ]; then
-  echo "GAGAL: sumber_base belum ada; jalankan alat/klon.sh dulu"
+if [ ! -d "${SUMBER_BASE}/lux_modul" ]; then
+  echo "GAGAL: sumber base belum ada; jalankan alat/klon.sh dulu"
   exit 3
 fi
 
 # 1) Salin pohon modul terbaru apa adanya.
-#    .github SENGAJA dikecualikan supaya workflow milik repo sumber tidak ikut
-#    aktif di sini (mereka menunjuk repo dan rahasia yang bukan milik kita).
-#    reports/ dikecualikan karena itu artefak lama, bukan bagian modul.
+#    .github dikecualikan supaya workflow repo sumber tidak ikut aktif di sini
+#    (mereka menunjuk repo dan rahasia yang bukan milik repo ini).
+#    reports/ dikecualikan karena artefak lama, bukan bagian modul.
 (
-  cd sumber_base && tar cf - \
+  cd "$SUMBER_BASE" && tar cf - \
     --exclude=./.git \
     --exclude=./.github \
     --exclude=./reports \
     --exclude=__pycache__ \
     .
 ) | tar xf - -C .
-echo "salin pohon dasar rc=$?" | tee bukti/log_rakit.txt
+echo "salin pohon dasar selesai" | tee bukti/jejak_rakit.txt
 
-# 2) Tambahkan lapisan eksekusi yang SUDAH terbukti di testnet (p07/p10/p11)
-#    sebagai paket terpisah. Sengaja TIDAK menimpa lux_modul/eksekusi/:
-#    penggantian harus dibuktikan tes lebih dulu, bukan diasumsikan.
+# 2) Lapisan eksekusi yang SUDAH terbukti di testnet (p07/p10/p11), sebagai
+#    paket terpisah. Sengaja TIDAK menimpa lux_modul/eksekusi/: penggantian
+#    harus dibuktikan tes lebih dulu.
 mkdir -p lux_modul/eksekusi_aman
-if [ -f sumber_fix/modul/bersih/inti.py ]; then
-  cp sumber_fix/modul/bersih/inti.py lux_modul/eksekusi_aman/inti.py
-  echo "salin inti.py OK" | tee -a bukti/log_rakit.txt
-else
-  echo "PERINGATAN: inti.py tidak ditemukan" | tee -a bukti/log_rakit.txt
-fi
-if [ -f sumber_fix/modul/proteksi.py ]; then
-  cp sumber_fix/modul/proteksi.py lux_modul/eksekusi_aman/proteksi.py
-  echo "salin proteksi.py OK" | tee -a bukti/log_rakit.txt
-else
-  echo "PERINGATAN: proteksi.py tidak ditemukan" | tee -a bukti/log_rakit.txt
-fi
-printf '%s\n' '"""Lapisan eksekusi yang sudah divalidasi di Binance Testnet (p07/p10/p11).' '' 'Belum dipasang menggantikan lux_modul/eksekusi/. Penggantian menunggu bukti tes.' '"""' > lux_modul/eksekusi_aman/__init__.py
+for pasangan in "modul/bersih/inti.py:inti.py" "modul/proteksi.py:proteksi.py"; do
+  asal="${SUMBER_FIX}/${pasangan%%:*}"
+  tujuan="lux_modul/eksekusi_aman/${pasangan##*:}"
+  if [ -f "$asal" ]; then
+    cp "$asal" "$tujuan"
+    echo "salin ${tujuan} OK" | tee -a bukti/jejak_rakit.txt
+  else
+    echo "PERINGATAN: ${asal} tidak ada" | tee -a bukti/jejak_rakit.txt
+  fi
+done
+printf '%s\n' \
+  '"""Lapisan eksekusi yang sudah divalidasi di Binance Testnet (p07/p10/p11).' \
+  '' \
+  'Belum dipasang menggantikan lux_modul/eksekusi/. Penggantian menunggu bukti tes.' \
+  '"""' > lux_modul/eksekusi_aman/__init__.py
 
-# 3) Manifest supaya isi repo bisa diaudit tanpa membuka satu per satu.
+# 3) Catat jebakan .gitignore milik repo sumber.
+#    Rakitan pertama kehilangan empat berkas bukti tanpa satu pun pesan galat
+#    karena pola log_*.txt, dan kehilangan dataset_masuk/ karena polanya sendiri.
+#    Sekarang keduanya di-force-add di langkah rekam.
+{
+  echo "utc=$(date -u +%FT%TZ)"
+  echo "pola .gitignore bawaan repo sumber yang menelan artefak:"
+  grep -nE 'log_|dataset_masuk|reports/|\*\.zip' .gitignore 2>/dev/null
+  echo
+  echo "penanganan: langkah rekam memakai git add -A -f pada bukti/ dan dataset_masuk/"
+} > bukti/CATATAN_GITIGNORE.txt 2>&1
+
+# 4) Manifest supaya isi repo bisa diaudit tanpa membuka satu per satu.
 {
   echo "utc=$(date -u +%FT%TZ)"
   echo "base_ref=${BASE_REF}"
@@ -51,10 +64,10 @@ printf '%s\n' '"""Lapisan eksekusi yang sudah divalidasi di Binance Testnet (p07
   echo "py_tests=$(find tests -name '*.py' 2>/dev/null | wc -l)"
   echo "py_scripts=$(find scripts -name '*.py' 2>/dev/null | wc -l)"
   echo "py_tools=$(find tools -name '*.py' 2>/dev/null | wc -l)"
+  echo "berkas_dataset_masuk=$(find dataset_masuk -type f 2>/dev/null | wc -l)"
   echo "--- akar ---"
   ls -1
   echo "--- md5 seluruh .py ---"
-  find . -name '*.py' -not -path './sumber_base/*' -not -path './sumber_fix/*' -print0 \
-    | sort -z | xargs -0 md5sum
+  find . -name '*.py' -print0 | sort -z | xargs -0 md5sum
 } > bukti/manifest_rakit.txt 2>&1
-echo "manifest baris=$(wc -l < bukti/manifest_rakit.txt)" | tee -a bukti/log_rakit.txt
+echo "manifest baris=$(wc -l < bukti/manifest_rakit.txt)" | tee -a bukti/jejak_rakit.txt

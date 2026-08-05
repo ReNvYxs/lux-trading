@@ -1,22 +1,23 @@
 #!/usr/bin/env python3
-"""Bedah gabung: apa PERSISNYA beda antara modul dasar dan pohon yang sudah
-saya perbaiki dan validasi di uji-trading.
+"""Bedah gabung: apa PERSISNYA beda antara modul dasar dan pohon yang dipakai
+probe testnet di uji-trading.
 
 Berkas ini TIDAK menggabungkan apa pun. Tugasnya menghasilkan bukti yang bisa
-dibaca sebelum satu baris pun digabung, supaya perakitan nanti dideklarasikan
-dari daftar berkas yang terbukti berbeda - bukan dari ingatan.
+dibaca sebelum satu baris pun digabung.
 
-sumber_base = pohon 'main' asli pada BASE_REF
-sumber_fix  = pohon main yang dipakai probe testnet p01-p11, plus lapisan
-              eksekusi bersih hasil p10/p11
+Temuan rakitan pertama yang dipertahankan di sini sebagai catatan: pohon
+modul/main/lux_modul di repo uji-trading ternyata BUKAN salinan main yang sudah
+diperbaiki, melainkan subset harness 8 berkas yang sengaja dipangkas (48 vs 8
+berkas, tidak satu pun identik, eksekusi/__init__.py dikosongkan). Karena itu
+pohon tersebut tidak boleh dipakai sebagai sumber gabungan.
 """
 import hashlib
 import json
 import os
 import subprocess
 
-BASE = "sumber_base"
-FIX = "sumber_fix"
+BASE = os.environ.get("SUMBER_BASE", "/tmp/sumber_base")
+FIX = os.environ.get("SUMBER_FIX", "/tmp/sumber_fix")
 BASE_MODUL = os.path.join(BASE, "lux_modul")
 FIX_MODUL = os.path.join(FIX, "modul", "main", "lux_modul")
 OUT = "bukti"
@@ -117,7 +118,7 @@ for kandidat in (
             n = sum(1 for _ in fh)
         bersih.append(
             {
-                "path": kandidat,
+                "path": os.path.relpath(kandidat, FIX).replace(os.sep, "/"),
                 "byte": os.path.getsize(kandidat),
                 "md5": md5(kandidat)[:8],
                 "baris": n,
@@ -150,10 +151,10 @@ out = {
     "lapisan_bersih": bersih,
     "requirements_base": isi_req,
     "inventaris_akar_base": inventaris(BASE),
-    "catatan": (
-        "pohon fix adalah salinan main yang dipakai probe testnet p01-p11. "
-        "Perbedaan di sini adalah KANDIDAT perbaikan, bukan otomatis perbaikan "
-        "sah. Tiap berkas beda harus dinilai satu per satu sebelum dirakit."
+    "vonis": (
+        "pohon fix adalah subset harness yang dipangkas, BUKAN pohon main yang "
+        "sudah diperbaiki. Hanya lapisan_bersih (inti.py, proteksi.py) yang "
+        "layak diambil sebagai bahan gabungan."
     ),
 }
 
