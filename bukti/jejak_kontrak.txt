@@ -1,0 +1,7 @@
+{
+ "jumlah_kunci": 44,
+ "kunci_bermasalah": [],
+ "punya_KontrakEksekutor": true,
+ "punya_Slice_payload_src": true
+}
+rc=0
