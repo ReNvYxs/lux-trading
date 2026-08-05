@@ -1,0 +1,61 @@
+{
+ "jumlah_kelas": 12,
+ "id_kelas": [
+  "breakout_volume",
+  "cup_and_handle",
+  "double_bottom",
+  "double_top",
+  "ema_bounce_200",
+  "head_shoulders",
+  "ict_liquidity_sweep",
+  "macd_rsi_trendbreak",
+  "rsi_divergence",
+  "smc_ob_fvg",
+  "triangle_breakout",
+  "wedge_breakout"
+ ],
+ "nan_propagasi": [
+  {
+   "nama": "sma_menyebarkan_nan",
+   "n_masukan": 13,
+   "jendela_bebas_nan": 8,
+   "keluaran_finit": 0,
+   "menyebarkan_nan": true,
+   "catatan": "dasar.sma memakai cumsum; satu NaN mencemari seluruh keluaran sesudahnya"
+  },
+  {
+   "nama": "stdev_menyebarkan_nan",
+   "jendela_bebas_nan": 8,
+   "keluaran_finit": 0,
+   "menyebarkan_nan": true
+  },
+  {
+   "nama": "rolling_max_pembanding",
+   "jendela_bebas_nan": 8,
+   "keluaran_finit": 8,
+   "catatan": "memakai sliding window per-jendela, jadi NaN TIDAK menular; pembanding positif"
+  },
+  {
+   "nama": "ema_dengan_nan_awal",
+   "keluaran_finit": 0,
+   "catatan": "EMA rekursif juga menular; macd sengaja memotong prefiks NaN sebelum memanggil ema"
+  }
+ ],
+ "stoch_rsi": {
+  "n_bar": 400,
+  "rsi_finit": 386,
+  "k_mentah_finit": 373,
+  "stoch_k_finit_modul": 0,
+  "stoch_d_finit_modul": 0,
+  "k_halus_finit_bila_sma_aman_nan": 371,
+  "seluruhnya_nan": true,
+  "catatan": "RSI sehat dan k_mentah sehat, tetapi keluaran modul nol finit -> akar masalah ada pada penghalusan dasar.sma"
+ },
+ "indikator_tanpa_pemakai": [
+  "delta_volume",
+  "stoch_rsi"
+ ],
+ "berkas_dipindai": 51,
+ "galat": []
+}
+rc_uji_kelas=0

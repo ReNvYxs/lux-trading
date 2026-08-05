@@ -1,0 +1,465 @@
+{
+ "versi": 2,
+ "kelas_strategi": [
+  {
+   "id": "breakout_volume",
+   "kelas": "BreakoutVolume",
+   "modul": "lux_modul.strategi.struktur_modern",
+   "atribut": {
+    "ambang": 59.0,
+    "deskripsi": "Breakout range sempit dengan konfirmasi ekspansi volume.",
+    "horizon_didukung": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "id": "breakout_volume",
+    "kelompok": "struktur_modern",
+    "kesempitan_maks_atr": 3.5,
+    "panjang_range": 20,
+    "rasio_volume_min": 1.5,
+    "sumber": [
+     "investopedia.com/articles/trading/08/trading-breakouts.asp",
+     "tradingsim.com - volume >= 1.5x rata-rata sebagai konfirmasi breakout",
+     "chartmill.com - target awal = tinggi range"
+    ],
+    "warmup": 80
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Penembusan range konsolidasi dengan ekspansi volume.\n\nEntry : penutupan di luar range konsolidasi n-bar disertai volume >= 1.5x rata-rata.\nSL    : kembali ke dalam range (sisi seberang batas) atau 2x ATR, mana yang lebih dekat.\nTP    : tinggi range diproyeksikan dari titik breakout.",
+   "baris_kode": 96
+  },
+  {
+   "id": "cup_and_handle",
+   "kelas": "CupAndHandle",
+   "modul": "lux_modul.strategi.pola",
+   "atribut": {
+    "ambang": 63.0,
+    "deskripsi": "Cup membulat lalu handle dangkal; entry saat resistensi handle tembus.",
+    "handle_maks": 30,
+    "handle_min": 3,
+    "horizon_didukung": [
+     "intraday",
+     "swing"
+    ],
+    "id": "cup_and_handle",
+    "jendela": 120,
+    "kelompok": "pola_klasik",
+    "retrace_handle_maks": 0.4,
+    "sumber": [
+     "investopedia.com/terms/c/cupandhandle.asp",
+     "fidelity.com - handle maksimal retrace 1/3 kedalaman cup",
+     "luxalgo.com - SL di bawah low handle, target 0.618/1.0/1.618 kedalaman cup"
+    ],
+    "toleransi_bibir": 0.06,
+    "warmup": 140
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Cup and Handle (hanya LONG - varian terbalik sengaja tidak diaktifkan).\n\nEntry : penutupan menembus resistensi handle.\nSL    : di bawah low handle (setara aturan 'below the handle low').\nTP    : kedalaman cup diproyeksikan dari titik breakout (0.618 lalu 1.0).",
+   "baris_kode": 119
+  },
+  {
+   "id": "double_bottom",
+   "kelas": "DoubleBottom",
+   "modul": "lux_modul.strategi.pola",
+   "atribut": {
+    "ambang": 62.0,
+    "arah_pola": "LONG",
+    "buffer_sl_atr": 0.3,
+    "deskripsi": "Dua lembah sejajar, entry saat penutupan menembus neckline ke atas.",
+    "horizon_didukung": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "id": "double_bottom",
+    "jarak_maks": 70,
+    "jarak_min": 5,
+    "kelompok": "pola_klasik",
+    "sumber": [
+     "trendspider.com/learning-center/chart-patterns-double-bottoms-and-tops/",
+     "oanda.com - double bottom: konfirmasi wajib break neckline",
+     "tradezero.com/blog/how-to-trade-double-top-and-double-bottom-chart-patterns"
+    ],
+    "toleransi_puncak": 0.012,
+    "warmup": 80
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Basis Double Top / Double Bottom.\n\nEntry : penutupan menembus neckline (lembah antar puncak / puncak antar lembah).\nSL    : di luar ekstrem tertinggi/terendah pola + buffer ATR.\nTP    : measured move dari neckline sebesar tinggi pola (parsial 0.618 lalu 1.0).",
+   "baris_kode": 9
+  },
+  {
+   "id": "double_top",
+   "kelas": "DoubleTop",
+   "modul": "lux_modul.strategi.pola",
+   "atribut": {
+    "ambang": 62.0,
+    "arah_pola": "SHORT",
+    "buffer_sl_atr": 0.3,
+    "deskripsi": "Dua puncak sejajar, entry saat penutupan menembus neckline ke bawah.",
+    "horizon_didukung": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "id": "double_top",
+    "jarak_maks": 70,
+    "jarak_min": 5,
+    "kelompok": "pola_klasik",
+    "sumber": [
+     "investopedia.com/terms/d/doubletop.asp",
+     "trendspider.com/learning-center/chart-patterns-double-bottoms-and-tops/",
+     "tastyfx.com - double top: SL di atas puncak kedua, TP = neckline - tinggi pola"
+    ],
+    "toleransi_puncak": 0.012,
+    "warmup": 80
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Basis Double Top / Double Bottom.\n\nEntry : penutupan menembus neckline (lembah antar puncak / puncak antar lembah).\nSL    : di luar ekstrem tertinggi/terendah pola + buffer ATR.\nTP    : measured move dari neckline sebesar tinggi pola (parsial 0.618 lalu 1.0).",
+   "baris_kode": 9
+  },
+  {
+   "id": "ema_bounce_200",
+   "kelas": "EmaBounce200",
+   "modul": "lux_modul.strategi.indikator",
+   "atribut": {
+    "ambang": 58.0,
+    "buffer_sl_atr": 0.5,
+    "deskripsi": "Bounce pada EMA200 searah kemiringan EMA200.",
+    "horizon_didukung": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "id": "ema_bounce_200",
+    "kelompok": "indikator_momentum",
+    "sumber": [
+     "beatmarket.com/blog/200-ema-strategy/",
+     "investopedia.com - moving average sebagai support/resistance dinamis",
+     "snappchart.app - SL di sisi seberang EMA200, target swing terdekat"
+    ],
+    "toleransi_sentuh_atr": 0.75,
+    "warmup": 220
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Pullback ke EMA200 lalu ditolak, searah tren EMA200.\n\nEntry : penutupan lilin penolakan (close kembali ke sisi tren setelah menyentuh EMA200).\nSL    : di sisi seberang EMA200 / low-high pullback + buffer ATR (SL ketat).\nTP    : swing terakhir; bila tak ada, kelipatan R (1.5R dan 3R).",
+   "baris_kode": 105
+  },
+  {
+   "id": "head_shoulders",
+   "kelas": "HeadShoulders",
+   "modul": "lux_modul.strategi.pola",
+   "atribut": {
+    "ambang": 64.0,
+    "buffer_sl_atr": 0.3,
+    "deskripsi": "Tiga puncak dengan kepala tertinggi; entry saat neckline tertembus.",
+    "horizon_didukung": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "id": "head_shoulders",
+    "kelompok": "pola_klasik",
+    "sumber": [
+     "investopedia.com/articles/technical/121201.asp",
+     "oanda.com - H&S: SL tepat di atas bahu kanan",
+     "schwab.com - target = jarak kepala ke neckline dari titik breakout"
+    ],
+    "toleransi_bahu": 0.05,
+    "warmup": 120
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Head & Shoulders dan Inverse Head & Shoulders dalam satu strategi.\n\nEntry : penutupan menembus neckline (garis lewat dua lembah/puncak antar bahu).\nSL    : di luar bahu kanan + buffer ATR.\nTP    : jarak kepala-neckline diproyeksikan dari titik breakout.",
+   "baris_kode": 118
+  },
+  {
+   "id": "ict_liquidity_sweep",
+   "kelas": "IctLiquiditySweep",
+   "modul": "lux_modul.strategi.struktur_modern",
+   "atribut": {
+    "ambang": 62.0,
+    "buffer_sl_atr": 0.25,
+    "deskripsi": "Liquidity sweep pada swing lama dengan penutupan balik (rejection).",
+    "horizon_didukung": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "id": "ict_liquidity_sweep",
+    "kelompok": "struktur_modern",
+    "sumber": [
+     "innercircletrader.net/tutorials/ict-liquidity-sweep-vs-liquidity-run/",
+     "dailypriceaction.com/blog/liquidity-sweep-reversals/",
+     "atas.net - sweep ditandai wick panjang menembus level lalu close balik"
+    ],
+    "umur_swing_maks": 80,
+    "umur_swing_min": 5,
+    "warmup": 100
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Sapuan likuiditas pada swing lama lalu penolakan cepat.\n\nEntry : bar yang menembus swing (stop hunt) namun ditutup kembali di sisi semula.\nSL    : di luar ekstrem sapuan + buffer ATR.\nTP    : kolam likuiditas berlawanan (swing berlawanan terakhir), cadangan 2R.",
+   "baris_kode": 116
+  },
+  {
+   "id": "macd_rsi_trendbreak",
+   "kelas": "MacdRsiTrendBreak",
+   "modul": "lux_modul.strategi.indikator",
+   "atribut": {
+    "ambang": 66.0,
+    "buffer_sl_atr": 0.4,
+    "deskripsi": "Divergensi ganda MACD+RSI dengan konfirmasi break garis tren dan bias TF atas.",
+    "horizon_didukung": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "id": "macd_rsi_trendbreak",
+    "kelompok": "indikator_momentum",
+    "sumber": [
+     "investopedia.com/terms/m/macd.asp - divergensi MACD",
+     "altfins.com - konfluensi divergensi + break trendline",
+     "tradeciety.com - filter tren TF lebih tinggi mengurangi sinyal palsu"
+    ],
+    "warmup": 150
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Konfluensi: divergensi MACD + divergensi RSI + penembusan garis tren.\n\nMulti-TF: butuh 1 TF konteks. Arah wajib disetujui bias TF konteks.\nEntry : penutupan menembus garis tren pivot searah divergensi.\nSL    : di luar ekstrem divergensi + buffer ATR.\nTP    : 1.5R lalu 3R.",
+   "baris_kode": 99
+  },
+  {
+   "id": "rsi_divergence",
+   "kelas": "RsiDivergence",
+   "modul": "lux_modul.strategi.indikator",
+   "atribut": {
+    "ambang": 60.0,
+    "buffer_sl_atr": 0.35,
+    "deskripsi": "Divergensi RSI 14 dengan konfirmasi break swing perantara.",
+    "horizon_didukung": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "id": "rsi_divergence",
+    "kelompok": "indikator_momentum",
+    "rsi_n": 14,
+    "sumber": [
+     "altfins.com - divergence: konfirmasi wajib, jangan entry di pivot",
+     "tradeciety.com - divergensi lebih andal di area S/R dan TF besar",
+     "tradingview.com - RSI regular divergence definition"
+    ],
+    "warmup": 120
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Divergensi RSI reguler + konfirmasi penembusan swing perantara.\n\nEntry : penutupan menembus swing perantara searah divergensi (konfirmasi).\nSL    : di luar ekstrem divergensi + buffer ATR.\nTP    : 1.5R lalu 3R (rentang yang lazim disarankan untuk divergensi).",
+   "baris_kode": 93
+  },
+  {
+   "id": "smc_ob_fvg",
+   "kelas": "SmcOrderBlockFvg",
+   "modul": "lux_modul.strategi.struktur_modern",
+   "atribut": {
+    "ambang": 65.0,
+    "buffer_sl_atr": 0.35,
+    "deskripsi": "BOS lalu mitigasi ke order block / fair value gap searah bias TF atas.",
+    "horizon_didukung": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "id": "smc_ob_fvg",
+    "kelompok": "struktur_modern",
+    "maks_umur_bos": 40,
+    "sumber": [
+     "tradingwyckoff.com/en/smart-money-concepts/",
+     "fluxcharts.com - order block + FVG entry model",
+     "innercircletrader.net - mitigasi OB setelah break of structure"
+    ],
+    "warmup": 120
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Smart Money Concepts: BOS lalu harga kembali ke Order Block / FVG.\n\nMulti-TF: butuh 1 TF konteks sebagai penentu bias (higher timeframe narrative).\nEntry : harga menyentuh zona OB/FVG searah BOS dan ditutup kembali ke dalam zona.\nSL    : di luar batas Order Block + buffer ATR.\nTP    : likuiditas berlawanan (pivot terakhir arah target), cadangan 2R.",
+   "baris_kode": 124
+  },
+  {
+   "id": "triangle_breakout",
+   "kelas": "TriangleBreakout",
+   "modul": "lux_modul.strategi.pola",
+   "atribut": {
+    "ambang": 60.0,
+    "buffer_sl_atr": 0.35,
+    "deskripsi": "Konvergensi dua garis tren, entry pada penembusan penutupan.",
+    "horizon_didukung": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "id": "triangle_breakout",
+    "kelompok": "pola_klasik",
+    "rasio_konvergensi_min": 1.35,
+    "sumber": [
+     "investopedia.com/articles/trading/08/trading-breakouts.asp",
+     "quantvps.com/blog/trading-the-wedge-pattern (entry breakout vs retest)",
+     "naga.com/academy - target = tinggi pola pada titik terlebar"
+    ],
+    "warmup": 90
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Segitiga (ascending/descending/symmetrical) yang menyempit lalu ditembus.\n\nEntry : penutupan menembus garis tren yang relevan.\nSL    : sisi berlawanan segitiga pada bar breakout + buffer ATR.\nTP    : measured move sebesar lebar terlebar segitiga.",
+   "baris_kode": 108
+  },
+  {
+   "id": "wedge_breakout",
+   "kelas": "WedgeBreakout",
+   "modul": "lux_modul.strategi.pola",
+   "atribut": {
+    "ambang": 61.0,
+    "buffer_sl_atr": 0.35,
+    "deskripsi": "Wedge menyempit searah; break garis sinyal jadi pemicu entry.",
+    "horizon_didukung": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "id": "wedge_breakout",
+    "kelompok": "pola_klasik",
+    "rasio_konvergensi_min": 1.25,
+    "sumber": [
+     "trendspider.com/learning-center/what-is-a-wedge-and-what-are-the-rising-and-falling-wedge-patterns/",
+     "tradingsim.com/blog/how-to-trade-rising-and-falling-wedges (SL di luar garis)",
+     "chartmill.com - target awal = selisih terlebar antar garis"
+    ],
+    "warmup": 90
+   },
+   "metode": [
+    "evaluasi",
+    "horizon_terpenuhi",
+    "peran_terpenuhi"
+   ],
+   "docstring": "Rising wedge (bearish) dan falling wedge (bullish).\n\nCiri pembeda dari segitiga: KEDUA garis miring ke arah yang sama, namun menyempit.\nEntry : break garis sinyal (bawah untuk rising, atas untuk falling).\nSL    : di luar ekstrem wedge + buffer ATR.\nTP    : tinggi wedge pada titik terlebar diproyeksikan dari titik breakout.",
+   "baris_kode": 111
+  }
+ ],
+ "nan_propagasi": [
+  {
+   "nama": "sma_menyebarkan_nan",
+   "n_masukan": 13,
+   "jendela_bebas_nan": 8,
+   "keluaran_finit": 0,
+   "menyebarkan_nan": true,
+   "catatan": "dasar.sma memakai cumsum; satu NaN mencemari seluruh keluaran sesudahnya"
+  },
+  {
+   "nama": "stdev_menyebarkan_nan",
+   "jendela_bebas_nan": 8,
+   "keluaran_finit": 0,
+   "menyebarkan_nan": true
+  },
+  {
+   "nama": "rolling_max_pembanding",
+   "jendela_bebas_nan": 8,
+   "keluaran_finit": 8,
+   "catatan": "memakai sliding window per-jendela, jadi NaN TIDAK menular; pembanding positif"
+  },
+  {
+   "nama": "ema_dengan_nan_awal",
+   "keluaran_finit": 0,
+   "catatan": "EMA rekursif juga menular; macd sengaja memotong prefiks NaN sebelum memanggil ema"
+  }
+ ],
+ "stoch_rsi": {
+  "n_bar": 400,
+  "rsi_finit": 386,
+  "k_mentah_finit": 373,
+  "stoch_k_finit_modul": 0,
+  "stoch_d_finit_modul": 0,
+  "k_halus_finit_bila_sma_aman_nan": 371,
+  "seluruhnya_nan": true,
+  "catatan": "RSI sehat dan k_mentah sehat, tetapi keluaran modul nol finit -> akar masalah ada pada penghalusan dasar.sma"
+ },
+ "peta_pemakaian": {
+  "berkas_dipindai": 51,
+  "pemakaian": {
+   "adx": [
+    "lux_modul/strategi/volatilitas.py",
+    "lux_modul/strategi/aliran_volume.py"
+   ],
+   "delta_volume": [],
+   "donchian": [
+    "lux_modul/strategi/volatilitas.py"
+   ],
+   "fibonacci": [
+    "lux_modul/strategi/level_harga.py"
+   ],
+   "keltner": [
+    "lux_modul/strategi/volatilitas.py"
+   ],
+   "pivot_klasik": [
+    "lux_modul/strategi/level_harga.py"
+   ],
+   "squeeze_bb_kc": [
+    "lux_modul/strategi/volatilitas.py"
+   ],
+   "stoch_rsi": [],
+   "supertrend": [
+    "lux_modul/strategi/volatilitas.py"
+   ],
+   "volume_profile": [
+    "lux_modul/strategi/aliran_volume.py"
+   ],
+   "vwap_pita": [
+    "lux_modul/strategi/aliran_volume.py"
+   ],
+   "vwap_sesi": [
+    "lux_modul/strategi/aliran_volume.py"
+   ]
+  },
+  "indikator_tanpa_pemakai": [
+   "delta_volume",
+   "stoch_rsi"
+  ]
+ }
+}
