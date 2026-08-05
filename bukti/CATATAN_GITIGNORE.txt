@@ -1,4 +1,4 @@
-utc=2026-08-05T21:16:40Z
+utc=2026-08-05T21:19:47Z
 pola .gitignore bawaan repo sumber yang pernah menelan artefak:
 7:dataset_masuk/
 8:*.zip
