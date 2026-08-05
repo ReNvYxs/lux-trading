@@ -1,13 +1,56 @@
 {
  "kandidat": {
-  "lux_modul.plugin": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
-  "lux_modul.strategi": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
-  "lux_modul": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
-  "lux_modul.pipeline": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
-  "lux_modul.arbiter": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
-  "lux_modul.arbiter.pemilih": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'"
+  "lux_modul.plugin": [
+   "DaftarKelompok",
+   "KATALOG_STRATEGI",
+   "daftar_indikator",
+   "daftar_pola",
+   "daftar_strategi",
+   "muat_plugin"
+  ],
+  "lux_modul.strategi": [
+   "KATALOG_STRATEGI",
+   "KELAS_BAWAAN",
+   "Registry",
+   "Strategi",
+   "StrategiPola",
+   "daftar_strategi",
+   "muat_plugin",
+   "registry_bawaan",
+   "registry_dari",
+   "registry_kelompok",
+   "ringkas_registry",
+   "semua_strategi"
+  ],
+  "lux_modul": [
+   "Registry",
+   "plugin",
+   "registry_bawaan",
+   "strategi"
+  ],
+  "lux_modul.pipeline": [
+   "Registry",
+   "registry_bawaan"
+  ],
+  "lux_modul.arbiter": [],
+  "lux_modul.arbiter.pemilih": [
+   "Registry"
+  ]
  },
- "asal": null,
- "jumlah": 0,
- "ids": null
+ "asal": "lux_modul.strategi.KELAS_BAWAAN",
+ "jumlah": 12,
+ "ids": [
+  "<class 'lux_modul.strategi.indikator.EmaBounce200'>",
+  "<class 'lux_modul.strategi.indikator.MacdRsiTrendBreak'>",
+  "<class 'lux_modul.strategi.indikator.RsiDivergence'>",
+  "<class 'lux_modul.strategi.pola.CupAndHandle'>",
+  "<class 'lux_modul.strategi.pola.DoubleBottom'>",
+  "<class 'lux_modul.strategi.pola.DoubleTop'>",
+  "<class 'lux_modul.strategi.pola.HeadShoulders'>",
+  "<class 'lux_modul.strategi.pola.TriangleBreakout'>",
+  "<class 'lux_modul.strategi.pola.WedgeBreakout'>",
+  "<class 'lux_modul.strategi.struktur_modern.BreakoutVolume'>",
+  "<class 'lux_modul.strategi.struktur_modern.IctLiquiditySweep'>",
+  "<class 'lux_modul.strategi.struktur_modern.SmcOrderBlockFvg'>"
+ ]
 }

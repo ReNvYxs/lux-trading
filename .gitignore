@@ -22,3 +22,8 @@ dashboard/data.json
 # ... KECUALI template tanpa nilai rahasia, yang memang harus ikut repo:
 !.env.contoh
 lux.toml.local
+
+# --- tambahan repo rakitan, dipasang ulang oleh alat/rakit.sh ---
+.pytest_cache/
+sumber_base/
+sumber_fix/

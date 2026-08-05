@@ -1,5 +1,5 @@
-utc=2026-08-05T16:43:14Z
-pola .gitignore bawaan repo sumber yang menelan artefak:
+utc=2026-08-05T16:46:20Z
+pola .gitignore bawaan repo sumber yang pernah menelan artefak:
 7:dataset_masuk/
 8:*.zip
 12:log_*.txt
@@ -7,4 +7,5 @@ pola .gitignore bawaan repo sumber yang menelan artefak:
 14:reports/demo_terakhir.txt
 15:reports/btp_*.json
 
-penanganan: langkah rekam memakai git add -A -f pada bukti/ dan dataset_masuk/
+penanganan: aturan repo rakitan dipasang ulang di atas, dan langkah
+rekam memakai git add -A -f pada bukti/ dan dataset_masuk/

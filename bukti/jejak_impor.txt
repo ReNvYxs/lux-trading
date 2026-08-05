@@ -14,16 +14,48 @@ rc_proteksi=0
 === registry strategi (introspeksi) ===
 --- kandidat lokasi registry ---
 {
- "lux_modul.plugin": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
- "lux_modul.strategi": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
- "lux_modul": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
- "lux_modul.pipeline": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
- "lux_modul.arbiter": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
- "lux_modul.arbiter.pemilih": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'"
+ "lux_modul.plugin": [
+  "DaftarKelompok",
+  "KATALOG_STRATEGI",
+  "daftar_indikator",
+  "daftar_pola",
+  "daftar_strategi",
+  "muat_plugin"
+ ],
+ "lux_modul.strategi": [
+  "KATALOG_STRATEGI",
+  "KELAS_BAWAAN",
+  "Registry",
+  "Strategi",
+  "StrategiPola",
+  "daftar_strategi",
+  "muat_plugin",
+  "registry_bawaan",
+  "registry_dari",
+  "registry_kelompok",
+  "ringkas_registry",
+  "semua_strategi"
+ ],
+ "lux_modul": [
+  "Registry",
+  "plugin",
+  "registry_bawaan",
+  "strategi"
+ ],
+ "lux_modul.pipeline": [
+  "Registry",
+  "registry_bawaan"
+ ],
+ "lux_modul.arbiter": [],
+ "lux_modul.arbiter.pemilih": [
+  "Registry"
+ ]
 }
 --- hasil ---
-registry TIDAK ditemukan lewat introspeksi
-rc_registry=1
+registry ditemukan di: lux_modul.strategi.KELAS_BAWAAN
+jumlah strategi: 12
+["<class 'lux_modul.strategi.indikator.EmaBounce200'>", "<class 'lux_modul.strategi.indikator.MacdRsiTrendBreak'>", "<class 'lux_modul.strategi.indikator.RsiDivergence'>", "<class 'lux_modul.strategi.pola.CupAndHandle'>", "<class 'lux_modul.strategi.pola.DoubleBottom'>", "<class 'lux_modul.strategi.pola.DoubleTop'>", "<class 'lux_modul.strategi.pola.HeadShoulders'>", "<class 'lux_modul.strategi.pola.TriangleBreakout'>", "<class 'lux_modul.strategi.pola.WedgeBreakout'>", "<class 'lux_modul.strategi.struktur_modern.BreakoutVolume'>", "<class 'lux_modul.strategi.struktur_modern.IctLiquiditySweep'>", "<class 'lux_modul.strategi.struktur_modern.SmcOrderBlockFvg'>"]
+rc_registry=0
 
 === konfigurasi bawaan ===
 {'simbol': '(pindai pasar dinamis)', 'horizon': 'intraday', 'tf_entry': '(dari strategi)', 'tf_konteks': '(dari strategi)', 'leverage_maks': 20.0, 'margin_konflik': 5.0, 'interval_poll': 15.0, 'balance': '(tarik dari akun)', 'maks_siklus': 'tak terbatas', 'porsi_margin_maks': 0.5, 'maks_runner': 120, 'maks_posisi': 4, 'min_free_margin_pct': 0.3, 'telegram': {'aktif': True, 'token': '(kosong)', 'chat_id': '(kosong)'}}
