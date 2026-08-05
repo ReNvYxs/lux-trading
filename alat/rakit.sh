@@ -22,7 +22,18 @@ fi
 ) | tar xf - -C .
 echo "salin pohon dasar selesai" | tee bukti/jejak_rakit.txt
 
-# 2) Lapisan eksekusi yang SUDAH terbukti di testnet (p07/p10/p11), sebagai
+# 2) Salinan itu MENIMPA .gitignore repo ini. Aturan milik repo rakitan harus
+#    dipasang ulang tiap run - kalau tidak, artefak klon dan cache pytest ikut
+#    ter-commit. Ini sudah pernah terjadi, jadi ditangani eksplisit.
+{
+  echo ""
+  echo "# --- tambahan repo rakitan, dipasang ulang oleh alat/rakit.sh ---"
+  echo ".pytest_cache/"
+  echo "sumber_base/"
+  echo "sumber_fix/"
+} >> .gitignore
+
+# 3) Lapisan eksekusi yang SUDAH terbukti di testnet (p07/p10/p11), sebagai
 #    paket terpisah. Sengaja TIDAK menimpa lux_modul/eksekusi/: penggantian
 #    harus dibuktikan tes lebih dulu.
 mkdir -p lux_modul/eksekusi_aman
@@ -42,19 +53,17 @@ printf '%s\n' \
   'Belum dipasang menggantikan lux_modul/eksekusi/. Penggantian menunggu bukti tes.' \
   '"""' > lux_modul/eksekusi_aman/__init__.py
 
-# 3) Catat jebakan .gitignore milik repo sumber.
-#    Rakitan pertama kehilangan empat berkas bukti tanpa satu pun pesan galat
-#    karena pola log_*.txt, dan kehilangan dataset_masuk/ karena polanya sendiri.
-#    Sekarang keduanya di-force-add di langkah rekam.
+# 4) Catat jebakan .gitignore milik repo sumber.
 {
   echo "utc=$(date -u +%FT%TZ)"
-  echo "pola .gitignore bawaan repo sumber yang menelan artefak:"
+  echo "pola .gitignore bawaan repo sumber yang pernah menelan artefak:"
   grep -nE 'log_|dataset_masuk|reports/|\*\.zip' .gitignore 2>/dev/null
   echo
-  echo "penanganan: langkah rekam memakai git add -A -f pada bukti/ dan dataset_masuk/"
+  echo "penanganan: aturan repo rakitan dipasang ulang di atas, dan langkah"
+  echo "rekam memakai git add -A -f pada bukti/ dan dataset_masuk/"
 } > bukti/CATATAN_GITIGNORE.txt 2>&1
 
-# 4) Manifest supaya isi repo bisa diaudit tanpa membuka satu per satu.
+# 5) Manifest supaya isi repo bisa diaudit tanpa membuka satu per satu.
 {
   echo "utc=$(date -u +%FT%TZ)"
   echo "base_ref=${BASE_REF}"
@@ -68,6 +77,6 @@ printf '%s\n' \
   echo "--- akar ---"
   ls -1
   echo "--- md5 seluruh .py ---"
-  find . -name '*.py' -print0 | sort -z | xargs -0 md5sum
+  find . -name '*.py' -not -path './.pytest_cache/*' -print0 | sort -z | xargs -0 md5sum
 } > bukti/manifest_rakit.txt 2>&1
 echo "manifest baris=$(wc -l < bukti/manifest_rakit.txt)" | tee -a bukti/jejak_rakit.txt

@@ -1,13 +1,23 @@
 #!/usr/bin/env python3
 """Temukan registry strategi lewat introspeksi, bukan tebakan.
 
-Probe sebelumnya mengasumsikan `from lux_modul.plugin import registry_bawaan`
-dan gagal dengan ImportError. Itu kesalahan probe, bukan cacat modul. Karena
-itu di sini lokasinya dicari, lalu dibuktikan dengan benar-benar memanggilnya
-dan menghitung strategi yang terdaftar.
+Dua kesalahan probe yang sudah terbukti dan diperbaiki di sini:
+
+1) Probe pertama mengasumsikan `from lux_modul.plugin import registry_bawaan`
+   dan gagal dengan ImportError. Itu kesalahan probe, bukan cacat modul.
+
+2) Probe kedua gagal dengan `ModuleNotFoundError: No module named 'lux_modul'`
+   padahal `python3 -c "import lux_modul"` sukses di langkah yang sama. Sebabnya
+   Python menaruh direktori SKRIP di sys.path[0] untuk `python3 alat/x.py`,
+   sedangkan untuk `python3 -c` yang masuk adalah direktori kerja. Karena itu
+   direktori kerja disisipkan eksplisit di bawah.
 """
 import importlib
 import json
+import os
+import sys
+
+sys.path.insert(0, os.getcwd())
 
 KANDIDAT = [
     "lux_modul.plugin",

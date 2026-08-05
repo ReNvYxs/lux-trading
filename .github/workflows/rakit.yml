@@ -54,11 +54,11 @@ jobs:
         continue-on-error: true
         run: bash alat/periksa.sh
 
-      - name: bersihkan gitlink sisa rakitan pertama
+      - name: buang artefak yang tidak boleh ikut
         if: always()
         run: |
-          git rm -r --cached --ignore-unmatch -q sumber_base sumber_fix || true
-          rm -rf sumber_base sumber_fix || true
+          git rm -r --cached --ignore-unmatch -q sumber_base sumber_fix .pytest_cache || true
+          rm -rf sumber_base sumber_fix .pytest_cache || true
 
       - name: rekam hasil rakitan
         if: always()
