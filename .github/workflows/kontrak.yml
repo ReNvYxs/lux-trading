@@ -1,0 +1,47 @@
+name: kontrak
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/kontrak.yml'
+      - 'alat/kontrak/**'
+      - 'tests/kontrak/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: kontrak
+  cancel-in-progress: true
+jobs:
+  kontrak:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: detak awal
+        run: |
+          mkdir -p bukti
+          date -u +"kontrak_mulai_utc=%Y-%m-%dT%H:%M:%SZ" > bukti/DETAK_KONTRAK.txt
+          echo "commit=${GITHUB_SHA}" >> bukti/DETAK_KONTRAK.txt
+          cat bukti/DETAK_KONTRAK.txt
+
+      - name: dependensi
+        run: |
+          python -m pip install --quiet --upgrade pip
+          python -m pip install --quiet -r requirements.txt
+          python -c "import numpy,pandas,pyarrow,yaml;print('dep OK')"
+
+      - name: bedah kontrak
+        continue-on-error: true
+        run: |
+          set +e
+          python3 alat/kontrak/bedah_kontrak.py 2>&1 | tee bukti/jejak_kontrak.txt
+          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/jejak_kontrak.txt
+
+      - name: rekam
+        if: always()
+        run: bash alat/kontrak/rekam.sh "bedah kontrak"
