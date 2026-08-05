@@ -1,0 +1,22 @@
+=== impor paket inti ===
+lux_modul OK
+rc_lux_modul=0
+
+=== impor lapisan eksekusi aman ===
+inti OK, simbol publik= 20
+['ARAH_LONG', 'ARAH_SHORT', 'DataPasar', 'Entry', 'GagalProteksi', 'KODE_CID_DUPLIKAT', 'KODE_ORDER_TIDAK_ADA', 'KODE_PERMANEN', 'KebijakanRisiko', 'KontrakEksekutor', 'PengirimOrder', 'Proteksi', 'SpekSimbol', 'TolakUkuran', 'buat_cid', 'hashlib', 'hitung_ukuran', 'jalankan_siklus', 'math', 'time']
+rc_inti=0
+
+proteksi OK, simbol publik= 3
+['GagalProteksi', 'PenjagaProteksi', 'time']
+rc_proteksi=0
+
+=== registry strategi ===
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ImportError: cannot import name 'registry_bawaan' from 'lux_modul.plugin' (/home/runner/work/lux-trading/lux-trading/lux_modul/plugin.py)
+rc_registry=1
+
+=== konfigurasi bawaan ===
+{'simbol': '(pindai pasar dinamis)', 'horizon': 'intraday', 'tf_entry': '(dari strategi)', 'tf_konteks': '(dari strategi)', 'leverage_maks': 20.0, 'margin_konflik': 5.0, 'interval_poll': 15.0, 'balance': '(tarik dari akun)', 'maks_siklus': 'tak terbatas', 'porsi_margin_maks': 0.5, 'maks_runner': 120, 'maks_posisi': 4, 'min_free_margin_pct': 0.3, 'telegram': {'aktif': True, 'token': '(kosong)', 'chat_id': '(kosong)'}}
+rc_konfigurasi=0

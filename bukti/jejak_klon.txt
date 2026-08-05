@@ -1,10 +1,35 @@
-utc=2026-08-05T16:37:43Z
+utc=2026-08-05T16:40:23Z
+skema=https host=github.com
 tujuan_base=/tmp/sumber_base
 tujuan_fix=/tmp/sumber_fix
-fatal: protocol '{{https' is not supported
-fetch dangkal gagal, coba klon penuh: EnVyxS/lux-modul-trading
-fatal: protocol '{{https' is not supported
-fatal: protocol '{{https' is not supported
-fetch dangkal gagal, coba klon penuh: EnVyxS/uji-trading
-fatal: protocol '{{https' is not supported
-GAGAL: sumber base tanpa lux_modul/
+OK EnVyxS/lux-modul-trading@8401b2327736a4cc5c588d211eb6911dde0842da -> /tmp/sumber_base
+OK EnVyxS/uji-trading@c1749202dc31be1f995485dfc5c549c077338ecf -> /tmp/sumber_fix
+--- akar sumber base ---
+ARSITEKTUR.md
+AUDIT_LEVERAGE_PRESISI.md
+AUDIT_TOTAL.md
+CALON_STRATEGI.md
+KONFIGURASI.md
+LAPORAN_BACKTEST_95.md
+LAPORAN_KESIAPAN.md
+LAPORAN_PERBAIKAN.md
+LOG_KESIAPAN.txt
+LOG_PERBAIKAN.txt
+README.md
+REFERENSI.md
+RESUME_PROMPT.md
+STATE.md
+TELEGRAM.md
+dashboard
+dataset_masuk
+lux_modul
+main.py
+reports
+requirements.txt
+scripts
+tests
+tools
+--- sumber fix/modul ---
+bersih
+main
+proteksi.py

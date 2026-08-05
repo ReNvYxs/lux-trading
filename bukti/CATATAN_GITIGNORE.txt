@@ -1,0 +1,10 @@
+utc=2026-08-05T16:40:25Z
+pola .gitignore bawaan repo sumber yang menelan artefak:
+7:dataset_masuk/
+8:*.zip
+12:log_*.txt
+13:reports/keluaran_uji.txt
+14:reports/demo_terakhir.txt
+15:reports/btp_*.json
+
+penanganan: langkah rekam memakai git add -A -f pada bukti/ dan dataset_masuk/

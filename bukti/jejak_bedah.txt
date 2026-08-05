@@ -1,0 +1,154 @@
+{
+ "base_repo": "EnVyxS/lux-modul-trading",
+ "base_ref": "8401b2327736a4cc5c588d211eb6911dde0842da",
+ "fix_repo": "EnVyxS/uji-trading",
+ "fix_ref": "c1749202dc31be1f995485dfc5c549c077338ecf",
+ "jumlah": {
+  "py_base": 48,
+  "py_fix": 8,
+  "sama": 0,
+  "beda": 8,
+  "hanya_base": 40,
+  "hanya_fix": 0
+ },
+ "beda": [
+  {
+   "path": "eksekusi/binance_client.py",
+   "md5_base": "6c5bf57e",
+   "md5_fix": "9a63d13d",
+   "berkas_diff": "eksekusi__binance_client.py.diff",
+   "tambah": 105,
+   "hapus": 344,
+   "dipotong": false
+  },
+  {
+   "path": "plugin.py",
+   "md5_base": "066eb1dd",
+   "md5_fix": "5e8d3762",
+   "berkas_diff": "plugin.py.diff",
+   "tambah": 7,
+   "hapus": 300,
+   "dipotong": false
+  },
+  {
+   "path": "eksekusi/order.py",
+   "md5_base": "32aee520",
+   "md5_fix": "1b743f67",
+   "berkas_diff": "eksekusi__order.py.diff",
+   "tambah": 42,
+   "hapus": 205,
+   "dipotong": false
+  },
+  {
+   "path": "kontrak.py",
+   "md5_base": "ac5e85d4",
+   "md5_fix": "c9ef5b3b",
+   "berkas_diff": "kontrak.py.diff",
+   "tambah": 59,
+   "hapus": 164,
+   "dipotong": false
+  },
+  {
+   "path": "eksekusi/ice_breaker.py",
+   "md5_base": "ea5aa8b7",
+   "md5_fix": "0d178d41",
+   "berkas_diff": "eksekusi__ice_breaker.py.diff",
+   "tambah": 22,
+   "hapus": 141,
+   "dipotong": false
+  },
+  {
+   "path": "eksekusi/kredensial.py",
+   "md5_base": "78ffb174",
+   "md5_fix": "b779250d",
+   "berkas_diff": "eksekusi__kredensial.py.diff",
+   "tambah": 23,
+   "hapus": 93,
+   "dipotong": false
+  },
+  {
+   "path": "__init__.py",
+   "md5_base": "929eac69",
+   "md5_fix": "01e0fdbd",
+   "berkas_diff": "__init__.py.diff",
+   "tambah": 7,
+   "hapus": 40,
+   "dipotong": false
+  },
+  {
+   "path": "eksekusi/__init__.py",
+   "md5_base": "4420e1fc",
+   "md5_fix": "d41d8cd9",
+   "berkas_diff": "eksekusi____init__.py.diff",
+   "tambah": 0,
+   "hapus": 32,
+   "dipotong": false
+  }
+ ],
+ "hanya_base": [
+  "arbiter/__init__.py",
+  "arbiter/pemilih.py",
+  "backtest.py",
+  "backtest_portofolio.py",
+  "data/__init__.py",
+  "data/loader.py",
+  "data/plane.py",
+  "data/resample.py",
+  "eksekusi/biaya.py",
+  "eksekusi/mode.py",
+  "eksekusi/risiko.py",
+  "eksekusi/spesifikasi.py",
+  "fitur/__init__.py",
+  "fitur/dasar.py",
+  "fitur/lanjutan.py",
+  "fitur/store.py",
+  "fitur/struktur.py",
+  "governor.py",
+  "konfigurasi.py",
+  "live_runner.py",
+  "mesin_multi.py",
+  "notifikasi/__init__.py",
+  "notifikasi/telegram.py",
+  "pemindai/__init__.py",
+  "pemindai/likuiditas.py",
+  "pipeline.py",
+  "portofolio.py",
+  "rencana_tf.py",
+  "sintetis.py",
+  "strategi/__init__.py",
+  "strategi/adaptor.py",
+  "strategi/aliran_volume.py",
+  "strategi/basis.py",
+  "strategi/indikator.py",
+  "strategi/level_harga.py",
+  "strategi/pola.py",
+  "strategi/struktur_modern.py",
+  "strategi/struktur_plus.py",
+  "strategi/util.py",
+  "strategi/volatilitas.py"
+ ],
+ "hanya_fix": [],
+ "lapisan_bersih": [
+  {
+   "path": "modul/bersih/inti.py",
+   "byte": 32526,
+   "md5": "2d491d8c",
+   "baris": 703
+  },
+  {
+   "path": "modul/bersih/__init__.py",
+   "byte": 0,
+   "md5": "d41d8cd9",
+   "baris": 0
+  },
+  {
+   "path": "modul/proteksi.py",
+   "byte": 8179,
+   "md5": "745d9fdf",
+   "baris": 176
+  }
+ ],
+ "vonis": "pohon fix adalah subset harness yang dipangkas, BUKAN pohon main yang sudah diperbaiki. Hanya lapisan_bersih (inti.py, proteksi.py) yang layak diambil sebagai bahan gabungan."
+}
+berkas diff: 8
+rc=0
