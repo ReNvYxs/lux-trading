@@ -1,18 +1,33 @@
 #!/usr/bin/env bash
 # Klon anonim ter-pin SHA ke LUAR worktree.
 #
-# Kenapa di luar worktree: klon membuat .git/ di dalam direktori tujuan. Kalau
-# direktori itu berada di dalam repo ini, `git add -A` mendaftarkannya sebagai
-# gitlink submodule - isinya tidak ikut, tapi entri submodule rusak tertinggal
-# di pohon. Itu terjadi pada rakitan pertama dan diperbaiki di sini.
+# Dua jebakan yang sudah terbukti dan dicegah di sini:
+#
+# 1) Klon di DALAM worktree membuat .git/ bersarang, sehingga `git add -A`
+#    mendaftarkannya sebagai gitlink submodule: isinya tidak ikut, tapi entri
+#    submodule rusak tertinggal di pohon.
+#
+# 2) Menulis skema dan host bersebelahan sebagai literal di dalam berkas bisa
+#    berubah jadi placeholder saat berkas dikirim ke GitHub. Itu benar-benar
+#    terjadi dan menghasilkan:
+#      fatal: protocol '{{https' is not supported
+#    Karena itu URL dirakit dari potongan, dan ada tripwire di bawah supaya
+#    kegagalan serupa berteriak, bukan lolos diam-diam.
 set -uo pipefail
 export GIT_TERMINAL_PROMPT=0
+SKEMA="https"
 HOST="github.com"
 mkdir -p bukti
 
 klon () {
   repo="$1"; ref="$2"; dir="$3"
-  asal="{{https://${HOST}}}/${repo}.git"
+  asal="${SKEMA}://${HOST}/${repo}.git"
+  case "$asal" in
+    *"{"*|*"}"*)
+      echo "GAGAL: URL asal tercemar placeholder -> ${asal}"
+      return 9
+      ;;
+  esac
   rm -rf "$dir"
   mkdir -p "$dir"
   (
@@ -35,6 +50,7 @@ klon () {
 
 {
   echo "utc=$(date -u +%FT%TZ)"
+  echo "skema=${SKEMA} host=${HOST}"
   echo "tujuan_base=${SUMBER_BASE}"
   echo "tujuan_fix=${SUMBER_FIX}"
   klon "$BASE_REPO" "$BASE_REF" "$SUMBER_BASE"
