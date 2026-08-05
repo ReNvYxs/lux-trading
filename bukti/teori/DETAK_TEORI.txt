@@ -1,0 +1,10 @@
+detak=MULAI
+mulai_utc=2026-08-05T21:16:31Z
+commit=c2291bed4b4eff1962aa3714432698829952d8df
+runner=Linux
+python=3.12.3
+total 80
+drwxr-xr-x 2 runner runner  4096 Aug  5 21:16 .
+drwxr-xr-x 3 runner runner  4096 Aug  5 21:16 ..
+-rw-r--r-- 1 runner runner 10241 Aug  5 21:16 BTC_1d.csv
+-rw-r--r-- 1 runner runner 60294 Aug  5 21:16 BTC_4h.csv
