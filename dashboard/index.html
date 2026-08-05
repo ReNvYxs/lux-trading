@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LUX Modul Trading - Dashboard</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--line:#30363d;--tx:#e6edf3;--mut:#8b949e;--ok:#3fb950;--bad:#f85149;--warn:#d29922;--acc:#58a6ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.5 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:var(--bg);z-index:5}
+h1{font-size:16px;margin:0;letter-spacing:.02em}
+.badge{font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+.badge.ok{color:var(--ok);border-color:#1f6f38}.badge.bad{color:var(--bad);border-color:#79231f}
+nav{display:flex;gap:4px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line)}
+nav button{background:transparent;border:1px solid var(--line);color:var(--mut);padding:6px 12px;border-radius:6px;cursor:pointer;font-size:13px}
+nav button.on{color:var(--tx);border-color:var(--acc);background:#12243d}
+main{padding:20px;max-width:1400px}
+section{display:none}section.on{display:block}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.card h3{margin:0 0 6px;font-size:12px;color:var(--mut);font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.big{font-size:22px;font-weight:600}
+.pos{color:var(--ok)}.neg{color:var(--bad)}.warn{color:var(--warn)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--mut);font-weight:500;position:sticky;top:0;background:var(--card)}
+tbody tr:hover{background:#1c2430}
+.wrap{max-height:520px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+select,input{background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:6px;padding:6px 8px}
+.note{color:var(--mut);font-size:12px;margin:6px 0 14px}
+canvas{width:100%;height:260px;background:var(--card);border:1px solid var(--line);border-radius:10px}
+code{background:#21262d;padding:1px 5px;border-radius:4px;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>LUX MODUL TRADING</h1>
+  <span class="badge bad" id="b-market">MARKET ORDER: DIHARAMKAN</span>
+  <span class="badge ok" id="b-po">ENTRY/TP: POST-ONLY GTX</span>
+  <span class="badge warn" id="b-sl">SL: STOP_MARKET</span>
+  <span class="badge" id="b-slot">SLOT: 4 posisi / beda pair</span>
+  <span class="badge" id="b-time"></span>
+</header>
+<nav id="nav"></nav>
+<main>
+  <section id="s-ikhtisar"><div class="grid" id="kpi"></div>
+    <div class="row" style="margin-top:16px"><label>Konfigurasi</label><select id="pilih-konfig"></select></div>
+    <canvas id="kurva" width="1200" height="260"></canvas>
+    <p class="note">Kurva ekuitas backtest portofolio (satu saldo, seluruh simbol, kapasitas 4 posisi).</p>
+  </section>
+
+  <section id="s-terlewat">
+    <p class="note">Sinyal yang LOLOS seluruh gerbang tetapi TIDAK dieksekusi karena kapasitas posisi penuh. Ini bukan penolakan kualitas - hanya kehabisan slot.</p>
+    <div class="grid" id="kpi-terlewat"></div>
+    <div class="row" style="margin-top:14px">
+      <input id="cari-terlewat" placeholder="cari simbol / strategi" />
+      <span class="note" id="info-terlewat"></span>
+    </div>
+    <div class="wrap"><table id="tbl-terlewat"></table></div>
+  </section>
+
+  <section id="s-strategi">
+    <p class="note">Kinerja per strategi pada konfigurasi terpilih. <b>edge kotor</b> = sebelum biaya; strategi dinilai dari edge kotor, biaya diurus gerbang biaya universal.</p>
+    <div class="wrap"><table id="tbl-strategi"></table></div>
+  </section>
+
+  <section id="s-registry">
+    <p class="note">Registry plugin: setiap strategi punya ambang sendiri, dievaluasi tiap candle tanpa short-circuit. Tidak ada strategi bloker.</p>
+    <div class="wrap"><table id="tbl-registry"></table></div>
+  </section>
+
+  <section id="s-eksekusi">
+    <div class="grid" id="kpi-eksekusi"></div>
+    <h3 style="margin:18px 0 6px">Simulator ice-breaker</h3>
+    <div class="row">
+      <label>Notional (USDT)</label><input id="in-notional" type="number" value="12000" style="width:120px" />
+      <label>Harga</label><input id="in-harga" type="number" value="60000" style="width:120px" />
+    </div>
+    <div class="wrap"><table id="tbl-slice"></table></div>
+  </section>
+
+  <section id="s-risiko">
+    <div class="row"><label>Saldo (USDT)</label><input id="in-saldo" type="number" value="15" style="width:110px" />
+      <label>Entry</label><input id="in-entry" type="number" value="60000" style="width:110px" />
+      <label>SL</label><input id="in-sl" type="number" value="59400" style="width:110px" /></div>
+    <div class="grid" id="kpi-risiko"></div>
+    <div class="wrap" style="margin-top:14px"><table id="tbl-risiko"></table></div>
+  </section>
+
+  <section id="s-biaya">
+    <div class="grid" id="kpi-biaya"></div>
+    <h3 style="margin:18px 0 6px">Alasan penolakan gerbang biaya</h3>
+    <div class="wrap"><table id="tbl-tolak"></table></div>
+  </section>
+
+  <section id="s-data">
+    <div class="grid" id="kpi-data"></div>
+    <div class="wrap" style="margin-top:14px"><table id="tbl-data"></table></div>
+  </section>
+</main>
+<script>
+const F = (x,d=2)=> (x===null||x===undefined||Number.isNaN(x)) ? "-" : Number(x).toLocaleString("id-ID",{maximumFractionDigits:d});
+const cls = v => v>0?"pos":(v<0?"neg":"");
+let D=null, konfig=null;
+
+const TAB=[["s-ikhtisar","Ikhtisar"],["s-terlewat","Sinyal Terlewat"],["s-strategi","Per Strategi"],["s-registry","Registry"],["s-eksekusi","Eksekusi"],["s-risiko","Risiko"],["s-biaya","Biaya"],["s-data","Data & Uji"]];
+function tabs(){const n=document.getElementById("nav");TAB.forEach(([id,label],i)=>{const b=document.createElement("button");b.textContent=label;b.onclick=()=>{document.querySelectorAll("section").forEach(s=>s.classList.remove("on"));document.getElementById(id).classList.add("on");[...n.children].forEach(c=>c.classList.remove("on"));b.classList.add("on")};n.appendChild(b);if(i===0)b.click()})}
+
+function kartu(el,items){el.innerHTML=items.map(([h,v,c])=>`<div class="card"><h3>${h}</h3><div class="big ${c||""}">${v}</div></div>`).join("")}
+function tabel(el,kolom,baris){el.innerHTML=`<thead><tr>${kolom.map(k=>`<th>${k}</th>`).join("")}</tr></thead><tbody>${baris.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody>`}
+
+function render(){
+  const p = D.backtest_portofolio[konfig]; if(!p) return;
+  kartu(document.getElementById("kpi"),[
+    ["Konfigurasi", konfig],
+    ["Simbol", (p.simbol||[]).length],
+    ["Trade", p.total_trade],
+    ["Win rate", F(p.win_rate*100,1)+"%"],
+    ["Profit factor", F(p.profit_factor,2), (p.profit_factor||0)>=1?"pos":"neg"],
+    ["PnL bersih", F(p.pnl_bersih)+" USDT", cls(p.pnl_bersih)],
+    ["PnL kotor", F(p.pnl_kotor)+" USDT", cls(p.pnl_kotor)],
+    ["Total biaya", F(p.total_biaya)+" USDT","warn"],
+    ["Max drawdown", F(p.max_drawdown*100,1)+"%", (p.max_drawdown||0)>0.3?"neg":""],
+    ["Puncak posisi", (p.puncak_posisi_bersamaan||0)+" / "+p.maks_posisi_bersamaan],
+    ["Sinyal terlewat", p.sinyal_terlewat?.jumlah||0,"warn"],
+    ["Entry ditolak biaya", p.entry_ditolak_biaya||0],
+  ]);
+  gambarKurva(p);
+  renderTerlewat(p); renderStrategi(p); renderBiaya(p);
+}
+
+function gambarKurva(p){
+  const c=document.getElementById("kurva"), g=c.getContext("2d");
+  const k=(p.kurva_ekuitas||[]); g.clearRect(0,0,c.width,c.height);
+  if(!k.length){g.fillStyle="#8b949e";g.fillText("kurva ekuitas tidak disimpan di ringkasan",20,30);return}
+  const v=k.map(x=>x[1]), mn=Math.min(...v), mx=Math.max(...v);
+  g.strokeStyle="#58a6ff";g.lineWidth=2;g.beginPath();
+  v.forEach((y,i)=>{const X=i/(v.length-1)*c.width, Y=c.height-((y-mn)/((mx-mn)||1))*(c.height-20)-10;i?g.lineTo(X,Y):g.moveTo(X,Y)});
+  g.stroke();
+}
+
+function renderTerlewat(p){
+  const t=p.sinyal_terlewat||{jumlah:0,per_alasan:{},per_strategi:{},per_simbol:{}};
+  const contoh=p.contoh_sinyal_terlewat||[];
+  const topStrat=Object.entries(t.per_strategi||{})[0];
+  const topSim=Object.entries(t.per_simbol||{})[0];
+  kartu(document.getElementById("kpi-terlewat"),[
+    ["Total terlewat", t.jumlah||0,"warn"],
+    ["Dieksekusi", p.total_trade],
+    ["Rasio terlewat", F((t.jumlah||0)/(((t.jumlah||0)+p.total_trade)||1)*100,1)+"%","warn"],
+    ["Terbanyak (strategi)", topStrat?`${topStrat[0]} (${topStrat[1]})`:"-"],
+    ["Terbanyak (simbol)", topSim?`${topSim[0]} (${topSim[1]})`:"-"],
+    ["Alasan", Object.keys(t.per_alasan||{}).join(", ")||"-"],
+  ]);
+  const isi=(q="")=>{
+    const rows=contoh.filter(s=>!q||s.simbol.toLowerCase().includes(q)||s.strategy_id.toLowerCase().includes(q))
+      .map(s=>[new Date(s.ts).toISOString().replace("T"," ").slice(0,16), s.simbol, s.arah, s.strategy_id, s.kelompok, F(s.skor,1)+" / "+s.ambang, F(s.entry,4), F(s.sl,4), s.tp1==null?"-":F(s.tp1,4), s.r_teoretis==null?"-":F(s.r_teoretis,2)+"R", (s.slot_dipegang||[]).join(" ")]);
+    tabel(document.getElementById("tbl-terlewat"),["Waktu","Simbol","Arah","Strategi","Kelompok","Skor/Ambang","Entry","SL","TP1","R","Slot dipegang"],rows);
+    document.getElementById("info-terlewat").textContent=`menampilkan ${rows.length} dari ${t.jumlah||0} sinyal terlewat (contoh disimpan maks 300)`;
+  };
+  isi(); document.getElementById("cari-terlewat").oninput=e=>isi(e.target.value.toLowerCase());
+}
+
+function renderStrategi(p){
+  const rows=Object.entries(p.per_strategi||{}).map(([id,d])=>[id,d.trade,d.menang,F(d.trade?d.menang/d.trade*100:0,1)+"%",
+    `<span class="${cls(d.pnl_kotor)}">${F(d.pnl_kotor)}</span>`,`<span class="${cls(d.pnl_bersih)}">${F(d.pnl_bersih)}</span>`,F(d.biaya),
+    `<span class="${cls(d.edge_kotor_per_trade)}">${F(d.edge_kotor_per_trade,3)}</span>`, d.trade>=30?"cukup":"sampel kecil"]);
+  tabel(document.getElementById("tbl-strategi"),["Strategi","Trade","Menang","WR","PnL kotor","PnL bersih","Biaya","Edge kotor/trade","Sampel"],rows);
+}
+
+function renderRegistry(){
+  const rows=(D.strategi||[]).map(s=>[s.id,s.kelompok,s.ambang,(s.horizon||[]).join(", "),s.warmup??"-",s.butuh_konteks?"multi-TF":"single-TF"]);
+  tabel(document.getElementById("tbl-registry"),["ID","Kelompok","Ambang","Horizon","Warmup","Peran TF"],rows);
+}
+
+function renderEksekusi(){
+  const k=D.kebijakan_order,b=D.model_biaya,ib=D.ice_breaker;
+  kartu(document.getElementById("kpi-eksekusi"),[
+    ["Entry",k.entry],["Take profit",k.tp],["Stop loss",k.sl],
+    ["Market order",k.market_order,"neg"],["Maks re-quote",k.maks_requote],["Offset tick",k.offset_tick],
+    ["Ambang ice-breaker",F(ib.ambang_notional)+" USDT"],["Notional/slice",F(ib.notional_per_slice)],
+    ["Rasio visible",F(ib.rasio_visible*100,0)+"%"],["Jeda antar slice",ib.jeda_detik+" dtk"],
+    ["Fee maker",b.fee_bps_maker+" bps"],["Fee taker (SL)",b.fee_bps_taker+" bps"],
+  ]);
+  const hitung=()=>{
+    const N=+document.getElementById("in-notional").value, H=+document.getElementById("in-harga").value;
+    const qty=N/H; let rows=[];
+    if(N<ib.ambang_notional){rows=[[0,F(qty,6),F(qty,6),"0","LIMIT GTX"]];}
+    else{const n=Math.min(ib.slice_maks,Math.max(2,Math.round(N/ib.notional_per_slice)));
+      for(let i=0;i<n;i++)rows.push([i,F(qty/n,6),F(qty/n*ib.rasio_visible,6),i?ib.jeda_detik:0,"LIMIT GTX"]);}
+    tabel(document.getElementById("tbl-slice"),["Slice","Qty","Visible qty (iceberg)","Jeda (dtk)","Tipe order"],rows);
+  };
+  document.getElementById("in-notional").oninput=hitung;document.getElementById("in-harga").oninput=hitung;hitung();
+}
+
+function riskPct(bal,R){
+  if(bal<R.ambang_modal_kecil){const p=0.03*Math.pow(R.ambang_modal_kecil/bal,R.eksponen_kecil);return Math.min(R.risk_pct_maks,Math.max(R.risk_pct_min,p));}
+  for(const [batas,pct] of R.tier){if(bal<=batas)return pct;}
+  const p=R.taper_pct_dasar??0.01;return Math.max(R.taper_lantai,p*Math.pow(R.taper_mulai/bal,0.35));
+}
+function renderRisiko(){
+  const R=D.risiko;
+  const hit=()=>{
+    const bal=+document.getElementById("in-saldo").value,e=+document.getElementById("in-entry").value,s=+document.getElementById("in-sl").value;
+    const pct=riskPct(bal,R), usd=Math.max(R.risk_lantai_usd,bal*pct), jarak=Math.abs(e-s), qty=jarak>0?usd/jarak:0;
+    kartu(document.getElementById("kpi-risiko"),[["risk %",F(pct*100,3)+"%"],["risk $",F(usd,3)+" USDT"],["Jarak SL",F(jarak,4)],
+      ["Qty",F(qty,6)],["Notional",F(qty*e,2)+" USDT"],["Notional/saldo",F(bal?qty*e/bal:0,1)+"x", (qty*e/bal)>20?"neg":""]]);
+    const rows=[5,10,20,50,100,1000,10000,100000,500000].map(b=>{const p=riskPct(b,R);return [F(b),F(p*100,3)+"%",F(Math.max(R.risk_lantai_usd,b*p),3)]});
+    tabel(document.getElementById("tbl-risiko"),["Saldo","risk %","risk $"],rows);
+  };
+  ["in-saldo","in-entry","in-sl"].forEach(i=>document.getElementById(i).oninput=hit);hit();
+}
+
+function renderBiaya(p){
+  const b=D.model_biaya;
+  kartu(document.getElementById("kpi-biaya"),[
+    ["Fee maker (entry/TP)",b.fee_bps_maker+" bps"],["Fee taker (SL)",b.fee_bps_taker+" bps"],
+    ["Slippage post-only",b.slippage_bps_maker+" bps"],["Slippage SL",b.slippage_bps_sl+" bps"],
+    ["Biaya maks / 1R",F(b.rasio_biaya_maks*100,0)+"%"],["TP1 minimal",b.kelipatan_tp1_min+"x biaya"],
+    ["Maks fill keluar",b.fill_keluar_maks],["Total biaya (konfig)",F(p.total_biaya)+" USDT","warn"],
+  ]);
+  tabel(document.getElementById("tbl-tolak"),["Kode penolakan","Jumlah"],Object.entries(p.tolak_biaya_per_kode||{}));
+}
+
+function renderData(){
+  const a=D.audit_dataset||{},ci=D.ci||{};
+  kartu(document.getElementById("kpi-data"),[
+    ["Berkas dataset",a.jumlah_berkas??"-"],["Simbol",a.jumlah_simbol??"-"],
+    ["Timeframe",Object.keys(a.per_tf||{}).join(", ")||"-"],
+    ["Uji lulus",(ci.lulus??ci.cacah_uji)??"-", "pos"],["Uji gagal",ci.gagal??0,(ci.gagal?"neg":"")],
+  ]);
+  tabel(document.getElementById("tbl-data"),["Timeframe","Jumlah berkas"],Object.entries(a.per_tf||{}));
+}
+
+fetch("data.json").then(r=>r.json()).then(d=>{
+  D=d; tabs();
+  document.getElementById("b-time").textContent="data: "+(d._dibuat||"-");
+  document.getElementById("b-slot").textContent="SLOT: "+d.portofolio.maks_posisi_bersamaan+" posisi / beda pair";
+  const sel=document.getElementById("pilih-konfig");
+  Object.keys(d.backtest_portofolio||{}).forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=k;sel.appendChild(o)});
+  konfig=sel.value; sel.onchange=()=>{konfig=sel.value;render()};
+  renderRegistry(); renderEksekusi(); renderRisiko(); renderData(); render();
+}).catch(e=>{document.body.insertAdjacentHTML("beforeend",`<p style="padding:20px;color:#f85149">Gagal memuat data.json: ${e}. Jalankan <code>python3 scripts/dashboard_data.py</code> lalu <code>python3 -m http.server -d dashboard 8080</code>.</p>`)});
+</script>
+</body>
+</html>

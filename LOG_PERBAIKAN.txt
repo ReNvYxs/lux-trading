@@ -1,0 +1,451 @@
+
+########## versi python ##########
+Python 3.11.15
+---> OK: versi python
+
+########## pasang dependency ##########
+Collecting numpy==2.1.3 (from -r requirements.txt (line 1))
+  Downloading numpy-2.1.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Collecting pandas==2.2.3 (from -r requirements.txt (line 2))
+  Downloading pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+Collecting pyarrow==17.0.0 (from -r requirements.txt (line 3))
+  Downloading pyarrow-17.0.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting PyYAML==6.0.2 (from -r requirements.txt (line 4))
+  Downloading PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting pytest==8.3.3 (from -r requirements.txt (line 5))
+  Downloading pytest-8.3.3-py3-none-any.whl.metadata (7.5 kB)
+Collecting python-dateutil>=2.8.2 (from pandas==2.2.3->-r requirements.txt (line 2))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2020.1 (from pandas==2.2.3->-r requirements.txt (line 2))
+  Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas==2.2.3->-r requirements.txt (line 2))
+  Downloading tzdata-2026.3-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting iniconfig (from pytest==8.3.3->-r requirements.txt (line 5))
+  Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting packaging (from pytest==8.3.3->-r requirements.txt (line 5))
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest==8.3.3->-r requirements.txt (line 5))
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas==2.2.3->-r requirements.txt (line 2))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading numpy-2.1.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 249.3 MB/s  0:00:00
+Downloading pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 262.0 MB/s  0:00:00
+Downloading pyarrow-17.0.0-cp311-cp311-manylinux_2_28_x86_64.whl (39.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.9/39.9 MB 136.6 MB/s  0:00:00
+Downloading PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (762 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 763.0/763.0 kB 137.1 MB/s  0:00:00
+Downloading pytest-8.3.3-py3-none-any.whl (342 kB)
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading tzdata-2026.3-py2.py3-none-any.whl (348 kB)
+Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Installing collected packages: pytz, tzdata, six, PyYAML, pluggy, packaging, numpy, iniconfig, python-dateutil, pytest, pyarrow, pandas
+
+Successfully installed PyYAML-6.0.2 iniconfig-2.3.0 numpy-2.1.3 packaging-26.3 pandas-2.2.3 pluggy-1.6.0 pyarrow-17.0.0 pytest-8.3.3 python-dateutil-2.9.0.post0 pytz-2026.3.post1 six-1.17.0 tzdata-2026.3
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2
+[notice] To update, run: pip install --upgrade pip
+---> OK: pasang dependency
+
+########## patch1 pengatur laju & gerbang ban IP ##########
+patch 1 sudah terpasang - tidak ada yang perlu dikerjakan
+---> OK: patch1 pengatur laju & gerbang ban IP
+
+########## patch2 bug TP tidak pernah dikirim ##########
+patch 2 sudah terpasang - tidak ada yang perlu dikerjakan
+---> OK: patch2 bug TP tidak pernah dikirim
+
+########## patch3 gerbang ban & jadwal per TF ##########
+patch 3 sudah terpasang - tidak ada yang perlu dikerjakan
+---> OK: patch3 gerbang ban & jadwal per TF
+
+########## patch4 hygiene ##########
+== 1. sapu import mati (terverifikasi tak terpakai) ==
+== 2. TF dinamis di strategi/level_harga.py ==
+  sudah terpasang
+== 3. README selaras ==
+  jumlah fungsi uji terhitung: 242
+  baris jumlah uji diperbarui: 0
+  lewat: teks aritmetika lama tidak ditemukan
+
+== RINGKASAN PATCH 4 ==
+  - import mati dibersihkan: 0 baris
+  - TF pivot_reversal: sudah dinamis
+  - README: 0 baris jumlah uji -> 242; sisa '168' = 0
+---> OK: patch4 hygiene
+
+########## kompilasi seluruh berkas ##########
+---> OK: kompilasi seluruh berkas
+
+########## verifikasi repo menyeluruh ##########
+AKAR_REPO= /home/runner/work/lux-modul-trading/lux-modul-trading
+
+===== 1. seluruh modul bisa diimpor =====
+VERSI 0.1.0
+JUMLAH_GAGAL_IMPOR= 0
+
+===== 2. tidak ada sisa nama field yang salah =====
+POLA_SALAH_BERSIH
+
+===== 3. jalur verdict -> TP benar-benar hidup =====
+TP_DARI_VERDICT_OK harga= 110.0
+
+===== 4. kontrak auto-entry: scalp DAN intraday, swing dilarang =====
+HORIZON_AUTO_ENTRY= ('scalping', 'intraday')
+KONTRAK_AUTO_ENTRY_OK
+
+===== 5. pengatur laju & gerbang ban terpasang =====
+RATE_LIMIT_OK batas_resmi= 2400
+
+===== 6. TF pivot tidak lagi semi-hardcode =====
+TF_DINAMIS_OK 1m= 1440 5m= 288
+
+===== 7. registry strategi =====
+STRATEGI_TERDAFTAR= 26
+   <Strategi breaker_block [struktur_modern, multi-TF, ambang=65.0]>, <Strategi breakout_volume [struktur_modern, single-TF, ambang=59.0]>, <Strategi cup_and_handle [pola_klasik, single-TF, ambang=63.0]>, <Strategi donchian_breakout [volatilitas_rezim, multi-TF, ambang=60.0]>, <Strategi double_bottom [pola_klasik, single-TF, ambang=62.0]>, <Strategi double_top [pola_klasik, single-TF, ambang=62.0]>, <Strategi ema_bounce_200 [indikator_momentum, single-TF, ambang=58.0]>, <Strategi fib_golden_pocket [level_harga, multi-TF, ambang=63.0]>, <Strategi fvg_fill [struktur_modern, multi-TF, ambang=61.0]>, <Strategi head_shoulders [pola_klasik, single-TF, ambang=64.0]>, <Strategi ict_liquidity_sweep [struktur_modern, single-TF, ambang=62.0]>, <Strategi keltner_reversi [volatilitas_rezim, single-TF, ambang=61.0]>, <Strategi level_bulat [level_harga, single-TF, ambang=59.0]>, <Strategi macd_rsi_trendbreak [indikator_momentum, multi-TF, ambang=66.0]>, <Strategi market_structure_shift [struktur_modern, multi-TF, ambang=63.0]>, <Strategi order_block_retest [struktur_modern, multi-TF, ambang=62.0]>, <Strategi pivot_reversal [level_harga, single-TF, ambang=60.0]>, <Strategi rsi_divergence [indikator_momentum, single-TF, ambang=60.0]>, <Strategi smc_ob_fvg [struktur_modern, multi-TF, ambang=65.0]>, <Strategi squeeze_breakout [volatilitas_rezim, multi-TF, ambang=62.0]>, <Strategi supertrend_flip [volatilitas_rezim, multi-TF, ambang=60.0]>, <Strategi triangle_breakout [pola_klasik, single-TF, ambang=60.0]>, <Strategi vp_tepi_value_area [aliran_volume, single-TF, ambang=61.0]>, <Strategi vwap_reclaim [aliran_volume, single-TF, ambang=62.0]>, <Strategi vwap_reversi_pita [aliran_volume, single-TF, ambang=63.0]>, <Strategi wedge_breakout [pola_klasik, single-TF, ambang=61.0]>
+
+===== 8. jumlah fungsi uji (dihitung, bukan dihafal) =====
+  test_auto_entry_dua_mode.py: 5
+  test_backtest.py: 8
+  test_biaya.py: 9
+  test_binance_client.py: 13
+  test_inti.py: 27
+  test_konfigurasi.py: 21
+  test_konfigurasi_tf_simbol.py: 6
+  test_kredensial.py: 11
+  test_laju_dan_tp.py: 24
+  test_live_runner.py: 13
+  test_order_postonly.py: 11
+  test_pemindai.py: 20
+  test_portofolio.py: 6
+  test_portofolio_governor.py: 14
+  test_serialisasi_order.py: 12
+  test_spesifikasi.py: 20
+  test_strategi_arbiter.py: 22
+TOTAL_FUNGSI_UJI= 242
+
+===== RINGKASAN VERIFIKASI =====
+  info: total fungsi uji = 242
+STATUS_VERIFIKASI= LULUS
+---> OK: verifikasi repo menyeluruh
+
+########## kesiapan uji live Binance ##########
+
+===== A. kontrak impor setiap entry point (main.py + scripts/*.py) =====
+  OK   main.py
+  OK   scripts/asap_e2e.py
+  OK   scripts/asap_multi_e2e.py
+  OK   scripts/audit_dataset.py
+  OK   scripts/backtest_btc.py
+  OK   scripts/bt95_metrik.py
+  OK   scripts/bt_banyak.py
+  OK   scripts/bt_portofolio.py
+  OK   scripts/bt_satu.py
+  OK   scripts/dashboard_data.py
+  OK   scripts/demo_sintetis.py
+  OK   scripts/diagnosa_kondisional.py
+  OK   scripts/jalankan_uji.py
+  OK   scripts/live_run.py
+  OK   scripts/uji_bracket_penuh.py
+  OK   scripts/uji_kondisional.py
+  OK   scripts/uji_sl_tp_posisi.py
+  OK   scripts/uji_testnet.py
+JUMLAH_ENTRY_POINT= 18
+GALAT_KONTRAK_IMPOR= 0
+
+===== B. pengatur laju benar-benar terpasang di jalur permintaan =====
+  OK   _permintaan memanggil _sebelum_permintaan
+  OK   418/429 dicatat sebagai ban lokal
+  OK   parameter injeksi tersedia: self, kredensial, recv_window, timeout, jam_ms, pembuka_url, pengatur_laju, tidur, jam_mono
+  BUDGET_DEFAULT= 1200 dari BATAS_RESMI= 2400
+
+===== C. gerbang ban di level engine =====
+  OK   siklus dilewati selama IP masih kena ban
+  OK   runner dengan entry/bracket aktif tetap dipoll
+
+===== D. gerbang kredensial: LIVE tidak boleh terbuka karena kelalaian =====
+  OK   LIVE tanpa gerbang CLI ditolak (KredensialError)
+  OK   LIVE dengan CLI tapi tanpa env ditolak (KredensialError)
+  OK   TESTNET tanpa kredensial ditolak (KredensialError)
+  OK   mode ngawur ditolak (KredensialError)
+
+===== E. model beban API untuk 29 pair (bukan pengukuran jaringan) =====
+  klines (per-TF, saat bar tutup) :     73.5 bobot/menit
+  waktu server (cache 30s)        :      2.0
+  snapshot akun (1x/siklus)       :     40.0
+  pemindai likuiditas (TTL 30m)   :      6.7
+  TOTAL_MODEL                     :    122.1 bobot/menit
+  ANGGARAN_PENGATUR_LAJU          :   1200.0 bobot/menit
+  SEBELUM_PERBAIKAN (terukur)     :   1740.0 bobot/menit
+  MODEL_BEBAN_OK margin= 1077.9
+
+===== F. larangan market order pada entry masih berlaku =====
+  OK   entry wajib LIMIT+GTX; MARKET terlarang: ('MARKET', 'TRAILING_STOP_MARKET')
+
+===== RINGKASAN KESIAPAN LIVE =====
+STATUS_KESIAPAN= SIAP
+---> OK: kesiapan uji live Binance
+
+########## pytest (gerbang penentu) ##########
+........................................................................ [ 29%]
+........................................................................ [ 59%]
+........................................................................ [ 89%]
+..........................                                               [100%]
+242 passed in 43.11s
+---> OK: pytest (gerbang penentu)
+
+########## pelari uji internal repo ##########
+[telegram] gagal kirim (diabaikan, trading lanjut): jaringan mati
+.  test_auto_entry_dua_mode.py::test_governor_menerima_scalp_dan_intraday_bersamaan
+.  test_auto_entry_dua_mode.py::test_governor_menolak_horizon_di_luar_auto_entry
+.  test_auto_entry_dua_mode.py::test_horizon_auto_entry_berisi_scalp_dan_intraday
+.  test_auto_entry_dua_mode.py::test_swing_ditolak_tanpa_menghabiskan_kuota_scalp_intraday
+.  test_auto_entry_dua_mode.py::test_swing_tidak_pernah_masuk_auto_entry
+.  test_backtest.py::test_akhir_data_menutup_posisi_paksa
+.  test_backtest.py::test_backtest_end_to_end_dengan_registry_bawaan_multi_tf
+.  test_backtest.py::test_backtest_tidak_bocor_masa_depan
+.  test_backtest.py::test_fee_dan_slippage_mengurangi_pnl
+.  test_backtest.py::test_fill_di_open_bar_berikutnya_bukan_harga_sinyal
+.  test_backtest.py::test_gap_melewati_sl_membatalkan_entry
+.  test_backtest.py::test_multi_tp_menutup_porsi_bertahap
+.  test_backtest.py::test_sl_didahulukan_saat_ambigu_dalam_satu_bar
+.  test_biaya.py::test_batas_tp_efektif_mempertahankan_total_porsi
+.  test_biaya.py::test_batas_tp_efektif_tidak_mengubah_bila_sudah_sedikit
+.  test_biaya.py::test_biaya_pp_naik_dengan_jumlah_tp_tapi_ada_plafon
+.  test_biaya.py::test_gerbang_tidak_melihat_identitas_strategi
+.  test_biaya.py::test_jumlah_fill_dibatasi
+.  test_biaya.py::test_rasio_biaya_tidak_bergantung_saldo
+.  test_biaya.py::test_sl_lebar_dengan_tp_jauh_lolos
+.  test_biaya.py::test_sl_terlalu_rapat_ditolak
+.  test_biaya.py::test_tp1_terlalu_dekat_ditolak_walau_sl_lebar
+.  test_binance_client.py::test_batalkan_order_delete_signed
+.  test_binance_client.py::test_bid_ask_terbaik
+.  test_binance_client.py::test_harga_sekarang
+.  test_binance_client.py::test_http_error_dilempar_sebagai_binance_api_error
+.  test_binance_client.py::test_kirim_order_async_membungkus_sinkron
+.  test_binance_client.py::test_kirim_order_post_signed
+.  test_binance_client.py::test_klines_meneruskan_parameter
+.  test_binance_client.py::test_request_signed_menyertakan_signature_dan_timestamp
+.  test_binance_client.py::test_request_unsigned_tidak_menyertakan_signature
+.  test_binance_client.py::test_saldo_usdt_ambil_asset_usdt
+.  test_binance_client.py::test_sinkron_waktu_menyimpan_offset
+.  test_binance_client.py::test_urutan_query_stabil_untuk_tandatangan
+.  test_binance_client.py::test_waktu_server
+.  test_inti.py::test_atr_positif
+.  test_inti.py::test_bars_menolak_ts_tidak_menaik
+.  test_inti.py::test_clamp_atas_tiga_persen
+.  test_inti.py::test_eksekusi_non_blocking
+.  test_inti.py::test_ema_dan_sma_warmup_nan
+.  test_inti.py::test_entry_invalidated_fungsi_murni
+.  test_inti.py::test_entry_invalidated_membatalkan_sisa_slice
+.  test_inti.py::test_fitur_tidak_melihat_masa_depan
+.  test_inti.py::test_konteks_tidak_bocor_ke_masa_depan
+.  test_inti.py::test_lantai_20_sen_bukan_nilai_flat
+.  test_inti.py::test_mode_per_horizon
+.  test_inti.py::test_order_besar_dipecah_dan_qty_terjaga
+.  test_inti.py::test_order_kecil_tidak_dipecah
+.  test_inti.py::test_resample_5m_ke_15m_konsisten
+.  test_inti.py::test_resample_membuang_lilin_parsial
+.  test_inti.py::test_rolling_max_min
+.  test_inti.py::test_rsi_rentang_dan_ekstrem
+.  test_inti.py::test_rumus_modal_kecil_persis
+.  test_inti.py::test_tfplan_konteks_wajib_lebih_besar
+.  test_inti.py::test_tfplan_single_tf
+.  test_inti.py::test_tiered_dan_taper
+.  test_inti.py::test_ukuran_posisi_dibatasi_leverage
+.  test_inti.py::test_ukuran_posisi_menolak_sl_nol
+.  test_inti.py::test_ukuran_posisi_sesuai_jarak_sl
+.  test_inti.py::test_verdict_menolak_sl_di_sisi_salah
+.  test_inti.py::test_verdict_rr_dan_lolos_ambang
+.  test_inti.py::test_visible_qty_benar_benar_dikirim
+.  test_konfigurasi.py::test_buat_notifier_lengkap_mengembalikan_telegram
+.  test_konfigurasi.py::test_buat_notifier_tanpa_token_mengembalikan_nonaktif
+.  test_konfigurasi.py::test_env_shell_menang_atas_berkas_env
+.  test_konfigurasi.py::test_format_siklus_melaporkan_eksekusi_dan_sl
+.  test_konfigurasi.py::test_format_siklus_melaporkan_galat
+.  test_konfigurasi.py::test_format_siklus_sepi_tidak_mengirim_apa_apa
+.  test_konfigurasi.py::test_horizon_swing_ditolak_karena_tidak_boleh_auto_entry
+.  test_konfigurasi.py::test_kirim_memotong_pesan_sangat_panjang
+.  test_konfigurasi.py::test_kirim_menelan_galat_jaringan_dan_tidak_menjatuhkan_proses
+.  test_konfigurasi.py::test_konfigurasi_default_aman
+.  test_konfigurasi.py::test_konfigurasi_membaca_env_dan_multi_tf
+.  test_konfigurasi.py::test_muat_berkas_env_tidak_galat_bila_berkas_tidak_ada
+.  test_konfigurasi.py::test_nilai_angka_tidak_sah_ditolak
+.  test_konfigurasi.py::test_notifier_butuh_token_dan_chat_id
+.  test_konfigurasi.py::test_ringkas_tidak_membocorkan_token
+.  test_konfigurasi.py::test_saklar_telegram_aktif_nol_membisukan
+.  test_konfigurasi.py::test_samarkan
+.  test_konfigurasi.py::test_status_kredensial_melaporkan_kesiapan_terpisah
+.  test_konfigurasi.py::test_status_kredensial_memperingatkan_kunci_testnet_sama_dengan_live
+.  test_konfigurasi.py::test_status_kredensial_menandai_gerbang_live_terbuka
+.  test_konfigurasi.py::test_urai_env_menangani_format_umum
+.  test_konfigurasi_tf_simbol.py::test_daftar_entry_tf_dipisah_koma_dan_dibersihkan
+.  test_konfigurasi_tf_simbol.py::test_daftar_entry_tf_kosong_mengembalikan_tuple_kosong
+.  test_konfigurasi_tf_simbol.py::test_daftar_simbol_dipisah_koma_dan_huruf_besar
+.  test_konfigurasi_tf_simbol.py::test_daftar_simbol_kosong_mengembalikan_tuple_kosong
+.  test_konfigurasi_tf_simbol.py::test_kriteria_pindai_mengembalikan_kriterialikuiditas_dari_ambang_env
+.  test_konfigurasi_tf_simbol.py::test_kriteria_pindai_quote_kosong_default_usdt
+.  test_kredensial.py::test_base_url_testnet_dan_live_berbeda
+.  test_kredensial.py::test_kredensial_secret_identik_ditolak
+.  test_kredensial.py::test_kredensial_testnet_dan_live_identik_ditolak_walau_mode_testnet
+.  test_kredensial.py::test_live_dua_gerbang_lolos_sekaligus
+.  test_kredensial.py::test_live_gerbang_env_salah_frasa_ditolak
+.  test_kredensial.py::test_live_tanpa_gerbang_cli_ditolak_walau_env_benar
+.  test_kredensial.py::test_live_tanpa_gerbang_env_ditolak_walau_cli_true
+.  test_kredensial.py::test_live_tanpa_kredensial_ditolak
+.  test_kredensial.py::test_mode_tidak_dikenal_ditolak
+.  test_kredensial.py::test_testnet_lengkap_lolos_dan_base_url_benar
+.  test_kredensial.py::test_testnet_tanpa_kredensial_ditolak
+.  test_laju_dan_tp.py::test_ban_418_menahan_permintaan_berikutnya_tanpa_ke_jaringan
+.  test_laju_dan_tp.py::test_ban_kedaluwarsa_membuka_kembali_permintaan
+.  test_laju_dan_tp.py::test_ban_tanpa_epoch_terbaca_tetap_memicu_jeda_aman
+.  test_laju_dan_tp.py::test_bobot_depth_mengikuti_limit
+.  test_laju_dan_tp.py::test_bobot_klines_mengikuti_limit
+.  test_laju_dan_tp.py::test_bobot_ticker_24jam_tanpa_simbol_mahal
+.  test_laju_dan_tp.py::test_exchange_info_di_cache_tidak_menembak_berulang
+.  test_laju_dan_tp.py::test_klines_dedupe_dalam_ttl_pendek
+.  test_laju_dan_tp.py::test_klines_ttl_nol_selalu_menembak
+.  test_laju_dan_tp.py::test_ms_ban_dari_pesan_membaca_epoch
+.  test_laju_dan_tp.py::test_pengatur_laju_menahan_saat_budget_habis
+.  test_laju_dan_tp.py::test_pengatur_laju_menolak_budget_tidak_sah
+.  test_laju_dan_tp.py::test_runner_dengan_posisi_terbuka_selalu_dipoll
+.  test_laju_dan_tp.py::test_runner_dilewati_sebelum_barnya_tutup
+.  test_laju_dan_tp.py::test_sinkron_waktu_selalu_memaksa_panggilan_nyata
+.  test_laju_dan_tp.py::test_sisa_ban_ms_tahan_client_tanpa_dukungan
+.  test_laju_dan_tp.py::test_strategi_verdict_memakai_strategy_id
+.  test_laju_dan_tp.py::test_tempo_berikut_mengikuti_batas_tutup_bar
+.  test_laju_dan_tp.py::test_tempo_berikut_tf_tidak_dikenal_pakai_interval_poll
+.  test_laju_dan_tp.py::test_tp_pertama_aman_untuk_masukan_rusak
+.  test_laju_dan_tp.py::test_tp_pertama_memakai_target_terdekat_lebih_dulu
+.  test_laju_dan_tp.py::test_tp_pertama_membaca_tps_dari_verdict_sungguhan
+.  test_laju_dan_tp.py::test_verdict_tidak_punya_atribut_tp_sama_sekali
+.  test_laju_dan_tp.py::test_waktu_server_di_cache_lalu_diekstrapolasi
+.  test_live_runner.py::test_bracket_belum_tertrigger_tetap_dipantau
+.  test_live_runner.py::test_bracket_tanpa_tp_order_id_sl_tertrigger_tidak_error
+.  test_live_runner.py::test_bracket_timeout_dibersihkan_tanpa_notifikasi
+.  test_live_runner.py::test_entry_pending_belum_terisi_tetap_menunggu
+.  test_live_runner.py::test_entry_pending_canceled_dibuang_tanpa_bracket
+.  test_live_runner.py::test_entry_pending_dibatalkan_kalau_timeout
+.  test_live_runner.py::test_entry_tanpa_tp_hanya_kirim_sl
+.  test_live_runner.py::test_entry_terisi_memasang_sl_dan_tp_lalu_lapor_notifier
+.  test_live_runner.py::test_sl_tertrigger_membatalkan_tp_dan_lapor_notifier
+.  test_live_runner.py::test_status_order_galat_tidak_menghentikan_siklus
+.  test_live_runner.py::test_tanpa_bracket_mengembalikan_kosong_cepat
+.  test_live_runner.py::test_tanpa_pending_mengembalikan_kosong_cepat
+.  test_live_runner.py::test_tp_tertrigger_membatalkan_sl_dan_lapor_notifier
+.  test_order_postonly.py::test_eksekutor_icebreaker_mengirim_semua_postonly
+.  test_order_postonly.py::test_harga_post_only_di_sisi_maker
+.  test_order_postonly.py::test_limit_tanpa_gtx_ditolak
+.  test_order_postonly.py::test_market_order_ditolak
+.  test_order_postonly.py::test_payload_entry_selalu_limit_postonly
+.  test_order_postonly.py::test_payload_sl_stop_market
+.  test_order_postonly.py::test_payload_tp_reduce_only_dan_postonly
+.  test_order_postonly.py::test_requote_makin_menjauh_dari_pasar
+.  test_order_postonly.py::test_slice_payload_postonly_dan_iceberg
+.  test_order_postonly.py::test_slice_tanpa_harga_ditolak
+.  test_order_postonly.py::test_stop_market_bisa_dilarang_oleh_kebijakan
+.  test_pemindai.py::test_cache_ttl_menghindari_pemindaian_berulang
+.  test_pemindai.py::test_entry_tf_kustom_dihormati
+.  test_pemindai.py::test_entry_tf_tidak_dikenal_ditolak
+.  test_pemindai.py::test_konteks_untuk_naik_tangga_timeframe
+.  test_pemindai.py::test_kriteria_menolak_konfigurasi_single_pair
+.  test_pemindai.py::test_kriteria_menolak_maks_lebih_kecil_dari_min
+.  test_pemindai.py::test_mesin_membatasi_jumlah_runner
+.  test_pemindai.py::test_mesin_membuat_runner_untuk_tiap_kombinasi_pair_dan_rencana
+.  test_pemindai.py::test_mesin_menolak_pasar_yang_hanya_menyisakan_satu_pair
+.  test_pemindai.py::test_mesin_menyiapkan_banyak_pair_bukan_hanya_btc
+.  test_pemindai.py::test_pair_dengan_spread_lebar_disingkirkan
+.  test_pemindai.py::test_peringkat_dari_ticker_deterministik_dan_terurut
+.  test_pemindai.py::test_pindai_gagal_bila_pair_layak_kurang_dari_dua
+.  test_pemindai.py::test_pindai_memilih_25_sampai_50_pair
+.  test_pemindai.py::test_pindai_menolak_simbol_tidak_layak
+.  test_pemindai.py::test_pindai_tidak_memakai_daftar_hardcode
+.  test_pemindai.py::test_rencana_mencakup_strategi_stf_dan_mtf
+.  test_pemindai.py::test_rencana_mengikuti_horizon_bukan_dipaksa_15m
+.  test_pemindai.py::test_siklus_menjalankan_semua_runner
+.  test_pemindai.py::test_uraikan_daftar_tf
+.  test_portofolio.py::test_default_empat_posisi
+.  test_portofolio.py::test_manajer_tidak_memilih_berdasarkan_kualitas
+.  test_portofolio.py::test_satu_simbol_tidak_boleh_dua_posisi
+.  test_portofolio.py::test_sinyal_terlewat_dicatat_lengkap
+.  test_portofolio.py::test_slot_bebas_setelah_tutup
+.  test_portofolio.py::test_slot_penuh_menolak_simbol_kelima
+.  test_portofolio_governor.py::test_arah_berlawanan_pada_simbol_yang_sama_ditolak
+.  test_portofolio_governor.py::test_free_margin_tidak_pernah_turun_di_bawah_lantai
+.  test_portofolio_governor.py::test_hasil_deterministik_tanpa_bergantung_urutan_runner
+.  test_portofolio_governor.py::test_kebijakan_tidak_sah_ditolak
+.  test_portofolio_governor.py::test_kuota_maksimum_empat_posisi
+.  test_portofolio_governor.py::test_margin_dibutuhkan_dari_notional_dan_leverage
+.  test_portofolio_governor.py::test_minimum_free_margin_dipertahankan
+.  test_portofolio_governor.py::test_posisi_yang_sudah_terbuka_mengurangi_kuota
+.  test_portofolio_governor.py::test_satu_simbol_tidak_menumpuk_dari_beberapa_tf
+.  test_portofolio_governor.py::test_sinyal_ditolak_tetap_dikembalikan_untuk_dashboard
+.  test_portofolio_governor.py::test_skor_sama_dipisah_likuiditas_lalu_deterministik
+.  test_portofolio_governor.py::test_snapshot_mengabaikan_posisi_qty_nol
+.  test_portofolio_governor.py::test_swing_tidak_pernah_auto_entry
+.  test_portofolio_governor.py::test_urutan_kuota_mengikuti_skor_bukan_urutan_kedatangan
+.  test_serialisasi_order.py::test_boolean_diserialisasi_huruf_kecil
+.  test_serialisasi_order.py::test_float_bulat_tidak_berekor_titik_nol
+.  test_serialisasi_order.py::test_float_tidak_membawa_derau_biner
+.  test_serialisasi_order.py::test_float_tidak_pernah_notasi_ilmiah
+.  test_serialisasi_order.py::test_nilai_lain_dibiarkan_apa_adanya
+.  test_serialisasi_order.py::test_nilai_none_dibuang
+.  test_serialisasi_order.py::test_query_entry_harga_kecil_tidak_ditolak_precision
+.  test_serialisasi_order.py::test_query_entry_iceberg_ikut_diformat
+.  test_serialisasi_order.py::test_query_sl_membawa_closeposition_huruf_kecil
+.  test_serialisasi_order.py::test_query_sl_parsial_memakai_reduceonly_huruf_kecil
+.  test_serialisasi_order.py::test_query_sl_short_arah_terbalik
+.  test_serialisasi_order.py::test_urutan_kunci_stabil_untuk_tanda_tangan
+.  test_spesifikasi.py::test_arah_tidak_sah_ditolak
+.  test_spesifikasi.py::test_batas_leverage_mengikuti_bracket_notional
+.  test_spesifikasi.py::test_bep_sadar_arah_posisi
+.  test_spesifikasi.py::test_funding_membebani_kedua_jalur
+.  test_spesifikasi.py::test_gerbang_rr_bersih_minimum_menolak_setup
+.  test_spesifikasi.py::test_leverage_adalah_hasil_bukan_input
+.  test_spesifikasi.py::test_leverage_berbeda_antar_setup_tidak_statis
+.  test_spesifikasi.py::test_leverage_tidak_menaikkan_risiko_nominal
+.  test_spesifikasi.py::test_pembulatan_kelipatan_tidak_meninggalkan_galat_float
+.  test_spesifikasi.py::test_qty_dibulatkan_ke_bawah_agar_risiko_tidak_membengkak
+.  test_spesifikasi.py::test_risiko_qty_konsisten_dengan_jarak_sl
+.  test_spesifikasi.py::test_rr_bersih_negatif_bila_tp_di_dalam_bep
+.  test_spesifikasi.py::test_rr_bersih_selalu_lebih_kecil_dari_rr_kotor
+.  test_spesifikasi.py::test_rr_bersih_simetris_untuk_long_dan_short
+.  test_spesifikasi.py::test_saldo_kecil_dengan_sl_rapat_tetap_layak_dan_risikonya_tetap_kecil
+.  test_spesifikasi.py::test_saldo_terlalu_kecil_untuk_step_size_ditolak_bukan_dipaksakan
+.  test_spesifikasi.py::test_setup_ditolak_bila_butuh_leverage_di_atas_batas
+.  test_spesifikasi.py::test_setup_ditolak_bila_di_bawah_min_notional
+.  test_spesifikasi.py::test_sl_dibulatkan_menjauh_dan_tp_mendekat
+.  test_spesifikasi.py::test_spek_dibangun_dari_exchange_info
+.  test_strategi_arbiter.py::test_ada_single_tf_dan_multi_tf
+.  test_strategi_arbiter.py::test_ambang_bersifat_ketat_lebih_besar
+.  test_strategi_arbiter.py::test_breakout_volume_terdeteksi
+.  test_strategi_arbiter.py::test_cakupan_minimum_strategi
+.  test_strategi_arbiter.py::test_double_bottom_terdeteksi_pada_pola_sintetis
+.  test_strategi_arbiter.py::test_double_top_terdeteksi_pada_pola_sintetis
+.  test_strategi_arbiter.py::test_galat_satu_strategi_tidak_menjatuhkan_yang_lain
+.  test_strategi_arbiter.py::test_konflik_arah_selisih_besar_tetap_entry
+.  test_strategi_arbiter.py::test_konflik_arah_selisih_kecil_membatalkan_entry
+.  test_strategi_arbiter.py::test_konflik_hanya_dihitung_antar_yang_lolos_ambang
+.  test_strategi_arbiter.py::test_pipeline_end_to_end_multi_tf
+.  test_strategi_arbiter.py::test_pipeline_end_to_end_single_tf
+.  test_strategi_arbiter.py::test_semua_strategi_bisa_dijalankan_tanpa_galat
+.  test_strategi_arbiter.py::test_semua_strategi_dievaluasi_tanpa_short_circuit
+.  test_strategi_arbiter.py::test_setiap_strategi_punya_ambang_dan_sumber
+.  test_strategi_arbiter.py::test_setiap_verdict_punya_entry_sl_tp_valid
+.  test_strategi_arbiter.py::test_skor_tertinggi_yang_dieksekusi
+.  test_strategi_arbiter.py::test_strategi_multi_tf_ditolak_bila_rencana_single_tf
+.  test_strategi_arbiter.py::test_swing_hanya_sinyal_tanpa_order
+.  test_strategi_arbiter.py::test_tidak_ada_dominasi_satu_strategi_pada_data_panjang
+.  test_strategi_arbiter.py::test_tidak_ada_entry_bila_semua_di_bawah_ambang
+.  test_strategi_arbiter.py::test_urutan_pendaftaran_tidak_memengaruhi_pemenang
+
+======================================================================
+RINGKASAN: 242 lulus, 0 gagal, total 242
+---> OK: pelari uji internal repo
+
+STATUS_AKHIR=ok

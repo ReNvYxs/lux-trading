@@ -1,0 +1,133 @@
+utc=2026-08-05T16:32:24Z
+base_ref=8401b2327736a4cc5c588d211eb6911dde0842da
+fix_ref=c1749202dc31be1f995485dfc5c549c077338ecf
+--- jumlah berkas ---
+py_lux_modul=51
+py_tests=17
+py_scripts=18
+py_tools=8
+--- akar ---
+ARSITEKTUR.md
+AUDIT_LEVERAGE_PRESISI.md
+AUDIT_TOTAL.md
+CALON_STRATEGI.md
+KONFIGURASI.md
+LAPORAN_BACKTEST_95.md
+LAPORAN_KESIAPAN.md
+LAPORAN_PERBAIKAN.md
+LOG_KESIAPAN.txt
+LOG_PERBAIKAN.txt
+README.md
+REFERENSI.md
+RESUME_PROMPT.md
+STATE.md
+TELEGRAM.md
+alat
+bukti
+dashboard
+dataset_masuk
+lux_modul
+main.py
+requirements.txt
+scripts
+sumber_base
+sumber_fix
+tests
+tools
+--- md5 seluruh .py ---
+d7358ecc14ee0024f64eccc7ffc59fd5  ./alat/bedah_gabung.py
+929eac696a0bf77d35c6387a699e7a45  ./lux_modul/__init__.py
+2a513c353e88ab18c8409e31f34ef989  ./lux_modul/arbiter/__init__.py
+d4932e79dad169c5d8d87b60e3451d6d  ./lux_modul/arbiter/pemilih.py
+3e0aefc51944975c250383a9cd7eae52  ./lux_modul/backtest.py
+0376cf6dfc8f50f276e32fcc19d3244e  ./lux_modul/backtest_portofolio.py
+699899a796254d083c099f15810d82e8  ./lux_modul/data/__init__.py
+f34ab2261b97db188e4deb53fd6bef27  ./lux_modul/data/loader.py
+494dbed57c6e66443c28cff56029418e  ./lux_modul/data/plane.py
+f0d786922c8a3d4850add26530cd935f  ./lux_modul/data/resample.py
+4420e1fc6e707a9de6ef68ecb606e581  ./lux_modul/eksekusi/__init__.py
+ecab70cd0f83173d2329724a0cdd3618  ./lux_modul/eksekusi/biaya.py
+6c5bf57e2a2a201fed445060829234cb  ./lux_modul/eksekusi/binance_client.py
+ea5aa8b7aa0c5bcc0de8ace5f495d960  ./lux_modul/eksekusi/ice_breaker.py
+78ffb1749d32ff6e1014abc31c507b91  ./lux_modul/eksekusi/kredensial.py
+f5ab00c45c7211bba3d80856f1a54d4f  ./lux_modul/eksekusi/mode.py
+32aee520dbded872af321bb1d24a5871  ./lux_modul/eksekusi/order.py
+56f6638721038313277eb7959069ba54  ./lux_modul/eksekusi/risiko.py
+ada126f97bb727601a6d058f1ecb431a  ./lux_modul/eksekusi/spesifikasi.py
+2ab0cf67a7c660ddfafade6df2e8e0b8  ./lux_modul/eksekusi_aman/__init__.py
+2d491d8c19dd363c988d04e71ae6f6ef  ./lux_modul/eksekusi_aman/inti.py
+745d9fdf2a7f09736cf6b3bd50250c2c  ./lux_modul/eksekusi_aman/proteksi.py
+4ed878c23052242501a34304d91313de  ./lux_modul/fitur/__init__.py
+0ac34f9938ed2197f53a3e23f2f4641f  ./lux_modul/fitur/dasar.py
+7a5ae60f449c21ecff424f674cfc1c1c  ./lux_modul/fitur/lanjutan.py
+2059f4b64f80ffb6f113f360d8bc77fa  ./lux_modul/fitur/store.py
+f4867fc0dc056cf32bac620c72e5418d  ./lux_modul/fitur/struktur.py
+a498c8a23dd7b79412d3d84f06d5c7f3  ./lux_modul/governor.py
+380939f3ecaa724bd40d0f4e2989203b  ./lux_modul/konfigurasi.py
+ac5e85d42750c414bf602ddcc79e28d6  ./lux_modul/kontrak.py
+78fa69246015f964e30c176c02f057bc  ./lux_modul/live_runner.py
+a2be9b746582ee2a76fb9cd10d466047  ./lux_modul/mesin_multi.py
+632f8b055d21b87d0928ec60677aca26  ./lux_modul/notifikasi/__init__.py
+dd2c94d710b9362660d7a10045d9d9f1  ./lux_modul/notifikasi/telegram.py
+ffe5070bdfb82d8c317ec9b85bad5a9f  ./lux_modul/pemindai/__init__.py
+4740a6c00006dac32e25b3474203e4d7  ./lux_modul/pemindai/likuiditas.py
+f4b0f7a0c913ce311cc6c07af96e2b21  ./lux_modul/pipeline.py
+066eb1dda6a5d7078fb8f19c67028610  ./lux_modul/plugin.py
+36d3aa808a169486c3e2980e006b8c98  ./lux_modul/portofolio.py
+8a6c5282b9e9c7c309ce4dc8fe77a2ce  ./lux_modul/rencana_tf.py
+ad638ef0d44a37477083b0b855f1a8a8  ./lux_modul/sintetis.py
+4ea6fe25e192927aa3b23bf319b689f2  ./lux_modul/strategi/__init__.py
+680aca1af9f34020a1fbd4e50d932513  ./lux_modul/strategi/adaptor.py
+54211927ab4c4eb1e1c2df702685d0b0  ./lux_modul/strategi/aliran_volume.py
+df515de2ce0f8d1492a7e278c97d4f09  ./lux_modul/strategi/basis.py
+418afdc0e452d8118c3c2a24fb7d615a  ./lux_modul/strategi/indikator.py
+cde08c64f851b882ec84c9709d845b00  ./lux_modul/strategi/level_harga.py
+57f2cc0c014fd2a66b101b9701d0d6a6  ./lux_modul/strategi/pola.py
+61d66085f6bff2d468aa41e1890635e9  ./lux_modul/strategi/struktur_modern.py
+6591b2e627799387d5ca3b6f59e7b867  ./lux_modul/strategi/struktur_plus.py
+33d1c229cadc6e08f635bb8972b2fdb9  ./lux_modul/strategi/util.py
+75f47bb39cc49618df34f4fe08ed8024  ./lux_modul/strategi/volatilitas.py
+630292dec1f4b022d55356a23bd05efd  ./main.py
+40585970d6cb12c70b86349a1f9570ed  ./scripts/ab95.py
+0df2b7bc9092e93a7b10460d99c8a866  ./scripts/asap_e2e.py
+e3475682cfefa3c516179b1bb0058f9b  ./scripts/asap_multi_e2e.py
+569707bbbc2c00fb103e94e872c8f912  ./scripts/audit_dataset.py
+911a41f14b9f5e1bba183f236bedbdc4  ./scripts/backtest_btc.py
+2c30e4f8adb800243119453c059a3386  ./scripts/bt95_metrik.py
+a3e200da2ce410201c476f59a43d4560  ./scripts/bt_banyak.py
+c27dcdeb517e7490e08e3d0c1416af93  ./scripts/bt_portofolio.py
+6db29ec06f9f25c6e63702aa8b3788df  ./scripts/bt_satu.py
+9d4d6de0c078bac99ada098f34cdc311  ./scripts/dashboard_data.py
+f4ca1439ffcfb66b07b1c69859226c72  ./scripts/demo_sintetis.py
+ba9f3e3ac51d79f28715fc95e743adc4  ./scripts/diagnosa_kondisional.py
+8c78b70f981cd8e8067001de01143d65  ./scripts/jalankan_uji.py
+221d82781d6cc0de2ea7fd0d65a0da71  ./scripts/live_run.py
+ddd46782a3af68c2fa87815ba7a7d71c  ./scripts/uji_bracket_penuh.py
+9de87b2f952865a2945bc16a140653f9  ./scripts/uji_kondisional.py
+90bcf3c137f24dfdda0c70c0b9c28bbc  ./scripts/uji_sl_tp_posisi.py
+b6d3f9706a040d9ca6da2b0ce7fdc4ed  ./scripts/uji_testnet.py
+bc613566f0e0ffd3756b2d75bfc96cb2  ./tests/test_auto_entry_dua_mode.py
+7e2cf3a7b16df647f88d507ae756d4e1  ./tests/test_backtest.py
+8bdc8f23dd80b2501d60382ba850fdd9  ./tests/test_biaya.py
+fec5c5a1067737b608aaaafc7024b8cd  ./tests/test_binance_client.py
+c9a29979d8d5e8854639209299a3bff8  ./tests/test_inti.py
+1c2871fd536e7005484ceccea0a72424  ./tests/test_konfigurasi.py
+aefd25f33100e60153233e02bd90f007  ./tests/test_konfigurasi_tf_simbol.py
+a5cdec49a07e55a22b3d61bd34cf5ecb  ./tests/test_kredensial.py
+e2c1d12223312b7e8ef7b11549c36f7c  ./tests/test_laju_dan_tp.py
+517861a5a944274039bb0ad43edfd6f0  ./tests/test_live_runner.py
+8cfad342eee1c8a54618547c064a9143  ./tests/test_order_postonly.py
+479a19606d4a21c0481e092dcd72c0ff  ./tests/test_pemindai.py
+a63f655c708f85c6e357e1383e9ecf4c  ./tests/test_portofolio.py
+8c9fde868fd4916ec2380adf86f180a3  ./tests/test_portofolio_governor.py
+4b3844029483405929909c1ca3856cf0  ./tests/test_serialisasi_order.py
+2138d72b36fc3e0f6a7e23fa0b16fe2c  ./tests/test_spesifikasi.py
+1649738874123f69565649a2a88a7185  ./tests/test_strategi_arbiter.py
+e6da18ec1f9ae58ebe3719cf5582f2e2  ./tools/cek_dokumen.py
+c7b7c3297b06eadd0797fd7c40f367e1  ./tools/kesiapan_live.py
+c838a92d8ba211698179030d44dced8d  ./tools/patch1_binance_client.py
+401f6e98b44a82b8ce547d7e6195dc4a  ./tools/patch2_live_runner.py
+56c1ac9a110b05b0dcf285d786488e38  ./tools/patch3_mesin_multi.py
+6007a5bfba688f1b55c0d2c11a98d306  ./tools/patch4_hygiene.py
+bf036dab136dbe3f6a74cf65236b7492  ./tools/patch5_dokumen.py
+6b23df7ffe10ec1dd8b0e495cf4b3afd  ./tools/verifikasi_repo.py

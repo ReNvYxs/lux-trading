@@ -1,6 +1,24 @@
-sumber_base/
-sumber_fix/
 __pycache__/
-*.pyc
-.pytest_cache/
+*.py[cod]
+.venv/
+venv/
+
+# dataset besar & arsip - jangan pernah masuk git (pakai GitHub Release)
+dataset_masuk/
+*.zip
+
+# log & keluaran turunan yang bisa dibangkitkan ulang
+*.log
+log_*.txt
+reports/keluaran_uji.txt
+reports/demo_terakhir.txt
+reports/btp_*.json
+dashboard/data.json
+
+# ================= KREDENSIAL - JANGAN PERNAH DICOMMIT =================
+# Berkas .env berisi API key Binance & token Telegram Anda.
 .env
+.env.*
+# ... KECUALI template tanpa nilai rahasia, yang memang harus ikut repo:
+!.env.contoh
+lux.toml.local
