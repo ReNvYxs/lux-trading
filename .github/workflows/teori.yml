@@ -1,0 +1,57 @@
+name: teori
+
+on:
+  push:
+    paths:
+      - '.github/workflows/teori.yml'
+      - 'alat/teori/**'
+  workflow_dispatch:
+
+concurrency:
+  group: teori
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  teori:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: detak awal
+        run: |
+          mkdir -p bukti/teori
+          echo "detak=MULAI" > bukti/teori/DETAK_TEORI.txt
+          echo "mulai_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> bukti/teori/DETAK_TEORI.txt
+          echo "commit=$GITHUB_SHA" >> bukti/teori/DETAK_TEORI.txt
+          echo "runner=$(uname -s)" >> bukti/teori/DETAK_TEORI.txt
+          python3 -c "import sys; print('python=' + sys.version.split()[0])" >> bukti/teori/DETAK_TEORI.txt
+          ls -la dataset_masuk/btc >> bukti/teori/DETAK_TEORI.txt 2>&1 || echo "dataset_masuk/btc tidak ada" >> bukti/teori/DETAK_TEORI.txt
+
+      - name: rekam detak
+        if: always()
+        run: bash alat/teori/rekam.sh detak
+
+      - name: dependensi
+        run: |
+          mkdir -p bukti/teori
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements.txt
+
+      - name: uji teori
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/teori
+          set +e
+          python3 alat/teori/uji_teori.py 2>&1 | tee bukti/teori/jejak_teori.txt
+          RC=${PIPESTATUS[0]}
+          echo "rc_uji_teori=$RC" >> bukti/teori/jejak_teori.txt
+          exit 0
+
+      - name: rekam hasil
+        if: always()
+        run: bash alat/teori/rekam.sh hasil
