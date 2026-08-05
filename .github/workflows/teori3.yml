@@ -1,0 +1,58 @@
+name: teori3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/teori3.yml'
+      - 'alat/teori3/**'
+  workflow_dispatch: {}
+
+concurrency:
+  group: teori3
+  cancel-in-progress: true
+
+jobs:
+  ukur:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: detak awal
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/teori3
+          date -u +%Y-%m-%dT%H:%M:%SZ > bukti/teori3/DETAK3.txt
+          echo "sha=$GITHUB_SHA" >> bukti/teori3/DETAK3.txt
+          echo "ref=$GITHUB_REF_NAME" >> bukti/teori3/DETAK3.txt
+          python3 -V >> bukti/teori3/DETAK3.txt 2>&1
+          ls dataset_masuk/btc >> bukti/teori3/DETAK3.txt 2>&1
+
+      - name: rekam detak
+        if: always()
+        continue-on-error: true
+        run: bash alat/teori3/rekam.sh "detak awal"
+
+      - name: dependensi
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/teori3
+          python3 -m pip install --upgrade pip 2>&1 | tail -n 2
+          python3 -m pip install -r requirements.txt 2>&1 | tail -n 5
+
+      - name: ukur kontrak skor
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/teori3
+          set +e
+          python3 alat/teori3/ukur.py 2>&1 | tee bukti/teori3/jejak_ukur.txt
+          echo "rc=${PIPESTATUS[0]}" >> bukti/teori3/jejak_ukur.txt
+
+      - name: rekam hasil
+        if: always()
+        continue-on-error: true
+        run: bash alat/teori3/rekam.sh "ukur kontrak skor"
