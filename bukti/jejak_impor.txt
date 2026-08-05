@@ -11,10 +11,18 @@ proteksi OK, simbol publik= 3
 ['GagalProteksi', 'PenjagaProteksi', 'time']
 rc_proteksi=0
 
-=== registry strategi ===
-Traceback (most recent call last):
-  File "<string>", line 1, in <module>
-ImportError: cannot import name 'registry_bawaan' from 'lux_modul.plugin' (/home/runner/work/lux-trading/lux-trading/lux_modul/plugin.py)
+=== registry strategi (introspeksi) ===
+--- kandidat lokasi registry ---
+{
+ "lux_modul.plugin": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
+ "lux_modul.strategi": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
+ "lux_modul": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
+ "lux_modul.pipeline": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
+ "lux_modul.arbiter": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
+ "lux_modul.arbiter.pemilih": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'"
+}
+--- hasil ---
+registry TIDAK ditemukan lewat introspeksi
 rc_registry=1
 
 === konfigurasi bawaan ===

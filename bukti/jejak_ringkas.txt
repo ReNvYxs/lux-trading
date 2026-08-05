@@ -1,0 +1,59 @@
+{
+ "akar": [
+  ".env.contoh",
+  ".pytest_cache",
+  "ARSITEKTUR.md",
+  "AUDIT_LEVERAGE_PRESISI.md",
+  "AUDIT_TOTAL.md",
+  "CALON_STRATEGI.md",
+  "KONFIGURASI.md",
+  "LAPORAN_BACKTEST_95.md",
+  "LAPORAN_KESIAPAN.md",
+  "LAPORAN_PERBAIKAN.md",
+  "LOG_KESIAPAN.txt",
+  "LOG_PERBAIKAN.txt",
+  "README.md",
+  "REFERENSI.md",
+  "RESUME_PROMPT.md",
+  "STATE.md",
+  "TELEGRAM.md",
+  "alat",
+  "bukti",
+  "dashboard",
+  "dataset_masuk",
+  "lux_modul",
+  "main.py",
+  "requirements.txt",
+  "scripts",
+  "tests",
+  "tools"
+ ],
+ "base_ref": "8401b2327736a4cc5c588d211eb6911dde0842da",
+ "berkas": {
+  "dataset_masuk_total": 3,
+  "py_lux_modul": 51,
+  "py_scripts": 18,
+  "py_tests": 17,
+  "py_tools": 8
+ },
+ "fix_ref": "c1749202dc31be1f995485dfc5c549c077338ecf",
+ "kebersihan": {
+  "ada_eksekusi_aman": true,
+  "ada_env_contoh": true,
+  "ada_main_py": true,
+  "ada_requirements": true,
+  "sisa_sumber_base": false,
+  "sisa_sumber_fix": false,
+  "workflow_sumber_ikut": [
+   "rakit.yml"
+  ]
+ },
+ "pytest_ekor": [
+  "........................................................................ [ 29%]",
+  "........................................................................ [ 59%]",
+  "........................................................................ [ 89%]",
+  "..........................                                               [100%]",
+  "242 passed in 34.51s",
+  "rc_pytest=0"
+ ]
+}

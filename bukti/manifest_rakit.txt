@@ -1,4 +1,4 @@
-utc=2026-08-05T16:40:25Z
+utc=2026-08-05T16:43:14Z
 base_ref=8401b2327736a4cc5c588d211eb6911dde0842da
 fix_ref=c1749202dc31be1f995485dfc5c549c077338ecf
 --- jumlah berkas ---
@@ -35,6 +35,8 @@ tests
 tools
 --- md5 seluruh .py ---
 36eee04249a6e289155c005a4ba132f0  ./alat/bedah_gabung.py
+6e0774652594f2e420e6bbd398b58b21  ./alat/ringkas_rakit.py
+52eb51285ff5deea9253d3aac79a9126  ./alat/temu_registry.py
 929eac696a0bf77d35c6387a699e7a45  ./lux_modul/__init__.py
 2a513c353e88ab18c8409e31f34ef989  ./lux_modul/arbiter/__init__.py
 d4932e79dad169c5d8d87b60e3451d6d  ./lux_modul/arbiter/pemilih.py

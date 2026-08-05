@@ -1,0 +1,13 @@
+{
+ "kandidat": {
+  "lux_modul.plugin": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
+  "lux_modul.strategi": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
+  "lux_modul": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
+  "lux_modul.pipeline": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
+  "lux_modul.arbiter": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'",
+  "lux_modul.arbiter.pemilih": "GAGAL IMPOR: ModuleNotFoundError: No module named 'lux_modul'"
+ },
+ "asal": null,
+ "jumlah": 0,
+ "ids": null
+}
