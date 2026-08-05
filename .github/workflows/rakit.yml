@@ -1,0 +1,48 @@
+name: rakit
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rakit.yml'
+      - 'alat/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: rakit
+  cancel-in-progress: true
+env:
+  BASE_REPO: EnVyxS/lux-modul-trading
+  BASE_REF: 8401b2327736a4cc5c588d211eb6911dde0842da
+  FIX_REPO: EnVyxS/uji-trading
+  FIX_REF: c1749202dc31be1f995485dfc5c549c077338ecf
+  GIT_TERMINAL_PROMPT: '0'
+jobs:
+  bedah:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: klon sumber
+        run: bash alat/klon.sh
+      - name: bedah beda
+        continue-on-error: true
+        run: |
+          set +e
+          python3 alat/bedah_gabung.py 2>&1 | tee bukti/log_bedah.txt
+          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/log_bedah.txt
+      - name: rekam bukti
+        if: always()
+        run: |
+          git config user.name "rakit-bot"
+          git config user.email "rakit-bot@users.noreply.github.com"
+          git add -A bukti
+          git commit -q -m "[bukti] bedah gabung ${GITHUB_SHA} [skip ci]" || echo "tidak ada perubahan"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash -q && git push -q && break
+            echo "push ulang percobaan $i"
+            sleep 5
+          done
