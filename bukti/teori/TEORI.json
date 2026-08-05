@@ -1,0 +1,1144 @@
+{
+ "versi": 1,
+ "metadata": {
+  "jumlah_pola": 14,
+  "jumlah_kelas_strategi": 12,
+  "jumlah_indikator": 12,
+  "daftar_indikator": [
+   "adx",
+   "delta_volume",
+   "donchian",
+   "fibonacci",
+   "keltner",
+   "pivot_klasik",
+   "squeeze_bb_kc",
+   "stoch_rsi",
+   "supertrend",
+   "volume_profile",
+   "vwap_pita",
+   "vwap_sesi"
+  ],
+  "jumlah_multi_tf": 8,
+  "jumlah_single_tf": 6,
+  "tanpa_sumber": [],
+  "per_kelompok": {
+   "struktur_modern": 4,
+   "volatilitas_rezim": 4,
+   "level_harga": 3,
+   "aliran_volume": 3
+  },
+  "pola": [
+   {
+    "id": "breaker_block",
+    "kelompok": "struktur_modern",
+    "ambang": 65.0,
+    "warmup": 160,
+    "konteks": 1,
+    "horizon": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "sl_atr": 0.9,
+    "rr": [
+     2.0,
+     3.0
+    ],
+    "porsi": [
+     0.5,
+     0.5
+    ],
+    "deskripsi": "Order block yang ditembus lalu diuji ulang dari sisi berlawanan (ICT breaker).",
+    "sumber": [
+     "https://innercircletrader.net/tutorials/ict-breaker-block-trading/",
+     "https://fluxcharts.com/articles/breaker-blocks-bb-explained",
+     "https://atas.net/blog/what-are-ict-order-blocks-and-breaker-blocks-in-trading/"
+    ],
+    "modul_detektor": "lux_modul.strategi.struktur_plus"
+   },
+   {
+    "id": "donchian_breakout",
+    "kelompok": "volatilitas_rezim",
+    "ambang": 60.0,
+    "warmup": 120,
+    "konteks": 1,
+    "horizon": [
+     "intraday",
+     "swing"
+    ],
+    "sl_atr": 2.0,
+    "rr": [
+     1.5,
+     3.5
+    ],
+    "porsi": [
+     0.5,
+     0.5
+    ],
+    "deskripsi": "Tembus Donchian 20 bar (turtle) dengan stop 2 ATR; channel digeser 1 bar.",
+    "sumber": [
+     "https://crosstrade.io/learn/technical-indicators/donchian-channels",
+     "https://www.altrady.com/blog/crypto-trading-strategies/donchian-channel-strategy"
+    ],
+    "modul_detektor": "lux_modul.strategi.volatilitas"
+   },
+   {
+    "id": "fib_golden_pocket",
+    "kelompok": "level_harga",
+    "ambang": 63.0,
+    "warmup": 140,
+    "konteks": 1,
+    "horizon": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "sl_atr": 0.8,
+    "rr": [
+     1.618,
+     2.618
+    ],
+    "porsi": [
+     0.5,
+     0.5
+    ],
+    "deskripsi": "Retracement ke zona 0.618-0.65 dari impuls terakhir, searah bias TF konteks.",
+    "sumber": [
+     "https://www.investopedia.com/terms/f/fibonacciretracement.asp",
+     "https://quantum-algo.com/blog/fibonacci-golden-pocket-trading/",
+     "https://www.thinkmarkets.com/en/trading-academy/technical-analysis/fibonacci-trading-strategy-top-fibonacci-retracement-setups/"
+    ],
+    "modul_detektor": "lux_modul.strategi.level_harga"
+   },
+   {
+    "id": "fvg_fill",
+    "kelompok": "struktur_modern",
+    "ambang": 61.0,
+    "warmup": 130,
+    "konteks": 1,
+    "horizon": [
+     "scalping",
+     "intraday"
+    ],
+    "sl_atr": 0.9,
+    "rr": [
+     1.5,
+     2.5
+    ],
+    "porsi": [
+     0.5,
+     0.5
+    ],
+    "deskripsi": "Harga kembali mengisi Fair Value Gap yang masih segar lalu bereaksi.",
+    "sumber": [
+     "https://fluxcharts.com/articles/fair-value-gap-fvg-explained",
+     "https://innercircletrader.net/tutorials/ict-fair-value-gap/"
+    ],
+    "modul_detektor": "lux_modul.strategi.struktur_plus"
+   },
+   {
+    "id": "keltner_reversi",
+    "kelompok": "volatilitas_rezim",
+    "ambang": 61.0,
+    "warmup": 120,
+    "konteks": 0,
+    "horizon": [
+     "scalping",
+     "intraday"
+    ],
+    "sl_atr": 1.1,
+    "rr": [
+     1.0,
+     2.0
+    ],
+    "porsi": [
+     0.6,
+     0.4
+    ],
+    "deskripsi": "Penutupan kembali ke dalam Keltner setelah menembus keluar saat rezim lemah.",
+    "sumber": [
+     "https://www.quantifiedstrategies.com/keltner-bands-trading-strategies/"
+    ],
+    "modul_detektor": "lux_modul.strategi.volatilitas"
+   },
+   {
+    "id": "level_bulat",
+    "kelompok": "level_harga",
+    "ambang": 59.0,
+    "warmup": 100,
+    "konteks": 0,
+    "horizon": [
+     "scalping",
+     "intraday"
+    ],
+    "sl_atr": 0.8,
+    "rr": [
+     1.2,
+     2.2
+    ],
+    "porsi": [
+     0.6,
+     0.4
+    ],
+    "deskripsi": "Reaksi di level angka bulat psikologis setelah pendekatan cepat.",
+    "sumber": [
+     "https://www.investopedia.com/articles/forex/08/round-numbers.asp"
+    ],
+    "modul_detektor": "lux_modul.strategi.level_harga"
+   },
+   {
+    "id": "market_structure_shift",
+    "kelompok": "struktur_modern",
+    "ambang": 63.0,
+    "warmup": 150,
+    "konteks": 1,
+    "horizon": [
+     "intraday",
+     "swing"
+    ],
+    "sl_atr": 1.0,
+    "rr": [
+     1.5,
+     3.0
+    ],
+    "porsi": [
+     0.5,
+     0.5
+    ],
+    "deskripsi": "CHoCH setelah sapuan likuiditas: pergeseran struktur pasar yang sah.",
+    "sumber": [
+     "https://www.tradingwyckoff.com/en/smart-money-concepts/",
+     "https://innercircletrader.net/tutorials/ict-market-structure-shift/"
+    ],
+    "modul_detektor": "lux_modul.strategi.struktur_plus"
+   },
+   {
+    "id": "order_block_retest",
+    "kelompok": "struktur_modern",
+    "ambang": 62.0,
+    "warmup": 150,
+    "konteks": 1,
+    "horizon": [
+     "scalping",
+     "intraday",
+     "swing"
+    ],
+    "sl_atr": 0.9,
+    "rr": [
+     1.8,
+     3.0
+    ],
+    "porsi": [
+     0.5,
+     0.5
+    ],
+    "deskripsi": "Uji ulang order block searah BOS terakhir, tanpa syarat FVG tumpang tindih.",
+    "sumber": [
+     "https://innercircletrader.net/tutorials/ict-breaker-block-trading/",
+     "https://fluxcharts.com/articles/breaker-blocks-bb-explained",
+     "https://atas.net/blog/what-are-ict-order-blocks-and-breaker-blocks-in-trading/"
+    ],
+    "modul_detektor": "lux_modul.strategi.struktur_plus"
+   },
+   {
+    "id": "pivot_reversal",
+    "kelompok": "level_harga",
+    "ambang": 60.0,
+    "warmup": 120,
+    "konteks": 0,
+    "horizon": [
+     "scalping",
+     "intraday"
+    ],
+    "sl_atr": 0.9,
+    "rr": [
+     1.3,
+     2.6
+    ],
+    "porsi": [
+     0.5,
+     0.5
+    ],
+    "deskripsi": "Penolakan di S1/R1 pivot klasik yang dihitung dari periode sebelumnya.",
+    "sumber": [
+     "https://www.investopedia.com/terms/p/pivotpoint.asp",
+     "https://www.babypips.com/learn/forex/pivot-points"
+    ],
+    "modul_detektor": "lux_modul.strategi.level_harga"
+   },
+   {
+    "id": "squeeze_breakout",
+    "kelompok": "volatilitas_rezim",
+    "ambang": 62.0,
+    "warmup": 140,
+    "konteks": 1,
+    "horizon": [
+     "scalping",
+     "intraday"
+    ],
+    "sl_atr": 1.2,
+    "rr": [
+     1.5,
+     3.0
+    ],
+    "porsi": [
+     0.5,
+     0.5
+    ],
+    "deskripsi": "Bollinger terkurung di dalam Keltner lalu harga menutup keluar pita, dengan volume.",
+    "sumber": [
+     "https://chartschool.stockcharts.com/table-of-contents/trading-strategies-and-models/trading-strategies/bollinger-band-squeeze",
+     "https://trendspider.com/learning-center/bb-kc-squeeze-a-powerful-indicator-for-trading-range-breakouts/"
+    ],
+    "modul_detektor": "lux_modul.strategi.volatilitas"
+   },
+   {
+    "id": "supertrend_flip",
+    "kelompok": "volatilitas_rezim",
+    "ambang": 60.0,
+    "warmup": 130,
+    "konteks": 1,
+    "horizon": [
+     "intraday",
+     "swing"
+    ],
+    "sl_atr": 1.0,
+    "rr": [
+     1.5,
+     3.0
+    ],
+    "porsi": [
+     0.5,
+     0.5
+    ],
+    "deskripsi": "Supertrend berbalik arah dan didukung kemiringan EMA50.",
+    "sumber": [
+     "https://www.investopedia.com/supertrend-indicator-7976167"
+    ],
+    "modul_detektor": "lux_modul.strategi.volatilitas"
+   },
+   {
+    "id": "vp_tepi_value_area",
+    "kelompok": "aliran_volume",
+    "ambang": 61.0,
+    "warmup": 280,
+    "konteks": 0,
+    "horizon": [
+     "scalping",
+     "intraday"
+    ],
+    "sl_atr": 1.0,
+    "rr": [
+     1.2,
+     2.5
+    ],
+    "porsi": [
+     0.5,
+     0.5
+    ],
+    "deskripsi": "Harga ditolak di VAH/VAL lalu berputar kembali ke arah POC.",
+    "sumber": [
+     "https://www.quantvps.com/blog/value-area-trading-strategy-guide",
+     "https://trendspider.com/learning-center/volume-profile-strategies/",
+     "https://www.tastylive.com/news-insights/what-volume-profile-how-to-trade-it"
+    ],
+    "modul_detektor": "lux_modul.strategi.aliran_volume"
+   },
+   {
+    "id": "vwap_reclaim",
+    "kelompok": "aliran_volume",
+    "ambang": 62.0,
+    "warmup": 120,
+    "konteks": 0,
+    "horizon": [
+     "scalping",
+     "intraday"
+    ],
+    "sl_atr": 1.0,
+    "rr": [
+     1.5,
+     3.0
+    ],
+    "porsi": [
+     0.5,
+     0.5
+    ],
+    "deskripsi": "Harga menembus balik VWAP sesi setelah flush singkat, searah tren EMA.",
+    "sumber": [
+     "https://www.investopedia.com/ask/answers/031115/what-common-strategy-traders-implement-when-using-volume-weighted-average-price-vwap.asp",
+     "https://www.trademomentum.org/blog/vwap-pullback-trading-strategy-for-day-traders",
+     "https://scanz.com/vwap-trading-strategy/"
+    ],
+    "modul_detektor": "lux_modul.strategi.aliran_volume"
+   },
+   {
+    "id": "vwap_reversi_pita",
+    "kelompok": "aliran_volume",
+    "ambang": 63.0,
+    "warmup": 150,
+    "konteks": 0,
+    "horizon": [
+     "scalping",
+     "intraday"
+    ],
+    "sl_atr": 1.2,
+    "rr": [
+     1.0,
+     2.0
+    ],
+    "porsi": [
+     0.6,
+     0.4
+    ],
+    "deskripsi": "Fade peregangan ekstrem dari VWAP saat rezim menyamping (ADX rendah).",
+    "sumber": [
+     "https://crosstrade.io/learn/trading-strategies/vwap-reversion",
+     "https://thevwap.com/vwap/"
+    ],
+    "modul_detektor": "lux_modul.strategi.aliran_volume"
+   }
+  ],
+  "kelas_strategi": [
+   {
+    "id": "breakout_volume",
+    "kelas": "BreakoutVolume",
+    "modul": "lux_modul.strategi.struktur_modern"
+   },
+   {
+    "id": "cup_and_handle",
+    "kelas": "CupAndHandle",
+    "modul": "lux_modul.strategi.pola"
+   },
+   {
+    "id": "double_bottom",
+    "kelas": "DoubleBottom",
+    "modul": "lux_modul.strategi.pola"
+   },
+   {
+    "id": "double_top",
+    "kelas": "DoubleTop",
+    "modul": "lux_modul.strategi.pola"
+   },
+   {
+    "id": "ema_bounce_200",
+    "kelas": "EmaBounce200",
+    "modul": "lux_modul.strategi.indikator"
+   },
+   {
+    "id": "head_shoulders",
+    "kelas": "HeadShoulders",
+    "modul": "lux_modul.strategi.pola"
+   },
+   {
+    "id": "ict_liquidity_sweep",
+    "kelas": "IctLiquiditySweep",
+    "modul": "lux_modul.strategi.struktur_modern"
+   },
+   {
+    "id": "macd_rsi_trendbreak",
+    "kelas": "MacdRsiTrendBreak",
+    "modul": "lux_modul.strategi.indikator"
+   },
+   {
+    "id": "rsi_divergence",
+    "kelas": "RsiDivergence",
+    "modul": "lux_modul.strategi.indikator"
+   },
+   {
+    "id": "smc_ob_fvg",
+    "kelas": "SmcOrderBlockFvg",
+    "modul": "lux_modul.strategi.struktur_modern"
+   },
+   {
+    "id": "triangle_breakout",
+    "kelas": "TriangleBreakout",
+    "modul": "lux_modul.strategi.pola"
+   },
+   {
+    "id": "wedge_breakout",
+    "kelas": "WedgeBreakout",
+    "modul": "lux_modul.strategi.pola"
+   }
+  ]
+ },
+ "data": [
+  {
+   "jalur": "dataset_masuk/btc/BTC_4h.csv",
+   "tf": "4h",
+   "ada": true,
+   "jumlah_bar": 1080,
+   "harga_awal": 92062.2,
+   "harga_akhir": 62748.0,
+   "uji": [
+    {
+     "nama": "sma_20",
+     "n_dibanding": 1061,
+     "maks_selisih_abs": 2.3865140974521637e-09,
+     "maks_selisih_rel": 3.83968427001286e-14,
+     "rerata_selisih_rel": 4.582309362178227e-15,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "rata-rata sederhana"
+    },
+    {
+     "nama": "ema_20_vs_rekursi_penuh",
+     "n_dibanding": 1061,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "menguji klaim modul bahwa pemotongan jendela rekursi tidak mengubah nilai"
+    },
+    {
+     "nama": "ema_200_vs_rekursi_penuh",
+     "n_dibanding": 881,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "EMA panjang"
+    },
+    {
+     "nama": "rma_14_wilder",
+     "n_dibanding": 1067,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "pemulusan Wilder 1978"
+    },
+    {
+     "nama": "rsi_14_wilder",
+     "n_dibanding": 1066,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "RSI Wilder 1978"
+    },
+    {
+     "nama": "macd_garis_12_26",
+     "n_dibanding": 1055,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "Appel: EMA12 - EMA26"
+    },
+    {
+     "nama": "macd_sinyal_9",
+     "n_dibanding": 1047,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "EMA9 atas garis MACD"
+    },
+    {
+     "nama": "true_range",
+     "n_dibanding": 1080,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "Wilder TR"
+    },
+    {
+     "nama": "atr_14_wilder",
+     "n_dibanding": 1067,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "ATR Wilder"
+    },
+    {
+     "nama": "stdev_20_vs_populasi",
+     "n_dibanding": 1061,
+     "maks_selisih_abs": 5.128471798343526e-07,
+     "maks_selisih_rel": 1.567711241899749e-09,
+     "rerata_selisih_rel": 5.934962897685945e-11,
+     "identik": false,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "Bollinger kanonik: pembagi n"
+    },
+    {
+     "nama": "stdev_20_vs_sampel_pembanding_negatif",
+     "n_dibanding": 1061,
+     "maks_selisih_abs": 131.93106041737974,
+     "maks_selisih_rel": 0.025320567047119394,
+     "rerata_selisih_rel": 0.025320565521484175,
+     "identik": false,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "HARUS berbeda; kalau identik berarti modul salah pakai pembagi n-1"
+    },
+    {
+     "nama": "bollinger_atas_20_2",
+     "n_dibanding": 1061,
+     "maks_selisih_abs": 1.023450749926269e-06,
+     "maks_selisih_rel": 1.6851388996619684e-11,
+     "rerata_selisih_rel": 9.907323967208872e-13,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "SMA20 + 2 * stdev populasi"
+    },
+    {
+     "nama": "bollinger_bawah_20_2",
+     "n_dibanding": 1061,
+     "maks_selisih_abs": 1.027932739816606e-06,
+     "maks_selisih_rel": 1.7319482242460883e-11,
+     "rerata_selisih_rel": 1.0430272587936102e-12,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": ""
+    },
+    {
+     "nama": "donchian_atas_tergeser",
+     "n_dibanding": 1060,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "channel dari 20 bar SEBELUM bar berjalan"
+    },
+    {
+     "nama": "donchian_atas_vs_varian_ceroboh",
+     "n_dibanding": 1060,
+     "maks_selisih_abs": 2803.199999999997,
+     "maks_selisih_rel": 0.035306208814461,
+     "rerata_selisih_rel": 0.0017019360312876101,
+     "identik": false,
+     "hanya_modul": 0,
+     "hanya_rujukan": 1,
+     "catatan": "HARUS berbeda; kalau identik berarti bar berjalan ikut dihitung (look-ahead)"
+    },
+    {
+     "nama": "donchian_struktur",
+     "pelanggaran_definisi": 0,
+     "bar_close_di_atas_channel": 45,
+     "bar_close_di_bawah_channel": 53,
+     "catatan": "jumlah tembusan harus > 0; kalau 0 berarti channel memuat bar berjalan sehingga mustahil ditembus"
+    },
+    {
+     "nama": "supertrend_garis_10_3",
+     "n_dibanding": 1071,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "Seban: ATR10, pengali 3"
+    },
+    {
+     "nama": "supertrend_sifat",
+     "bar_arah_berbeda": 0,
+     "pelanggaran_ratchet": 0,
+     "jumlah_flip": 27,
+     "catatan": "dalam satu leg tren, garis supertrend tidak boleh mundur (sifat trailing stop)"
+    },
+    {
+     "nama": "adx_14_vs_wilder_bersih",
+     "n_dibanding": 1053,
+     "maks_selisih_abs": 12.360563370994253,
+     "maks_selisih_rel": 0.375873583520322,
+     "rerata_selisih_rel": 0.005865735776346443,
+     "identik": false,
+     "hanya_modul": 14,
+     "hanya_rujukan": 0,
+     "catatan": "selisih menandakan pencemaran nol pada penyemaian ADX saat warmup"
+    },
+    {
+     "nama": "adx_selisih_sesudah_bar_30",
+     "maks_selisih_abs": 10.173609788862034,
+     "rerata_selisih_abs": 0.12531025224611975,
+     "n": 1050
+    },
+    {
+     "nama": "adx_selisih_sesudah_bar_60",
+     "maks_selisih_abs": 0.863219851577945,
+     "rerata_selisih_abs": 0.010908254647393409,
+     "n": 1020
+    },
+    {
+     "nama": "adx_selisih_sesudah_bar_100",
+     "maks_selisih_abs": 0.03935078623274535,
+     "rerata_selisih_abs": 0.0005829943376288377,
+     "n": 980
+    },
+    {
+     "nama": "adx_selisih_sesudah_bar_150",
+     "maks_selisih_abs": 0.0010358430790660123,
+     "rerata_selisih_abs": 1.5418611339142172e-05,
+     "n": 930
+    },
+    {
+     "nama": "adx_selisih_sesudah_bar_200",
+     "maks_selisih_abs": 2.5253765713273424e-05,
+     "rerata_selisih_abs": 4.11874714374831e-07,
+     "n": 880
+    },
+    {
+     "nama": "keltner_modul_vs_ema20_atr20",
+     "n_dibanding": 1061,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "membuktikan periode ATR modul mengikuti periode EMA"
+    },
+    {
+     "nama": "keltner_modul_vs_baku_stockcharts_20_2_atr10",
+     "n_dibanding": 1061,
+     "maks_selisih_abs": 977.5086707634327,
+     "maks_selisih_rel": 0.012643644849773424,
+     "rerata_selisih_rel": 0.002121600295351182,
+     "identik": false,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "baku StockCharts/Raschke memakai ATR(10); selisih = penyimpangan parameter"
+    },
+    {
+     "nama": "keltner_rasio_lebar_pita",
+     "rerata_lebar_modul_dibagi_baku": 1.0215367401501183,
+     "n": 1061,
+     "catatan": "rasio 1.0 berarti setara; menjauh dari 1.0 berarti pita modul lebih lebar/sempit"
+    },
+    {
+     "nama": "squeeze_modul_vs_carter_keltner_asli",
+     "bar_dibanding": 1061,
+     "bar_berbeda": 101,
+     "porsi_berbeda": 0.09519321394910461,
+     "squeeze_aktif_modul": 200,
+     "squeeze_aktif_carter": 259,
+     "catatan": "Carter/StockCharts memakai rumus Keltner ASLI 1960 untuk TTM Squeeze"
+    },
+    {
+     "nama": "stoch_rsi_k",
+     "status": "TIDAK_ADA_TUMPANG_TINDIH",
+     "hanya_modul": 0,
+     "hanya_rujukan": 1051,
+     "catatan": "Chande dan Kroll"
+    },
+    {
+     "nama": "vwap_sesi_harian",
+     "n_dibanding": 1080,
+     "maks_selisih_abs": 4.3655745685100555e-11,
+     "maks_selisih_rel": 4.882441031733337e-16,
+     "rerata_selisih_rel": 6.438787994937818e-17,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "harga tipikal tertimbang volume, reset harian UTC"
+    },
+    {
+     "nama": "rasio_volume_20",
+     "n_dibanding": 1061,
+     "maks_selisih_abs": 8.526512829121202e-14,
+     "maks_selisih_rel": 3.4951063922760473e-14,
+     "rerata_selisih_rel": 5.5277299218979035e-15,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "volume / SMA volume"
+    },
+    {
+     "nama": "volume_profile_value_area",
+     "porsi_volume_di_dalam_va_modul": 0.717757,
+     "poc": 63079.878125,
+     "val_modul": 58546.9375,
+     "vah_modul": 64853.6375,
+     "val_cbot_berpasangan": 58152.768749999996,
+     "vah_cbot_berpasangan": 64853.637500000004,
+     "porsi_cbot_berpasangan": 0.734878,
+     "catatan": "Market Profile klasik memperluas value area dua baris sekaligus, modul satu bin"
+    }
+   ]
+  },
+  {
+   "jalur": "dataset_masuk/btc/BTC_1d.csv",
+   "tf": "1d",
+   "ada": true,
+   "jumlah_bar": 180,
+   "harga_awal": 91328.0,
+   "harga_akhir": 62748.0,
+   "uji": [
+    {
+     "nama": "sma_20",
+     "n_dibanding": 161,
+     "maks_selisih_abs": 1.8917489796876907e-10,
+     "maks_selisih_rel": 3.0315992080061035e-15,
+     "rerata_selisih_rel": 1.0516881194301727e-15,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "rata-rata sederhana"
+    },
+    {
+     "nama": "ema_20_vs_rekursi_penuh",
+     "n_dibanding": 161,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "menguji klaim modul bahwa pemotongan jendela rekursi tidak mengubah nilai"
+    },
+    {
+     "nama": "ema_200_vs_rekursi_penuh",
+     "status": "TIDAK_ADA_TUMPANG_TINDIH",
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "EMA panjang"
+    },
+    {
+     "nama": "rma_14_wilder",
+     "n_dibanding": 167,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "pemulusan Wilder 1978"
+    },
+    {
+     "nama": "rsi_14_wilder",
+     "n_dibanding": 166,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "RSI Wilder 1978"
+    },
+    {
+     "nama": "macd_garis_12_26",
+     "n_dibanding": 155,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "Appel: EMA12 - EMA26"
+    },
+    {
+     "nama": "macd_sinyal_9",
+     "n_dibanding": 147,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "EMA9 atas garis MACD"
+    },
+    {
+     "nama": "true_range",
+     "n_dibanding": 180,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "Wilder TR"
+    },
+    {
+     "nama": "atr_14_wilder",
+     "n_dibanding": 167,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "ATR Wilder"
+    },
+    {
+     "nama": "stdev_20_vs_populasi",
+     "n_dibanding": 161,
+     "maks_selisih_abs": 1.2044210961903445e-08,
+     "maks_selisih_rel": 8.37131961051928e-12,
+     "rerata_selisih_rel": 1.4091392943350964e-12,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "Bollinger kanonik: pembagi n"
+    },
+    {
+     "nama": "stdev_20_vs_sampel_pembanding_negatif",
+     "n_dibanding": 161,
+     "maks_selisih_abs": 224.3139023721069,
+     "maks_selisih_rel": 0.02532056552368362,
+     "rerata_selisih_rel": 0.025320565518980286,
+     "identik": false,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "HARUS berbeda; kalau identik berarti modul salah pakai pembagi n-1"
+    },
+    {
+     "nama": "bollinger_atas_20_2",
+     "n_dibanding": 161,
+     "maks_selisih_abs": 2.3952452465891838e-08,
+     "maks_selisih_rel": 3.605720695853954e-13,
+     "rerata_selisih_rel": 7.820355653617462e-14,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "SMA20 + 2 * stdev populasi"
+    },
+    {
+     "nama": "bollinger_bawah_20_2",
+     "n_dibanding": 161,
+     "maks_selisih_abs": 2.4228938855230808e-08,
+     "maks_selisih_rel": 3.9932957249240847e-13,
+     "rerata_selisih_rel": 9.132082381022416e-14,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": ""
+    },
+    {
+     "nama": "donchian_atas_tergeser",
+     "n_dibanding": 160,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "channel dari 20 bar SEBELUM bar berjalan"
+    },
+    {
+     "nama": "donchian_atas_vs_varian_ceroboh",
+     "n_dibanding": 160,
+     "maks_selisih_abs": 4842.699999999997,
+     "maks_selisih_rel": 0.06099364206114096,
+     "rerata_selisih_rel": 0.004906998378978844,
+     "identik": false,
+     "hanya_modul": 0,
+     "hanya_rujukan": 1,
+     "catatan": "HARUS berbeda; kalau identik berarti bar berjalan ikut dihitung (look-ahead)"
+    },
+    {
+     "nama": "donchian_struktur",
+     "pelanggaran_definisi": 0,
+     "bar_close_di_atas_channel": 6,
+     "bar_close_di_bawah_channel": 10,
+     "catatan": "jumlah tembusan harus > 0; kalau 0 berarti channel memuat bar berjalan sehingga mustahil ditembus"
+    },
+    {
+     "nama": "supertrend_garis_10_3",
+     "n_dibanding": 171,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "Seban: ATR10, pengali 3"
+    },
+    {
+     "nama": "supertrend_sifat",
+     "bar_arah_berbeda": 0,
+     "pelanggaran_ratchet": 0,
+     "jumlah_flip": 6,
+     "catatan": "dalam satu leg tren, garis supertrend tidak boleh mundur (sifat trailing stop)"
+    },
+    {
+     "nama": "adx_14_vs_wilder_bersih",
+     "n_dibanding": 153,
+     "maks_selisih_abs": 6.926492496016941,
+     "maks_selisih_rel": 0.22188009104407586,
+     "rerata_selisih_rel": 0.013266357818931422,
+     "identik": false,
+     "hanya_modul": 14,
+     "hanya_rujukan": 0,
+     "catatan": "selisih menandakan pencemaran nol pada penyemaian ADX saat warmup"
+    },
+    {
+     "nama": "adx_selisih_sesudah_bar_30",
+     "maks_selisih_abs": 5.36773246433966,
+     "rerata_selisih_abs": 0.4332828440070742,
+     "n": 150
+    },
+    {
+     "nama": "adx_selisih_sesudah_bar_60",
+     "maks_selisih_abs": 0.4235632388014636,
+     "rerata_selisih_abs": 0.04516346672196609,
+     "n": 120
+    },
+    {
+     "nama": "adx_selisih_sesudah_bar_100",
+     "maks_selisih_abs": 0.015654341708749797,
+     "rerata_selisih_abs": 0.0018116650979215,
+     "n": 80
+    },
+    {
+     "nama": "adx_selisih_sesudah_bar_150",
+     "maks_selisih_abs": 0.00011990864653910194,
+     "rerata_selisih_abs": 7.459294785737333e-05,
+     "n": 30
+    },
+    {
+     "nama": "keltner_modul_vs_ema20_atr20",
+     "n_dibanding": 161,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "membuktikan periode ATR modul mengikuti periode EMA"
+    },
+    {
+     "nama": "keltner_modul_vs_baku_stockcharts_20_2_atr10",
+     "n_dibanding": 161,
+     "maks_selisih_abs": 2580.557994763236,
+     "maks_selisih_rel": 0.027990130074844632,
+     "rerata_selisih_rel": 0.004665604601711822,
+     "identik": false,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "baku StockCharts/Raschke memakai ATR(10); selisih = penyimpangan parameter"
+    },
+    {
+     "nama": "keltner_rasio_lebar_pita",
+     "rerata_lebar_modul_dibagi_baku": 1.0181258640096083,
+     "n": 161,
+     "catatan": "rasio 1.0 berarti setara; menjauh dari 1.0 berarti pita modul lebih lebar/sempit"
+    },
+    {
+     "nama": "squeeze_modul_vs_carter_keltner_asli",
+     "bar_dibanding": 161,
+     "bar_berbeda": 16,
+     "porsi_berbeda": 0.09937888198757763,
+     "squeeze_aktif_modul": 27,
+     "squeeze_aktif_carter": 35,
+     "catatan": "Carter/StockCharts memakai rumus Keltner ASLI 1960 untuk TTM Squeeze"
+    },
+    {
+     "nama": "stoch_rsi_k",
+     "status": "TIDAK_ADA_TUMPANG_TINDIH",
+     "hanya_modul": 0,
+     "hanya_rujukan": 151,
+     "catatan": "Chande dan Kroll"
+    },
+    {
+     "nama": "vwap_sesi_harian",
+     "n_dibanding": 180,
+     "maks_selisih_abs": 0.0,
+     "maks_selisih_rel": 0.0,
+     "rerata_selisih_rel": 0.0,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "harga tipikal tertimbang volume, reset harian UTC"
+    },
+    {
+     "nama": "rasio_volume_20",
+     "n_dibanding": 161,
+     "maks_selisih_abs": 8.43769498715119e-15,
+     "maks_selisih_rel": 4.490630141747794e-15,
+     "rerata_selisih_rel": 8.800409129891064e-16,
+     "identik": true,
+     "hanya_modul": 0,
+     "hanya_rujukan": 0,
+     "catatan": "volume / SMA volume"
+    },
+    {
+     "nama": "volume_profile_value_area",
+     "porsi_volume_di_dalam_va_modul": 0.709085,
+     "poc": 67383.50104166666,
+     "val_modul": 61943.339583333334,
+     "vah_modul": 77845.35,
+     "val_cbot_berpasangan": 61943.339583333334,
+     "vah_cbot_berpasangan": 77845.35,
+     "porsi_cbot_berpasangan": 0.709085,
+     "catatan": "Market Profile klasik memperluas value area dua baris sekaligus, modul satu bin"
+    }
+   ]
+  }
+ ],
+ "stabilitas_numerik": {
+  "n_bar": 60000,
+  "harga_rerata": 94348.44229412675,
+  "maks_selisih_abs": 0.0009221939672734436,
+  "maks_selisih_rel": 5.258452302279448e-05,
+  "rerata_selisih_rel": 1.5707520392002162e-06,
+  "stdev_negatif": 0,
+  "catatan": "modul memakai q/n - (s/n)^2 dari cumsum; rentan cancellation pada deret panjang berharga besar"
+ },
+ "aljabar": [
+  {
+   "nama": "pivot_klasik",
+   "maks_selisih": 0.0,
+   "rinci": {
+    "P": 0.0,
+    "R1": 0.0,
+    "S1": 0.0,
+    "R2": 0.0,
+    "S2": 0.0,
+    "R3": 0.0,
+    "S3": 0.0
+   },
+   "catatan": "pivot lantai klasik"
+  },
+  {
+   "nama": "fibonacci",
+   "maks_selisih": 0.0,
+   "rinci": {
+    "0.382": 0.0,
+    "0.5": 0.0,
+    "0.618": 0.0,
+    "0.65": 0.0,
+    "0.786": 0.0,
+    "ext_1.272": 0.0,
+    "ext_1.618": 0.0
+   },
+   "punya_golden_pocket": true,
+   "kunci": [
+    "0.0",
+    "0.236",
+    "0.382",
+    "0.5",
+    "0.618",
+    "0.65",
+    "0.786",
+    "1.0",
+    "ext_1.272",
+    "ext_1.618"
+   ],
+   "catatan": "golden pocket kanonik 0.618 sampai 0.65"
+  }
+ ]
+}

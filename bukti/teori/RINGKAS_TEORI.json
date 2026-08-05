@@ -1,0 +1,336 @@
+{
+ "jumlah_pola": 14,
+ "jumlah_kelas_strategi": 12,
+ "jumlah_indikator": 12,
+ "jumlah_multi_tf": 8,
+ "jumlah_single_tf": 6,
+ "per_kelompok": {
+  "struktur_modern": 4,
+  "volatilitas_rezim": 4,
+  "level_harga": 3,
+  "aliran_volume": 3
+ },
+ "tanpa_sumber": [],
+ "cocok_persis": [
+  "4h:sma_20",
+  "4h:ema_20_vs_rekursi_penuh",
+  "4h:ema_200_vs_rekursi_penuh",
+  "4h:rma_14_wilder",
+  "4h:rsi_14_wilder",
+  "4h:macd_garis_12_26",
+  "4h:macd_sinyal_9",
+  "4h:true_range",
+  "4h:atr_14_wilder",
+  "4h:bollinger_atas_20_2",
+  "4h:bollinger_bawah_20_2",
+  "4h:donchian_atas_tergeser",
+  "4h:supertrend_garis_10_3",
+  "4h:keltner_modul_vs_ema20_atr20",
+  "4h:vwap_sesi_harian",
+  "4h:rasio_volume_20",
+  "1d:sma_20",
+  "1d:ema_20_vs_rekursi_penuh",
+  "1d:rma_14_wilder",
+  "1d:rsi_14_wilder",
+  "1d:macd_garis_12_26",
+  "1d:macd_sinyal_9",
+  "1d:true_range",
+  "1d:atr_14_wilder",
+  "1d:stdev_20_vs_populasi",
+  "1d:bollinger_atas_20_2",
+  "1d:bollinger_bawah_20_2",
+  "1d:donchian_atas_tergeser",
+  "1d:supertrend_garis_10_3",
+  "1d:keltner_modul_vs_ema20_atr20",
+  "1d:vwap_sesi_harian",
+  "1d:rasio_volume_20"
+ ],
+ "tidak_cocok": [
+  {
+   "uji": "4h:stdev_20_vs_populasi",
+   "maks_selisih_rel": 1.567711241899749e-09,
+   "maks_selisih_abs": 5.128471798343526e-07,
+   "catatan": "Bollinger kanonik: pembagi n"
+  },
+  {
+   "uji": "4h:stdev_20_vs_sampel_pembanding_negatif",
+   "maks_selisih_rel": 0.025320567047119394,
+   "maks_selisih_abs": 131.93106041737974,
+   "catatan": "HARUS berbeda; kalau identik berarti modul salah pakai pembagi n-1"
+  },
+  {
+   "uji": "4h:donchian_atas_vs_varian_ceroboh",
+   "maks_selisih_rel": 0.035306208814461,
+   "maks_selisih_abs": 2803.199999999997,
+   "catatan": "HARUS berbeda; kalau identik berarti bar berjalan ikut dihitung (look-ahead)"
+  },
+  {
+   "uji": "4h:adx_14_vs_wilder_bersih",
+   "maks_selisih_rel": 0.375873583520322,
+   "maks_selisih_abs": 12.360563370994253,
+   "catatan": "selisih menandakan pencemaran nol pada penyemaian ADX saat warmup"
+  },
+  {
+   "uji": "4h:keltner_modul_vs_baku_stockcharts_20_2_atr10",
+   "maks_selisih_rel": 0.012643644849773424,
+   "maks_selisih_abs": 977.5086707634327,
+   "catatan": "baku StockCharts/Raschke memakai ATR(10); selisih = penyimpangan parameter"
+  },
+  {
+   "uji": "1d:stdev_20_vs_sampel_pembanding_negatif",
+   "maks_selisih_rel": 0.02532056552368362,
+   "maks_selisih_abs": 224.3139023721069,
+   "catatan": "HARUS berbeda; kalau identik berarti modul salah pakai pembagi n-1"
+  },
+  {
+   "uji": "1d:donchian_atas_vs_varian_ceroboh",
+   "maks_selisih_rel": 0.06099364206114096,
+   "maks_selisih_abs": 4842.699999999997,
+   "catatan": "HARUS berbeda; kalau identik berarti bar berjalan ikut dihitung (look-ahead)"
+  },
+  {
+   "uji": "1d:adx_14_vs_wilder_bersih",
+   "maks_selisih_rel": 0.22188009104407586,
+   "maks_selisih_abs": 6.926492496016941,
+   "catatan": "selisih menandakan pencemaran nol pada penyemaian ADX saat warmup"
+  },
+  {
+   "uji": "1d:keltner_modul_vs_baku_stockcharts_20_2_atr10",
+   "maks_selisih_rel": 0.027990130074844632,
+   "maks_selisih_abs": 2580.557994763236,
+   "catatan": "baku StockCharts/Raschke memakai ATR(10); selisih = penyimpangan parameter"
+  }
+ ],
+ "struktural": [
+  {
+   "nama": "donchian_struktur",
+   "pelanggaran_definisi": 0,
+   "bar_close_di_atas_channel": 45,
+   "bar_close_di_bawah_channel": 53,
+   "catatan": "jumlah tembusan harus > 0; kalau 0 berarti channel memuat bar berjalan sehingga mustahil ditembus",
+   "uji": "4h:donchian_struktur"
+  },
+  {
+   "nama": "supertrend_sifat",
+   "bar_arah_berbeda": 0,
+   "pelanggaran_ratchet": 0,
+   "jumlah_flip": 27,
+   "catatan": "dalam satu leg tren, garis supertrend tidak boleh mundur (sifat trailing stop)",
+   "uji": "4h:supertrend_sifat"
+  },
+  {
+   "nama": "adx_selisih_sesudah_bar_30",
+   "maks_selisih_abs": 10.173609788862034,
+   "rerata_selisih_abs": 0.12531025224611975,
+   "n": 1050,
+   "uji": "4h:adx_selisih_sesudah_bar_30"
+  },
+  {
+   "nama": "adx_selisih_sesudah_bar_60",
+   "maks_selisih_abs": 0.863219851577945,
+   "rerata_selisih_abs": 0.010908254647393409,
+   "n": 1020,
+   "uji": "4h:adx_selisih_sesudah_bar_60"
+  },
+  {
+   "nama": "adx_selisih_sesudah_bar_100",
+   "maks_selisih_abs": 0.03935078623274535,
+   "rerata_selisih_abs": 0.0005829943376288377,
+   "n": 980,
+   "uji": "4h:adx_selisih_sesudah_bar_100"
+  },
+  {
+   "nama": "adx_selisih_sesudah_bar_150",
+   "maks_selisih_abs": 0.0010358430790660123,
+   "rerata_selisih_abs": 1.5418611339142172e-05,
+   "n": 930,
+   "uji": "4h:adx_selisih_sesudah_bar_150"
+  },
+  {
+   "nama": "adx_selisih_sesudah_bar_200",
+   "maks_selisih_abs": 2.5253765713273424e-05,
+   "rerata_selisih_abs": 4.11874714374831e-07,
+   "n": 880,
+   "uji": "4h:adx_selisih_sesudah_bar_200"
+  },
+  {
+   "nama": "keltner_rasio_lebar_pita",
+   "rerata_lebar_modul_dibagi_baku": 1.0215367401501183,
+   "n": 1061,
+   "catatan": "rasio 1.0 berarti setara; menjauh dari 1.0 berarti pita modul lebih lebar/sempit",
+   "uji": "4h:keltner_rasio_lebar_pita"
+  },
+  {
+   "nama": "squeeze_modul_vs_carter_keltner_asli",
+   "bar_dibanding": 1061,
+   "bar_berbeda": 101,
+   "porsi_berbeda": 0.09519321394910461,
+   "squeeze_aktif_modul": 200,
+   "squeeze_aktif_carter": 259,
+   "catatan": "Carter/StockCharts memakai rumus Keltner ASLI 1960 untuk TTM Squeeze",
+   "uji": "4h:squeeze_modul_vs_carter_keltner_asli"
+  },
+  {
+   "nama": "stoch_rsi_k",
+   "status": "TIDAK_ADA_TUMPANG_TINDIH",
+   "hanya_modul": 0,
+   "hanya_rujukan": 1051,
+   "catatan": "Chande dan Kroll",
+   "uji": "4h:stoch_rsi_k"
+  },
+  {
+   "nama": "volume_profile_value_area",
+   "porsi_volume_di_dalam_va_modul": 0.717757,
+   "poc": 63079.878125,
+   "val_modul": 58546.9375,
+   "vah_modul": 64853.6375,
+   "val_cbot_berpasangan": 58152.768749999996,
+   "vah_cbot_berpasangan": 64853.637500000004,
+   "porsi_cbot_berpasangan": 0.734878,
+   "catatan": "Market Profile klasik memperluas value area dua baris sekaligus, modul satu bin",
+   "uji": "4h:volume_profile_value_area"
+  },
+  {
+   "nama": "ema_200_vs_rekursi_penuh",
+   "status": "TIDAK_ADA_TUMPANG_TINDIH",
+   "hanya_modul": 0,
+   "hanya_rujukan": 0,
+   "catatan": "EMA panjang",
+   "uji": "1d:ema_200_vs_rekursi_penuh"
+  },
+  {
+   "nama": "donchian_struktur",
+   "pelanggaran_definisi": 0,
+   "bar_close_di_atas_channel": 6,
+   "bar_close_di_bawah_channel": 10,
+   "catatan": "jumlah tembusan harus > 0; kalau 0 berarti channel memuat bar berjalan sehingga mustahil ditembus",
+   "uji": "1d:donchian_struktur"
+  },
+  {
+   "nama": "supertrend_sifat",
+   "bar_arah_berbeda": 0,
+   "pelanggaran_ratchet": 0,
+   "jumlah_flip": 6,
+   "catatan": "dalam satu leg tren, garis supertrend tidak boleh mundur (sifat trailing stop)",
+   "uji": "1d:supertrend_sifat"
+  },
+  {
+   "nama": "adx_selisih_sesudah_bar_30",
+   "maks_selisih_abs": 5.36773246433966,
+   "rerata_selisih_abs": 0.4332828440070742,
+   "n": 150,
+   "uji": "1d:adx_selisih_sesudah_bar_30"
+  },
+  {
+   "nama": "adx_selisih_sesudah_bar_60",
+   "maks_selisih_abs": 0.4235632388014636,
+   "rerata_selisih_abs": 0.04516346672196609,
+   "n": 120,
+   "uji": "1d:adx_selisih_sesudah_bar_60"
+  },
+  {
+   "nama": "adx_selisih_sesudah_bar_100",
+   "maks_selisih_abs": 0.015654341708749797,
+   "rerata_selisih_abs": 0.0018116650979215,
+   "n": 80,
+   "uji": "1d:adx_selisih_sesudah_bar_100"
+  },
+  {
+   "nama": "adx_selisih_sesudah_bar_150",
+   "maks_selisih_abs": 0.00011990864653910194,
+   "rerata_selisih_abs": 7.459294785737333e-05,
+   "n": 30,
+   "uji": "1d:adx_selisih_sesudah_bar_150"
+  },
+  {
+   "nama": "keltner_rasio_lebar_pita",
+   "rerata_lebar_modul_dibagi_baku": 1.0181258640096083,
+   "n": 161,
+   "catatan": "rasio 1.0 berarti setara; menjauh dari 1.0 berarti pita modul lebih lebar/sempit",
+   "uji": "1d:keltner_rasio_lebar_pita"
+  },
+  {
+   "nama": "squeeze_modul_vs_carter_keltner_asli",
+   "bar_dibanding": 161,
+   "bar_berbeda": 16,
+   "porsi_berbeda": 0.09937888198757763,
+   "squeeze_aktif_modul": 27,
+   "squeeze_aktif_carter": 35,
+   "catatan": "Carter/StockCharts memakai rumus Keltner ASLI 1960 untuk TTM Squeeze",
+   "uji": "1d:squeeze_modul_vs_carter_keltner_asli"
+  },
+  {
+   "nama": "stoch_rsi_k",
+   "status": "TIDAK_ADA_TUMPANG_TINDIH",
+   "hanya_modul": 0,
+   "hanya_rujukan": 151,
+   "catatan": "Chande dan Kroll",
+   "uji": "1d:stoch_rsi_k"
+  },
+  {
+   "nama": "volume_profile_value_area",
+   "porsi_volume_di_dalam_va_modul": 0.709085,
+   "poc": 67383.50104166666,
+   "val_modul": 61943.339583333334,
+   "vah_modul": 77845.35,
+   "val_cbot_berpasangan": 61943.339583333334,
+   "vah_cbot_berpasangan": 77845.35,
+   "porsi_cbot_berpasangan": 0.709085,
+   "catatan": "Market Profile klasik memperluas value area dua baris sekaligus, modul satu bin",
+   "uji": "1d:volume_profile_value_area"
+  }
+ ],
+ "stabilitas_numerik": {
+  "n_bar": 60000,
+  "harga_rerata": 94348.44229412675,
+  "maks_selisih_abs": 0.0009221939672734436,
+  "maks_selisih_rel": 5.258452302279448e-05,
+  "rerata_selisih_rel": 1.5707520392002162e-06,
+  "stdev_negatif": 0,
+  "catatan": "modul memakai q/n - (s/n)^2 dari cumsum; rentan cancellation pada deret panjang berharga besar"
+ },
+ "aljabar": [
+  {
+   "nama": "pivot_klasik",
+   "maks_selisih": 0.0,
+   "rinci": {
+    "P": 0.0,
+    "R1": 0.0,
+    "S1": 0.0,
+    "R2": 0.0,
+    "S2": 0.0,
+    "R3": 0.0,
+    "S3": 0.0
+   },
+   "catatan": "pivot lantai klasik"
+  },
+  {
+   "nama": "fibonacci",
+   "maks_selisih": 0.0,
+   "rinci": {
+    "0.382": 0.0,
+    "0.5": 0.0,
+    "0.618": 0.0,
+    "0.65": 0.0,
+    "0.786": 0.0,
+    "ext_1.272": 0.0,
+    "ext_1.618": 0.0
+   },
+   "punya_golden_pocket": true,
+   "kunci": [
+    "0.0",
+    "0.236",
+    "0.382",
+    "0.5",
+    "0.618",
+    "0.65",
+    "0.786",
+    "1.0",
+    "ext_1.272",
+    "ext_1.618"
+   ],
+   "catatan": "golden pocket kanonik 0.618 sampai 0.65"
+  }
+ ],
+ "galat": []
+}
