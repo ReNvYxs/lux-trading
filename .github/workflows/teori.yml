@@ -30,7 +30,6 @@ jobs:
           echo "commit=$GITHUB_SHA" >> bukti/teori/DETAK_TEORI.txt
           echo "runner=$(uname -s)" >> bukti/teori/DETAK_TEORI.txt
           python3 -c "import sys; print('python=' + sys.version.split()[0])" >> bukti/teori/DETAK_TEORI.txt
-          ls -la dataset_masuk/btc >> bukti/teori/DETAK_TEORI.txt 2>&1 || echo "dataset_masuk/btc tidak ada" >> bukti/teori/DETAK_TEORI.txt
 
       - name: rekam detak
         if: always()
@@ -55,3 +54,17 @@ jobs:
       - name: rekam hasil
         if: always()
         run: bash alat/teori/rekam.sh hasil
+
+      - name: uji kelas dan akar nan
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/teori
+          set +e
+          python3 alat/teori/uji_kelas.py 2>&1 | tee bukti/teori/jejak_teori2.txt
+          RC=${PIPESTATUS[0]}
+          echo "rc_uji_kelas=$RC" >> bukti/teori/jejak_teori2.txt
+          exit 0
+
+      - name: rekam hasil kelas
+        if: always()
+        run: bash alat/teori/rekam.sh kelas
