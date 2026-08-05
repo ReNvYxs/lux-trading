@@ -1,4 +1,4 @@
-utc=2026-08-05T18:17:15Z
+utc=2026-08-05T21:16:40Z
 base_ref=8401b2327736a4cc5c588d211eb6911dde0842da
 fix_ref=c1749202dc31be1f995485dfc5c549c077338ecf
 --- jumlah berkas ---
@@ -38,6 +38,8 @@ tools
 72dbccb8b5a8dbe5b39389cc77bea302  ./alat/kontrak/bedah_kontrak.py
 6e0774652594f2e420e6bbd398b58b21  ./alat/ringkas_rakit.py
 41bf8d16a65320daecfc4f56c2c80e6a  ./alat/temu_registry.py
+8a3d474788590101d74a9b6ae57f2889  ./alat/teori/referensi.py
+8d3b69023e4b1dafaee0689dfd209715  ./alat/teori/uji_teori.py
 929eac696a0bf77d35c6387a699e7a45  ./lux_modul/__init__.py
 2a513c353e88ab18c8409e31f34ef989  ./lux_modul/arbiter/__init__.py
 d4932e79dad169c5d8d87b60e3451d6d  ./lux_modul/arbiter/pemilih.py
