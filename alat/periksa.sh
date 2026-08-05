@@ -18,8 +18,8 @@ mkdir -p bukti
   python3 -c "import lux_modul.eksekusi_aman.proteksi as P; ns=[n for n in dir(P) if not n.startswith('_')]; print('proteksi OK, simbol publik=', len(ns)); print(sorted(ns))"
   echo "rc_proteksi=$?"
   echo
-  echo "=== registry strategi ==="
-  python3 -c "from lux_modul.plugin import registry_bawaan; r=registry_bawaan(); ids=sorted(getattr(r,'ids',lambda: [])() or []); print('jumlah strategi=', len(ids)); print(ids)"
+  echo "=== registry strategi (introspeksi) ==="
+  python3 alat/temu_registry.py
   echo "rc_registry=$?"
   echo
   echo "=== konfigurasi bawaan ==="
@@ -32,4 +32,7 @@ echo "=== pytest baseline ===" > bukti/jejak_pytest.txt
 python3 -m pytest -q tests 2>&1 | tee -a bukti/jejak_pytest.txt
 echo "rc_pytest=${PIPESTATUS[0]}" | tee -a bukti/jejak_pytest.txt
 tail -n 30 bukti/jejak_pytest.txt > bukti/ringkas_pytest.txt
+
+python3 alat/ringkas_rakit.py > bukti/jejak_ringkas.txt 2>&1
+tail -n 5 bukti/jejak_ringkas.txt
 exit 0
