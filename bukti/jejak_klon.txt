@@ -1,0 +1,10 @@
+utc=2026-08-05T16:37:43Z
+tujuan_base=/tmp/sumber_base
+tujuan_fix=/tmp/sumber_fix
+fatal: protocol '{{https' is not supported
+fetch dangkal gagal, coba klon penuh: EnVyxS/lux-modul-trading
+fatal: protocol '{{https' is not supported
+fatal: protocol '{{https' is not supported
+fetch dangkal gagal, coba klon penuh: EnVyxS/uji-trading
+fatal: protocol '{{https' is not supported
+GAGAL: sumber base tanpa lux_modul/
