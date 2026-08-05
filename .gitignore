@@ -1,0 +1,6 @@
+sumber_base/
+sumber_fix/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
