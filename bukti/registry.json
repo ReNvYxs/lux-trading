@@ -1,56 +1,122 @@
 {
- "kandidat": {
-  "lux_modul.plugin": [
-   "DaftarKelompok",
-   "KATALOG_STRATEGI",
-   "daftar_indikator",
-   "daftar_pola",
-   "daftar_strategi",
-   "muat_plugin"
-  ],
-  "lux_modul.strategi": [
-   "KATALOG_STRATEGI",
-   "KELAS_BAWAAN",
-   "Registry",
-   "Strategi",
-   "StrategiPola",
-   "daftar_strategi",
-   "muat_plugin",
-   "registry_bawaan",
-   "registry_dari",
-   "registry_kelompok",
-   "ringkas_registry",
-   "semua_strategi"
-  ],
-  "lux_modul": [
-   "Registry",
-   "plugin",
-   "registry_bawaan",
-   "strategi"
-  ],
-  "lux_modul.pipeline": [
-   "Registry",
-   "registry_bawaan"
-  ],
-  "lux_modul.arbiter": [],
-  "lux_modul.arbiter.pemilih": [
-   "Registry"
-  ]
- },
- "asal": "lux_modul.strategi.KELAS_BAWAAN",
- "jumlah": 12,
+ "acuan_jumlah": 26,
+ "api_registry": [
+  "ambil",
+  "daftar",
+  "evaluasi_semua",
+  "kelompok_terwakili",
+  "semua"
+ ],
+ "cocok_dengan_acuan": false,
+ "hilang_dari_rakitan": [
+  "breaker_block",
+  "breakout_volume",
+  "cup_and_handle",
+  "donchian_breakout",
+  "double_bottom",
+  "double_top",
+  "ema_bounce_200",
+  "fib_golden_pocket",
+  "fvg_fill",
+  "head_shoulders",
+  "ict_liquidity_sweep",
+  "keltner_reversi",
+  "level_bulat",
+  "macd_rsi_trendbreak",
+  "market_structure_shift",
+  "order_block_retest",
+  "pivot_reversal",
+  "rsi_divergence",
+  "smc_ob_fvg",
+  "squeeze_breakout",
+  "supertrend_flip",
+  "triangle_breakout",
+  "vp_tepi_value_area",
+  "vwap_reclaim",
+  "vwap_reversi_pita",
+  "wedge_breakout"
+ ],
  "ids": [
-  "<class 'lux_modul.strategi.indikator.EmaBounce200'>",
-  "<class 'lux_modul.strategi.indikator.MacdRsiTrendBreak'>",
-  "<class 'lux_modul.strategi.indikator.RsiDivergence'>",
-  "<class 'lux_modul.strategi.pola.CupAndHandle'>",
-  "<class 'lux_modul.strategi.pola.DoubleBottom'>",
-  "<class 'lux_modul.strategi.pola.DoubleTop'>",
-  "<class 'lux_modul.strategi.pola.HeadShoulders'>",
-  "<class 'lux_modul.strategi.pola.TriangleBreakout'>",
-  "<class 'lux_modul.strategi.pola.WedgeBreakout'>",
-  "<class 'lux_modul.strategi.struktur_modern.BreakoutVolume'>",
-  "<class 'lux_modul.strategi.struktur_modern.IctLiquiditySweep'>",
-  "<class 'lux_modul.strategi.struktur_modern.SmcOrderBlockFvg'>"
- ]
+  "<Strategi breaker_block [struktur_modern, multi-TF, ambang=65.0]>",
+  "<Strategi breakout_volume [struktur_modern, single-TF, ambang=59.0]>",
+  "<Strategi cup_and_handle [pola_klasik, single-TF, ambang=63.0]>",
+  "<Strategi donchian_breakout [volatilitas_rezim, multi-TF, ambang=60.0]>",
+  "<Strategi double_bottom [pola_klasik, single-TF, ambang=62.0]>",
+  "<Strategi double_top [pola_klasik, single-TF, ambang=62.0]>",
+  "<Strategi ema_bounce_200 [indikator_momentum, single-TF, ambang=58.0]>",
+  "<Strategi fib_golden_pocket [level_harga, multi-TF, ambang=63.0]>",
+  "<Strategi fvg_fill [struktur_modern, multi-TF, ambang=61.0]>",
+  "<Strategi head_shoulders [pola_klasik, single-TF, ambang=64.0]>",
+  "<Strategi ict_liquidity_sweep [struktur_modern, single-TF, ambang=62.0]>",
+  "<Strategi keltner_reversi [volatilitas_rezim, single-TF, ambang=61.0]>",
+  "<Strategi level_bulat [level_harga, single-TF, ambang=59.0]>",
+  "<Strategi macd_rsi_trendbreak [indikator_momentum, multi-TF, ambang=66.0]>",
+  "<Strategi market_structure_shift [struktur_modern, multi-TF, ambang=63.0]>",
+  "<Strategi order_block_retest [struktur_modern, multi-TF, ambang=62.0]>",
+  "<Strategi pivot_reversal [level_harga, single-TF, ambang=60.0]>",
+  "<Strategi rsi_divergence [indikator_momentum, single-TF, ambang=60.0]>",
+  "<Strategi smc_ob_fvg [struktur_modern, multi-TF, ambang=65.0]>",
+  "<Strategi squeeze_breakout [volatilitas_rezim, multi-TF, ambang=62.0]>",
+  "<Strategi supertrend_flip [volatilitas_rezim, multi-TF, ambang=60.0]>",
+  "<Strategi triangle_breakout [pola_klasik, single-TF, ambang=60.0]>",
+  "<Strategi vp_tepi_value_area [aliran_volume, single-TF, ambang=61.0]>",
+  "<Strategi vwap_reclaim [aliran_volume, single-TF, ambang=62.0]>",
+  "<Strategi vwap_reversi_pita [aliran_volume, single-TF, ambang=63.0]>",
+  "<Strategi wedge_breakout [pola_klasik, single-TF, ambang=61.0]>"
+ ],
+ "jalan_pengambilan_id": {
+  "_peta": {
+   "contoh": [
+    "breaker_block",
+    "breakout_volume",
+    "cup_and_handle",
+    "donchian_breakout",
+    "double_bottom"
+   ],
+   "jumlah": 26
+  },
+  "daftar": "GAGAL: Registry.daftar() missing 1 required positional argument: 's'",
+  "iterasi": "GAGAL: 'Registry' object is not iterable",
+  "semua": {
+   "contoh": [
+    "<Strategi breaker_block [struktur_modern, multi-TF, ambang=65.0]>",
+    "<Strategi breakout_volume [struktur_modern, single-TF, ambang=59.0]>",
+    "<Strategi cup_and_handle [pola_klasik, single-TF, ambang=63.0]>",
+    "<Strategi donchian_breakout [volatilitas_rezim, multi-TF, ambang=60.0]>",
+    "<Strategi double_bottom [pola_klasik, single-TF, ambang=62.0]>"
+   ],
+   "jumlah": 26
+  }
+ },
+ "jalan_terpilih": "semua",
+ "jumlah": 26,
+ "tambahan_di_rakitan": [
+  "<Strategi breaker_block [struktur_modern, multi-TF, ambang=65.0]>",
+  "<Strategi breakout_volume [struktur_modern, single-TF, ambang=59.0]>",
+  "<Strategi cup_and_handle [pola_klasik, single-TF, ambang=63.0]>",
+  "<Strategi donchian_breakout [volatilitas_rezim, multi-TF, ambang=60.0]>",
+  "<Strategi double_bottom [pola_klasik, single-TF, ambang=62.0]>",
+  "<Strategi double_top [pola_klasik, single-TF, ambang=62.0]>",
+  "<Strategi ema_bounce_200 [indikator_momentum, single-TF, ambang=58.0]>",
+  "<Strategi fib_golden_pocket [level_harga, multi-TF, ambang=63.0]>",
+  "<Strategi fvg_fill [struktur_modern, multi-TF, ambang=61.0]>",
+  "<Strategi head_shoulders [pola_klasik, single-TF, ambang=64.0]>",
+  "<Strategi ict_liquidity_sweep [struktur_modern, single-TF, ambang=62.0]>",
+  "<Strategi keltner_reversi [volatilitas_rezim, single-TF, ambang=61.0]>",
+  "<Strategi level_bulat [level_harga, single-TF, ambang=59.0]>",
+  "<Strategi macd_rsi_trendbreak [indikator_momentum, multi-TF, ambang=66.0]>",
+  "<Strategi market_structure_shift [struktur_modern, multi-TF, ambang=63.0]>",
+  "<Strategi order_block_retest [struktur_modern, multi-TF, ambang=62.0]>",
+  "<Strategi pivot_reversal [level_harga, single-TF, ambang=60.0]>",
+  "<Strategi rsi_divergence [indikator_momentum, single-TF, ambang=60.0]>",
+  "<Strategi smc_ob_fvg [struktur_modern, multi-TF, ambang=65.0]>",
+  "<Strategi squeeze_breakout [volatilitas_rezim, multi-TF, ambang=62.0]>",
+  "<Strategi supertrend_flip [volatilitas_rezim, multi-TF, ambang=60.0]>",
+  "<Strategi triangle_breakout [pola_klasik, single-TF, ambang=60.0]>",
+  "<Strategi vp_tepi_value_area [aliran_volume, single-TF, ambang=61.0]>",
+  "<Strategi vwap_reclaim [aliran_volume, single-TF, ambang=62.0]>",
+  "<Strategi vwap_reversi_pita [aliran_volume, single-TF, ambang=63.0]>",
+  "<Strategi wedge_breakout [pola_klasik, single-TF, ambang=61.0]>"
+ ],
+ "tipe_registry": "Registry"
 }
