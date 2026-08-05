@@ -1,0 +1,784 @@
+{
+ "base_ref": "8401b2327736a4cc5c588d211eb6911dde0842da",
+ "base_repo": "EnVyxS/lux-modul-trading",
+ "beda": [
+  {
+   "berkas_diff": "eksekusi__binance_client.py.diff",
+   "dipotong": false,
+   "hapus": 344,
+   "md5_base": "6c5bf57e",
+   "md5_fix": "9a63d13d",
+   "path": "eksekusi/binance_client.py",
+   "tambah": 105
+  },
+  {
+   "berkas_diff": "plugin.py.diff",
+   "dipotong": false,
+   "hapus": 300,
+   "md5_base": "066eb1dd",
+   "md5_fix": "5e8d3762",
+   "path": "plugin.py",
+   "tambah": 7
+  },
+  {
+   "berkas_diff": "eksekusi__order.py.diff",
+   "dipotong": false,
+   "hapus": 205,
+   "md5_base": "32aee520",
+   "md5_fix": "1b743f67",
+   "path": "eksekusi/order.py",
+   "tambah": 42
+  },
+  {
+   "berkas_diff": "kontrak.py.diff",
+   "dipotong": false,
+   "hapus": 164,
+   "md5_base": "ac5e85d4",
+   "md5_fix": "c9ef5b3b",
+   "path": "kontrak.py",
+   "tambah": 59
+  },
+  {
+   "berkas_diff": "eksekusi__ice_breaker.py.diff",
+   "dipotong": false,
+   "hapus": 141,
+   "md5_base": "ea5aa8b7",
+   "md5_fix": "0d178d41",
+   "path": "eksekusi/ice_breaker.py",
+   "tambah": 22
+  },
+  {
+   "berkas_diff": "eksekusi__kredensial.py.diff",
+   "dipotong": false,
+   "hapus": 93,
+   "md5_base": "78ffb174",
+   "md5_fix": "b779250d",
+   "path": "eksekusi/kredensial.py",
+   "tambah": 23
+  },
+  {
+   "berkas_diff": "__init__.py.diff",
+   "dipotong": false,
+   "hapus": 40,
+   "md5_base": "929eac69",
+   "md5_fix": "01e0fdbd",
+   "path": "__init__.py",
+   "tambah": 7
+  },
+  {
+   "berkas_diff": "eksekusi____init__.py.diff",
+   "dipotong": false,
+   "hapus": 32,
+   "md5_base": "4420e1fc",
+   "md5_fix": "d41d8cd9",
+   "path": "eksekusi/__init__.py",
+   "tambah": 0
+  }
+ ],
+ "catatan": "pohon fix adalah salinan main yang dipakai probe testnet p01-p11. Perbedaan di sini adalah KANDIDAT perbaikan, bukan otomatis perbaikan sah. Tiap berkas beda harus dinilai satu per satu sebelum dirakit.",
+ "fix_ref": "c1749202dc31be1f995485dfc5c549c077338ecf",
+ "fix_repo": "EnVyxS/uji-trading",
+ "hanya_base": [
+  "arbiter/__init__.py",
+  "arbiter/pemilih.py",
+  "backtest.py",
+  "backtest_portofolio.py",
+  "data/__init__.py",
+  "data/loader.py",
+  "data/plane.py",
+  "data/resample.py",
+  "eksekusi/biaya.py",
+  "eksekusi/mode.py",
+  "eksekusi/risiko.py",
+  "eksekusi/spesifikasi.py",
+  "fitur/__init__.py",
+  "fitur/dasar.py",
+  "fitur/lanjutan.py",
+  "fitur/store.py",
+  "fitur/struktur.py",
+  "governor.py",
+  "konfigurasi.py",
+  "live_runner.py",
+  "mesin_multi.py",
+  "notifikasi/__init__.py",
+  "notifikasi/telegram.py",
+  "pemindai/__init__.py",
+  "pemindai/likuiditas.py",
+  "pipeline.py",
+  "portofolio.py",
+  "rencana_tf.py",
+  "sintetis.py",
+  "strategi/__init__.py",
+  "strategi/adaptor.py",
+  "strategi/aliran_volume.py",
+  "strategi/basis.py",
+  "strategi/indikator.py",
+  "strategi/level_harga.py",
+  "strategi/pola.py",
+  "strategi/struktur_modern.py",
+  "strategi/struktur_plus.py",
+  "strategi/util.py",
+  "strategi/volatilitas.py"
+ ],
+ "hanya_fix": [],
+ "inventaris_akar_base": [
+  [
+   ".env.contoh",
+   6929
+  ],
+  [
+   ".gitignore",
+   540
+  ],
+  [
+   "ARSITEKTUR.md",
+   31422
+  ],
+  [
+   "AUDIT_LEVERAGE_PRESISI.md",
+   7019
+  ],
+  [
+   "AUDIT_TOTAL.md",
+   6602
+  ],
+  [
+   "CALON_STRATEGI.md",
+   3980
+  ],
+  [
+   "KONFIGURASI.md",
+   5579
+  ],
+  [
+   "LAPORAN_BACKTEST_95.md",
+   10111
+  ],
+  [
+   "LAPORAN_KESIAPAN.md",
+   1135
+  ],
+  [
+   "LAPORAN_PERBAIKAN.md",
+   2121
+  ],
+  [
+   "LOG_KESIAPAN.txt",
+   27143
+  ],
+  [
+   "LOG_PERBAIKAN.txt",
+   27146
+  ],
+  [
+   "README.md",
+   10377
+  ],
+  [
+   "REFERENSI.md",
+   5862
+  ],
+  [
+   "RESUME_PROMPT.md",
+   20426
+  ],
+  [
+   "STATE.md",
+   20529
+  ],
+  [
+   "TELEGRAM.md",
+   8519
+  ],
+  [
+   "main.py",
+   17749
+  ],
+  [
+   "requirements.txt",
+   71
+  ],
+  [
+   ".github/workflows/ab95.yml",
+   16473
+  ],
+  [
+   ".github/workflows/backtest95.yml",
+   6311
+  ],
+  [
+   ".github/workflows/backtest95_metrik.yml",
+   6911
+  ],
+  [
+   ".github/workflows/ci.yml",
+   4209
+  ],
+  [
+   ".github/workflows/kesiapan_live.yml",
+   4445
+  ],
+  [
+   ".github/workflows/perbaikan_menyeluruh.yml",
+   6229
+  ],
+  [
+   ".github/workflows/uji_testnet.yml",
+   2241
+  ],
+  [
+   "dashboard/index.html",
+   15124
+  ],
+  [
+   "tests/test_auto_entry_dua_mode.py",
+   3982
+  ],
+  [
+   "tests/test_backtest.py",
+   9894
+  ],
+  [
+   "tests/test_biaya.py",
+   3268
+  ],
+  [
+   "tests/test_binance_client.py",
+   5430
+  ],
+  [
+   "tests/test_inti.py",
+   10531
+  ],
+  [
+   "tests/test_konfigurasi.py",
+   9473
+  ],
+  [
+   "tests/test_konfigurasi_tf_simbol.py",
+   3121
+  ],
+  [
+   "tests/test_kredensial.py",
+   4429
+  ],
+  [
+   "tests/test_laju_dan_tp.py",
+   13702
+  ],
+  [
+   "tests/test_live_runner.py",
+   9024
+  ],
+  [
+   "tests/test_order_postonly.py",
+   3813
+  ],
+  [
+   "tests/test_pemindai.py",
+   9615
+  ],
+  [
+   "tests/test_portofolio.py",
+   2823
+  ],
+  [
+   "tests/test_portofolio_governor.py",
+   6723
+  ],
+  [
+   "tests/test_serialisasi_order.py",
+   3810
+  ],
+  [
+   "tests/test_spesifikasi.py",
+   9230
+  ],
+  [
+   "tests/test_strategi_arbiter.py",
+   10559
+  ],
+  [
+   "reports/.gitkeep",
+   20
+  ],
+  [
+   "reports/CATATAN_BACKTEST_1.md",
+   3482
+  ],
+  [
+   "reports/CATATAN_BACKTEST_2.md",
+   5110
+  ],
+  [
+   "reports/CATATAN_BACKTEST_3.md",
+   3234
+  ],
+  [
+   "reports/backtest_btc_kecil.json",
+   4861
+  ],
+  [
+   "reports/backtest_btc_kecil_v2.json",
+   3972
+  ],
+  [
+   "reports/backtest_kecil_v3.json",
+   6050
+  ],
+  [
+   "reports/btp_single_15m.json",
+   5039
+  ],
+  [
+   "reports/ci_terakhir.json",
+   231
+  ],
+  [
+   "reports/ci_terakhir.txt",
+   184
+  ],
+  [
+   "reports/keluaran_bracket_penuh.txt",
+   759
+  ],
+  [
+   "reports/keluaran_kondisional.txt",
+   778
+  ],
+  [
+   "reports/keluaran_sl_tp_posisi.txt",
+   44
+  ],
+  [
+   "reports/keluaran_smoke_testnet.txt",
+   775
+  ],
+  [
+   "reports/besar/RINGKASAN.json",
+   4439
+  ],
+  [
+   "reports/besar/bt95_multi_15m_ctx1h.json",
+   27160
+  ],
+  [
+   "reports/besar/bt95_multi_1h_ctx4h.json",
+   26476
+  ],
+  [
+   "reports/besar/bt95_single_15m.json",
+   25200
+  ],
+  [
+   "reports/besar/bt95_single_1h.json",
+   24987
+  ],
+  [
+   "reports/besar/bt95_single_5m.json",
+   25086
+  ],
+  [
+   "reports/besar/log_multi_15m_ctx1h.txt",
+   8865
+  ],
+  [
+   "reports/besar/log_multi_1h_ctx4h.txt",
+   9001
+  ],
+  [
+   "reports/besar/log_single_15m.txt",
+   11692
+  ],
+  [
+   "reports/besar/log_single_1h.txt",
+   1651
+  ],
+  [
+   "reports/besar/log_single_5m.txt",
+   1652
+  ],
+  [
+   "reports/testnet/diagnosa_kondisional.json",
+   1608
+  ],
+  [
+   "reports/testnet/hasil_bracket_penuh.json",
+   1095
+  ],
+  [
+   "reports/testnet/hasil_kondisional.json",
+   5050
+  ],
+  [
+   "reports/testnet/hasil_sl_tp_posisi.json",
+   161
+  ],
+  [
+   "reports/testnet/hasil_smoke.json",
+   3477
+  ],
+  [
+   "reports/besar95/RINGKASAN.json",
+   33393
+  ],
+  [
+   "reports/besar95/bt95m_multi_15m_ctx1h.json",
+   106903
+  ],
+  [
+   "reports/besar95/bt95m_multi_1h_ctx4h.json",
+   103500
+  ],
+  [
+   "reports/besar95/bt95m_single_15m.json",
+   92996
+  ],
+  [
+   "reports/besar95/bt95m_single_1h.json",
+   92443
+  ],
+  [
+   "reports/besar95/bt95m_single_5m.json",
+   94210
+  ],
+  [
+   "scripts/ab95.py",
+   25250
+  ],
+  [
+   "scripts/asap_e2e.py",
+   7552
+  ],
+  [
+   "scripts/asap_multi_e2e.py",
+   11296
+  ],
+  [
+   "scripts/audit_dataset.py",
+   7836
+  ],
+  [
+   "scripts/backtest_btc.py",
+   3918
+  ],
+  [
+   "scripts/bt95_metrik.py",
+   12044
+  ],
+  [
+   "scripts/bt_banyak.py",
+   9456
+  ],
+  [
+   "scripts/bt_portofolio.py",
+   3532
+  ],
+  [
+   "scripts/bt_satu.py",
+   3848
+  ],
+  [
+   "scripts/dashboard_data.py",
+   4641
+  ],
+  [
+   "scripts/demo_sintetis.py",
+   8589
+  ],
+  [
+   "scripts/diagnosa_kondisional.py",
+   5044
+  ],
+  [
+   "scripts/jalankan_uji.py",
+   3080
+  ],
+  [
+   "scripts/live_run.py",
+   10568
+  ],
+  [
+   "scripts/uji_bracket_penuh.py",
+   7585
+  ],
+  [
+   "scripts/uji_kondisional.py",
+   6659
+  ],
+  [
+   "scripts/uji_sl_tp_posisi.py",
+   7512
+  ],
+  [
+   "scripts/uji_testnet.py",
+   10645
+  ],
+  [
+   "lux_modul/__init__.py",
+   906
+  ],
+  [
+   "lux_modul/backtest.py",
+   21894
+  ],
+  [
+   "lux_modul/backtest_portofolio.py",
+   12581
+  ],
+  [
+   "lux_modul/governor.py",
+   11184
+  ],
+  [
+   "lux_modul/konfigurasi.py",
+   12303
+  ],
+  [
+   "lux_modul/kontrak.py",
+   9829
+  ],
+  [
+   "lux_modul/live_runner.py",
+   28106
+  ],
+  [
+   "lux_modul/mesin_multi.py",
+   21025
+  ],
+  [
+   "lux_modul/pipeline.py",
+   9529
+  ],
+  [
+   "lux_modul/plugin.py",
+   11364
+  ],
+  [
+   "lux_modul/portofolio.py",
+   6392
+  ],
+  [
+   "lux_modul/rencana_tf.py",
+   6115
+  ],
+  [
+   "lux_modul/sintetis.py",
+   4580
+  ],
+  [
+   "lux_modul/arbiter/__init__.py",
+   413
+  ],
+  [
+   "lux_modul/arbiter/pemilih.py",
+   5115
+  ],
+  [
+   "lux_modul/eksekusi/__init__.py",
+   794
+  ],
+  [
+   "lux_modul/eksekusi/biaya.py",
+   8105
+  ],
+  [
+   "lux_modul/eksekusi/binance_client.py",
+   25259
+  ],
+  [
+   "lux_modul/eksekusi/ice_breaker.py",
+   7720
+  ],
+  [
+   "lux_modul/eksekusi/kredensial.py",
+   5620
+  ],
+  [
+   "lux_modul/eksekusi/mode.py",
+   1857
+  ],
+  [
+   "lux_modul/eksekusi/order.py",
+   9902
+  ],
+  [
+   "lux_modul/eksekusi/risiko.py",
+   3988
+  ],
+  [
+   "lux_modul/eksekusi/spesifikasi.py",
+   18683
+  ],
+  [
+   "lux_modul/pemindai/__init__.py",
+   516
+  ],
+  [
+   "lux_modul/pemindai/likuiditas.py",
+   18506
+  ],
+  [
+   "lux_modul/notifikasi/__init__.py",
+   399
+  ],
+  [
+   "lux_modul/notifikasi/telegram.py",
+   10984
+  ],
+  [
+   "lux_modul/fitur/__init__.py",
+   602
+  ],
+  [
+   "lux_modul/fitur/dasar.py",
+   5950
+  ],
+  [
+   "lux_modul/fitur/lanjutan.py",
+   14050
+  ],
+  [
+   "lux_modul/fitur/store.py",
+   3999
+  ],
+  [
+   "lux_modul/fitur/struktur.py",
+   7151
+  ],
+  [
+   "lux_modul/strategi/__init__.py",
+   5362
+  ],
+  [
+   "lux_modul/strategi/adaptor.py",
+   3695
+  ],
+  [
+   "lux_modul/strategi/aliran_volume.py",
+   9128
+  ],
+  [
+   "lux_modul/strategi/basis.py",
+   7165
+  ],
+  [
+   "lux_modul/strategi/indikator.py",
+   14396
+  ],
+  [
+   "lux_modul/strategi/level_harga.py",
+   8855
+  ],
+  [
+   "lux_modul/strategi/pola.py",
+   26236
+  ],
+  [
+   "lux_modul/strategi/struktur_modern.py",
+   14380
+  ],
+  [
+   "lux_modul/strategi/struktur_plus.py",
+   10222
+  ],
+  [
+   "lux_modul/strategi/util.py",
+   3753
+  ],
+  [
+   "lux_modul/strategi/volatilitas.py",
+   8701
+  ],
+  [
+   "lux_modul/data/__init__.py",
+   425
+  ],
+  [
+   "lux_modul/data/loader.py",
+   4638
+  ],
+  [
+   "lux_modul/data/plane.py",
+   4400
+  ],
+  [
+   "lux_modul/data/resample.py",
+   1929
+  ],
+  [
+   "tools/cek_dokumen.py",
+   6423
+  ],
+  [
+   "tools/kesiapan_live.py",
+   11845
+  ],
+  [
+   "tools/patch1_binance_client.py",
+   18953
+  ],
+  [
+   "tools/patch2_live_runner.py",
+   6848
+  ],
+  [
+   "tools/patch3_mesin_multi.py",
+   7744
+  ],
+  [
+   "tools/patch4_hygiene.py",
+   9637
+  ],
+  [
+   "tools/patch5_dokumen.py",
+   2638
+  ],
+  [
+   "tools/verifikasi_repo.py",
+   8099
+  ],
+  [
+   "dataset_masuk/manifest.csv",
+   4470
+  ],
+  [
+   "dataset_masuk/btc/BTC_1d.csv",
+   10241
+  ],
+  [
+   "dataset_masuk/btc/BTC_4h.csv",
+   60294
+  ]
+ ],
+ "jumlah": {
+  "beda": 8,
+  "hanya_base": 40,
+  "hanya_fix": 0,
+  "py_base": 48,
+  "py_fix": 8,
+  "sama": 0
+ },
+ "lapisan_bersih": [
+  {
+   "baris": 703,
+   "byte": 32526,
+   "md5": "2d491d8c",
+   "path": "sumber_fix/modul/bersih/inti.py"
+  },
+  {
+   "baris": 0,
+   "byte": 0,
+   "md5": "d41d8cd9",
+   "path": "sumber_fix/modul/bersih/__init__.py"
+  },
+  {
+   "baris": 176,
+   "byte": 8179,
+   "md5": "745d9fdf",
+   "path": "sumber_fix/modul/proteksi.py"
+  }
+ ],
+ "requirements_base": "numpy==2.1.3\npandas==2.2.3\npyarrow==17.0.0\nPyYAML==6.0.2\npytest==8.3.3\n",
+ "sama": []
+}
