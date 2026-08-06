@@ -66,6 +66,11 @@
    "os",
    "subprocess"
   ],
+  "alat.buang_mati": [
+   "json",
+   "os",
+   "sys"
+  ],
   "alat.gerbang": [
    "json",
    "os",
@@ -975,6 +980,7 @@
  },
  "impor_dalam": {
   "alat.bedah_gabung": [],
+  "alat.buang_mati": [],
   "alat.gerbang": [
    "lux_modul.konfigurasi",
    "lux_modul.strategi"
@@ -1128,7 +1134,7 @@
   "tests.test_spesifikasi": [],
   "tests.test_strategi_arbiter": []
  },
- "modul_jumlah": 107,
+ "modul_jumlah": 108,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",

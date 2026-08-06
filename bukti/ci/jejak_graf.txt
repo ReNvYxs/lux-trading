@@ -1,5 +1,5 @@
 GRAF=LULUS
-modul_total=107
+modul_total=108
 modul_lux=52
 impor_rusak_modul=0
 nama_hilang_modul=0

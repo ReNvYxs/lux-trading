@@ -21,7 +21,7 @@ lux_modul/live_runner.py:363: in _periksa_entry_pending
     sl_order_id, tp_order_id = self._pasang_proteksi_pending(ep, oid, galat)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <lux_modul.live_runner.LiveRunner object at 0x7f24b6b7abd0>
+self = <lux_modul.live_runner.LiveRunner object at 0x7f5db98bbd90>
 ep = _EntryPending(order_id=1, simbol='BTCUSDT', arah='LONG', sl_price=49000.0, tp_price=51000.0, qty=0.01, entry_price=50000.0, dibuat_ms=0, skor=0.0, strategi='', setup_teks='')
 oid = 1, galat = []
 
@@ -53,7 +53,7 @@ lux_modul/live_runner.py:363: in _periksa_entry_pending
     sl_order_id, tp_order_id = self._pasang_proteksi_pending(ep, oid, galat)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <lux_modul.live_runner.LiveRunner object at 0x7f24b6826210>
+self = <lux_modul.live_runner.LiveRunner object at 0x7f5db97c2990>
 ep = _EntryPending(order_id=1, simbol='BTCUSDT', arah='LONG', sl_price=49000.0, tp_price=0.0, qty=0.01, entry_price=50000.0, dibuat_ms=0, skor=0.0, strategi='', setup_teks='')
 oid = 1, galat = []
 
@@ -72,5 +72,5 @@ lux_modul/live_runner.py:672: AttributeError
 =========================== short test summary info ============================
 FAILED tests/test_live_runner.py::test_entry_terisi_memasang_sl_dan_tp_lalu_lapor_notifier - AttributeError: 'LiveRunner' object has no attribute '_tidur'
 FAILED tests/test_live_runner.py::test_entry_tanpa_tp_hanya_kirim_sl - AttributeError: 'LiveRunner' object has no attribute '_tidur'
-2 failed, 270 passed in 22.61s
+2 failed, 270 passed in 44.07s
 rc_pytest=1
