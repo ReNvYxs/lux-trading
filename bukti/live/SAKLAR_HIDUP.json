@@ -27,18 +27,18 @@
   "qty_terisi": 0.0018,
   "aman_aktif": true,
   "sl_order_id_none": true,
-  "tp_order_id": 28518320620,
+  "tp_order_id": 28519209623,
   "siklus_order_sl": {
    "mode": "sl_dipantau_perangkat_lunak",
-   "sl_harga": 62599.5
+   "sl_harga": 62600.3
   },
   "siklus_galat": null,
   "open_orders": [
    {
-    "orderId": 28518320620,
+    "orderId": 28519209623,
     "type": "LIMIT",
     "side": "SELL",
-    "price": "66471.70",
+    "price": "66472.50",
     "stopPrice": "0",
     "origQty": "0.0018",
     "reduceOnly": true,
@@ -53,22 +53,44 @@
   "masih_dipantau": [
    "BTCUSDT"
   ],
-  "failsafe_gagal_terdeteksi": false,
-  "failsafe_posisi_ditutup": false,
+  "filter_harga_menolak": true,
+  "harga_di_luar_filter": {
+   "diterima": false,
+   "galat": {
+    "jenis": "BinanceAPIError",
+    "pesan": "BinanceAPIError(status=400, kode=-4002): Price greater than max price.",
+    "api_status": 400,
+    "api_kode": -4002,
+    "api_pesan": "Price greater than max price."
+   }
+  },
+  "failsafe_qty_sebelum": 0.0018,
+  "failsafe_gagal_terdeteksi": true,
+  "failsafe_posisi_ditutup": true,
+  "failsafe_tp_ditolak_kali": 1,
+  "failsafe_order_penutup": [
+   {
+    "type": "LIMIT",
+    "side": "SELL",
+    "timeInForce": "IOC",
+    "reduceOnly": true
+   }
+  ],
   "failsafe_detail": {
    "mode": "aman",
-   "gagal": null,
-   "posisi_ditutup": null,
+   "gagal": "TP gagal (-4120 Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.), posisi ditutup: bersih=True",
+   "posisi_ditutup": true,
    "failsafe": null,
    "failsafe_gagal": null
   },
+  "open_orders_pasca_failsafe": [],
   "bersih_akhir": true,
-  "vonis": "GAGAL"
+  "vonis": "LULUS"
  },
  "jejak": [
   {
    "tahap": "kredensial",
-   "utc": "2026-08-06T01:41:15Z",
+   "utc": "2026-08-06T01:44:49Z",
    "ringkas": {
     "mode": "testnet",
     "base_url": "https://testnet.binancefuture.com",
@@ -77,14 +99,14 @@
   },
   {
    "tahap": "koneksi",
-   "utc": "2026-08-06T01:41:16Z",
-   "saldo_usdt": 5027.360522,
-   "harga": 64535.6,
+   "utc": "2026-08-06T01:44:49Z",
+   "saldo_usdt": 5027.2666901,
+   "harga": 64536.4,
    "simbol": "BTCUSDT"
   },
   {
    "tahap": "uji_tipe_order",
-   "utc": "2026-08-06T01:41:16Z",
+   "utc": "2026-08-06T01:44:50Z",
    "tipe": "STOP_MARKET",
    "hasil": {
     "diterima": false,
@@ -99,7 +121,7 @@
   },
   {
    "tahap": "uji_tipe_order",
-   "utc": "2026-08-06T01:41:16Z",
+   "utc": "2026-08-06T01:44:50Z",
    "tipe": "TAKE_PROFIT_MARKET",
    "hasil": {
     "diterima": false,
@@ -114,31 +136,33 @@
   },
   {
    "tahap": "spek",
-   "utc": "2026-08-06T01:41:17Z",
+   "utc": "2026-08-06T01:44:51Z",
    "tick": 0.1,
    "step": 0.0001,
    "min_qty": 0.0001,
    "min_notional": 50.0,
+   "maks_harga_filter": 809484.0,
    "qty_uji": 0.0018,
-   "notional_uji": 116.16408
+   "notional_uji": 116.16552
   },
   {
    "tahap": "bersihkan",
-   "utc": "2026-08-06T01:41:17Z",
+   "utc": "2026-08-06T01:44:51Z",
    "alasan": "pra_uji",
    "sisa_awal": 0.0,
    "sisa_akhir": 0.0
   },
   {
    "tahap": "entry",
-   "utc": "2026-08-06T01:41:18Z",
+   "utc": "2026-08-06T01:44:52Z",
+   "label": "utama",
    "hasil": {
     "terisi": 0.0018,
     "sumber_qty": "executedQty",
     "status": "FILLED",
-    "avgPrice": "64536.300000",
-    "orderId": 28518319657,
-    "cid": "lxe8355e81e94d3b916205",
+    "avgPrice": "64540.500000",
+    "orderId": 28519208003,
+    "cid": "lx76d7b23a5d0f65120e0e",
     "hasil": "OK",
     "qty_minta": 0.0018,
     "parsial": false
@@ -146,43 +170,44 @@
   },
   {
    "tahap": "posisi_setelah_entry",
-   "utc": "2026-08-06T01:41:18Z",
+   "utc": "2026-08-06T01:44:52Z",
+   "label": "utama",
    "qty": 0.0018
   },
   {
    "tahap": "mode",
-   "utc": "2026-08-06T01:41:18Z",
+   "utc": "2026-08-06T01:44:52Z",
    "aman_aktif": true,
    "env": "aman"
   },
   {
    "tahap": "siklus",
-   "utc": "2026-08-06T01:41:18Z",
+   "utc": "2026-08-06T01:44:52Z",
    "bentuk": "SiklusHasil()"
   },
   {
    "tahap": "pasang_proteksi",
-   "utc": "2026-08-06T01:41:19Z",
+   "utc": "2026-08-06T01:44:53Z",
    "sl_order_id": null,
-   "tp_order_id": 28518320620,
-   "sl_harga": 62599.5,
-   "tp_harga": 66471.7,
+   "tp_order_id": 28519209623,
+   "sl_harga": 62600.3,
+   "tp_harga": 66472.5,
    "order_sl": {
     "mode": "sl_dipantau_perangkat_lunak",
-    "sl_harga": 62599.5
+    "sl_harga": 62600.3
    },
    "galat": null
   },
   {
    "tahap": "open_orders",
-   "utc": "2026-08-06T01:41:19Z",
+   "utc": "2026-08-06T01:44:53Z",
    "jumlah": 1,
    "order": [
     {
-     "orderId": 28518320620,
+     "orderId": 28519209623,
      "type": "LIMIT",
      "side": "SELL",
-     "price": "66471.70",
+     "price": "66472.50",
      "stopPrice": "0",
      "origQty": "0.0018",
      "reduceOnly": true,
@@ -194,27 +219,50 @@
   },
   {
    "tahap": "periksa_sl_aman",
-   "utc": "2026-08-06T01:41:20Z",
+   "utc": "2026-08-06T01:44:54Z",
    "galat": [],
    "masih_dipantau": [
     "BTCUSDT"
    ]
   },
   {
+   "tahap": "harga_di_luar_filter",
+   "utc": "2026-08-06T01:44:54Z",
+   "harga": 8094840.0,
+   "hasil": {
+    "diterima": false,
+    "galat": {
+     "jenis": "BinanceAPIError",
+     "pesan": "BinanceAPIError(status=400, kode=-4002): Price greater than max price.",
+     "api_status": 400,
+     "api_kode": -4002,
+     "api_pesan": "Price greater than max price."
+    }
+   }
+  },
+  {
    "tahap": "failsafe",
-   "utc": "2026-08-06T01:41:21Z",
-   "tp_mustahil": 645356.0,
+   "utc": "2026-08-06T01:44:57Z",
    "qty_sebelum": 0.0018,
-   "qty_sesudah": 0.0018,
-   "gagal": null,
-   "posisi_ditutup": null,
+   "qty_sesudah": 0.0,
+   "tp_ditolak_kali": 1,
+   "order_diteruskan": [
+    {
+     "type": "LIMIT",
+     "side": "SELL",
+     "timeInForce": "IOC",
+     "reduceOnly": true
+    }
+   ],
+   "gagal": "TP gagal (-4120 Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.), posisi ditutup: bersih=True",
+   "posisi_ditutup": true,
    "failsafe": null
   },
   {
    "tahap": "bersihkan",
-   "utc": "2026-08-06T01:41:21Z",
+   "utc": "2026-08-06T01:44:58Z",
    "alasan": "pasca_uji",
-   "sisa_awal": 0.0018,
+   "sisa_awal": 0.0,
    "sisa_akhir": 0.0
   }
  ]

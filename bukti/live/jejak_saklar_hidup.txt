@@ -1,34 +1,41 @@
 tahap=kredensial {"ringkas": {"mode": "testnet", "base_url": "https://testnet.binancefuture.com", "api_key_terlihat": "Yupu...pe"}}
-tahap=koneksi {"saldo_usdt": 5027.360522, "harga": 64535.6, "simbol": "BTCUSDT"}
+tahap=koneksi {"saldo_usdt": 5027.2666901, "harga": 64536.4, "simbol": "BTCUSDT"}
 tahap=uji_tipe_order {"tipe": "STOP_MARKET", "hasil": {"diterima": false, "galat": {"jenis": "BinanceAPIError", "pesan": "BinanceAPIError(status=400, kode=-4120): Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.", "api_status": 400, "api_kode": -4120, "api_pesan": "Order type not supported for this endpoint. Please use the Algo Order API endpoints instead."}}}
 tahap=uji_tipe_order {"tipe": "TAKE_PROFIT_MARKET", "hasil": {"diterima": false, "galat": {"jenis": "BinanceAPIError", "pesan": "BinanceAPIError(status=400, kode=-4120): Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.", "api_status": 400, "api_kode": -4120, "api_pesan": "Order type not supported for this endpoint. Please use the Algo Order API endpoints instead."}}}
-tahap=spek {"tick": 0.1, "step": 0.0001, "min_qty": 0.0001, "min_notional": 50.0, "qty_uji": 0.0018, "notional_uji": 116.16408}
+tahap=spek {"tick": 0.1, "step": 0.0001, "min_qty": 0.0001, "min_notional": 50.0, "maks_harga_filter": 809484.0, "qty_uji": 0.0018, "notional_uji": 116.16552}
 tahap=bersihkan {"alasan": "pra_uji", "sisa_awal": 0.0, "sisa_akhir": 0.0}
-tahap=entry {"hasil": {"terisi": 0.0018, "sumber_qty": "executedQty", "status": "FILLED", "avgPrice": "64536.300000", "orderId": 28518319657, "cid": "lxe8355e81e94d3b916205", "hasil": "OK", "qty_minta": 0.0018, "parsial": false}}
-tahap=posisi_setelah_entry {"qty": 0.0018}
+tahap=entry {"label": "utama", "hasil": {"terisi": 0.0018, "sumber_qty": "executedQty", "status": "FILLED", "avgPrice": "64540.500000", "orderId": 28519208003, "cid": "lx76d7b23a5d0f65120e0e", "hasil": "OK", "qty_minta": 0.0018, "parsial": false}}
+tahap=posisi_setelah_entry {"label": "utama", "qty": 0.0018}
 tahap=mode {"aman_aktif": true, "env": "aman"}
 tahap=siklus {"bentuk": "SiklusHasil()"}
-tahap=pasang_proteksi {"sl_order_id": null, "tp_order_id": 28518320620, "sl_harga": 62599.5, "tp_harga": 66471.7, "order_sl": {"mode": "sl_dipantau_perangkat_lunak", "sl_harga": 62599.5}, "galat": null}
-tahap=open_orders {"jumlah": 1, "order": [{"orderId": 28518320620, "type": "LIMIT", "side": "SELL", "price": "66471.70", "stopPrice": "0", "origQty": "0.0018", "reduceOnly": true, "closePosition": false, "timeInForce": "GTC", "status": "NEW"}]}
+tahap=pasang_proteksi {"sl_order_id": null, "tp_order_id": 28519209623, "sl_harga": 62600.3, "tp_harga": 66472.5, "order_sl": {"mode": "sl_dipantau_perangkat_lunak", "sl_harga": 62600.3}, "galat": null}
+tahap=open_orders {"jumlah": 1, "order": [{"orderId": 28519209623, "type": "LIMIT", "side": "SELL", "price": "66472.50", "stopPrice": "0", "origQty": "0.0018", "reduceOnly": true, "closePosition": false, "timeInForce": "GTC", "status": "NEW"}]}
 tahap=periksa_sl_aman {"galat": [], "masih_dipantau": ["BTCUSDT"]}
-tahap=failsafe {"tp_mustahil": 645356.0, "qty_sebelum": 0.0018, "qty_sesudah": 0.0018, "gagal": null, "posisi_ditutup": null, "failsafe": null}
-tahap=bersihkan {"alasan": "pasca_uji", "sisa_awal": 0.0018, "sisa_akhir": 0.0}
-SAKLAR_HIDUP=GAGAL
+tahap=harga_di_luar_filter {"harga": 8094840.0, "hasil": {"diterima": false, "galat": {"jenis": "BinanceAPIError", "pesan": "BinanceAPIError(status=400, kode=-4002): Price greater than max price.", "api_status": 400, "api_kode": -4002, "api_pesan": "Price greater than max price."}}}
+tahap=failsafe {"qty_sebelum": 0.0018, "qty_sesudah": 0.0, "tp_ditolak_kali": 1, "order_diteruskan": [{"type": "LIMIT", "side": "SELL", "timeInForce": "IOC", "reduceOnly": true}], "gagal": "TP gagal (-4120 Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.), posisi ditutup: bersih=True", "posisi_ditutup": true, "failsafe": null}
+tahap=bersihkan {"alasan": "pasca_uji", "sisa_awal": 0.0, "sisa_akhir": 0.0}
+SAKLAR_HIDUP=LULUS
 stop_order_ditolak=true
 posisi_terbuka=true
 qty_terisi=0.0018
 aman_aktif=true
 sl_order_id_none=true
-tp_order_id=28518320620
+tp_order_id=28519209623
 tp_terlihat_limit_reduceonly=true
 ada_tipe_stop_di_bursa=false
 periksa_sl_galat=[]
 masih_dipantau=["BTCUSDT"]
-failsafe_gagal_terdeteksi=false
-failsafe_posisi_ditutup=false
+filter_harga_menolak=true
+failsafe_qty_sebelum=0.0018
+failsafe_tp_ditolak_kali=1
+failsafe_gagal_terdeteksi=true
+failsafe_posisi_ditutup=true
 bersih_akhir=true
-siklus_order_sl={"mode": "sl_dipantau_perangkat_lunak", "sl_harga": 62599.5}
-failsafe_detail={"mode": "aman", "gagal": null, "posisi_ditutup": null, "failsafe": null, "failsafe_gagal": null}
-open_orders=[{"orderId": 28518320620, "type": "LIMIT", "side": "SELL", "price": "66471.70", "stopPrice": "0", "origQty": "0.0018", "reduceOnly": true, "closePosition": false, "timeInForce": "GTC", "status": "NEW"}]
+siklus_order_sl={"mode": "sl_dipantau_perangkat_lunak", "sl_harga": 62600.3}
+failsafe_detail={"mode": "aman", "gagal": "TP gagal (-4120 Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.), posisi ditutup: bersih=True", "posisi_ditutup": true, "failsafe": null, "failsafe_gagal": null}
+failsafe_order_penutup=[{"type": "LIMIT", "side": "SELL", "timeInForce": "IOC", "reduceOnly": true}]
+harga_di_luar_filter={"diterima": false, "galat": {"jenis": "BinanceAPIError", "pesan": "BinanceAPIError(status=400, kode=-4002): Price greater than max price.", "api_status": 400, "api_kode": -4002, "api_pesan": "Price greater than max price."}}
+open_orders=[{"orderId": 28519209623, "type": "LIMIT", "side": "SELL", "price": "66472.50", "stopPrice": "0", "origQty": "0.0018", "reduceOnly": true, "closePosition": false, "timeInForce": "GTC", "status": "NEW"}]
+open_orders_pasca_failsafe=[]
 uji_tipe_order={"STOP_MARKET": {"diterima": false, "galat": {"jenis": "BinanceAPIError", "pesan": "BinanceAPIError(status=400, kode=-4120): Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.", "api_status": 400, "api_kode": -4120, "api_pesan": "Order type not supported for this endpoint. Please use the Algo Order API endpoints instead."}}, "TAKE_PROFIT_MARKET": {"diterima": false, "galat": {"jenis": "BinanceAPIError", "pesan": "BinanceAPIError(status=400, kode=-4120): Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.", "api_status": 400, "api_kode": -4120, "api_pesan": "Order type not supported for this endpoint. Please use the Algo Order API endpoints instead."}}}
-rc=1
+rc=0
