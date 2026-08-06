@@ -7,9 +7,15 @@ inti OK, simbol publik= 20
 ['ARAH_LONG', 'ARAH_SHORT', 'DataPasar', 'Entry', 'GagalProteksi', 'KODE_CID_DUPLIKAT', 'KODE_ORDER_TIDAK_ADA', 'KODE_PERMANEN', 'KebijakanRisiko', 'KontrakEksekutor', 'PengirimOrder', 'Proteksi', 'SpekSimbol', 'TolakUkuran', 'buat_cid', 'hashlib', 'hitung_ukuran', 'jalankan_siklus', 'math', 'time']
 rc_inti=0
 
-proteksi OK, simbol publik= 3
-['GagalProteksi', 'PenjagaProteksi', 'time']
-rc_proteksi=0
+saklar OK, mode bawaan= otomatis mode dikenal= ('lama', 'aman', 'otomatis')
+rc_saklar=0
+
+=== jahitan saklar di live_runner ===
+live_runner OK
+punya_pasang_proteksi= True
+punya_periksa_sl_aman= True
+punya_pulihkan= True
+rc_jahitan=0
 
 === registry strategi (introspeksi) ===
 {

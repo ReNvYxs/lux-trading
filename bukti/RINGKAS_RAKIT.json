@@ -60,7 +60,7 @@
   "=========================== short test summary info ============================",
   "FAILED tests/test_live_runner.py::test_entry_terisi_memasang_sl_dan_tp_lalu_lapor_notifier - AttributeError: 'LiveRunner' object has no attribute '_tidur'",
   "FAILED tests/test_live_runner.py::test_entry_tanpa_tp_hanya_kirim_sl - AttributeError: 'LiveRunner' object has no attribute '_tidur'",
-  "2 failed, 270 passed in 44.07s",
+  "2 failed, 270 passed in 33.25s",
   "rc_pytest=1"
  ]
 }
