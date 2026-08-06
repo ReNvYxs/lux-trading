@@ -1,4 +1,2 @@
-jangkar_jumlah=1
-ENV=SELESAI
-panjang=8737
+ENV=SUDAH_ADA
 rc=0
