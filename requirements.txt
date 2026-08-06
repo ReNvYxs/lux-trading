@@ -1,5 +1,12 @@
+# Dependensi runtime dan uji, dipin untuk CI.
+#
+# Diringkas 6 Agu 2026. Dasarnya bukan perkiraan: alat/impor_dalam.py membaca
+# 103 modul di lux_modul/, scripts/, tests/, dan alat/ pada SELURUH kedalaman
+# (impor tingkat atas maupun impor di dalam fungsi/try) dan melaporkan
+# pandas, pyarrow, dan PyYAML sebagai TIDAK_DIPAKAI. Bukti:
+#   bukti/ci/IMPOR_DALAM.json
+#   bukti/ci/jejak_impor_dalam.txt
+# Konektor Binance dan notifier Telegram memakai urllib dari pustaka standar,
+# jadi tidak ada dependensi HTTP pihak ketiga sama sekali.
 numpy==2.1.3
-pandas==2.2.3
-pyarrow==17.0.0
-PyYAML==6.0.2
 pytest==8.3.3
