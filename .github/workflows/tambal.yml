@@ -5,6 +5,7 @@ on:
     paths:
       - 'alat/pasang_v2.py'
       - 'alat/pasang_env.py'
+      - 'alat/buang_mati.py'
       - '.github/workflows/tambal.yml'
   workflow_dispatch:
 permissions:
@@ -47,6 +48,14 @@ jobs:
           python3 alat/pasang_env.py 2>&1 | tee bukti/tambal/jejak_env.txt
           echo "rc=${PIPESTATUS[0]}" | tee -a bukti/tambal/jejak_env.txt
 
+      - name: buang berkas mati
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/tambal
+          set +e
+          python3 alat/buang_mati.py 2>&1 | tee bukti/tambal/jejak_buang.txt
+          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/tambal/jejak_buang.txt
+
       - name: kompilasi ulang seluruh pohon
         continue-on-error: true
         run: |
@@ -63,7 +72,7 @@ jobs:
           git config user.name "tambal-bot"
           git config user.email "tambal-bot@users.noreply.github.com"
           git add -A -f bukti lux_modul alat .env.contoh || true
-          git commit -q -m "[tambal] saklar otomatis, pemulihan, koreksi dokumen $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
+          git commit -q -m "[tambal] saklar otomatis, pemulihan, buang berkas mati $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
           for i in 1 2 3 4 5; do
             git pull --rebase --autostash -q && git push -q && break
             echo "push ulang percobaan $i"
@@ -76,5 +85,6 @@ jobs:
           KODE=0
           grep -q "^rc=0$" bukti/tambal/jejak_tambal.txt || KODE=1
           grep -q "^rc=0$" bukti/tambal/jejak_env.txt || KODE=1
+          grep -q "^rc=0$" bukti/tambal/jejak_buang.txt || KODE=1
           grep -q "^rc=0$" bukti/tambal/jejak_kompilasi.txt || KODE=1
           exit $KODE
