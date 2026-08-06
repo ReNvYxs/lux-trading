@@ -1,0 +1,19 @@
+KONTRAK_KLIEN=LULUS
+kelas_klien=BinanceFuturesClient
+kelas_di_modul=["BinanceAPIError", "BinanceFuturesClient", "PengaturLaju"]
+butuh_jumlah=9
+butuh=["_permintaan", "batalkan_semua_order", "bid_ask_terbaik", "exchange_info", "harga_sekarang", "kirim_order", "posisi", "saldo_usdt", "status_order"]
+ada=["_permintaan", "batalkan_semua_order", "bid_ask_terbaik", "exchange_info", "harga_sekarang", "kirim_order", "posisi", "saldo_usdt", "status_order"]
+hilang=[]
+galat_impor=null
+BinanceAPIError_tanda_tangan="(status: 'Optional[int]', kode: 'Optional[int]', pesan: 'str', payload: 'Optional[Dict[str, Any]]' = None) -> 'None'"
+metode=_permintaan(self, method: 'str', path: 'str', params: 'Optional[Dict[str, Any]]' = None, signed: 'bool' = False) -> 'Any'
+metode=batalkan_semua_order(self, simbol: 'str') -> 'Dict[str, Any]'
+metode=bid_ask_terbaik(self, simbol: 'str') -> 'Dict[str, float]'
+metode=exchange_info(self, simbol: 'Optional[str]' = None, ttl_detik: 'float' = 3600.0) -> 'Dict[str, Any]'
+metode=harga_sekarang(self, simbol: 'str') -> 'float'
+metode=kirim_order(self, payload: 'Dict[str, Any]') -> 'Dict[str, Any]'
+metode=posisi(self, simbol: 'Optional[str]' = None) -> 'List[Dict[str, Any]]'
+metode=saldo_usdt(self) -> 'float'
+metode=status_order(self, simbol: 'str', order_id: 'Optional[int]' = None, orig_client_order_id: 'Optional[str]' = None) -> 'Dict[str, Any]'
+rc=0

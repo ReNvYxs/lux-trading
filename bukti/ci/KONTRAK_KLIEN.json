@@ -1,0 +1,133 @@
+{
+ "BinanceAPIError": {
+  "atribut": [
+   "add_note",
+   "args",
+   "with_traceback"
+  ],
+  "tanda_tangan": "(status: 'Optional[int]', kode: 'Optional[int]', pesan: 'str', payload: 'Optional[Dict[str, Any]]' = None) -> 'None'"
+ },
+ "ada": [
+  "_permintaan",
+  "batalkan_semua_order",
+  "bid_ask_terbaik",
+  "exchange_info",
+  "harga_sekarang",
+  "kirim_order",
+  "posisi",
+  "saldo_usdt",
+  "status_order"
+ ],
+ "butuh_dari_klien": {
+  "_permintaan": 5,
+  "batalkan_semua_order": 2,
+  "bid_ask_terbaik": 3,
+  "exchange_info": 1,
+  "harga_sekarang": 2,
+  "kirim_order": 3,
+  "posisi": 3,
+  "saldo_usdt": 1,
+  "status_order": 1
+ },
+ "butuh_nama": [
+  "_permintaan",
+  "batalkan_semua_order",
+  "bid_ask_terbaik",
+  "exchange_info",
+  "harga_sekarang",
+  "kirim_order",
+  "posisi",
+  "saldo_usdt",
+  "status_order"
+ ],
+ "galat_impor": null,
+ "hilang": [],
+ "kelas_di_modul": [
+  "BinanceAPIError",
+  "BinanceFuturesClient",
+  "PengaturLaju"
+ ],
+ "kelas_klien": "BinanceFuturesClient",
+ "lulus": true,
+ "per_berkas": {
+  "lux_modul/eksekusi_aman/__init__.py": {},
+  "lux_modul/eksekusi_aman/inti.py": {
+   "data": {
+    "bid_ask": 2,
+    "mark": 2
+   },
+   "klien": {
+    "_permintaan": 4,
+    "batalkan_semua_order": 1,
+    "bid_ask_terbaik": 3,
+    "exchange_info": 1,
+    "harga_sekarang": 1,
+    "kirim_order": 1,
+    "posisi": 2,
+    "saldo_usdt": 1,
+    "status_order": 1
+   },
+   "pengirim": {
+    "baca_status": 1,
+    "kirim": 4
+   },
+   "spek": {
+    "bulat_harga": 3,
+    "maks_qty": 2,
+    "min_notional": 3,
+    "min_qty": 3,
+    "naik_harga": 2,
+    "step": 1,
+    "turun_harga": 2,
+    "turun_qty": 4
+   }
+  },
+  "lux_modul/eksekusi_aman/proteksi.py": {
+   "klien": {
+    "_permintaan": 1,
+    "batalkan_semua_order": 1,
+    "harga_sekarang": 1,
+    "kirim_order": 2,
+    "posisi": 1
+   }
+  }
+ },
+ "rinci_metode": {
+  "_permintaan": {
+   "jenis": "metode",
+   "tanda_tangan": "(self, method: 'str', path: 'str', params: 'Optional[Dict[str, Any]]' = None, signed: 'bool' = False) -> 'Any'"
+  },
+  "batalkan_semua_order": {
+   "jenis": "metode",
+   "tanda_tangan": "(self, simbol: 'str') -> 'Dict[str, Any]'"
+  },
+  "bid_ask_terbaik": {
+   "jenis": "metode",
+   "tanda_tangan": "(self, simbol: 'str') -> 'Dict[str, float]'"
+  },
+  "exchange_info": {
+   "jenis": "metode",
+   "tanda_tangan": "(self, simbol: 'Optional[str]' = None, ttl_detik: 'float' = 3600.0) -> 'Dict[str, Any]'"
+  },
+  "harga_sekarang": {
+   "jenis": "metode",
+   "tanda_tangan": "(self, simbol: 'str') -> 'float'"
+  },
+  "kirim_order": {
+   "jenis": "metode",
+   "tanda_tangan": "(self, payload: 'Dict[str, Any]') -> 'Dict[str, Any]'"
+  },
+  "posisi": {
+   "jenis": "metode",
+   "tanda_tangan": "(self, simbol: 'Optional[str]' = None) -> 'List[Dict[str, Any]]'"
+  },
+  "saldo_usdt": {
+   "jenis": "metode",
+   "tanda_tangan": "(self) -> 'float'"
+  },
+  "status_order": {
+   "jenis": "metode",
+   "tanda_tangan": "(self, simbol: 'str', order_id: 'Optional[int]' = None, orig_client_order_id: 'Optional[str]' = None) -> 'Dict[str, Any]'"
+  }
+ }
+}
