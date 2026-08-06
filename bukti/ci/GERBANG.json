@@ -1,0 +1,70 @@
+{
+ "baseline_ada": false,
+ "baseline_dibuat": true,
+ "kini": {
+  "impor": {
+   "lux_modul": "OK",
+   "lux_modul.backtest": "OK",
+   "lux_modul.eksekusi_aman.inti": "OK",
+   "lux_modul.eksekusi_aman.proteksi": "OK",
+   "lux_modul.konfigurasi": "OK",
+   "lux_modul.kontrak": "OK",
+   "lux_modul.plugin": "OK",
+   "lux_modul.strategi": "OK"
+  },
+  "konfigurasi": {
+   "balance": "(tarik dari akun)",
+   "horizon": "intraday",
+   "interval_poll": "15.0",
+   "leverage_maks": "20.0",
+   "maks_posisi": "4",
+   "maks_runner": "120",
+   "maks_siklus": "tak terbatas",
+   "margin_konflik": "5.0",
+   "min_free_margin_pct": "0.3",
+   "porsi_margin_maks": "0.5",
+   "simbol": "(pindai pasar dinamis)",
+   "telegram": "{'aktif': True, 'token': '(kosong)', 'chat_id': '(kosong)'}",
+   "tf_entry": "(dari strategi)",
+   "tf_konteks": "(dari strategi)"
+  },
+  "pytest": {
+   "ada": true,
+   "dilewati": 0,
+   "gagal": 0,
+   "galat": 0,
+   "lulus": 242,
+   "rc": 0
+  },
+  "registry_id": [
+   "breaker_block",
+   "breakout_volume",
+   "cup_and_handle",
+   "donchian_breakout",
+   "double_bottom",
+   "double_top",
+   "ema_bounce_200",
+   "fib_golden_pocket",
+   "fvg_fill",
+   "head_shoulders",
+   "ict_liquidity_sweep",
+   "keltner_reversi",
+   "level_bulat",
+   "macd_rsi_trendbreak",
+   "market_structure_shift",
+   "order_block_retest",
+   "pivot_reversal",
+   "rsi_divergence",
+   "smc_ob_fvg",
+   "squeeze_breakout",
+   "supertrend_flip",
+   "triangle_breakout",
+   "vp_tepi_value_area",
+   "vwap_reclaim",
+   "vwap_reversi_pita",
+   "wedge_breakout"
+  ]
+ },
+ "masalah": [],
+ "vonis": "LULUS"
+}

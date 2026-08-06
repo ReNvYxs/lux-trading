@@ -28,7 +28,7 @@
   "tests",
   "tools"
  ],
- "base_ref": "8401b2327736a4cc5c588d211eb6911dde0842da",
+ "base_ref": null,
  "berkas": {
   "dataset_masuk_total": 3,
   "py_lux_modul": 51,
@@ -36,7 +36,7 @@
   "py_tests": 17,
   "py_tools": 8
  },
- "fix_ref": "c1749202dc31be1f995485dfc5c549c077338ecf",
+ "fix_ref": null,
  "kebersihan": {
   "ada_eksekusi_aman": true,
   "ada_env_contoh": true,
@@ -45,6 +45,7 @@
   "sisa_sumber_base": false,
   "sisa_sumber_fix": false,
   "workflow_sumber_ikut": [
+   "ci.yml",
    "kontrak.yml",
    "rakit.yml",
    "teori.yml",
@@ -56,7 +57,7 @@
   "........................................................................ [ 59%]",
   "........................................................................ [ 89%]",
   "..........................                                               [100%]",
-  "242 passed in 40.82s",
+  "242 passed in 42.73s",
   "rc_pytest=0"
  ]
 }
