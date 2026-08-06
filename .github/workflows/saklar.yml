@@ -1,0 +1,49 @@
+name: saklar
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'alat/pasang_saklar.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: saklar
+  cancel-in-progress: false
+env:
+  GIT_TERMINAL_PROMPT: '0'
+jobs:
+  pasang:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: pasang saklar
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/saklar
+          set +e
+          python3 alat/pasang_saklar.py 2>&1 | tee bukti/saklar/jejak_pasang.txt
+          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/saklar/jejak_pasang.txt
+
+      - name: rekam
+        if: always()
+        run: |
+          git config user.name "saklar-bot"
+          git config user.email "saklar-bot@users.noreply.github.com"
+          git add -A -f bukti lux_modul || true
+          git commit -q -m "[saklar] pasang saklar LUX_EKSEKUSI di live_runner $GITHUB_SHA" || echo "tidak ada perubahan"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash -q && git push -q && break
+            echo "push ulang percobaan $i"
+            sleep 5
+          done
+
+      - name: vonis
+        if: always()
+        run: |
+          grep -q "^rc=0$" bukti/saklar/jejak_pasang.txt || exit 1
