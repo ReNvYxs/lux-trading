@@ -7,8 +7,14 @@ Yang dibuktikan di bursa sungguhan (Binance Futures Testnet):
    yang TERLIHAT di openOrders.
 3. Apakah sl_order_id memang None dan SL hidup sebagai pemantau perangkat lunak.
 4. Apakah _periksa_sl_aman() jalan terhadap data pasar sungguhan.
-5. Apakah kegagalan proteksi benar-benar MENUTUP posisi (fail-safe), bukan
-   sekadar mencatat string seperti jalur lama.
+5. Apakah kegagalan proteksi benar-benar MENUTUP posisi (fail-safe).
+
+Catatan v2. Uji negatif v1 memakai TP 10x harga dan TERNYATA DITERIMA bursa,
+sehingga kegagalan tidak pernah terpicu dan fail-safe tidak teruji. v2 memakai
+dua jalur: (a) harga di atas maxPrice PRICE_FILTER untuk melihat penolakan
+nyata bursa, dan (b) injeksi -4120 khusus pada order TP (LIMIT reduceOnly GTC)
+lewat pembungkus klien, sementara penutupan posisi tetap menembak bursa asli.
+Jalur (b) membuktikan fail-safe menutup POSISI SUNGGUHAN.
 
 Kredensial testnet diizinkan eksplisit oleh pemilik akun untuk dipakai dan
 terbuka; kunci akan dirotasi setelah audit. Base URL TIDAK ditulis di sini -
@@ -53,6 +59,27 @@ def galat_dict(exc):
     return d
 
 
+def maks_harga_filter(info, simbol):
+    daftar = info.get("symbols") if isinstance(info, dict) else None
+    sim = None
+    if isinstance(daftar, list):
+        for s in daftar:
+            if s.get("symbol") == simbol:
+                sim = s
+                break
+    elif isinstance(info, dict) and info.get("symbol") == simbol:
+        sim = info
+    if not sim:
+        return None
+    for f in sim.get("filters", []) or []:
+        if f.get("filterType") == "PRICE_FILTER":
+            try:
+                return float(f.get("maxPrice"))
+            except Exception:  # noqa: BLE001
+                return None
+    return None
+
+
 def main():
     os.environ["LUX_BINANCE_TESTNET_API_KEY"] = base64.b64decode(KUNCI_B64).decode()
     os.environ["LUX_BINANCE_TESTNET_API_SECRET"] = base64.b64decode(RAHASIA_B64).decode()
@@ -63,12 +90,7 @@ def main():
     from lux_modul.eksekusi.kredensial import MODE_TESTNET, muat_kredensial
     from lux_modul.eksekusi.order import KebijakanOrder, payload_sl, payload_tp_market
     from lux_modul.kontrak import ARAH_LONG
-    from lux_modul.eksekusi_aman.inti import (
-        DataPasar,
-        Entry,
-        PengirimOrder,
-        SpekSimbol,
-    )
+    from lux_modul.eksekusi_aman.inti import DataPasar, Entry, PengirimOrder, SpekSimbol
     from lux_modul.eksekusi_aman.saklar import aman_aktif, pasang_proteksi_aman
     import lux_modul.live_runner as lr
 
@@ -95,9 +117,7 @@ def main():
         except Exception as exc:  # noqa: BLE001
             uji_tipe[nama] = {"diterima": False, "galat": galat_dict(exc)}
         catat("uji_tipe_order", tipe=nama, hasil=uji_tipe[nama])
-    VONIS["stop_order_ditolak"] = not any(
-        uji_tipe[n].get("diterima") for n in uji_tipe
-    )
+    VONIS["stop_order_ditolak"] = not any(uji_tipe[n].get("diterima") for n in uji_tipe)
     VONIS["uji_tipe_order"] = uji_tipe
 
     # ---------------------------------------------------------------- #
@@ -105,6 +125,7 @@ def main():
     # ---------------------------------------------------------------- #
     info = klien.exchange_info(SIMBOL)
     spek = SpekSimbol.dari_exchange_info(info, SIMBOL)
+    maks_harga = maks_harga_filter(info, SIMBOL)
     qty = spek.turun_qty(NOTIONAL_UJI / harga)
     penjaga = 0
     while qty * harga < spek.min_notional and penjaga < 500:
@@ -118,6 +139,7 @@ def main():
         step=spek.step,
         min_qty=spek.min_qty,
         min_notional=spek.min_notional,
+        maks_harga_filter=maks_harga,
         qty_uji=qty,
         notional_uji=qty * harga,
     )
@@ -156,28 +178,32 @@ def main():
         catat("bersihkan", alasan=alasan, sisa_awal=sisa, sisa_akhir=akhir)
         return akhir
 
+    def buka_posisi(label):
+        ember = int(time.time() * 1000) % 100000000
+        try:
+            h = entry.kirim_entry(ARAH_LONG, qty, ember)
+            catat("entry", label=label, hasil=h)
+        except Exception as exc:  # noqa: BLE001
+            catat("entry_galat", label=label, galat=galat_dict(exc))
+        q = qty_posisi()
+        if abs(q) <= 0:
+            try:
+                h2 = entry.kirim_entry(ARAH_LONG, qty, ember + 1, agresivitas=0.01)
+                catat("entry_ulang", label=label, hasil=h2)
+            except Exception as exc:  # noqa: BLE001
+                catat("entry_ulang_galat", label=label, galat=galat_dict(exc))
+            q = qty_posisi()
+        catat("posisi_setelah_entry", label=label, qty=q)
+        return q
+
     bersihkan("pra_uji")
 
     # ---------------------------------------------------------------- #
     # 3. Buka posisi memakai lapisan aman (Entry)
     # ---------------------------------------------------------------- #
-    ember = int(time.time())
-    try:
-        hasil_entry = entry.kirim_entry(ARAH_LONG, qty, ember)
-        catat("entry", hasil=hasil_entry)
-    except Exception as exc:  # noqa: BLE001
-        catat("entry_galat", galat=galat_dict(exc))
-    terisi = qty_posisi()
-    if abs(terisi) <= 0:
-        try:
-            hasil_entry2 = entry.kirim_entry(ARAH_LONG, qty, ember + 1, agresivitas=0.01)
-            catat("entry_ulang", hasil=hasil_entry2)
-        except Exception as exc:  # noqa: BLE001
-            catat("entry_ulang_galat", galat=galat_dict(exc))
-        terisi = qty_posisi()
+    terisi = buka_posisi("utama")
     VONIS["posisi_terbuka"] = abs(terisi) > 0
     VONIS["qty_terisi"] = terisi
-    catat("posisi_setelah_entry", qty=terisi)
     if abs(terisi) <= 0:
         VONIS["vonis"] = "GAGAL_ENTRY"
         return 1
@@ -250,27 +276,31 @@ def main():
     # ---------------------------------------------------------------- #
     # 6. Bukti independen: TP terlihat di openOrders bursa
     # ---------------------------------------------------------------- #
-    try:
-        terbuka = klien._permintaan("GET", "/fapi/v1/openOrders", {"symbol": SIMBOL}, True)
-    except Exception as exc:  # noqa: BLE001
-        terbuka = []
-        catat("open_orders_galat", galat=galat_dict(exc))
-    ringkas_order = []
-    for o in terbuka or []:
-        ringkas_order.append(
-            {
-                "orderId": o.get("orderId"),
-                "type": o.get("type"),
-                "side": o.get("side"),
-                "price": o.get("price"),
-                "stopPrice": o.get("stopPrice"),
-                "origQty": o.get("origQty"),
-                "reduceOnly": o.get("reduceOnly"),
-                "closePosition": o.get("closePosition"),
-                "timeInForce": o.get("timeInForce"),
-                "status": o.get("status"),
-            }
-        )
+    def baca_open_orders():
+        try:
+            terbuka = klien._permintaan("GET", "/fapi/v1/openOrders", {"symbol": SIMBOL}, True)
+        except Exception as exc:  # noqa: BLE001
+            catat("open_orders_galat", galat=galat_dict(exc))
+            return []
+        keluar = []
+        for o in terbuka or []:
+            keluar.append(
+                {
+                    "orderId": o.get("orderId"),
+                    "type": o.get("type"),
+                    "side": o.get("side"),
+                    "price": o.get("price"),
+                    "stopPrice": o.get("stopPrice"),
+                    "origQty": o.get("origQty"),
+                    "reduceOnly": o.get("reduceOnly"),
+                    "closePosition": o.get("closePosition"),
+                    "timeInForce": o.get("timeInForce"),
+                    "status": o.get("status"),
+                }
+            )
+        return keluar
+
+    ringkas_order = baca_open_orders()
     catat("open_orders", jumlah=len(ringkas_order), order=ringkas_order)
     VONIS["open_orders"] = ringkas_order
     VONIS["tp_terlihat_limit_reduceonly"] = any(
@@ -289,11 +319,7 @@ def main():
     # ---------------------------------------------------------------- #
     try:
         galat_sl = r._periksa_sl_aman()
-        catat(
-            "periksa_sl_aman",
-            galat=galat_sl,
-            masih_dipantau=list(r._proteksi_aman.keys()),
-        )
+        catat("periksa_sl_aman", galat=galat_sl, masih_dipantau=list(r._proteksi_aman.keys()))
         VONIS["periksa_sl_galat"] = galat_sl
         VONIS["masih_dipantau"] = list(r._proteksi_aman.keys())
     except Exception as exc:  # noqa: BLE001
@@ -301,48 +327,128 @@ def main():
         VONIS["periksa_sl_galat"] = [str(exc)]
 
     # ---------------------------------------------------------------- #
-    # 8. Fail-safe: proteksi yang gagal WAJIB menutup posisi
+    # 8a. Apakah bursa menolak harga di luar PRICE_FILTER? (pengamatan)
     # ---------------------------------------------------------------- #
     try:
         klien.batalkan_semua_order(SIMBOL)
     except Exception as exc:  # noqa: BLE001
-        catat("batal_sebelum_failsafe_galat", galat=galat_dict(exc))
-    qty_sebelum = qty_posisi()
-    tp_mustahil = spek.bulat_harga(harga * 10.0)
-    hasil_gagal = pasang_proteksi_aman(
-        klien=klien,
-        simbol=SIMBOL,
-        arah=ARAH_LONG,
-        tp_harga=tp_mustahil,
-        sl_harga=sl_harga,
-        spek=spek,
-        tidur=time.sleep,
-    )
-    qty_sesudah = qty_posisi()
-    catat(
-        "failsafe",
-        tp_mustahil=tp_mustahil,
-        qty_sebelum=qty_sebelum,
-        qty_sesudah=qty_sesudah,
-        gagal=hasil_gagal.get("gagal"),
-        posisi_ditutup=hasil_gagal.get("posisi_ditutup"),
-        failsafe=hasil_gagal.get("failsafe"),
-    )
-    VONIS["failsafe_gagal_terdeteksi"] = hasil_gagal.get("gagal") is not None
-    VONIS["failsafe_posisi_ditutup"] = abs(qty_sesudah) <= 0
-    VONIS["failsafe_detail"] = {
-        k: hasil_gagal.get(k)
-        for k in ("mode", "gagal", "posisi_ditutup", "failsafe", "failsafe_gagal")
+        catat("batal_sebelum_8a_galat", galat=galat_dict(exc))
+    harga_liar = (maks_harga * 10.0) if maks_harga else (harga * 1000.0)
+    coba = {
+        "symbol": SIMBOL,
+        "side": "SELL",
+        "type": "LIMIT",
+        "timeInForce": "GTC",
+        "price": spek.bulat_harga(harga_liar),
+        "quantity": abs(qty_posisi()) or qty,
+        "reduceOnly": True,
     }
+    try:
+        resp_liar = klien._permintaan("POST", "/fapi/v1/order/test", coba, True)
+        filter_menolak = False
+        detail_liar = {"diterima": True, "respons": resp_liar}
+    except Exception as exc:  # noqa: BLE001
+        filter_menolak = True
+        detail_liar = {"diterima": False, "galat": galat_dict(exc)}
+    catat("harga_di_luar_filter", harga=coba["price"], hasil=detail_liar)
+    VONIS["filter_harga_menolak"] = filter_menolak
+    VONIS["harga_di_luar_filter"] = detail_liar
 
+    # ---------------------------------------------------------------- #
+    # 8b. Fail-safe sungguhan: TP ditolak -4120, posisi WAJIB ditutup
+    # ---------------------------------------------------------------- #
+    class KlienTolakTP(object):
+        """Bursa asli, kecuali order TP (LIMIT reduceOnly GTC) yang ditolak -4120.
+
+        Penutupan posisi tetap menembak bursa sungguhan, sehingga yang diuji
+        adalah apakah fail-safe benar-benar menutup POSISI NYATA.
+        """
+
+        def __init__(self, asli, kelas_galat):
+            self._asli = asli
+            self._kelas_galat = kelas_galat
+            self.ditolak = []
+            self.diteruskan = []
+
+        def __getattr__(self, nama):
+            return getattr(self._asli, nama)
+
+        def kirim_order(self, payload):
+            tipe = str(payload.get("type", "")).upper()
+            tif = str(payload.get("timeInForce", "")).upper()
+            if tipe == "LIMIT" and bool(payload.get("reduceOnly")) and tif == "GTC":
+                self.ditolak.append(payload)
+                raise self._kelas_galat(
+                    400,
+                    -4120,
+                    "Order type not supported for this endpoint. "
+                    "Please use the Algo Order API endpoints instead.",
+                )
+            self.diteruskan.append(payload)
+            return self._asli.kirim_order(payload)
+
+    qty_sebelum = qty_posisi()
+    if abs(qty_sebelum) <= 0:
+        qty_sebelum = buka_posisi("failsafe")
+    VONIS["failsafe_qty_sebelum"] = qty_sebelum
+
+    if abs(qty_sebelum) <= 0:
+        VONIS["failsafe_gagal_terdeteksi"] = None
+        VONIS["failsafe_posisi_ditutup"] = None
+        catat("failsafe_dilewati", alasan="tidak ada posisi untuk diuji")
+    else:
+        klien_tolak = KlienTolakTP(klien, BinanceAPIError)
+        hasil_gagal = pasang_proteksi_aman(
+            klien=klien_tolak,
+            simbol=SIMBOL,
+            arah=ARAH_LONG,
+            tp_harga=tp_harga,
+            sl_harga=sl_harga,
+            spek=spek,
+            tidur=time.sleep,
+        )
+        qty_sesudah = qty_posisi()
+        catat(
+            "failsafe",
+            qty_sebelum=qty_sebelum,
+            qty_sesudah=qty_sesudah,
+            tp_ditolak_kali=len(klien_tolak.ditolak),
+            order_diteruskan=[
+                {"type": p.get("type"), "side": p.get("side"),
+                 "timeInForce": p.get("timeInForce"),
+                 "reduceOnly": p.get("reduceOnly")}
+                for p in klien_tolak.diteruskan
+            ],
+            gagal=hasil_gagal.get("gagal"),
+            posisi_ditutup=hasil_gagal.get("posisi_ditutup"),
+            failsafe=hasil_gagal.get("failsafe"),
+        )
+        VONIS["failsafe_gagal_terdeteksi"] = hasil_gagal.get("gagal") is not None
+        VONIS["failsafe_posisi_ditutup"] = abs(qty_sesudah) <= 0
+        VONIS["failsafe_tp_ditolak_kali"] = len(klien_tolak.ditolak)
+        VONIS["failsafe_order_penutup"] = [
+            {"type": p.get("type"), "side": p.get("side"),
+             "timeInForce": p.get("timeInForce"),
+             "reduceOnly": p.get("reduceOnly")}
+            for p in klien_tolak.diteruskan
+        ]
+        VONIS["failsafe_detail"] = {
+            k: hasil_gagal.get(k)
+            for k in ("mode", "gagal", "posisi_ditutup", "failsafe", "failsafe_gagal")
+        }
+
+    VONIS["open_orders_pasca_failsafe"] = baca_open_orders()
     sisa_akhir = bersihkan("pasca_uji")
     VONIS["bersih_akhir"] = abs(sisa_akhir) <= 0
 
     lulus = (
-        VONIS.get("posisi_terbuka")
+        VONIS.get("stop_order_ditolak")
+        and VONIS.get("posisi_terbuka")
+        and VONIS.get("aman_aktif")
         and VONIS.get("sl_order_id_none")
         and VONIS.get("tp_terlihat_limit_reduceonly")
         and not VONIS.get("ada_tipe_stop_di_bursa")
+        and VONIS.get("failsafe_gagal_terdeteksi")
         and VONIS.get("failsafe_posisi_ditutup")
         and VONIS.get("bersih_akhir")
     )
@@ -375,6 +481,9 @@ if __name__ == "__main__":
         "ada_tipe_stop_di_bursa",
         "periksa_sl_galat",
         "masih_dipantau",
+        "filter_harga_menolak",
+        "failsafe_qty_sebelum",
+        "failsafe_tp_ditolak_kali",
         "failsafe_gagal_terdeteksi",
         "failsafe_posisi_ditutup",
         "bersih_akhir",
@@ -382,6 +491,9 @@ if __name__ == "__main__":
         print(str(kunci) + "=" + json.dumps(VONIS.get(kunci), default=str))
     print("siklus_order_sl=" + json.dumps(VONIS.get("siklus_order_sl"), default=str))
     print("failsafe_detail=" + json.dumps(VONIS.get("failsafe_detail"), default=str))
+    print("failsafe_order_penutup=" + json.dumps(VONIS.get("failsafe_order_penutup"), default=str))
+    print("harga_di_luar_filter=" + json.dumps(VONIS.get("harga_di_luar_filter"), default=str))
     print("open_orders=" + json.dumps(VONIS.get("open_orders"), default=str))
+    print("open_orders_pasca_failsafe=" + json.dumps(VONIS.get("open_orders_pasca_failsafe"), default=str))
     print("uji_tipe_order=" + json.dumps(VONIS.get("uji_tipe_order"), default=str))
     sys.exit(kode)
