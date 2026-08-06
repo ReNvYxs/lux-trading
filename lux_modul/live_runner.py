@@ -42,6 +42,7 @@ from .eksekusi.order import (
     payload_tp_market,
 )
 from .eksekusi.spesifikasi import SpesifikasiKontrak
+from .eksekusi_aman.saklar import aman_aktif, pasang_proteksi_aman
 from .kontrak import Bars, HORIZON_INTRADAY, MODE_SIGNAL_ONLY, TFPlan, tf_ms
 from .pipeline import HasilBar, Pipeline
 from .strategi import Registry
@@ -223,6 +224,7 @@ class LiveRunner:
         # bracket tracking
         self._pending_entry: Dict[int, _EntryPending] = {}
         self._bracket_aktif: Dict[str, _BracketAktif] = {}
+        self._proteksi_aman: Dict[str, Any] = {}
 
     def _kirim(self, payload: Dict[str, Any]) -> Any:
         return self.client.kirim_order(payload)
@@ -358,26 +360,7 @@ class LiveRunner:
             sl_order_id: Optional[int] = None
             tp_order_id: Optional[int] = None
 
-            try:
-                sl_p = payload_sl(
-                    ep.simbol, ep.arah, ep.sl_price,
-                    tutup_posisi=True, kebijakan=self.kebijakan_order,
-                )
-                resp_sl = self.client.kirim_order(sl_p)
-                sl_order_id = resp_sl.get("orderId")
-            except Exception as exc:  # noqa: BLE001
-                galat.append(f"kirim_sl_{oid}: {exc}")
-
-            if ep.tp_price > 0:
-                try:
-                    tp_p = payload_tp_market(
-                        ep.simbol, ep.arah, ep.tp_price,
-                        kebijakan=self.kebijakan_order,
-                    )
-                    resp_tp = self.client.kirim_order(tp_p)
-                    tp_order_id = resp_tp.get("orderId")
-                except Exception as exc:  # noqa: BLE001
-                    galat.append(f"kirim_tp_{oid}: {exc}")
+            sl_order_id, tp_order_id = self._pasang_proteksi_pending(ep, oid, galat)
 
             self._bracket_aktif[ep.simbol] = _BracketAktif(
                 simbol=ep.simbol, arah=ep.arah,
@@ -412,9 +395,10 @@ class LiveRunner:
 
     def _periksa_bracket_aktif(self) -> List[str]:
         """Poll status SL/TP; notifikasi + OCO bila salah satu tertrigger."""
+        galat_sl_aman = self._periksa_sl_aman()
         if not self._bracket_aktif:
-            return []
-        galat: List[str] = []
+            return galat_sl_aman
+        galat: List[str] = list(galat_sl_aman)
         kini_ms = self._sekarang_ms()
         selesai: List[str] = []
 
@@ -600,32 +584,7 @@ class LiveRunner:
         sl_price = posisi.sl if posisi is not None else v.sl
         tp_price = tp_pertama(v)
 
-        sl_order_id: Optional[int] = None
-        tp_order_id: Optional[int] = None
-
-        try:
-            sl_p = payload_sl(
-                simbol=self.simbol, arah=v.arah, stop_price=sl_price,
-                tutup_posisi=True, kebijakan=self.kebijakan_order,
-            )
-            resp_sl = self.client.kirim_order(sl_p)
-            siklus.order_sl = resp_sl
-            sl_order_id = resp_sl.get("orderId")
-        except Exception as exc:
-            siklus.galat = f"order_sl: {exc}"
-
-        if tp_price > 0:
-            try:
-                tp_p = payload_tp_market(
-                    simbol=self.simbol, arah=v.arah, stop_price=tp_price,
-                    kebijakan=self.kebijakan_order,
-                )
-                resp_tp = self.client.kirim_order(tp_p)
-                siklus.order_tp = resp_tp
-                tp_order_id = resp_tp.get("orderId")
-            except Exception as exc:
-                err = f"order_tp: {exc}"
-                siklus.galat = (siklus.galat + "; " + err) if siklus.galat else err
+        sl_order_id, tp_order_id = self._pasang_proteksi(v, sl_price, tp_price, siklus)
 
         self._bracket_aktif[self.simbol] = _BracketAktif(
             simbol=self.simbol, arah=v.arah,
@@ -652,6 +611,115 @@ class LiveRunner:
                 pass
 
         return siklus
+
+    # Saklar proteksi. Default jalur lama; LUX_EKSEKUSI=aman memakai lapisan
+    # yang sudah divalidasi di testnet: TP LIMIT reduceOnly, SL dipantau
+    # perangkat lunak, dan fail-safe menutup posisi bila proteksi gagal.
+    def _pasang_proteksi(self, v, sl_price, tp_price, siklus):
+        sl_order_id: Optional[int] = None
+        tp_order_id: Optional[int] = None
+
+        if aman_aktif():
+            hasil = pasang_proteksi_aman(
+                klien=self.client, simbol=self.simbol, arah=v.arah,
+                tp_harga=tp_price, sl_harga=sl_price, tidur=self._tidur,
+            )
+            self._proteksi_aman[self.simbol] = hasil.get("proteksi")
+            siklus.order_tp = hasil.get("tp")
+            siklus.order_sl = {
+                "mode": "sl_dipantau_perangkat_lunak",
+                "sl_harga": hasil.get("sl_harga"),
+            }
+            tp_order_id = (hasil.get("tp") or {}).get("orderId")
+            if hasil.get("gagal"):
+                err = "proteksi_aman: " + str(hasil.get("gagal"))
+                siklus.galat = (siklus.galat + "; " + err) if siklus.galat else err
+            return sl_order_id, tp_order_id
+
+        try:
+            sl_p = payload_sl(
+                simbol=self.simbol, arah=v.arah, stop_price=sl_price,
+                tutup_posisi=True, kebijakan=self.kebijakan_order,
+            )
+            resp_sl = self.client.kirim_order(sl_p)
+            siklus.order_sl = resp_sl
+            sl_order_id = resp_sl.get("orderId")
+        except Exception as exc:
+            siklus.galat = f"order_sl: {exc}"
+
+        if tp_price > 0:
+            try:
+                tp_p = payload_tp_market(
+                    simbol=self.simbol, arah=v.arah, stop_price=tp_price,
+                    kebijakan=self.kebijakan_order,
+                )
+                resp_tp = self.client.kirim_order(tp_p)
+                siklus.order_tp = resp_tp
+                tp_order_id = resp_tp.get("orderId")
+            except Exception as exc:
+                err = f"order_tp: {exc}"
+                siklus.galat = (siklus.galat + "; " + err) if siklus.galat else err
+
+        return sl_order_id, tp_order_id
+
+    def _pasang_proteksi_pending(self, ep, oid, galat):
+        sl_order_id: Optional[int] = None
+        tp_order_id: Optional[int] = None
+
+        if aman_aktif():
+            hasil = pasang_proteksi_aman(
+                klien=self.client, simbol=ep.simbol, arah=ep.arah,
+                tp_harga=ep.tp_price, sl_harga=ep.sl_price, tidur=self._tidur,
+            )
+            self._proteksi_aman[ep.simbol] = hasil.get("proteksi")
+            tp_order_id = (hasil.get("tp") or {}).get("orderId")
+            if hasil.get("gagal"):
+                galat.append("proteksi_aman_" + str(oid) + ": "
+                             + str(hasil.get("gagal")))
+            return sl_order_id, tp_order_id
+
+        try:
+            sl_p = payload_sl(
+                ep.simbol, ep.arah, ep.sl_price,
+                tutup_posisi=True, kebijakan=self.kebijakan_order,
+            )
+            resp_sl = self.client.kirim_order(sl_p)
+            sl_order_id = resp_sl.get("orderId")
+        except Exception as exc:  # noqa: BLE001
+            galat.append(f"kirim_sl_{oid}: {exc}")
+
+        if ep.tp_price > 0:
+            try:
+                tp_p = payload_tp_market(
+                    ep.simbol, ep.arah, ep.tp_price,
+                    kebijakan=self.kebijakan_order,
+                )
+                resp_tp = self.client.kirim_order(tp_p)
+                tp_order_id = resp_tp.get("orderId")
+            except Exception as exc:  # noqa: BLE001
+                galat.append(f"kirim_tp_{oid}: {exc}")
+
+        return sl_order_id, tp_order_id
+
+    # SL pada jalur aman tidak ada di bursa, jadi harus dipantau tiap siklus.
+    def _periksa_sl_aman(self) -> List[str]:
+        galat: List[str] = []
+        peta = getattr(self, "_proteksi_aman", None)
+        if not peta:
+            return galat
+        for simbol, prot in list(peta.items()):
+            if prot is None:
+                peta.pop(simbol, None)
+                continue
+            try:
+                h = prot.periksa_sl()
+            except Exception as exc:  # noqa: BLE001
+                galat.append("periksa_sl_" + str(simbol) + ": " + str(exc))
+                continue
+            if h.get("aksi") in ("sl_dieksekusi", "tidak_ada"):
+                peta.pop(simbol, None)
+                self._bracket_aktif.pop(simbol, None)
+        return galat
 
     def jalankan_selamanya(self, maks_siklus: Optional[int] = None) -> None:
         n = 0

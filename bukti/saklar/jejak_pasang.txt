@@ -1,0 +1,7 @@
+SAKLAR=TERPASANG
+panjang_sebelum=28106
+panjang_sesudah=31030
+laporan=[{"jangkar": "impor", "jumlah": 1}, {"jangkar": "init", "jumlah": 1}, {"jangkar": "blok_a_entry_langsung", "jumlah": 1}, {"jangkar": "blok_b_entry_pending", "jumlah": 1}, {"jangkar": "blok_c_monitor", "jumlah": 1}, {"jangkar": "metode_baru", "jumlah": 1}]
+punya_pasang_proteksi=True
+punya_periksa_sl_aman=True
+rc=0
