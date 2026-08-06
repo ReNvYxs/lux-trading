@@ -6,6 +6,11 @@ sudah hilang. Menulis ulang tes dari ingatan sama saja dengan menebak, dan
 probe saya sudah dua kali salah karena menebak API. Jadi langkah ini TIDAK
 menguji apa pun; ia hanya merekam tanda tangan dan sumber fungsi yang relevan
 supaya tes berikutnya ditulis di atas fakta.
+
+Diperbarui 6 Agu 2026: sasaran penjaga proteksi versi lama dilepas karena
+berkasnya dibuang setelah terbukti tidak punya pengimpor. Yang dibedah
+sekarang adalah kelas Proteksi di inti.py, yaitu implementasi yang benar-benar
+dipakai jalur live, ditambah saklar pemilih modenya.
 """
 import inspect
 import json
@@ -60,18 +65,34 @@ def bedah_modul(label, jalur, target):
                  lambda f=fn: inspect.getsource(f))
 
 
-# 1) Lapisan aman yang sudah terbukti di testnet (p07/p10/p11).
+# 1) Lapisan aman yang sudah terbukti di testnet (p07/p10/p11) dan kini
+#    terpasang di jalur live.
 bedah_modul("aman", "lux_modul.eksekusi_aman.inti", {
     "KontrakEksekutor": ["verifikasi"],
     "PengirimOrder": ["kirim"],
     "KebijakanRisiko": [],
     "SpekSimbol": [],
 })
-bedah_modul("aman_proteksi", "lux_modul.eksekusi_aman.proteksi", {
-    "PenjagaProteksi": ["pasang", "rekonsiliasi", "periksa_sl"],
+bedah_modul("aman_proteksi", "lux_modul.eksekusi_aman.inti", {
+    "Proteksi": ["pasang", "rekonsiliasi", "periksa_sl", "tutup_posisi",
+                 "pulihkan_dari_bursa", "batalkan_proteksi"],
+    "Entry": ["kirim_entry", "qty_posisi"],
 })
+bedah_modul("aman_saklar", "lux_modul.eksekusi_aman.saklar", {})
+for fn_nama in ("mode_eksekusi", "mode_efektif", "aman_aktif",
+                "aman_aktif_untuk", "deteksi_dukungan_stop",
+                "periksa_kewajaran", "pasang_proteksi_aman"):
+    try:
+        mod = __import__("lux_modul.eksekusi_aman.saklar", fromlist=["*"])
+    except Exception:
+        break
+    fn = getattr(mod, fn_nama, None)
+    if fn is None:
+        out["saklar_" + fn_nama] = "TIDAK ADA"
+        continue
+    aman("saklar_" + fn_nama + "_sig", lambda f=fn: str(inspect.signature(f)))
 
-# 2) Lapisan eksekusi bawaan yang BELUM diganti. Inilah yang harus diuji.
+# 2) Lapisan eksekusi bawaan yang masih dipakai untuk ENTRY.
 bedah_modul("dasar_ice", "lux_modul.eksekusi.ice_breaker", {
     "IceBreakerExecutor": ["jalankan"],
     "Slice": ["payload"],
@@ -102,6 +123,7 @@ ringkas = {
     "jumlah_kunci": len(out),
     "kunci_bermasalah": kunci_gagal,
     "punya_KontrakEksekutor": "aman_KontrakEksekutor_api" in out,
+    "punya_Proteksi_pasang_src": "aman_proteksi_Proteksi_pasang_src" in out,
     "punya_Slice_payload_src": "dasar_ice_Slice_payload_src" in out,
 }
 with open("bukti/RINGKAS_KONTRAK.json", "w", encoding="utf-8") as fh:
