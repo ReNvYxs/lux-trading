@@ -24,6 +24,7 @@ concurrency:
   cancel-in-progress: true
 env:
   GIT_TERMINAL_PROMPT: '0'
+  CI_MIN_PYTEST: '253'
 jobs:
   jaga:
     runs-on: ubuntu-latest
