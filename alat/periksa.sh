@@ -15,8 +15,12 @@ mkdir -p bukti
   python3 -c "import lux_modul.eksekusi_aman.inti as I; ns=[n for n in dir(I) if not n.startswith('_')]; print('inti OK, simbol publik=', len(ns)); print(sorted(ns))"
   echo "rc_inti=$?"
   echo
-  python3 -c "import lux_modul.eksekusi_aman.proteksi as P; ns=[n for n in dir(P) if not n.startswith('_')]; print('proteksi OK, simbol publik=', len(ns)); print(sorted(ns))"
-  echo "rc_proteksi=$?"
+  python3 -c "import lux_modul.eksekusi_aman.saklar as S; print('saklar OK, mode bawaan=', S.MODE_BAWAAN, 'mode dikenal=', S.MODE_DIKENAL)"
+  echo "rc_saklar=$?"
+  echo
+  echo "=== jahitan saklar di live_runner ==="
+  python3 -c "import lux_modul.live_runner as L; print('live_runner OK'); print('punya_pasang_proteksi=', hasattr(L.LiveRunner,'_pasang_proteksi')); print('punya_periksa_sl_aman=', hasattr(L.LiveRunner,'_periksa_sl_aman')); print('punya_pulihkan=', hasattr(L.LiveRunner,'_pulihkan_proteksi_aman'))"
+  echo "rc_jahitan=$?"
   echo
   echo "=== registry strategi (introspeksi) ==="
   python3 alat/temu_registry.py
