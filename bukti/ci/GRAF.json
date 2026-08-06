@@ -183,10 +183,18 @@
   "berkas": [
    "lux_modul.eksekusi_aman",
    "lux_modul.eksekusi_aman.inti",
-   "lux_modul.eksekusi_aman.proteksi"
+   "lux_modul.eksekusi_aman.proteksi",
+   "lux_modul.eksekusi_aman.saklar"
   ],
-  "pengimpor_luar": {},
-  "terjangkau": []
+  "pengimpor_luar": {
+   "tests.test_saklar_eksekusi": [
+    "lux_modul.eksekusi_aman.saklar"
+   ]
+  },
+  "terjangkau": [
+   "lux_modul.eksekusi_aman",
+   "lux_modul.eksekusi_aman.saklar"
+  ]
  },
  "galat_parse": [],
  "impor_rusak_alat": [],
@@ -346,6 +354,9 @@
    "scripts.uji_sl_tp_posisi",
    "scripts.uji_testnet",
    "tests.test_spesifikasi"
+  ],
+  "lux_modul.eksekusi_aman.saklar": [
+   "tests.test_saklar_eksekusi"
   ],
   "lux_modul.fitur": [
    "alat.teori.uji_kelas",
@@ -602,8 +613,8 @@
    "lux_modul.strategi"
   ]
  },
- "modul_lux": 51,
- "modul_total": 98,
+ "modul_lux": 52,
+ "modul_total": 101,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -1050,6 +1061,9 @@
   "tests.test_portofolio_governor": [
    "lux_modul.governor"
   ],
+  "tests.test_saklar_eksekusi": [
+   "lux_modul.eksekusi_aman.saklar"
+  ],
   "tests.test_serialisasi_order": [
    "lux_modul.eksekusi.binance_client",
    "lux_modul.eksekusi.order",
@@ -1105,13 +1119,13 @@
   "tests.test_pemindai",
   "tests.test_portofolio",
   "tests.test_portofolio_governor",
+  "tests.test_saklar_eksekusi",
   "tests.test_serialisasi_order",
   "tests.test_spesifikasi",
   "tests.test_strategi_arbiter",
   "lux_modul"
  ],
  "yatim": [
-  "lux_modul.eksekusi_aman",
   "lux_modul.eksekusi_aman.inti",
   "lux_modul.eksekusi_aman.proteksi"
  ]

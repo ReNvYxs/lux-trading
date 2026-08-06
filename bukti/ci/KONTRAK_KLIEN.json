@@ -22,7 +22,7 @@
   "_permintaan": 5,
   "batalkan_semua_order": 2,
   "bid_ask_terbaik": 3,
-  "exchange_info": 1,
+  "exchange_info": 2,
   "harga_sekarang": 2,
   "kirim_order": 3,
   "posisi": 3,
@@ -89,6 +89,11 @@
     "harga_sekarang": 1,
     "kirim_order": 2,
     "posisi": 1
+   }
+  },
+  "lux_modul/eksekusi_aman/saklar.py": {
+   "klien": {
+    "exchange_info": 1
    }
   }
  },

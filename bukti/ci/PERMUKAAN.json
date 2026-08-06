@@ -3,6 +3,7 @@
   "ARAH_LONG",
   "ARAH_SHORT",
   "DataPasar",
+  "ENV_NAMA",
   "Entry",
   "GagalProteksi",
   "KODE_CID_DUPLIKAT",
@@ -10,14 +11,19 @@
   "KODE_PERMANEN",
   "KebijakanRisiko",
   "KontrakEksekutor",
+  "MODE_AMAN",
+  "MODE_LAMA",
   "PengirimOrder",
   "PenjagaProteksi",
   "Proteksi",
   "SpekSimbol",
   "TolakUkuran",
+  "aman_aktif",
   "buat_cid",
   "hitung_ukuran",
-  "jalankan_siklus"
+  "jalankan_siklus",
+  "mode_eksekusi",
+  "pasang_proteksi_aman"
  ],
  "dipakai_dari_lama": {
   "lux_modul.backtest": {
@@ -558,6 +564,32 @@
      "tutup_posisi"
     ],
     "tanda_tangan": "(klien, simbol, tick, step, log=None)"
+   }
+  },
+  "lux_modul.eksekusi_aman.saklar": {
+   "ENV_NAMA": {
+    "jenis": "str",
+    "nilai": "'LUX_EKSEKUSI'"
+   },
+   "MODE_AMAN": {
+    "jenis": "str",
+    "nilai": "'aman'"
+   },
+   "MODE_LAMA": {
+    "jenis": "str",
+    "nilai": "'lama'"
+   },
+   "aman_aktif": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(env=None)"
+   },
+   "mode_eksekusi": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(env=None)"
+   },
+   "pasang_proteksi_aman": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(klien, simbol, arah, tp_harga, sl_harga, log=None, spek=None, pengirim=None, data=None, tidur=None, ember=None)"
    }
   }
  },
