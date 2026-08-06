@@ -19,11 +19,11 @@
   "status_order"
  ],
  "butuh_dari_klien": {
-  "_permintaan": 5,
+  "_permintaan": 6,
   "batalkan_semua_order": 2,
   "bid_ask_terbaik": 3,
-  "exchange_info": 2,
-  "harga_sekarang": 2,
+  "exchange_info": 3,
+  "harga_sekarang": 4,
   "kirim_order": 3,
   "posisi": 3,
   "saldo_usdt": 1,
@@ -93,7 +93,9 @@
   },
   "lux_modul/eksekusi_aman/saklar.py": {
    "klien": {
-    "exchange_info": 1
+    "_permintaan": 1,
+    "exchange_info": 2,
+    "harga_sekarang": 2
    }
   }
  },

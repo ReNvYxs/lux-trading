@@ -1,9 +1,9 @@
 GRAF=LULUS
-modul_total=104
+modul_total=105
 modul_lux=52
 impor_rusak_modul=0
 nama_hilang_modul=0
-galat_parse=0
+galat_parse=1
 impor_rusak_alat=0
 nama_hilang_alat=0
 dependensi_luar=["numpy", "pytest", "referensi"]

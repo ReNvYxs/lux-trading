@@ -199,7 +199,12 @@
    "lux_modul.eksekusi_aman.saklar"
   ]
  },
- "galat_parse": [],
+ "galat_parse": [
+  {
+   "galat": "SyntaxError('unterminated string literal (detected at line 260)', ('alat/pasang_v2.py', 260, 11, '    print(\"order', 260, 11))",
+   "modul": "alat.pasang_v2"
+  }
+ ],
  "impor_rusak_alat": [],
  "impor_rusak_modul": [],
  "lulus": true,
@@ -620,7 +625,7 @@
   ]
  },
  "modul_lux": 52,
- "modul_total": 104,
+ "modul_total": 105,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {

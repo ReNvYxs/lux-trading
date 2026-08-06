@@ -1,7 +1,30 @@
-=== pytest baseline ===
-........................................................................ [ 28%]
-........................................................................ [ 56%]
-........................................................................ [ 85%]
-.....................................                                    [100%]
-253 passed in 40.36s
-rc_pytest=0
+>       assert mode_eksekusi({}) == MODE_LAMA
+E       AssertionError: assert 'otomatis' == 'lama'
+E         
+E         - lama
+E         + otomatis
+
+tests/test_saklar_eksekusi.py:92: AssertionError
+________________________ test_nilai_asing_jatuh_ke_lama ________________________
+
+    def test_nilai_asing_jatuh_ke_lama():
+>       assert mode_eksekusi({"LUX_EKSEKUSI": "ngawur"}) == MODE_LAMA
+E       AssertionError: assert 'otomatis' == 'lama'
+E         
+E         - lama
+E         + otomatis
+
+tests/test_saklar_eksekusi.py:102: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_live_runner.py::test_entry_terisi_memasang_sl_dan_tp_lalu_lapor_notifier - AttributeError: 'LiveRunner' object has no attribute '_tidur'
+FAILED tests/test_live_runner.py::test_entry_tanpa_tp_hanya_kirim_sl - AttributeError: 'LiveRunner' object has no attribute '_tidur'
+FAILED tests/test_saklar_eksekusi.py::test_default_lama - AssertionError: assert 'otomatis' == 'lama'
+  
+  - lama
+  + otomatis
+FAILED tests/test_saklar_eksekusi.py::test_nilai_asing_jatuh_ke_lama - AssertionError: assert 'otomatis' == 'lama'
+  
+  - lama
+  + otomatis
+4 failed, 249 passed in 42.82s
+rc_pytest=1

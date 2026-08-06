@@ -1,6 +1,6 @@
 IMPOR_DALAM=SELESAI
-modul_jumlah=104
-galat_parse=0
+modul_jumlah=105
+galat_parse=1
 paket_luar_tingkat_atas=["__future__", "abc", "argparse", "ast", "asyncio", "base64", "collections", "csv", "dataclasses", "decimal", "glob", "hashlib", "hmac", "importlib", "inspect", "io", "json", "math", "numpy", "os", "pathlib", "pkgutil", "pytest", "re", "referensi", "statistics", "subprocess", "sys", "tempfile", "time", "traceback", "types", "typing", "urllib"]
 paket_luar_bersarang=["asyncio", "dataclasses", "inspect", "pytest", "time"]
 paket_luar_gabungan=["__future__", "abc", "argparse", "ast", "asyncio", "base64", "collections", "csv", "dataclasses", "decimal", "glob", "hashlib", "hmac", "importlib", "inspect", "io", "json", "math", "numpy", "os", "pathlib", "pkgutil", "pytest", "re", "referensi", "statistics", "subprocess", "sys", "tempfile", "time", "traceback", "types", "typing", "urllib"]

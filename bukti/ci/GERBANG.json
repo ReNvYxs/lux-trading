@@ -30,10 +30,10 @@
   "pytest": {
    "ada": true,
    "dilewati": 0,
-   "gagal": 0,
+   "gagal": 4,
    "galat": 0,
-   "lulus": 253,
-   "rc": 0
+   "lulus": 249,
+   "rc": 1
   },
   "registry_id": [
    "breaker_block",
@@ -64,7 +64,11 @@
    "wedge_breakout"
   ]
  },
- "masalah": [],
+ "masalah": [
+  "pytest gagal: 4",
+  "jumlah tes lulus turun: 249 kurang dari 253",
+  "rc_pytest bukan nol: 1"
+ ],
  "pergeseran": {},
- "vonis": "LULUS"
+ "vonis": "GAGAL"
 }

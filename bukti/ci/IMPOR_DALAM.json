@@ -1,5 +1,7 @@
 {
- "galat_parse": {},
+ "galat_parse": {
+  "alat.pasang_v2": "SyntaxError('unterminated string literal (detected at line 260)', ('alat/pasang_v2.py', 260, 11, '    print(\"order', 260, 11))"
+ },
  "hanya_terlihat_saat_bersarang": {
   "alat.gerbang": [
    "lux_modul.konfigurasi",
@@ -312,7 +314,9 @@
    "time"
   ],
   "lux_modul.eksekusi_aman.saklar": [
-   "os"
+   "math",
+   "os",
+   "time"
   ],
   "lux_modul.fitur": [
    "lux_modul.fitur",
@@ -1104,7 +1108,7 @@
   "tests.test_spesifikasi": [],
   "tests.test_strategi_arbiter": []
  },
- "modul_jumlah": 104,
+ "modul_jumlah": 105,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",

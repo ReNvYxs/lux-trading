@@ -2,28 +2,44 @@
  "aman_nama_publik": [
   "ARAH_LONG",
   "ARAH_SHORT",
+  "BATAS_JARAK_BAWAAN",
   "DataPasar",
+  "ENV_BATAS_JARAK",
   "ENV_NAMA",
   "Entry",
+  "FAKTOR_STOP_PROBE",
   "GagalProteksi",
+  "JALUR_UJI_ORDER",
+  "JARAK_MIN_REL",
+  "JEDA_PROBE_ULANG_DETIK",
   "KODE_CID_DUPLIKAT",
   "KODE_ORDER_TIDAK_ADA",
   "KODE_PERMANEN",
+  "KODE_TIPE_TAK_DIDUKUNG",
   "KebijakanRisiko",
   "KontrakEksekutor",
   "MODE_AMAN",
+  "MODE_BAWAAN",
+  "MODE_DIKENAL",
   "MODE_LAMA",
+  "MODE_OTOMATIS",
   "PengirimOrder",
   "PenjagaProteksi",
   "Proteksi",
   "SpekSimbol",
   "TolakUkuran",
   "aman_aktif",
+  "aman_aktif_untuk",
+  "batas_jarak",
+  "bersihkan_cache_probe",
   "buat_cid",
+  "deteksi_dukungan_stop",
   "hitung_ukuran",
   "jalankan_siklus",
+  "mode_efektif",
   "mode_eksekusi",
-  "pasang_proteksi_aman"
+  "pasang_proteksi_aman",
+  "periksa_kewajaran"
  ],
  "dipakai_dari_lama": {
   "lux_modul.backtest": {
@@ -567,21 +583,81 @@
    }
   },
   "lux_modul.eksekusi_aman.saklar": {
+   "BATAS_JARAK_BAWAAN": {
+    "jenis": "float",
+    "nilai": "0.5"
+   },
+   "ENV_BATAS_JARAK": {
+    "jenis": "str",
+    "nilai": "'LUX_BATAS_JARAK_PROTEKSI'"
+   },
    "ENV_NAMA": {
     "jenis": "str",
     "nilai": "'LUX_EKSEKUSI'"
+   },
+   "FAKTOR_STOP_PROBE": {
+    "jenis": "float",
+    "nilai": "0.8"
+   },
+   "JALUR_UJI_ORDER": {
+    "jenis": "str",
+    "nilai": "'/fapi/v1/order/test'"
+   },
+   "JARAK_MIN_REL": {
+    "jenis": "float",
+    "nilai": "0.0001"
+   },
+   "JEDA_PROBE_ULANG_DETIK": {
+    "jenis": "float",
+    "nilai": "60.0"
+   },
+   "KODE_TIPE_TAK_DIDUKUNG": {
+    "jenis": "tuple",
+    "nilai": "(-4120, -1116)"
    },
    "MODE_AMAN": {
     "jenis": "str",
     "nilai": "'aman'"
    },
+   "MODE_BAWAAN": {
+    "jenis": "str",
+    "nilai": "'otomatis'"
+   },
+   "MODE_DIKENAL": {
+    "jenis": "tuple",
+    "nilai": "('lama', 'aman', 'otomatis')"
+   },
    "MODE_LAMA": {
     "jenis": "str",
     "nilai": "'lama'"
    },
+   "MODE_OTOMATIS": {
+    "jenis": "str",
+    "nilai": "'otomatis'"
+   },
    "aman_aktif": {
     "jenis": "fungsi",
     "tanda_tangan": "(env=None)"
+   },
+   "aman_aktif_untuk": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(klien=None, simbol=None, env=None, log=None)"
+   },
+   "batas_jarak": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(env=None)"
+   },
+   "bersihkan_cache_probe": {
+    "jenis": "fungsi",
+    "tanda_tangan": "()"
+   },
+   "deteksi_dukungan_stop": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(klien, simbol, log=None, paksa=False)"
+   },
+   "mode_efektif": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(klien=None, simbol=None, env=None, log=None)"
    },
    "mode_eksekusi": {
     "jenis": "fungsi",
@@ -590,6 +666,10 @@
    "pasang_proteksi_aman": {
     "jenis": "fungsi",
     "tanda_tangan": "(klien, simbol, arah, tp_harga, sl_harga, log=None, spek=None, pengirim=None, data=None, tidur=None, ember=None)"
+   },
+   "periksa_kewajaran": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(arah, harga_acuan, tp_harga, sl_harga, batas=None, env=None)"
    }
   }
  },
