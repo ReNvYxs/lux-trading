@@ -1,0 +1,1118 @@
+{
+ "dependensi_hilang": [
+  "referensi"
+ ],
+ "dependensi_luar": {
+  "numpy": [
+   "alat.teori.referensi",
+   "alat.teori.uji_kelas",
+   "alat.teori.uji_teori",
+   "alat.teori3.ukur",
+   "lux_modul.data.loader",
+   "lux_modul.data.resample",
+   "lux_modul.fitur.dasar",
+   "lux_modul.fitur.lanjutan",
+   "lux_modul.fitur.store",
+   "lux_modul.fitur.struktur",
+   "lux_modul.kontrak",
+   "lux_modul.live_runner",
+   "lux_modul.sintetis",
+   "lux_modul.strategi.aliran_volume",
+   "lux_modul.strategi.indikator",
+   "lux_modul.strategi.level_harga",
+   "lux_modul.strategi.pola",
+   "lux_modul.strategi.struktur_modern",
+   "lux_modul.strategi.struktur_plus",
+   "lux_modul.strategi.util",
+   "lux_modul.strategi.volatilitas",
+   "tests.test_inti"
+  ],
+  "pytest": [
+   "tests.test_backtest",
+   "tests.test_binance_client",
+   "tests.test_inti",
+   "tests.test_konfigurasi",
+   "tests.test_kredensial",
+   "tests.test_order_postonly",
+   "tests.test_pemindai",
+   "tests.test_portofolio",
+   "tests.test_spesifikasi",
+   "tests.test_strategi_arbiter"
+  ],
+  "referensi": [
+   "alat.teori.uji_teori"
+  ]
+ },
+ "eksekusi": {
+  "berkas": [
+   "lux_modul.eksekusi",
+   "lux_modul.eksekusi.biaya",
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.mode",
+   "lux_modul.eksekusi.order",
+   "lux_modul.eksekusi.risiko",
+   "lux_modul.eksekusi.spesifikasi"
+  ],
+  "pengimpor_luar": {
+   "lux_modul.backtest": [
+    "lux_modul.eksekusi.biaya",
+    "lux_modul.eksekusi.mode",
+    "lux_modul.eksekusi.spesifikasi"
+   ],
+   "lux_modul.backtest_portofolio": [
+    "lux_modul.eksekusi.mode"
+   ],
+   "lux_modul.live_runner": [
+    "lux_modul.eksekusi.ice_breaker",
+    "lux_modul.eksekusi.mode",
+    "lux_modul.eksekusi.order",
+    "lux_modul.eksekusi.spesifikasi"
+   ],
+   "lux_modul.mesin_multi": [
+    "lux_modul.eksekusi.order"
+   ],
+   "lux_modul.pipeline": [
+    "lux_modul.eksekusi.biaya",
+    "lux_modul.eksekusi.ice_breaker",
+    "lux_modul.eksekusi.mode",
+    "lux_modul.eksekusi.risiko",
+    "lux_modul.eksekusi.spesifikasi"
+   ],
+   "scripts.asap_e2e": [
+    "lux_modul.eksekusi.order"
+   ],
+   "scripts.asap_multi_e2e": [
+    "lux_modul.eksekusi.order",
+    "lux_modul.eksekusi.spesifikasi"
+   ],
+   "scripts.dashboard_data": [
+    "lux_modul.eksekusi",
+    "lux_modul.eksekusi.biaya",
+    "lux_modul.eksekusi.ice_breaker",
+    "lux_modul.eksekusi.order",
+    "lux_modul.eksekusi.risiko"
+   ],
+   "scripts.demo_sintetis": [
+    "lux_modul.eksekusi"
+   ],
+   "scripts.diagnosa_kondisional": [
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.kredensial"
+   ],
+   "scripts.live_run": [
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.kredensial",
+    "lux_modul.eksekusi.order"
+   ],
+   "scripts.uji_bracket_penuh": [
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.kredensial",
+    "lux_modul.eksekusi.spesifikasi"
+   ],
+   "scripts.uji_kondisional": [
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.kredensial",
+    "lux_modul.eksekusi.spesifikasi"
+   ],
+   "scripts.uji_sl_tp_posisi": [
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.kredensial",
+    "lux_modul.eksekusi.spesifikasi"
+   ],
+   "scripts.uji_testnet": [
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.kredensial",
+    "lux_modul.eksekusi.order",
+    "lux_modul.eksekusi.spesifikasi"
+   ],
+   "tests.test_backtest": [
+    "lux_modul.eksekusi"
+   ],
+   "tests.test_biaya": [
+    "lux_modul.eksekusi.biaya",
+    "lux_modul.eksekusi.risiko"
+   ],
+   "tests.test_binance_client": [
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.kredensial"
+   ],
+   "tests.test_inti": [
+    "lux_modul.eksekusi"
+   ],
+   "tests.test_konfigurasi": [
+    "lux_modul.eksekusi.kredensial"
+   ],
+   "tests.test_kredensial": [
+    "lux_modul.eksekusi.kredensial"
+   ],
+   "tests.test_laju_dan_tp": [
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.kredensial"
+   ],
+   "tests.test_live_runner": [
+    "lux_modul.eksekusi.order"
+   ],
+   "tests.test_order_postonly": [
+    "lux_modul.eksekusi.ice_breaker",
+    "lux_modul.eksekusi.order"
+   ],
+   "tests.test_serialisasi_order": [
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.order"
+   ],
+   "tests.test_spesifikasi": [
+    "lux_modul.eksekusi.risiko",
+    "lux_modul.eksekusi.spesifikasi"
+   ]
+  },
+  "terjangkau": [
+   "lux_modul.eksekusi",
+   "lux_modul.eksekusi.biaya",
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.mode",
+   "lux_modul.eksekusi.order",
+   "lux_modul.eksekusi.risiko",
+   "lux_modul.eksekusi.spesifikasi"
+  ]
+ },
+ "eksekusi_aman": {
+  "berkas": [
+   "lux_modul.eksekusi_aman",
+   "lux_modul.eksekusi_aman.inti",
+   "lux_modul.eksekusi_aman.proteksi"
+  ],
+  "pengimpor_luar": {},
+  "terjangkau": []
+ },
+ "galat_parse": [],
+ "impor_rusak_alat": [],
+ "impor_rusak_modul": [],
+ "lulus": true,
+ "masuk": {
+  "lux_modul": [
+   "scripts.asap_e2e",
+   "scripts.asap_multi_e2e",
+   "scripts.demo_sintetis",
+   "tests.test_backtest",
+   "tests.test_inti",
+   "tests.test_strategi_arbiter"
+  ],
+  "lux_modul.arbiter": [
+   "lux_modul",
+   "scripts.demo_sintetis",
+   "tests.test_strategi_arbiter"
+  ],
+  "lux_modul.arbiter.pemilih": [
+   "lux_modul.arbiter",
+   "lux_modul.pipeline"
+  ],
+  "lux_modul.backtest": [
+   "lux_modul.backtest_portofolio",
+   "scripts.ab95",
+   "scripts.backtest_btc",
+   "scripts.bt95_metrik",
+   "scripts.bt_banyak",
+   "scripts.bt_satu",
+   "tests.test_backtest"
+  ],
+  "lux_modul.backtest_portofolio": [
+   "scripts.bt_portofolio"
+  ],
+  "lux_modul.data": [
+   "lux_modul",
+   "scripts.demo_sintetis",
+   "tests.test_backtest",
+   "tests.test_inti",
+   "tests.test_strategi_arbiter"
+  ],
+  "lux_modul.data.loader": [
+   "lux_modul.data",
+   "lux_modul.live_runner",
+   "lux_modul.sintetis",
+   "scripts.ab95",
+   "scripts.backtest_btc",
+   "scripts.bt95_metrik",
+   "scripts.bt_banyak",
+   "scripts.bt_portofolio",
+   "scripts.bt_satu"
+  ],
+  "lux_modul.data.plane": [
+   "alat.teori3.ukur",
+   "lux_modul.arbiter.pemilih",
+   "lux_modul.backtest",
+   "lux_modul.data",
+   "lux_modul.live_runner",
+   "lux_modul.pipeline",
+   "lux_modul.strategi.adaptor",
+   "lux_modul.strategi.basis",
+   "lux_modul.strategi.indikator",
+   "lux_modul.strategi.pola",
+   "lux_modul.strategi.struktur_modern",
+   "lux_modul.strategi.util",
+   "scripts.ab95",
+   "scripts.backtest_btc",
+   "scripts.bt95_metrik",
+   "scripts.bt_banyak",
+   "scripts.bt_portofolio",
+   "scripts.bt_satu"
+  ],
+  "lux_modul.data.resample": [
+   "lux_modul.data",
+   "tests.test_inti"
+  ],
+  "lux_modul.eksekusi": [
+   "scripts.dashboard_data",
+   "scripts.demo_sintetis",
+   "tests.test_backtest",
+   "tests.test_inti"
+  ],
+  "lux_modul.eksekusi.biaya": [
+   "lux_modul.backtest",
+   "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.pipeline",
+   "scripts.dashboard_data",
+   "tests.test_biaya"
+  ],
+  "lux_modul.eksekusi.binance_client": [
+   "scripts.diagnosa_kondisional",
+   "scripts.live_run",
+   "scripts.uji_bracket_penuh",
+   "scripts.uji_kondisional",
+   "scripts.uji_sl_tp_posisi",
+   "scripts.uji_testnet",
+   "tests.test_binance_client",
+   "tests.test_laju_dan_tp",
+   "tests.test_serialisasi_order"
+  ],
+  "lux_modul.eksekusi.ice_breaker": [
+   "lux_modul.eksekusi",
+   "lux_modul.live_runner",
+   "lux_modul.pipeline",
+   "scripts.dashboard_data",
+   "tests.test_order_postonly"
+  ],
+  "lux_modul.eksekusi.kredensial": [
+   "lux_modul.eksekusi.binance_client",
+   "scripts.diagnosa_kondisional",
+   "scripts.live_run",
+   "scripts.uji_bracket_penuh",
+   "scripts.uji_kondisional",
+   "scripts.uji_sl_tp_posisi",
+   "scripts.uji_testnet",
+   "tests.test_binance_client",
+   "tests.test_konfigurasi",
+   "tests.test_kredensial",
+   "tests.test_laju_dan_tp"
+  ],
+  "lux_modul.eksekusi.mode": [
+   "lux_modul.backtest",
+   "lux_modul.backtest_portofolio",
+   "lux_modul.eksekusi",
+   "lux_modul.live_runner",
+   "lux_modul.pipeline"
+  ],
+  "lux_modul.eksekusi.order": [
+   "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.live_runner",
+   "lux_modul.mesin_multi",
+   "scripts.asap_e2e",
+   "scripts.asap_multi_e2e",
+   "scripts.dashboard_data",
+   "scripts.live_run",
+   "scripts.uji_testnet",
+   "tests.test_live_runner",
+   "tests.test_order_postonly",
+   "tests.test_serialisasi_order"
+  ],
+  "lux_modul.eksekusi.risiko": [
+   "lux_modul.eksekusi",
+   "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.pipeline",
+   "scripts.dashboard_data",
+   "tests.test_biaya",
+   "tests.test_spesifikasi"
+  ],
+  "lux_modul.eksekusi.spesifikasi": [
+   "lux_modul.backtest",
+   "lux_modul.live_runner",
+   "lux_modul.pipeline",
+   "scripts.asap_multi_e2e",
+   "scripts.uji_bracket_penuh",
+   "scripts.uji_kondisional",
+   "scripts.uji_sl_tp_posisi",
+   "scripts.uji_testnet",
+   "tests.test_spesifikasi"
+  ],
+  "lux_modul.fitur": [
+   "alat.teori.uji_kelas",
+   "alat.teori.uji_teori",
+   "alat.teori3.ukur",
+   "lux_modul.fitur",
+   "lux_modul.fitur.lanjutan",
+   "lux_modul.fitur.store",
+   "lux_modul.strategi.indikator",
+   "lux_modul.strategi.pola",
+   "lux_modul.strategi.struktur_modern",
+   "lux_modul.strategi.struktur_plus",
+   "lux_modul.strategi.util",
+   "tests.test_inti"
+  ],
+  "lux_modul.fitur.dasar": [
+   "alat.teori.uji_kelas",
+   "alat.teori.uji_teori",
+   "alat.teori3.ukur",
+   "lux_modul.fitur",
+   "lux_modul.fitur.lanjutan",
+   "lux_modul.fitur.store",
+   "lux_modul.fitur.struktur",
+   "tests.test_inti"
+  ],
+  "lux_modul.fitur.lanjutan": [
+   "alat.teori.uji_kelas",
+   "alat.teori.uji_teori",
+   "lux_modul.fitur"
+  ],
+  "lux_modul.fitur.store": [
+   "alat.teori3.ukur",
+   "lux_modul.data.plane",
+   "lux_modul.fitur",
+   "lux_modul.pipeline",
+   "tests.test_strategi_arbiter"
+  ],
+  "lux_modul.fitur.struktur": [
+   "alat.teori3.ukur",
+   "lux_modul.fitur",
+   "lux_modul.fitur.store",
+   "lux_modul.strategi.indikator",
+   "lux_modul.strategi.pola",
+   "lux_modul.strategi.struktur_modern",
+   "lux_modul.strategi.struktur_plus",
+   "lux_modul.strategi.util"
+  ],
+  "lux_modul.governor": [
+   "lux_modul.mesin_multi",
+   "scripts.uji_testnet",
+   "tests.test_auto_entry_dua_mode",
+   "tests.test_portofolio_governor"
+  ],
+  "lux_modul.konfigurasi": [
+   "scripts.asap_e2e",
+   "scripts.live_run",
+   "tests.test_konfigurasi",
+   "tests.test_konfigurasi_tf_simbol"
+  ],
+  "lux_modul.kontrak": [
+   "alat.teori.uji_kelas",
+   "alat.teori.uji_teori",
+   "alat.teori3.ukur",
+   "lux_modul",
+   "lux_modul.arbiter.pemilih",
+   "lux_modul.backtest",
+   "lux_modul.backtest_portofolio",
+   "lux_modul.data.loader",
+   "lux_modul.data.plane",
+   "lux_modul.data.resample",
+   "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.eksekusi.mode",
+   "lux_modul.eksekusi.order",
+   "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.fitur.lanjutan",
+   "lux_modul.fitur.store",
+   "lux_modul.governor",
+   "lux_modul.live_runner",
+   "lux_modul.mesin_multi",
+   "lux_modul.pipeline",
+   "lux_modul.rencana_tf",
+   "lux_modul.sintetis",
+   "lux_modul.strategi.adaptor",
+   "lux_modul.strategi.aliran_volume",
+   "lux_modul.strategi.basis",
+   "lux_modul.strategi.indikator",
+   "lux_modul.strategi.level_harga",
+   "lux_modul.strategi.pola",
+   "lux_modul.strategi.struktur_modern",
+   "lux_modul.strategi.struktur_plus",
+   "lux_modul.strategi.util",
+   "lux_modul.strategi.volatilitas",
+   "scripts.ab95",
+   "scripts.asap_e2e",
+   "scripts.asap_multi_e2e",
+   "scripts.backtest_btc",
+   "scripts.bt95_metrik",
+   "scripts.bt_banyak",
+   "scripts.bt_portofolio",
+   "scripts.bt_satu",
+   "scripts.demo_sintetis",
+   "scripts.live_run",
+   "tests.test_auto_entry_dua_mode",
+   "tests.test_backtest",
+   "tests.test_biaya",
+   "tests.test_inti",
+   "tests.test_laju_dan_tp",
+   "tests.test_live_runner",
+   "tests.test_order_postonly",
+   "tests.test_portofolio",
+   "tests.test_serialisasi_order",
+   "tests.test_spesifikasi",
+   "tests.test_strategi_arbiter"
+  ],
+  "lux_modul.live_runner": [
+   "lux_modul.mesin_multi",
+   "scripts.asap_e2e",
+   "scripts.asap_multi_e2e",
+   "scripts.live_run",
+   "tests.test_laju_dan_tp",
+   "tests.test_live_runner"
+  ],
+  "lux_modul.mesin_multi": [
+   "scripts.asap_multi_e2e",
+   "scripts.live_run",
+   "tests.test_laju_dan_tp",
+   "tests.test_pemindai"
+  ],
+  "lux_modul.notifikasi": [
+   "scripts.asap_e2e",
+   "scripts.live_run"
+  ],
+  "lux_modul.notifikasi.telegram": [
+   "lux_modul.notifikasi",
+   "tests.test_konfigurasi"
+  ],
+  "lux_modul.pemindai": [
+   "lux_modul.mesin_multi",
+   "scripts.asap_multi_e2e",
+   "scripts.live_run",
+   "tests.test_konfigurasi_tf_simbol",
+   "tests.test_pemindai"
+  ],
+  "lux_modul.pemindai.likuiditas": [
+   "lux_modul.pemindai"
+  ],
+  "lux_modul.pipeline": [
+   "lux_modul",
+   "lux_modul.backtest",
+   "lux_modul.live_runner",
+   "scripts.ab95",
+   "scripts.demo_sintetis",
+   "tests.test_strategi_arbiter"
+  ],
+  "lux_modul.plugin": [
+   "alat.teori3.ukur",
+   "lux_modul.fitur.lanjutan",
+   "lux_modul.kontrak",
+   "lux_modul.strategi",
+   "lux_modul.strategi.adaptor",
+   "lux_modul.strategi.aliran_volume",
+   "lux_modul.strategi.level_harga",
+   "lux_modul.strategi.struktur_plus",
+   "lux_modul.strategi.volatilitas"
+  ],
+  "lux_modul.portofolio": [
+   "lux_modul.backtest_portofolio",
+   "scripts.dashboard_data",
+   "tests.test_portofolio"
+  ],
+  "lux_modul.rencana_tf": [
+   "lux_modul.mesin_multi",
+   "scripts.live_run",
+   "tests.test_pemindai"
+  ],
+  "lux_modul.sintetis": [
+   "scripts.asap_e2e",
+   "scripts.asap_multi_e2e",
+   "scripts.demo_sintetis",
+   "tests.test_backtest",
+   "tests.test_inti",
+   "tests.test_strategi_arbiter"
+  ],
+  "lux_modul.strategi": [
+   "alat.temu_registry",
+   "alat.teori3.ukur",
+   "lux_modul",
+   "lux_modul.backtest",
+   "lux_modul.backtest_portofolio",
+   "lux_modul.live_runner",
+   "lux_modul.mesin_multi",
+   "lux_modul.pipeline",
+   "lux_modul.strategi",
+   "scripts.ab95",
+   "scripts.asap_e2e",
+   "scripts.asap_multi_e2e",
+   "scripts.backtest_btc",
+   "scripts.bt95_metrik",
+   "scripts.bt_banyak",
+   "scripts.bt_portofolio",
+   "scripts.bt_satu",
+   "scripts.dashboard_data",
+   "scripts.demo_sintetis",
+   "scripts.live_run",
+   "tests.test_backtest",
+   "tests.test_pemindai",
+   "tests.test_strategi_arbiter"
+  ],
+  "lux_modul.strategi.adaptor": [
+   "lux_modul.strategi"
+  ],
+  "lux_modul.strategi.aliran_volume": [
+   "lux_modul.strategi"
+  ],
+  "lux_modul.strategi.basis": [
+   "lux_modul.arbiter.pemilih",
+   "lux_modul.strategi",
+   "lux_modul.strategi.adaptor",
+   "lux_modul.strategi.indikator",
+   "lux_modul.strategi.pola",
+   "lux_modul.strategi.struktur_modern",
+   "scripts.demo_sintetis",
+   "tests.test_strategi_arbiter"
+  ],
+  "lux_modul.strategi.indikator": [
+   "lux_modul.strategi"
+  ],
+  "lux_modul.strategi.level_harga": [
+   "lux_modul.strategi"
+  ],
+  "lux_modul.strategi.pola": [
+   "lux_modul.strategi",
+   "lux_modul.strategi.indikator",
+   "lux_modul.strategi.struktur_modern"
+  ],
+  "lux_modul.strategi.struktur_modern": [
+   "lux_modul.strategi"
+  ],
+  "lux_modul.strategi.struktur_plus": [
+   "lux_modul.strategi"
+  ],
+  "lux_modul.strategi.util": [
+   "alat.teori3.ukur",
+   "lux_modul.strategi.adaptor",
+   "lux_modul.strategi.aliran_volume",
+   "lux_modul.strategi.indikator",
+   "lux_modul.strategi.level_harga",
+   "lux_modul.strategi.pola",
+   "lux_modul.strategi.struktur_modern",
+   "lux_modul.strategi.struktur_plus",
+   "lux_modul.strategi.volatilitas"
+  ],
+  "lux_modul.strategi.volatilitas": [
+   "lux_modul.strategi"
+  ]
+ },
+ "modul_lux": 51,
+ "modul_total": 96,
+ "nama_hilang_alat": [],
+ "nama_hilang_modul": [],
+ "sisi": {
+  "alat.temu_registry": [
+   "lux_modul.strategi"
+  ],
+  "alat.teori.uji_kelas": [
+   "lux_modul.fitur",
+   "lux_modul.fitur.dasar",
+   "lux_modul.fitur.lanjutan",
+   "lux_modul.kontrak"
+  ],
+  "alat.teori.uji_teori": [
+   "lux_modul.fitur",
+   "lux_modul.fitur.dasar",
+   "lux_modul.fitur.lanjutan",
+   "lux_modul.kontrak"
+  ],
+  "alat.teori3.ukur": [
+   "lux_modul.data.plane",
+   "lux_modul.fitur",
+   "lux_modul.fitur.dasar",
+   "lux_modul.fitur.store",
+   "lux_modul.fitur.struktur",
+   "lux_modul.kontrak",
+   "lux_modul.plugin",
+   "lux_modul.strategi",
+   "lux_modul.strategi.util"
+  ],
+  "lux_modul": [
+   "lux_modul.arbiter",
+   "lux_modul.data",
+   "lux_modul.kontrak",
+   "lux_modul.pipeline",
+   "lux_modul.strategi"
+  ],
+  "lux_modul.arbiter": [
+   "lux_modul.arbiter.pemilih"
+  ],
+  "lux_modul.arbiter.pemilih": [
+   "lux_modul.data.plane",
+   "lux_modul.kontrak",
+   "lux_modul.strategi.basis"
+  ],
+  "lux_modul.backtest": [
+   "lux_modul.data.plane",
+   "lux_modul.eksekusi.biaya",
+   "lux_modul.eksekusi.mode",
+   "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.kontrak",
+   "lux_modul.pipeline",
+   "lux_modul.strategi"
+  ],
+  "lux_modul.backtest_portofolio": [
+   "lux_modul.backtest",
+   "lux_modul.eksekusi.mode",
+   "lux_modul.kontrak",
+   "lux_modul.portofolio",
+   "lux_modul.strategi"
+  ],
+  "lux_modul.data": [
+   "lux_modul.data.loader",
+   "lux_modul.data.plane",
+   "lux_modul.data.resample"
+  ],
+  "lux_modul.data.loader": [
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.data.plane": [
+   "lux_modul.fitur.store",
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.data.resample": [
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.eksekusi": [
+   "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.eksekusi.mode",
+   "lux_modul.eksekusi.risiko"
+  ],
+  "lux_modul.eksekusi.binance_client": [
+   "lux_modul.eksekusi.kredensial"
+  ],
+  "lux_modul.eksekusi.ice_breaker": [
+   "lux_modul.eksekusi.order",
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.eksekusi.mode": [
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.eksekusi.order": [
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.eksekusi.spesifikasi": [
+   "lux_modul.eksekusi.biaya",
+   "lux_modul.eksekusi.risiko",
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.fitur": [
+   "lux_modul.fitur",
+   "lux_modul.fitur.dasar",
+   "lux_modul.fitur.lanjutan",
+   "lux_modul.fitur.store",
+   "lux_modul.fitur.struktur"
+  ],
+  "lux_modul.fitur.lanjutan": [
+   "lux_modul.fitur",
+   "lux_modul.fitur.dasar",
+   "lux_modul.kontrak",
+   "lux_modul.plugin"
+  ],
+  "lux_modul.fitur.store": [
+   "lux_modul.fitur",
+   "lux_modul.fitur.dasar",
+   "lux_modul.fitur.struktur",
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.fitur.struktur": [
+   "lux_modul.fitur.dasar"
+  ],
+  "lux_modul.governor": [
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.kontrak": [
+   "lux_modul.plugin"
+  ],
+  "lux_modul.live_runner": [
+   "lux_modul.data.loader",
+   "lux_modul.data.plane",
+   "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.eksekusi.mode",
+   "lux_modul.eksekusi.order",
+   "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.kontrak",
+   "lux_modul.pipeline",
+   "lux_modul.strategi"
+  ],
+  "lux_modul.mesin_multi": [
+   "lux_modul.eksekusi.order",
+   "lux_modul.governor",
+   "lux_modul.kontrak",
+   "lux_modul.live_runner",
+   "lux_modul.pemindai",
+   "lux_modul.rencana_tf",
+   "lux_modul.strategi"
+  ],
+  "lux_modul.notifikasi": [
+   "lux_modul.notifikasi.telegram"
+  ],
+  "lux_modul.pemindai": [
+   "lux_modul.pemindai.likuiditas"
+  ],
+  "lux_modul.pipeline": [
+   "lux_modul.arbiter.pemilih",
+   "lux_modul.data.plane",
+   "lux_modul.eksekusi.biaya",
+   "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.eksekusi.mode",
+   "lux_modul.eksekusi.risiko",
+   "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.fitur.store",
+   "lux_modul.kontrak",
+   "lux_modul.strategi"
+  ],
+  "lux_modul.rencana_tf": [
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.sintetis": [
+   "lux_modul.data.loader",
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.strategi": [
+   "lux_modul.plugin",
+   "lux_modul.strategi",
+   "lux_modul.strategi.adaptor",
+   "lux_modul.strategi.aliran_volume",
+   "lux_modul.strategi.basis",
+   "lux_modul.strategi.indikator",
+   "lux_modul.strategi.level_harga",
+   "lux_modul.strategi.pola",
+   "lux_modul.strategi.struktur_modern",
+   "lux_modul.strategi.struktur_plus",
+   "lux_modul.strategi.volatilitas"
+  ],
+  "lux_modul.strategi.adaptor": [
+   "lux_modul.data.plane",
+   "lux_modul.kontrak",
+   "lux_modul.plugin",
+   "lux_modul.strategi.basis",
+   "lux_modul.strategi.util"
+  ],
+  "lux_modul.strategi.aliran_volume": [
+   "lux_modul.kontrak",
+   "lux_modul.plugin",
+   "lux_modul.strategi.util"
+  ],
+  "lux_modul.strategi.basis": [
+   "lux_modul.data.plane",
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.strategi.indikator": [
+   "lux_modul.data.plane",
+   "lux_modul.fitur",
+   "lux_modul.fitur.struktur",
+   "lux_modul.kontrak",
+   "lux_modul.strategi.basis",
+   "lux_modul.strategi.pola",
+   "lux_modul.strategi.util"
+  ],
+  "lux_modul.strategi.level_harga": [
+   "lux_modul.kontrak",
+   "lux_modul.plugin",
+   "lux_modul.strategi.util"
+  ],
+  "lux_modul.strategi.pola": [
+   "lux_modul.data.plane",
+   "lux_modul.fitur",
+   "lux_modul.fitur.struktur",
+   "lux_modul.kontrak",
+   "lux_modul.strategi.basis",
+   "lux_modul.strategi.util"
+  ],
+  "lux_modul.strategi.struktur_modern": [
+   "lux_modul.data.plane",
+   "lux_modul.fitur",
+   "lux_modul.fitur.struktur",
+   "lux_modul.kontrak",
+   "lux_modul.strategi.basis",
+   "lux_modul.strategi.pola",
+   "lux_modul.strategi.util"
+  ],
+  "lux_modul.strategi.struktur_plus": [
+   "lux_modul.fitur",
+   "lux_modul.fitur.struktur",
+   "lux_modul.kontrak",
+   "lux_modul.plugin",
+   "lux_modul.strategi.util"
+  ],
+  "lux_modul.strategi.util": [
+   "lux_modul.data.plane",
+   "lux_modul.fitur",
+   "lux_modul.fitur.struktur",
+   "lux_modul.kontrak"
+  ],
+  "lux_modul.strategi.volatilitas": [
+   "lux_modul.kontrak",
+   "lux_modul.plugin",
+   "lux_modul.strategi.util"
+  ],
+  "scripts.ab95": [
+   "lux_modul.backtest",
+   "lux_modul.data.loader",
+   "lux_modul.data.plane",
+   "lux_modul.kontrak",
+   "lux_modul.pipeline",
+   "lux_modul.strategi"
+  ],
+  "scripts.asap_e2e": [
+   "lux_modul",
+   "lux_modul.eksekusi.order",
+   "lux_modul.konfigurasi",
+   "lux_modul.kontrak",
+   "lux_modul.live_runner",
+   "lux_modul.notifikasi",
+   "lux_modul.sintetis",
+   "lux_modul.strategi"
+  ],
+  "scripts.asap_multi_e2e": [
+   "lux_modul",
+   "lux_modul.eksekusi.order",
+   "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.kontrak",
+   "lux_modul.live_runner",
+   "lux_modul.mesin_multi",
+   "lux_modul.pemindai",
+   "lux_modul.sintetis",
+   "lux_modul.strategi"
+  ],
+  "scripts.backtest_btc": [
+   "lux_modul.backtest",
+   "lux_modul.data.loader",
+   "lux_modul.data.plane",
+   "lux_modul.kontrak",
+   "lux_modul.strategi"
+  ],
+  "scripts.bt95_metrik": [
+   "lux_modul.backtest",
+   "lux_modul.data.loader",
+   "lux_modul.data.plane",
+   "lux_modul.kontrak",
+   "lux_modul.strategi"
+  ],
+  "scripts.bt_banyak": [
+   "lux_modul.backtest",
+   "lux_modul.data.loader",
+   "lux_modul.data.plane",
+   "lux_modul.kontrak",
+   "lux_modul.strategi"
+  ],
+  "scripts.bt_portofolio": [
+   "lux_modul.backtest_portofolio",
+   "lux_modul.data.loader",
+   "lux_modul.data.plane",
+   "lux_modul.kontrak",
+   "lux_modul.strategi"
+  ],
+  "scripts.bt_satu": [
+   "lux_modul.backtest",
+   "lux_modul.data.loader",
+   "lux_modul.data.plane",
+   "lux_modul.kontrak",
+   "lux_modul.strategi"
+  ],
+  "scripts.dashboard_data": [
+   "lux_modul.eksekusi",
+   "lux_modul.eksekusi.biaya",
+   "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.eksekusi.order",
+   "lux_modul.eksekusi.risiko",
+   "lux_modul.portofolio",
+   "lux_modul.strategi"
+  ],
+  "scripts.demo_sintetis": [
+   "lux_modul",
+   "lux_modul.arbiter",
+   "lux_modul.data",
+   "lux_modul.eksekusi",
+   "lux_modul.kontrak",
+   "lux_modul.pipeline",
+   "lux_modul.sintetis",
+   "lux_modul.strategi",
+   "lux_modul.strategi.basis"
+  ],
+  "scripts.diagnosa_kondisional": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial"
+  ],
+  "scripts.live_run": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.order",
+   "lux_modul.konfigurasi",
+   "lux_modul.kontrak",
+   "lux_modul.live_runner",
+   "lux_modul.mesin_multi",
+   "lux_modul.notifikasi",
+   "lux_modul.pemindai",
+   "lux_modul.rencana_tf",
+   "lux_modul.strategi"
+  ],
+  "scripts.uji_bracket_penuh": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.spesifikasi"
+  ],
+  "scripts.uji_kondisional": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.spesifikasi"
+  ],
+  "scripts.uji_sl_tp_posisi": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.spesifikasi"
+  ],
+  "scripts.uji_testnet": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.order",
+   "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.governor"
+  ],
+  "tests.test_auto_entry_dua_mode": [
+   "lux_modul.governor",
+   "lux_modul.kontrak"
+  ],
+  "tests.test_backtest": [
+   "lux_modul",
+   "lux_modul.backtest",
+   "lux_modul.data",
+   "lux_modul.eksekusi",
+   "lux_modul.kontrak",
+   "lux_modul.sintetis",
+   "lux_modul.strategi"
+  ],
+  "tests.test_biaya": [
+   "lux_modul.eksekusi.biaya",
+   "lux_modul.eksekusi.risiko",
+   "lux_modul.kontrak"
+  ],
+  "tests.test_binance_client": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial"
+  ],
+  "tests.test_inti": [
+   "lux_modul",
+   "lux_modul.data",
+   "lux_modul.data.resample",
+   "lux_modul.eksekusi",
+   "lux_modul.fitur",
+   "lux_modul.fitur.dasar",
+   "lux_modul.kontrak",
+   "lux_modul.sintetis"
+  ],
+  "tests.test_konfigurasi": [
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.konfigurasi",
+   "lux_modul.notifikasi.telegram"
+  ],
+  "tests.test_konfigurasi_tf_simbol": [
+   "lux_modul.konfigurasi",
+   "lux_modul.pemindai"
+  ],
+  "tests.test_kredensial": [
+   "lux_modul.eksekusi.kredensial"
+  ],
+  "tests.test_laju_dan_tp": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.kontrak",
+   "lux_modul.live_runner",
+   "lux_modul.mesin_multi"
+  ],
+  "tests.test_live_runner": [
+   "lux_modul.eksekusi.order",
+   "lux_modul.kontrak",
+   "lux_modul.live_runner"
+  ],
+  "tests.test_order_postonly": [
+   "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.eksekusi.order",
+   "lux_modul.kontrak"
+  ],
+  "tests.test_pemindai": [
+   "lux_modul.mesin_multi",
+   "lux_modul.pemindai",
+   "lux_modul.rencana_tf",
+   "lux_modul.strategi"
+  ],
+  "tests.test_portofolio": [
+   "lux_modul.kontrak",
+   "lux_modul.portofolio"
+  ],
+  "tests.test_portofolio_governor": [
+   "lux_modul.governor"
+  ],
+  "tests.test_serialisasi_order": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.order",
+   "lux_modul.kontrak"
+  ],
+  "tests.test_spesifikasi": [
+   "lux_modul.eksekusi.risiko",
+   "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.kontrak"
+  ],
+  "tests.test_strategi_arbiter": [
+   "lux_modul",
+   "lux_modul.arbiter",
+   "lux_modul.data",
+   "lux_modul.fitur.store",
+   "lux_modul.kontrak",
+   "lux_modul.pipeline",
+   "lux_modul.sintetis",
+   "lux_modul.strategi",
+   "lux_modul.strategi.basis"
+  ]
+ },
+ "titik_awal": [
+  "scripts.ab95",
+  "scripts.asap_e2e",
+  "scripts.asap_multi_e2e",
+  "scripts.audit_dataset",
+  "scripts.backtest_btc",
+  "scripts.bt95_metrik",
+  "scripts.bt_banyak",
+  "scripts.bt_portofolio",
+  "scripts.bt_satu",
+  "scripts.dashboard_data",
+  "scripts.demo_sintetis",
+  "scripts.diagnosa_kondisional",
+  "scripts.jalankan_uji",
+  "scripts.live_run",
+  "scripts.uji_bracket_penuh",
+  "scripts.uji_kondisional",
+  "scripts.uji_sl_tp_posisi",
+  "scripts.uji_testnet",
+  "tests.test_auto_entry_dua_mode",
+  "tests.test_backtest",
+  "tests.test_biaya",
+  "tests.test_binance_client",
+  "tests.test_inti",
+  "tests.test_konfigurasi",
+  "tests.test_konfigurasi_tf_simbol",
+  "tests.test_kredensial",
+  "tests.test_laju_dan_tp",
+  "tests.test_live_runner",
+  "tests.test_order_postonly",
+  "tests.test_pemindai",
+  "tests.test_portofolio",
+  "tests.test_portofolio_governor",
+  "tests.test_serialisasi_order",
+  "tests.test_spesifikasi",
+  "tests.test_strategi_arbiter",
+  "lux_modul"
+ ],
+ "yatim": [
+  "lux_modul.eksekusi_aman",
+  "lux_modul.eksekusi_aman.inti",
+  "lux_modul.eksekusi_aman.proteksi"
+ ]
+}

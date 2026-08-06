@@ -1,6 +1,5 @@
 {
- "baseline_ada": false,
- "baseline_dibuat": true,
+ "baseline_ada": true,
  "kini": {
   "impor": {
    "lux_modul": "OK",
@@ -66,5 +65,6 @@
   ]
  },
  "masalah": [],
+ "pergeseran": {},
  "vonis": "LULUS"
 }
