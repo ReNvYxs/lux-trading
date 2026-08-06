@@ -187,6 +187,9 @@
    "lux_modul.eksekusi_aman.saklar"
   ],
   "pengimpor_luar": {
+   "lux_modul.live_runner": [
+    "lux_modul.eksekusi_aman.saklar"
+   ],
    "tests.test_saklar_eksekusi": [
     "lux_modul.eksekusi_aman.saklar"
    ]
@@ -356,6 +359,7 @@
    "tests.test_spesifikasi"
   ],
   "lux_modul.eksekusi_aman.saklar": [
+   "lux_modul.live_runner",
    "tests.test_saklar_eksekusi"
   ],
   "lux_modul.fitur": [
@@ -465,6 +469,7 @@
    "tests.test_inti",
    "tests.test_laju_dan_tp",
    "tests.test_live_runner",
+   "tests.test_live_runner_saklar",
    "tests.test_order_postonly",
    "tests.test_portofolio",
    "tests.test_serialisasi_order",
@@ -477,7 +482,8 @@
    "scripts.asap_multi_e2e",
    "scripts.live_run",
    "tests.test_laju_dan_tp",
-   "tests.test_live_runner"
+   "tests.test_live_runner",
+   "tests.test_live_runner_saklar"
   ],
   "lux_modul.mesin_multi": [
    "scripts.asap_multi_e2e",
@@ -614,7 +620,7 @@
   ]
  },
  "modul_lux": 52,
- "modul_total": 101,
+ "modul_total": 102,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -748,6 +754,7 @@
    "lux_modul.eksekusi.mode",
    "lux_modul.eksekusi.order",
    "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.eksekusi_aman.saklar",
    "lux_modul.kontrak",
    "lux_modul.pipeline",
    "lux_modul.strategi"
@@ -1043,6 +1050,10 @@
    "lux_modul.kontrak",
    "lux_modul.live_runner"
   ],
+  "tests.test_live_runner_saklar": [
+   "lux_modul.kontrak",
+   "lux_modul.live_runner"
+  ],
   "tests.test_order_postonly": [
    "lux_modul.eksekusi.ice_breaker",
    "lux_modul.eksekusi.order",
@@ -1115,6 +1126,7 @@
   "tests.test_kredensial",
   "tests.test_laju_dan_tp",
   "tests.test_live_runner",
+  "tests.test_live_runner_saklar",
   "tests.test_order_postonly",
   "tests.test_pemindai",
   "tests.test_portofolio",
