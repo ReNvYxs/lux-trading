@@ -14,6 +14,15 @@
   "alat.teori3.ukur": [
    "dataclasses"
   ],
+  "alat.uji_hidup_saklar": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.order",
+   "lux_modul.eksekusi_aman.inti",
+   "lux_modul.eksekusi_aman.saklar",
+   "lux_modul.kontrak",
+   "lux_modul.live_runner"
+  ],
   "lux_modul.data.plane": [
    "lux_modul.data.resample"
   ],
@@ -153,6 +162,14 @@
    "os",
    "statistics",
    "sys"
+  ],
+  "alat.uji_hidup_saklar": [
+   "base64",
+   "json",
+   "os",
+   "sys",
+   "time",
+   "traceback"
   ],
   "lux_modul": [
    "lux_modul.arbiter",
@@ -961,6 +978,15 @@
   "alat.teori3.ukur": [
    "dataclasses"
   ],
+  "alat.uji_hidup_saklar": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.order",
+   "lux_modul.eksekusi_aman.inti",
+   "lux_modul.eksekusi_aman.saklar",
+   "lux_modul.kontrak",
+   "lux_modul.live_runner"
+  ],
   "lux_modul": [],
   "lux_modul.arbiter": [],
   "lux_modul.arbiter.pemilih": [],
@@ -1078,7 +1104,7 @@
   "tests.test_spesifikasi": [],
   "tests.test_strategi_arbiter": []
  },
- "modul_jumlah": 103,
+ "modul_jumlah": 104,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",
@@ -1092,6 +1118,7 @@
   "argparse",
   "ast",
   "asyncio",
+  "base64",
   "collections",
   "csv",
   "dataclasses",
@@ -1127,6 +1154,7 @@
   "argparse",
   "ast",
   "asyncio",
+  "base64",
   "collections",
   "csv",
   "dataclasses",
@@ -1205,6 +1233,7 @@
  "sorot": {
   "lux_modul.eksekusi_aman.inti": {
    "bersarang": [
+    "alat.uji_hidup_saklar",
     "lux_modul.eksekusi_aman.saklar"
    ],
    "dipakai": true,
@@ -1216,7 +1245,9 @@
    "tingkat_atas": []
   },
   "lux_modul.eksekusi_aman.saklar": {
-   "bersarang": [],
+   "bersarang": [
+    "alat.uji_hidup_saklar"
+   ],
    "dipakai": true,
    "tingkat_atas": [
     "lux_modul.live_runner",
