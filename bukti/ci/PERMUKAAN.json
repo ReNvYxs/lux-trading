@@ -1,0 +1,1412 @@
+{
+ "aman_nama_publik": [
+  "ARAH_LONG",
+  "ARAH_SHORT",
+  "DataPasar",
+  "Entry",
+  "GagalProteksi",
+  "KODE_CID_DUPLIKAT",
+  "KODE_ORDER_TIDAK_ADA",
+  "KODE_PERMANEN",
+  "KebijakanRisiko",
+  "KontrakEksekutor",
+  "PengirimOrder",
+  "PenjagaProteksi",
+  "Proteksi",
+  "SpekSimbol",
+  "TolakUkuran",
+  "buat_cid",
+  "hitung_ukuran",
+  "jalankan_siklus"
+ ],
+ "dipakai_dari_lama": {
+  "lux_modul.backtest": {
+   "lux_modul.eksekusi.biaya": [
+    "FILL_KELUAR_MAKS",
+    "batas_tp_efektif",
+    "evaluasi_verdict"
+   ],
+   "lux_modul.eksekusi.mode": [
+    "boleh_auto_entry"
+   ],
+   "lux_modul.eksekusi.spesifikasi": [
+    "SpesifikasiKontrak",
+    "rencana_posisi"
+   ]
+  },
+  "lux_modul.backtest_portofolio": {
+   "lux_modul.eksekusi.mode": [
+    "boleh_auto_entry"
+   ]
+  },
+  "lux_modul.live_runner": {
+   "lux_modul.eksekusi.ice_breaker": [
+    "HasilEksekusi",
+    "IceBreakerExecutor"
+   ],
+   "lux_modul.eksekusi.mode": [
+    "boleh_auto_entry"
+   ],
+   "lux_modul.eksekusi.order": [
+    "KebijakanOrder",
+    "payload_bracket",
+    "payload_sl",
+    "payload_tp_market"
+   ],
+   "lux_modul.eksekusi.spesifikasi": [
+    "SpesifikasiKontrak"
+   ]
+  },
+  "lux_modul.mesin_multi": {
+   "lux_modul.eksekusi.order": [
+    "KebijakanOrder"
+   ]
+  },
+  "lux_modul.pipeline": {
+   "lux_modul.eksekusi.biaya": [
+    "evaluasi_verdict"
+   ],
+   "lux_modul.eksekusi.ice_breaker": [
+    "RencanaEksekusi",
+    "plan_execution"
+   ],
+   "lux_modul.eksekusi.mode": [
+    "Sinyal",
+    "boleh_auto_entry",
+    "mode_untuk"
+   ],
+   "lux_modul.eksekusi.risiko": [
+    "Sizing",
+    "ukuran_posisi"
+   ],
+   "lux_modul.eksekusi.spesifikasi": [
+    "RencanaPosisi",
+    "SpesifikasiKontrak",
+    "rencana_posisi"
+   ]
+  },
+  "scripts.asap_e2e": {
+   "lux_modul.eksekusi.order": [
+    "KebijakanOrder"
+   ]
+  },
+  "scripts.asap_multi_e2e": {
+   "lux_modul.eksekusi.order": [
+    "KebijakanOrder"
+   ],
+   "lux_modul.eksekusi.spesifikasi": [
+    "rencana_posisi"
+   ]
+  },
+  "scripts.dashboard_data": {
+   "lux_modul.eksekusi": [
+    "biaya",
+    "risiko"
+   ],
+   "lux_modul.eksekusi.ice_breaker": [
+    "AMBANG_NOTIONAL_ICEBREAKER",
+    "JEDA_DETIK",
+    "NOTIONAL_PER_SLICE",
+    "RASIO_VISIBLE",
+    "SLICE_MAKS"
+   ],
+   "lux_modul.eksekusi.order": [
+    "KebijakanOrder"
+   ]
+  },
+  "scripts.demo_sintetis": {
+   "lux_modul.eksekusi": [
+    "IceBreakerExecutor",
+    "plan_execution",
+    "ringkas_kurva",
+    "ukuran_posisi"
+   ]
+  },
+  "scripts.diagnosa_kondisional": {
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceAPIError",
+    "BinanceFuturesClient"
+   ],
+   "lux_modul.eksekusi.kredensial": [
+    "MODE_TESTNET",
+    "muat_kredensial"
+   ]
+  },
+  "scripts.live_run": {
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceFuturesClient"
+   ],
+   "lux_modul.eksekusi.kredensial": [
+    "KredensialError",
+    "muat_kredensial"
+   ],
+   "lux_modul.eksekusi.order": [
+    "KebijakanOrder"
+   ]
+  },
+  "scripts.uji_bracket_penuh": {
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceAPIError",
+    "BinanceFuturesClient"
+   ],
+   "lux_modul.eksekusi.kredensial": [
+    "MODE_TESTNET",
+    "muat_kredensial"
+   ],
+   "lux_modul.eksekusi.spesifikasi": [
+    "SpesifikasiKontrak"
+   ]
+  },
+  "scripts.uji_kondisional": {
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceAPIError",
+    "BinanceFuturesClient"
+   ],
+   "lux_modul.eksekusi.kredensial": [
+    "MODE_TESTNET",
+    "muat_kredensial"
+   ],
+   "lux_modul.eksekusi.spesifikasi": [
+    "SpesifikasiKontrak"
+   ]
+  },
+  "scripts.uji_sl_tp_posisi": {
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceAPIError",
+    "BinanceFuturesClient"
+   ],
+   "lux_modul.eksekusi.kredensial": [
+    "MODE_TESTNET",
+    "muat_kredensial"
+   ],
+   "lux_modul.eksekusi.spesifikasi": [
+    "SpesifikasiKontrak"
+   ]
+  },
+  "scripts.uji_testnet": {
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceAPIError",
+    "BinanceFuturesClient"
+   ],
+   "lux_modul.eksekusi.kredensial": [
+    "MODE_TESTNET",
+    "muat_kredensial"
+   ],
+   "lux_modul.eksekusi.order": [
+    "KebijakanOrder",
+    "payload_entry",
+    "payload_sl"
+   ],
+   "lux_modul.eksekusi.spesifikasi": [
+    "SpesifikasiKontrak"
+   ]
+  },
+  "tests.test_backtest": {
+   "lux_modul.eksekusi": [
+    "ukuran_posisi"
+   ]
+  },
+  "tests.test_biaya": {
+   "lux_modul.eksekusi.biaya": [
+    "FILL_KELUAR_MAKS",
+    "KODE_BIAYA_VS_RISIKO",
+    "KODE_TP1_TERLALU_DEKAT",
+    "batas_tp_efektif",
+    "biaya_pp_round_trip",
+    "evaluasi_biaya",
+    "jumlah_fill"
+   ],
+   "lux_modul.eksekusi.risiko": [
+    "ukuran_posisi"
+   ]
+  },
+  "tests.test_binance_client": {
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceAPIError",
+    "BinanceFuturesClient",
+    "kirim_order_async"
+   ],
+   "lux_modul.eksekusi.kredensial": [
+    "BASE_URL_TESTNET",
+    "KredensialBinance"
+   ]
+  },
+  "tests.test_inti": {
+   "lux_modul.eksekusi": [
+    "IceBreakerExecutor",
+    "ModeTerlarang",
+    "boleh_auto_entry",
+    "calculate_dynamic_risk",
+    "entry_invalidated",
+    "pastikan_boleh_eksekusi",
+    "plan_execution",
+    "risiko_usd",
+    "ukuran_posisi"
+   ]
+  },
+  "tests.test_konfigurasi": {
+   "lux_modul.eksekusi.kredensial": [
+    "ENV_LIVE_KEY",
+    "ENV_LIVE_KONFIRMASI",
+    "ENV_LIVE_SECRET",
+    "ENV_TESTNET_KEY",
+    "ENV_TESTNET_SECRET",
+    "FRASA_KONFIRMASI_LIVE"
+   ]
+  },
+  "tests.test_kredensial": {
+   "lux_modul.eksekusi.kredensial": [
+    "BASE_URL_LIVE",
+    "BASE_URL_TESTNET",
+    "ENV_LIVE_KEY",
+    "ENV_LIVE_KONFIRMASI",
+    "ENV_LIVE_SECRET",
+    "ENV_TESTNET_KEY",
+    "ENV_TESTNET_SECRET",
+    "FRASA_KONFIRMASI_LIVE",
+    "KredensialError",
+    "MODE_LIVE",
+    "MODE_TESTNET",
+    "muat_kredensial"
+   ]
+  },
+  "tests.test_laju_dan_tp": {
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceAPIError",
+    "BinanceFuturesClient",
+    "PengaturLaju",
+    "_PATH_DEPTH",
+    "_PATH_KLINES",
+    "_PATH_TICKER_24J",
+    "bobot_permintaan",
+    "ms_ban_dari_pesan"
+   ],
+   "lux_modul.eksekusi.kredensial": [
+    "KredensialBinance",
+    "MODE_TESTNET"
+   ]
+  },
+  "tests.test_live_runner": {
+   "lux_modul.eksekusi.order": [
+    "KebijakanOrder"
+   ]
+  },
+  "tests.test_order_postonly": {
+   "lux_modul.eksekusi.ice_breaker": [
+    "IceBreakerExecutor",
+    "Slice",
+    "plan_execution"
+   ],
+   "lux_modul.eksekusi.order": [
+    "KebijakanOrder",
+    "OrderTerlarang",
+    "TIF_POST_ONLY",
+    "TIPE_LIMIT",
+    "TIPE_STOP_MARKET",
+    "harga_post_only",
+    "pastikan_tanpa_market",
+    "payload_entry",
+    "payload_sl",
+    "payload_tp",
+    "rencana_requote"
+   ]
+  },
+  "tests.test_serialisasi_order": {
+   "lux_modul.eksekusi.binance_client": [
+    "_urutkan_query",
+    "format_nilai"
+   ],
+   "lux_modul.eksekusi.order": [
+    "payload_entry",
+    "payload_sl"
+   ]
+  },
+  "tests.test_spesifikasi": {
+   "lux_modul.eksekusi.risiko": [
+    "risiko_usd"
+   ],
+   "lux_modul.eksekusi.spesifikasi": [
+    "SpesifikasiKontrak",
+    "TOLAK_LEVERAGE_MAKS",
+    "TOLAK_NOTIONAL_MIN",
+    "TOLAK_QTY_NOL",
+    "TOLAK_RR_BERSIH",
+    "bulatkan_ke_kelipatan",
+    "ekonomi_trade",
+    "harga_break_even",
+    "rencana_posisi"
+   ]
+  }
+ },
+ "galat_impor_aman": {},
+ "galat_impor_lama": {},
+ "konsumen_jumlah": 26,
+ "nama_lama_dipakai": [
+  "AMBANG_NOTIONAL_ICEBREAKER",
+  "BASE_URL_LIVE",
+  "BASE_URL_TESTNET",
+  "BinanceAPIError",
+  "BinanceFuturesClient",
+  "ENV_LIVE_KEY",
+  "ENV_LIVE_KONFIRMASI",
+  "ENV_LIVE_SECRET",
+  "ENV_TESTNET_KEY",
+  "ENV_TESTNET_SECRET",
+  "FILL_KELUAR_MAKS",
+  "FRASA_KONFIRMASI_LIVE",
+  "HasilEksekusi",
+  "IceBreakerExecutor",
+  "JEDA_DETIK",
+  "KODE_BIAYA_VS_RISIKO",
+  "KODE_TP1_TERLALU_DEKAT",
+  "KebijakanOrder",
+  "KredensialBinance",
+  "KredensialError",
+  "MODE_LIVE",
+  "MODE_TESTNET",
+  "ModeTerlarang",
+  "NOTIONAL_PER_SLICE",
+  "OrderTerlarang",
+  "PengaturLaju",
+  "RASIO_VISIBLE",
+  "RencanaEksekusi",
+  "RencanaPosisi",
+  "SLICE_MAKS",
+  "Sinyal",
+  "Sizing",
+  "Slice",
+  "SpesifikasiKontrak",
+  "TIF_POST_ONLY",
+  "TIPE_LIMIT",
+  "TIPE_STOP_MARKET",
+  "TOLAK_LEVERAGE_MAKS",
+  "TOLAK_NOTIONAL_MIN",
+  "TOLAK_QTY_NOL",
+  "TOLAK_RR_BERSIH",
+  "_PATH_DEPTH",
+  "_PATH_KLINES",
+  "_PATH_TICKER_24J",
+  "_urutkan_query",
+  "batas_tp_efektif",
+  "biaya",
+  "biaya_pp_round_trip",
+  "bobot_permintaan",
+  "boleh_auto_entry",
+  "bulatkan_ke_kelipatan",
+  "calculate_dynamic_risk",
+  "ekonomi_trade",
+  "entry_invalidated",
+  "evaluasi_biaya",
+  "evaluasi_verdict",
+  "format_nilai",
+  "harga_break_even",
+  "harga_post_only",
+  "jumlah_fill",
+  "kirim_order_async",
+  "mode_untuk",
+  "ms_ban_dari_pesan",
+  "muat_kredensial",
+  "pastikan_boleh_eksekusi",
+  "pastikan_tanpa_market",
+  "payload_bracket",
+  "payload_entry",
+  "payload_sl",
+  "payload_tp",
+  "payload_tp_market",
+  "plan_execution",
+  "rencana_posisi",
+  "rencana_requote",
+  "ringkas_kurva",
+  "risiko",
+  "risiko_usd",
+  "ukuran_posisi"
+ ],
+ "padanan_nama_di_aman": {},
+ "permukaan_aman": {
+  "lux_modul.eksekusi_aman": {},
+  "lux_modul.eksekusi_aman.inti": {
+   "ARAH_LONG": {
+    "jenis": "str",
+    "nilai": "'LONG'"
+   },
+   "ARAH_SHORT": {
+    "jenis": "str",
+    "nilai": "'SHORT'"
+   },
+   "DataPasar": {
+    "jenis": "kelas",
+    "metode": [
+     "bid_ask",
+     "klines",
+     "mark"
+    ],
+    "tanda_tangan": "(klien, ttl_klines=3.0, ttl_harga=1.0)"
+   },
+   "Entry": {
+    "jenis": "kelas",
+    "metode": [
+     "kirim_entry",
+     "qty_posisi"
+    ],
+    "tanda_tangan": "(klien, pengirim, spek, simbol, data=None, tidur=None)"
+   },
+   "GagalProteksi": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
+   "KODE_CID_DUPLIKAT": {
+    "jenis": "int",
+    "nilai": "-4116"
+   },
+   "KODE_ORDER_TIDAK_ADA": {
+    "jenis": "int",
+    "nilai": "-2013"
+   },
+   "KODE_PERMANEN": {
+    "jenis": "set",
+    "nilai": "{-5022, -1116, -4120, -1111, -4014, -1102, -2022, -4003, -1121}"
+   },
+   "KebijakanRisiko": {
+    "jenis": "kelas",
+    "metode": [],
+    "tanda_tangan": "(risiko_per_trade=0.01, porsi_notional_maks=1.0, porsi_margin_maks=0.1, min_margin_bebas=0.3, faktor_aman_likuidasi=3.0, leverage_maks_bursa=125)"
+   },
+   "KontrakEksekutor": {
+    "jenis": "kelas",
+    "metode": [
+     "verifikasi"
+    ],
+    "tanda_tangan": "()"
+   },
+   "PengirimOrder": {
+    "jenis": "kelas",
+    "metode": [
+     "baca_status",
+     "cari_lewat_cid",
+     "kirim"
+    ],
+    "tanda_tangan": "(klien, log=None, jeda_awal=0.5, coba_maks=3, tidur=None)"
+   },
+   "Proteksi": {
+    "jenis": "kelas",
+    "metode": [
+     "batalkan_proteksi",
+     "order_terbuka",
+     "pasang",
+     "periksa_sl",
+     "posisi_nyata",
+     "pulihkan_dari_bursa",
+     "rekonsiliasi",
+     "tutup_posisi"
+    ],
+    "tanda_tangan": "(klien, pengirim, spek, simbol, data=None, log=None, toleransi_ioc=0.001, tidur=None)"
+   },
+   "SpekSimbol": {
+    "jenis": "kelas",
+    "metode": [
+     "bulat_harga",
+     "dari_exchange_info",
+     "naik_harga",
+     "turun_harga",
+     "turun_qty"
+    ],
+    "tanda_tangan": "(tick, step, min_qty, maks_qty, min_notional, presisi_harga, presisi_qty)"
+   },
+   "TolakUkuran": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
+   "buat_cid": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(niat, simbol, sisi, ember)"
+   },
+   "hitung_ukuran": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(saldo, harga, sl_harga, arah, spek, kebijakan)"
+   },
+   "jalankan_siklus": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(klien, simbol, arah, sl_harga, tp_harga, kebijakan, spek=None, data=None, log=None, tidur=None, saldo=None, pengirim=None)"
+   }
+  },
+  "lux_modul.eksekusi_aman.proteksi": {
+   "GagalProteksi": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
+   "PenjagaProteksi": {
+    "jenis": "kelas",
+    "metode": [
+     "batalkan_proteksi",
+     "order_terbuka",
+     "pasang",
+     "periksa_sl",
+     "posisi_nyata",
+     "rekonsiliasi",
+     "tutup_posisi"
+    ],
+    "tanda_tangan": "(klien, simbol, tick, step, log=None)"
+   }
+  }
+ },
+ "permukaan_lama": {
+  "lux_modul.eksekusi": {
+   "AMBANG_NOTIONAL_ICEBREAKER": {
+    "jenis": "float",
+    "nilai": "5000.0"
+   },
+   "HasilEksekusi": {
+    "jenis": "kelas",
+    "metode": [],
+    "tanda_tangan": "(terkirim: 'List[Dict[str, Any]]' = <factory>, dibatalkan: 'List[int]' = <factory>, qty_terisi: 'float' = 0.0, alasan_batal: 'Optional[str]' = None) -> None"
+   },
+   "IceBreakerExecutor": {
+    "jenis": "kelas",
+    "metode": [
+     "jalankan",
+     "jalankan_sinkron"
+    ],
+    "tanda_tangan": "(kirim_order: 'Callable[[Dict[str, Any]], Awaitable[Any]]', harga_kini: 'Optional[Callable[[], float]]' = None, tidur: 'Optional[Callable[[float], Awaitable[None]]]' = None, kebijakan: 'Optional[KebijakanOrder]' = None)"
+   },
+   "ModeTerlarang": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
+   "RencanaEksekusi": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(simbol: 'str', arah: 'str', qty_total: 'float', harga_acuan: 'float', notional: 'float', slices: 'Sequence[Slice]', memakai_icebreaker: 'bool', sl: 'Optional[float]' = None) -> None"
+   },
+   "Sinyal": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(simbol: 'str', horizon: 'str', verdict: 'StrategyVerdict') -> None"
+   },
+   "Sizing": {
+    "jenis": "kelas",
+    "metode": [],
+    "tanda_tangan": "(qty: 'float', notional: 'float', risk_usd: 'float', risk_pct: 'float', jarak_sl: 'float', leverage_efektif: 'float', terpotong_oleh: 'Optional[str]' = None) -> None"
+   },
+   "Slice": {
+    "jenis": "kelas",
+    "metode": [
+     "payload"
+    ],
+    "tanda_tangan": "(urutan: 'int', qty: 'float', visible_qty: 'float', jeda_detik: 'float') -> None"
+   },
+   "boleh_auto_entry": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(horizon: 'str') -> 'bool'"
+   },
+   "calculate_dynamic_risk": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(balance: 'float') -> 'float'"
+   },
+   "entry_invalidated": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(arah: 'str', harga_kini: 'float', sl: 'Optional[float]') -> 'bool'"
+   },
+   "mode_untuk": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(horizon: 'str') -> 'str'"
+   },
+   "pastikan_boleh_eksekusi": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(horizon: 'str') -> 'None'"
+   },
+   "plan_execution": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(simbol: 'str', arah: 'str', qty: 'float', harga: 'float', sl: 'Optional[float]' = None, ambang_notional: 'float' = 5000.0, notional_per_slice: 'float' = 2500.0, slice_maks: 'int' = 12, rasio_visible: 'float' = 0.25, jeda_detik: 'float' = 1.5) -> 'RencanaEksekusi'"
+   },
+   "ringkas_kurva": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(saldo: 'Tuple[float, ...]' = (1, 5, 10, 19.99, 20, 100, 1000, 10000, 100000, 1000000))"
+   },
+   "risiko_usd": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(balance: 'float') -> 'float'"
+   },
+   "ukuran_posisi": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(balance: 'float', entry: 'float', sl: 'float', leverage_maks: 'float' = 20.0, qty_step: 'float' = 0.0, notional_min: 'float' = 0.0) -> 'Sizing'"
+   }
+  },
+  "lux_modul.eksekusi.biaya": {
+   "FEE_BPS_MAKER": {
+    "jenis": "float",
+    "nilai": "2.0"
+   },
+   "FEE_BPS_TAKER": {
+    "jenis": "float",
+    "nilai": "5.0"
+   },
+   "FILL_KELUAR_MAKS": {
+    "jenis": "int",
+    "nilai": "3"
+   },
+   "KELIPATAN_TP1_MIN": {
+    "jenis": "float",
+    "nilai": "3.0"
+   },
+   "KODE_BIAYA_VS_RISIKO": {
+    "jenis": "str",
+    "nilai": "'biaya_melebihi_batas_risiko'"
+   },
+   "KODE_TP1_TERLALU_DEKAT": {
+    "jenis": "str",
+    "nilai": "'tp1_terlalu_dekat_terhadap_biaya'"
+   },
+   "MetrikBiaya": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(jarak_sl_frac: 'float', jarak_tp1_frac: 'float', biaya_pp: 'float', rasio_biaya_risiko: 'float', kelipatan_tp1: 'float', lolos: 'bool', kode: 'Optional[str]' = None) -> None"
+   },
+   "RASIO_BIAYA_MAKS": {
+    "jenis": "float",
+    "nilai": "0.2"
+   },
+   "SLIPPAGE_BPS": {
+    "jenis": "float",
+    "nilai": "2.0"
+   },
+   "SLIPPAGE_MAKER_BPS": {
+    "jenis": "float",
+    "nilai": "0.0"
+   },
+   "batas_tp_efektif": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(tps: 'Sequence', maks: 'int' = 3)"
+   },
+   "biaya_pp_round_trip": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(n_tp: 'int', fee_bps: 'float' = 2.0, slippage_bps: 'float' = 0.0, fee_sl_bps: 'float' = 5.0, slippage_sl_bps: 'float' = 2.0) -> 'float'"
+   },
+   "bps_keluar_darurat": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(fee_taker_bps: 'float' = 5.0, slippage_bps: 'float' = 2.0) -> 'float'"
+   },
+   "bps_per_fill": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(fee_bps: 'float' = 2.0, slippage_bps: 'float' = 0.0) -> 'float'"
+   },
+   "evaluasi_biaya": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(entry: 'float', sl: 'float', harga_tp: 'Sequence[float]', fee_bps: 'float' = 2.0, slippage_bps: 'float' = 0.0, rasio_maks: 'float' = 0.2, kelipatan_tp1_min: 'float' = 3.0, fee_sl_bps: 'float' = 5.0, slippage_sl_bps: 'float' = 2.0) -> 'MetrikBiaya'"
+   },
+   "evaluasi_verdict": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(verdict, fee_bps: 'float' = 2.0, slippage_bps: 'float' = 0.0, rasio_maks: 'float' = 0.2, kelipatan_tp1_min: 'float' = 3.0, fee_sl_bps: 'float' = 5.0, slippage_sl_bps: 'float' = 2.0) -> 'MetrikBiaya'"
+   },
+   "jumlah_fill": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(n_tp: 'int') -> 'int'"
+   }
+  },
+  "lux_modul.eksekusi.binance_client": {
+   "BOBOT_BATAS_PER_MENIT": {
+    "jenis": "int",
+    "nilai": "2400"
+   },
+   "BOBOT_BUDGET_DEFAULT": {
+    "jenis": "int",
+    "nilai": "1200"
+   },
+   "BinanceAPIError": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "(status: 'Optional[int]', kode: 'Optional[int]', pesan: 'str', payload: 'Optional[Dict[str, Any]]' = None) -> 'None'"
+   },
+   "BinanceFuturesClient": {
+    "jenis": "kelas",
+    "metode": [
+     "atur_leverage",
+     "batalkan_order",
+     "batalkan_semua_order",
+     "bid_ask_terbaik",
+     "bracket_leverage",
+     "buku_order",
+     "exchange_info",
+     "harga_sekarang",
+     "kirim_order",
+     "klines",
+     "posisi",
+     "saldo",
+     "saldo_usdt",
+     "sinkron_waktu",
+     "sisa_ban_ms",
+     "status_order",
+     "ticker_24jam",
+     "waktu_server"
+    ],
+    "tanda_tangan": "(kredensial: 'KredensialBinance', recv_window: 'int' = 5000, timeout: 'float' = 10, jam_ms: 'Optional[callable]' = None, pembuka_url: 'Optional[callable]' = None, pengatur_laju: \"Optional['PengaturLaju']\" = None, tidur: 'Optional[callable]' = None, jam_mono: 'Optional[callable]' = None) -> 'None'"
+   },
+   "JEDA_BAN_TAK_DIKETAHUI_MS": {
+    "jenis": "int",
+    "nilai": "60000"
+   },
+   "KredensialBinance": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(mode: 'str', api_key: 'str', api_secret: 'str', base_url: 'str') -> None"
+   },
+   "MAKS_DESIMAL": {
+    "jenis": "int",
+    "nilai": "8"
+   },
+   "MAKS_ENTRI_CACHE_KLINES": {
+    "jenis": "int",
+    "nilai": "512"
+   },
+   "PengaturLaju": {
+    "jenis": "kelas",
+    "metode": [
+     "ambil",
+     "terpakai"
+    ],
+    "tanda_tangan": "(budget_per_menit: 'Optional[int]' = None, jam: 'Optional[Any]' = None, tidur: 'Optional[Any]' = None) -> 'None'"
+   },
+   "RASIO_BUDGET_DEFAULT": {
+    "jenis": "float",
+    "nilai": "0.5"
+   },
+   "RECV_WINDOW_DEFAULT": {
+    "jenis": "int",
+    "nilai": "5000"
+   },
+   "ROUND_HALF_UP": {
+    "jenis": "str",
+    "nilai": "'ROUND_HALF_UP'"
+   },
+   "TIMEOUT_DETIK_DEFAULT": {
+    "jenis": "int",
+    "nilai": "10"
+   },
+   "TTL_BRACKET_DETIK": {
+    "jenis": "float",
+    "nilai": "3600.0"
+   },
+   "TTL_EXCHANGE_INFO_DETIK": {
+    "jenis": "float",
+    "nilai": "3600.0"
+   },
+   "TTL_KLINES_DETIK": {
+    "jenis": "float",
+    "nilai": "3.0"
+   },
+   "TTL_WAKTU_SERVER_DETIK": {
+    "jenis": "float",
+    "nilai": "30.0"
+   },
+   "bobot_permintaan": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(path: 'str', params: 'Optional[Dict[str, Any]]' = None) -> 'int'"
+   },
+   "format_nilai": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(nilai: 'Any') -> 'Any'"
+   },
+   "kirim_order_async": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(client: 'BinanceFuturesClient', payload: 'Dict[str, Any]') -> 'Dict[str, Any]'"
+   },
+   "ms_ban_dari_pesan": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(pesan: 'str') -> 'Optional[int]'"
+   }
+  },
+  "lux_modul.eksekusi.ice_breaker": {
+   "AMBANG_NOTIONAL_ICEBREAKER": {
+    "jenis": "float",
+    "nilai": "5000.0"
+   },
+   "ARAH_LONG": {
+    "jenis": "str",
+    "nilai": "'LONG'"
+   },
+   "ARAH_SHORT": {
+    "jenis": "str",
+    "nilai": "'SHORT'"
+   },
+   "HasilEksekusi": {
+    "jenis": "kelas",
+    "metode": [],
+    "tanda_tangan": "(terkirim: 'List[Dict[str, Any]]' = <factory>, dibatalkan: 'List[int]' = <factory>, qty_terisi: 'float' = 0.0, alasan_batal: 'Optional[str]' = None) -> None"
+   },
+   "IceBreakerExecutor": {
+    "jenis": "kelas",
+    "metode": [
+     "jalankan",
+     "jalankan_sinkron"
+    ],
+    "tanda_tangan": "(kirim_order: 'Callable[[Dict[str, Any]], Awaitable[Any]]', harga_kini: 'Optional[Callable[[], float]]' = None, tidur: 'Optional[Callable[[float], Awaitable[None]]]' = None, kebijakan: 'Optional[KebijakanOrder]' = None)"
+   },
+   "JEDA_DETIK": {
+    "jenis": "float",
+    "nilai": "1.5"
+   },
+   "KebijakanOrder": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(post_only_wajib: 'bool' = True, izinkan_market_untuk_sl: 'bool' = True, izinkan_tp_market: 'bool' = True, offset_tick: 'int' = 1, maks_requote: 'int' = 3, tick_size: 'float' = 0.0) -> None"
+   },
+   "NOTIONAL_PER_SLICE": {
+    "jenis": "float",
+    "nilai": "2500.0"
+   },
+   "OrderTerlarang": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
+   "RASIO_VISIBLE": {
+    "jenis": "float",
+    "nilai": "0.25"
+   },
+   "RencanaEksekusi": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(simbol: 'str', arah: 'str', qty_total: 'float', harga_acuan: 'float', notional: 'float', slices: 'Sequence[Slice]', memakai_icebreaker: 'bool', sl: 'Optional[float]' = None) -> None"
+   },
+   "SLICE_MAKS": {
+    "jenis": "int",
+    "nilai": "12"
+   },
+   "Slice": {
+    "jenis": "kelas",
+    "metode": [
+     "payload"
+    ],
+    "tanda_tangan": "(urutan: 'int', qty: 'float', visible_qty: 'float', jeda_detik: 'float') -> None"
+   },
+   "TIF_POST_ONLY": {
+    "jenis": "str",
+    "nilai": "'GTX'"
+   },
+   "TIPE_LIMIT": {
+    "jenis": "str",
+    "nilai": "'LIMIT'"
+   },
+   "entry_invalidated": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(arah: 'str', harga_kini: 'float', sl: 'Optional[float]') -> 'bool'"
+   },
+   "harga_post_only": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(arah: 'str', harga_acuan: 'float', best_bid: 'Optional[float]' = None, best_ask: 'Optional[float]' = None, kebijakan: 'KebijakanOrder' = KebijakanOrder(post_only_wajib=True, izinkan_market_untuk_sl=True, izinkan_tp_market=True, offset_tick=1, maks_requote=3, tick_size=0.0)) -> 'float'"
+   },
+   "pastikan_tanpa_market": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(payload: 'Dict[str, Any]', kebijakan: 'KebijakanOrder' = KebijakanOrder(post_only_wajib=True, izinkan_market_untuk_sl=True, izinkan_tp_market=True, offset_tick=1, maks_requote=3, tick_size=0.0)) -> 'Dict[str, Any]'"
+   },
+   "plan_execution": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(simbol: 'str', arah: 'str', qty: 'float', harga: 'float', sl: 'Optional[float]' = None, ambang_notional: 'float' = 5000.0, notional_per_slice: 'float' = 2500.0, slice_maks: 'int' = 12, rasio_visible: 'float' = 0.25, jeda_detik: 'float' = 1.5) -> 'RencanaEksekusi'"
+   }
+  },
+  "lux_modul.eksekusi.kredensial": {
+   "BASE_URL_LIVE": {
+    "jenis": "str",
+    "nilai": "'https://fapi.binance.com'"
+   },
+   "BASE_URL_TESTNET": {
+    "jenis": "str",
+    "nilai": "'https://testnet.binancefuture.com'"
+   },
+   "ENV_LIVE_KEY": {
+    "jenis": "str",
+    "nilai": "'LUX_BINANCE_LIVE_API_KEY'"
+   },
+   "ENV_LIVE_KONFIRMASI": {
+    "jenis": "str",
+    "nilai": "'LUX_LIVE_KONFIRMASI'"
+   },
+   "ENV_LIVE_SECRET": {
+    "jenis": "str",
+    "nilai": "'LUX_BINANCE_LIVE_API_SECRET'"
+   },
+   "ENV_TESTNET_KEY": {
+    "jenis": "str",
+    "nilai": "'LUX_BINANCE_TESTNET_API_KEY'"
+   },
+   "ENV_TESTNET_SECRET": {
+    "jenis": "str",
+    "nilai": "'LUX_BINANCE_TESTNET_API_SECRET'"
+   },
+   "FRASA_KONFIRMASI_LIVE": {
+    "jenis": "str",
+    "nilai": "'SAYA_PAHAM_INI_AKUN_LIVE_DANA_ASLI'"
+   },
+   "KredensialBinance": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(mode: 'str', api_key: 'str', api_secret: 'str', base_url: 'str') -> None"
+   },
+   "KredensialError": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
+   "MODE_LIVE": {
+    "jenis": "str",
+    "nilai": "'live'"
+   },
+   "MODE_TESTNET": {
+    "jenis": "str",
+    "nilai": "'testnet'"
+   },
+   "MODE_VALID": {
+    "jenis": "tuple",
+    "nilai": "('testnet', 'live')"
+   },
+   "muat_kredensial": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(mode: 'str', konfirmasi_live_cli: 'bool' = False) -> 'KredensialBinance'"
+   }
+  },
+  "lux_modul.eksekusi.mode": {
+   "HORIZON_SWING": {
+    "jenis": "str",
+    "nilai": "'swing'"
+   },
+   "HORIZON_VALID": {
+    "jenis": "tuple",
+    "nilai": "('scalping', 'intraday', 'swing')"
+   },
+   "MODE_AUTO_ENTRY": {
+    "jenis": "str",
+    "nilai": "'auto_entry'"
+   },
+   "MODE_PER_HORIZON": {
+    "jenis": "dict",
+    "nilai": "{'scalping': 'auto_entry', 'intraday': 'auto_entry', 'swing': 'signal_only'}"
+   },
+   "MODE_SIGNAL_ONLY": {
+    "jenis": "str",
+    "nilai": "'signal_only'"
+   },
+   "ModeTerlarang": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
+   "Sinyal": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(simbol: 'str', horizon: 'str', verdict: 'StrategyVerdict') -> None"
+   },
+   "StrategyVerdict": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(strategy_id: 'str', kelompok: 'str', arah: 'str', skor: 'float', ambang: 'float', entry: 'float', sl: 'float', tps: 'Tuple[TargetTP, ...]', level: 'float', invalidation: 'float', tfs_used: 'Tuple[str, ...]', features_used: 'Tuple[str, ...]' = (), evidence: 'Mapping[str, Any]' = <factory>, ts_sinyal: 'int' = 0, calibrated_p: 'Optional[float]' = None) -> None"
+   },
+   "boleh_auto_entry": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(horizon: 'str') -> 'bool'"
+   },
+   "mode_untuk": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(horizon: 'str') -> 'str'"
+   },
+   "pastikan_boleh_eksekusi": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(horizon: 'str') -> 'None'"
+   },
+   "sinyal_swing": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(simbol: 'str', verdict: 'StrategyVerdict') -> 'Optional[Sinyal]'"
+   }
+  },
+  "lux_modul.eksekusi.order": {
+   "ARAH_LONG": {
+    "jenis": "str",
+    "nilai": "'LONG'"
+   },
+   "ARAH_SHORT": {
+    "jenis": "str",
+    "nilai": "'SHORT'"
+   },
+   "HasilQuote": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(terisi: 'bool', harga: 'Optional[float]', percobaan: 'int', alasan: 'Optional[str]' = None, riwayat: 'list' = <factory>) -> None"
+   },
+   "KebijakanOrder": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(post_only_wajib: 'bool' = True, izinkan_market_untuk_sl: 'bool' = True, izinkan_tp_market: 'bool' = True, offset_tick: 'int' = 1, maks_requote: 'int' = 3, tick_size: 'float' = 0.0) -> None"
+   },
+   "MAKS_REQUOTE_DEFAULT": {
+    "jenis": "int",
+    "nilai": "3"
+   },
+   "OFFSET_TICK_DEFAULT": {
+    "jenis": "int",
+    "nilai": "1"
+   },
+   "OrderTerlarang": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
+   "TIF_POST_ONLY": {
+    "jenis": "str",
+    "nilai": "'GTX'"
+   },
+   "TIPE_LIMIT": {
+    "jenis": "str",
+    "nilai": "'LIMIT'"
+   },
+   "TIPE_STOP_MARKET": {
+    "jenis": "str",
+    "nilai": "'STOP_MARKET'"
+   },
+   "TIPE_TAKE_PROFIT_MARKET": {
+    "jenis": "str",
+    "nilai": "'TAKE_PROFIT_MARKET'"
+   },
+   "TIPE_TERLARANG": {
+    "jenis": "tuple",
+    "nilai": "('MARKET', 'TRAILING_STOP_MARKET')"
+   },
+   "TIPE_TERLARANG_ENTRY": {
+    "jenis": "tuple",
+    "nilai": "('MARKET', 'TRAILING_STOP_MARKET')"
+   },
+   "harga_post_only": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(arah: 'str', harga_acuan: 'float', best_bid: 'Optional[float]' = None, best_ask: 'Optional[float]' = None, kebijakan: 'KebijakanOrder' = KebijakanOrder(post_only_wajib=True, izinkan_market_untuk_sl=True, izinkan_tp_market=True, offset_tick=1, maks_requote=3, tick_size=0.0)) -> 'float'"
+   },
+   "pastikan_tanpa_market": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(payload: 'Dict[str, Any]', kebijakan: 'KebijakanOrder' = KebijakanOrder(post_only_wajib=True, izinkan_market_untuk_sl=True, izinkan_tp_market=True, offset_tick=1, maks_requote=3, tick_size=0.0)) -> 'Dict[str, Any]'"
+   },
+   "payload_bracket": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(simbol: 'str', arah: 'str', sl_price: 'float', tp_price: 'float', qty: 'Optional[float]' = None, kebijakan: 'KebijakanOrder' = KebijakanOrder(post_only_wajib=True, izinkan_market_untuk_sl=True, izinkan_tp_market=True, offset_tick=1, maks_requote=3, tick_size=0.0)) -> 'Tuple[Dict[str, Any], Dict[str, Any]]'"
+   },
+   "payload_entry": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(simbol: 'str', arah: 'str', qty: 'float', harga: 'float', visible_qty: 'Optional[float]' = None, kebijakan: 'KebijakanOrder' = KebijakanOrder(post_only_wajib=True, izinkan_market_untuk_sl=True, izinkan_tp_market=True, offset_tick=1, maks_requote=3, tick_size=0.0)) -> 'Dict[str, Any]'"
+   },
+   "payload_sl": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(simbol: 'str', arah: 'str', stop_price: 'float', qty: 'Optional[float]' = None, tutup_posisi: 'bool' = True, kebijakan: 'KebijakanOrder' = KebijakanOrder(post_only_wajib=True, izinkan_market_untuk_sl=True, izinkan_tp_market=True, offset_tick=1, maks_requote=3, tick_size=0.0)) -> 'Dict[str, Any]'"
+   },
+   "payload_tp": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(simbol: 'str', arah: 'str', qty: 'float', harga: 'float', kebijakan: 'KebijakanOrder' = KebijakanOrder(post_only_wajib=True, izinkan_market_untuk_sl=True, izinkan_tp_market=True, offset_tick=1, maks_requote=3, tick_size=0.0)) -> 'Dict[str, Any]'"
+   },
+   "payload_tp_market": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(simbol: 'str', arah: 'str', stop_price: 'float', kebijakan: 'Optional[KebijakanOrder]' = None) -> 'Dict[str, Any]'"
+   },
+   "rencana_requote": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(arah: 'str', harga_acuan: 'float', kebijakan: 'KebijakanOrder' = KebijakanOrder(post_only_wajib=True, izinkan_market_untuk_sl=True, izinkan_tp_market=True, offset_tick=1, maks_requote=3, tick_size=0.0)) -> 'list'"
+   },
+   "sisi_binance": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(arah: 'str', keluar: 'bool' = False) -> 'str'"
+   }
+  },
+  "lux_modul.eksekusi.risiko": {
+   "AMBANG_MODAL_KECIL": {
+    "jenis": "float",
+    "nilai": "20.0"
+   },
+   "EKSPONEN_KECIL": {
+    "jenis": "float",
+    "nilai": "0.55"
+   },
+   "RISK_LANTAI_USD": {
+    "jenis": "float",
+    "nilai": "0.2"
+   },
+   "RISK_PCT_MAKS": {
+    "jenis": "float",
+    "nilai": "0.03"
+   },
+   "RISK_PCT_MIN": {
+    "jenis": "float",
+    "nilai": "0.005"
+   },
+   "Sizing": {
+    "jenis": "kelas",
+    "metode": [],
+    "tanda_tangan": "(qty: 'float', notional: 'float', risk_usd: 'float', risk_pct: 'float', jarak_sl: 'float', leverage_efektif: 'float', terpotong_oleh: 'Optional[str]' = None) -> None"
+   },
+   "TAPER_EKSPONEN": {
+    "jenis": "float",
+    "nilai": "0.35"
+   },
+   "TAPER_LANTAI": {
+    "jenis": "float",
+    "nilai": "0.0025"
+   },
+   "TAPER_MULAI": {
+    "jenis": "float",
+    "nilai": "100000.0"
+   },
+   "TAPER_PCT_DASAR": {
+    "jenis": "float",
+    "nilai": "0.01"
+   },
+   "TIER": {
+    "jenis": "tuple",
+    "nilai": "((100.0, 0.03), (1000.0, 0.025), (10000.0, 0.02), (50000.0, 0.015), (100000.0, 0.01))"
+   },
+   "calculate_dynamic_risk": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(balance: 'float') -> 'float'"
+   },
+   "ringkas_kurva": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(saldo: 'Tuple[float, ...]' = (1, 5, 10, 19.99, 20, 100, 1000, 10000, 100000, 1000000))"
+   },
+   "risiko_usd": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(balance: 'float') -> 'float'"
+   },
+   "ukuran_posisi": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(balance: 'float', entry: 'float', sl: 'float', leverage_maks: 'float' = 20.0, qty_step: 'float' = 0.0, notional_min: 'float' = 0.0) -> 'Sizing'"
+   }
+  },
+  "lux_modul.eksekusi.spesifikasi": {
+   "ARAH_LONG": {
+    "jenis": "str",
+    "nilai": "'LONG'"
+   },
+   "ARAH_SHORT": {
+    "jenis": "str",
+    "nilai": "'SHORT'"
+   },
+   "EkonomiTrade": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(arah: 'str', entry: 'float', sl: 'float', tp_utama: 'float', bep: 'float', biaya_masuk_frac: 'float', biaya_keluar_tp_frac: 'float', biaya_keluar_sl_frac: 'float', risiko_harga: 'float', risiko_bersih_frac: 'float', imbalan_bersih_frac: 'float', rr_kotor: 'float', rr_bersih: 'float') -> None"
+   },
+   "FEE_BPS_MAKER": {
+    "jenis": "float",
+    "nilai": "2.0"
+   },
+   "FEE_BPS_TAKER": {
+    "jenis": "float",
+    "nilai": "5.0"
+   },
+   "RencanaPosisi": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(simbol: 'str', arah: 'str', entry: 'float', sl: 'float', qty: 'float', notional: 'float', risk_usd: 'float', risk_pct: 'float', risiko_nyata_usd: 'float', margin_dibutuhkan: 'float', leverage_optimal: 'float', leverage_maks_simbol: 'float', jarak_sl: 'float', ekonomi: 'Optional[EkonomiTrade]' = None, layak: 'bool' = True, kode: 'Optional[str]' = None, catatan: 'Tuple[str, ...]' = ()) -> None"
+   },
+   "SLIPPAGE_BPS": {
+    "jenis": "float",
+    "nilai": "2.0"
+   },
+   "SLIPPAGE_MAKER_BPS": {
+    "jenis": "float",
+    "nilai": "0.0"
+   },
+   "SPEK_UMUM": {
+    "jenis": "SpesifikasiKontrak",
+    "nilai": "SpesifikasiKontrak(simbol='(generik)', tick_size=0.0, step_size=0.0, min_qty=0.0, min_notional=0.0, maks_notional=0.0, presisi_harga=None, presisi_qty=None, lev..."
+   },
+   "SpesifikasiKontrak": {
+    "jenis": "kelas",
+    "metode": [
+     "bulat_harga",
+     "bulat_qty",
+     "dari_exchange_info",
+     "leverage_untuk_notional",
+     "ringkas"
+    ],
+    "tanda_tangan": "(simbol: 'str', tick_size: 'float' = 0.0, step_size: 'float' = 0.0, min_qty: 'float' = 0.0, min_notional: 'float' = 0.0, maks_notional: 'float' = 0.0, presisi_harga: 'Optional[int]' = None, presisi_qty: 'Optional[int]' = None, leverage_maks_simbol: 'float' = 20.0, bracket: 'Tuple[Tuple[float, float], ...]' = ()) -> None"
+   },
+   "TOLAK_LEVERAGE_MAKS": {
+    "jenis": "str",
+    "nilai": "'butuh_leverage_di_atas_batas_simbol'"
+   },
+   "TOLAK_MARGIN": {
+    "jenis": "str",
+    "nilai": "'margin_melebihi_saldo_tersedia'"
+   },
+   "TOLAK_NOTIONAL_MIN": {
+    "jenis": "str",
+    "nilai": "'notional_di_bawah_minimum_exchange'"
+   },
+   "TOLAK_QTY_NOL": {
+    "jenis": "str",
+    "nilai": "'qty_nol_setelah_pembulatan_step'"
+   },
+   "TOLAK_RR_BERSIH": {
+    "jenis": "str",
+    "nilai": "'rr_bersih_tidak_layak'"
+   },
+   "TOLAK_SL_NOL": {
+    "jenis": "str",
+    "nilai": "'jarak_sl_nol_setelah_pembulatan_tick'"
+   },
+   "bulatkan_ke_kelipatan": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(nilai: 'float', kelipatan: 'float', arah: 'str' = 'terdekat') -> 'float'"
+   },
+   "calculate_dynamic_risk": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(balance: 'float') -> 'float'"
+   },
+   "ekonomi_trade": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(arah: 'str', entry: 'float', sl: 'float', tp_utama: 'float', fee_masuk_bps: 'float' = 2.0, slippage_masuk_bps: 'float' = 0.0, fee_tp_bps: 'float' = 2.0, slippage_tp_bps: 'float' = 0.0, fee_sl_bps: 'float' = 5.0, slippage_sl_bps: 'float' = 2.0, funding_bps: 'float' = 0.0) -> 'EkonomiTrade'"
+   },
+   "harga_break_even": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(arah: 'str', entry: 'float', fee_masuk_bps: 'float' = 2.0, fee_keluar_bps: 'float' = 2.0, slippage_masuk_bps: 'float' = 0.0, slippage_keluar_bps: 'float' = 0.0) -> 'float'"
+   },
+   "rencana_posisi": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(simbol: 'str', arah: 'str', balance: 'float', entry: 'float', sl: 'float', tp_utama: 'Optional[float]' = None, spek: 'Optional[SpesifikasiKontrak]' = None, porsi_margin_maks: 'float' = 0.5, leverage_batas_operator: 'Optional[float]' = None, fee_masuk_bps: 'float' = 2.0, fee_sl_bps: 'float' = 5.0, slippage_sl_bps: 'float' = 2.0, rr_bersih_min: 'Optional[float]' = None) -> 'RencanaPosisi'"
+   },
+   "risiko_usd": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(balance: 'float') -> 'float'"
+   }
+  }
+ },
+ "tanpa_padanan_di_aman": [
+  "AMBANG_NOTIONAL_ICEBREAKER",
+  "BASE_URL_LIVE",
+  "BASE_URL_TESTNET",
+  "BinanceAPIError",
+  "BinanceFuturesClient",
+  "ENV_LIVE_KEY",
+  "ENV_LIVE_KONFIRMASI",
+  "ENV_LIVE_SECRET",
+  "ENV_TESTNET_KEY",
+  "ENV_TESTNET_SECRET",
+  "FILL_KELUAR_MAKS",
+  "FRASA_KONFIRMASI_LIVE",
+  "HasilEksekusi",
+  "IceBreakerExecutor",
+  "JEDA_DETIK",
+  "KODE_BIAYA_VS_RISIKO",
+  "KODE_TP1_TERLALU_DEKAT",
+  "KebijakanOrder",
+  "KredensialBinance",
+  "KredensialError",
+  "MODE_LIVE",
+  "MODE_TESTNET",
+  "ModeTerlarang",
+  "NOTIONAL_PER_SLICE",
+  "OrderTerlarang",
+  "PengaturLaju",
+  "RASIO_VISIBLE",
+  "RencanaEksekusi",
+  "RencanaPosisi",
+  "SLICE_MAKS",
+  "Sinyal",
+  "Sizing",
+  "Slice",
+  "SpesifikasiKontrak",
+  "TIF_POST_ONLY",
+  "TIPE_LIMIT",
+  "TIPE_STOP_MARKET",
+  "TOLAK_LEVERAGE_MAKS",
+  "TOLAK_NOTIONAL_MIN",
+  "TOLAK_QTY_NOL",
+  "TOLAK_RR_BERSIH",
+  "_PATH_DEPTH",
+  "_PATH_KLINES",
+  "_PATH_TICKER_24J",
+  "_urutkan_query",
+  "batas_tp_efektif",
+  "biaya",
+  "biaya_pp_round_trip",
+  "bobot_permintaan",
+  "boleh_auto_entry",
+  "bulatkan_ke_kelipatan",
+  "calculate_dynamic_risk",
+  "ekonomi_trade",
+  "entry_invalidated",
+  "evaluasi_biaya",
+  "evaluasi_verdict",
+  "format_nilai",
+  "harga_break_even",
+  "harga_post_only",
+  "jumlah_fill",
+  "kirim_order_async",
+  "mode_untuk",
+  "ms_ban_dari_pesan",
+  "muat_kredensial",
+  "pastikan_boleh_eksekusi",
+  "pastikan_tanpa_market",
+  "payload_bracket",
+  "payload_entry",
+  "payload_sl",
+  "payload_tp",
+  "payload_tp_market",
+  "plan_execution",
+  "rencana_posisi",
+  "rencana_requote",
+  "ringkas_kurva",
+  "risiko",
+  "risiko_usd",
+  "ukuran_posisi"
+ ]
+}
