@@ -1,8 +1,7 @@
 GERBANG=GAGAL
 registry_jumlah=26
-pytest={"ada": true, "lulus": 249, "gagal": 4, "galat": 0, "dilewati": 0, "rc": 1}
+pytest={"ada": true, "lulus": 270, "gagal": 2, "galat": 0, "dilewati": 0, "rc": 1}
 baseline_ada=True
-MASALAH: pytest gagal: 4
-MASALAH: jumlah tes lulus turun: 249 kurang dari 253
+MASALAH: pytest gagal: 2
 MASALAH: rc_pytest bukan nol: 1
 rc=1

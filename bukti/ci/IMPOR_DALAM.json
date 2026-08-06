@@ -1,7 +1,5 @@
 {
- "galat_parse": {
-  "alat.pasang_v2": "SyntaxError('unterminated string literal (detected at line 260)', ('alat/pasang_v2.py', 260, 11, '    print(\"order', 260, 11))"
- },
+ "galat_parse": {},
  "hanya_terlihat_saat_bersarang": {
   "alat.gerbang": [
    "lux_modul.konfigurasi",
@@ -44,6 +42,9 @@
    "lux_modul.eksekusi.kredensial",
    "lux_modul.pemindai",
    "lux_modul.rencana_tf"
+  ],
+  "lux_modul.live_runner": [
+   "lux_modul.eksekusi_aman.inti"
   ],
   "lux_modul.notifikasi.telegram": [
    "lux_modul.konfigurasi"
@@ -99,7 +100,16 @@
    "os",
    "sys"
   ],
+  "alat.pasang_env": [
+   "os",
+   "sys"
+  ],
   "alat.pasang_saklar": [
+   "json",
+   "os",
+   "sys"
+  ],
+  "alat.pasang_v2": [
    "json",
    "os",
    "sys"
@@ -891,6 +901,7 @@
    "sys"
   ],
   "tests.test_live_runner_saklar": [
+   "lux_modul.eksekusi_aman.inti",
    "lux_modul.kontrak",
    "lux_modul.live_runner"
   ],
@@ -927,6 +938,10 @@
   ],
   "tests.test_saklar_eksekusi": [
    "lux_modul.eksekusi_aman.saklar"
+  ],
+  "tests.test_saklar_otomatis": [
+   "lux_modul.eksekusi_aman",
+   "pytest"
   ],
   "tests.test_serialisasi_order": [
    "__future__",
@@ -968,7 +983,9 @@
   "alat.impor_dalam": [],
   "alat.kontrak.bedah_kontrak": [],
   "alat.kontrak_klien": [],
+  "alat.pasang_env": [],
   "alat.pasang_saklar": [],
+  "alat.pasang_v2": [],
   "alat.permukaan": [],
   "alat.ringkas_rakit": [],
   "alat.temu_registry": [],
@@ -1035,7 +1052,9 @@
    "lux_modul.rencana_tf"
   ],
   "lux_modul.kontrak": [],
-  "lux_modul.live_runner": [],
+  "lux_modul.live_runner": [
+   "lux_modul.eksekusi_aman.inti"
+  ],
   "lux_modul.mesin_multi": [],
   "lux_modul.notifikasi": [],
   "lux_modul.notifikasi.telegram": [
@@ -1104,11 +1123,12 @@
   "tests.test_portofolio": [],
   "tests.test_portofolio_governor": [],
   "tests.test_saklar_eksekusi": [],
+  "tests.test_saklar_otomatis": [],
   "tests.test_serialisasi_order": [],
   "tests.test_spesifikasi": [],
   "tests.test_strategi_arbiter": []
  },
- "modul_jumlah": 105,
+ "modul_jumlah": 107,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",
@@ -1229,6 +1249,7 @@
     "tests.test_order_postonly",
     "tests.test_pemindai",
     "tests.test_portofolio",
+    "tests.test_saklar_otomatis",
     "tests.test_spesifikasi",
     "tests.test_strategi_arbiter"
    ]
@@ -1238,15 +1259,13 @@
   "lux_modul.eksekusi_aman.inti": {
    "bersarang": [
     "alat.uji_hidup_saklar",
-    "lux_modul.eksekusi_aman.saklar"
+    "lux_modul.eksekusi_aman.saklar",
+    "lux_modul.live_runner"
    ],
    "dipakai": true,
-   "tingkat_atas": []
-  },
-  "lux_modul.eksekusi_aman.proteksi": {
-   "bersarang": [],
-   "dipakai": false,
-   "tingkat_atas": []
+   "tingkat_atas": [
+    "tests.test_live_runner_saklar"
+   ]
   },
   "lux_modul.eksekusi_aman.saklar": {
    "bersarang": [
@@ -1256,6 +1275,21 @@
    "tingkat_atas": [
     "lux_modul.live_runner",
     "tests.test_saklar_eksekusi"
+   ]
+  },
+  "lux_modul.live_runner": {
+   "bersarang": [
+    "alat.uji_hidup_saklar"
+   ],
+   "dipakai": true,
+   "tingkat_atas": [
+    "lux_modul.mesin_multi",
+    "scripts.asap_e2e",
+    "scripts.asap_multi_e2e",
+    "scripts.live_run",
+    "tests.test_laju_dan_tp",
+    "tests.test_live_runner",
+    "tests.test_live_runner_saklar"
    ]
   }
  }

@@ -36,6 +36,7 @@
    "tests.test_order_postonly",
    "tests.test_pemindai",
    "tests.test_portofolio",
+   "tests.test_saklar_otomatis",
    "tests.test_spesifikasi",
    "tests.test_strategi_arbiter"
   ],
@@ -190,21 +191,24 @@
    "lux_modul.live_runner": [
     "lux_modul.eksekusi_aman.saklar"
    ],
+   "tests.test_live_runner_saklar": [
+    "lux_modul.eksekusi_aman.inti"
+   ],
    "tests.test_saklar_eksekusi": [
+    "lux_modul.eksekusi_aman.saklar"
+   ],
+   "tests.test_saklar_otomatis": [
+    "lux_modul.eksekusi_aman",
     "lux_modul.eksekusi_aman.saklar"
    ]
   },
   "terjangkau": [
    "lux_modul.eksekusi_aman",
+   "lux_modul.eksekusi_aman.inti",
    "lux_modul.eksekusi_aman.saklar"
   ]
  },
- "galat_parse": [
-  {
-   "galat": "SyntaxError('unterminated string literal (detected at line 260)', ('alat/pasang_v2.py', 260, 11, '    print(\"order', 260, 11))",
-   "modul": "alat.pasang_v2"
-  }
- ],
+ "galat_parse": [],
  "impor_rusak_alat": [],
  "impor_rusak_modul": [],
  "lulus": true,
@@ -363,9 +367,16 @@
    "scripts.uji_testnet",
    "tests.test_spesifikasi"
   ],
+  "lux_modul.eksekusi_aman": [
+   "tests.test_saklar_otomatis"
+  ],
+  "lux_modul.eksekusi_aman.inti": [
+   "tests.test_live_runner_saklar"
+  ],
   "lux_modul.eksekusi_aman.saklar": [
    "lux_modul.live_runner",
-   "tests.test_saklar_eksekusi"
+   "tests.test_saklar_eksekusi",
+   "tests.test_saklar_otomatis"
   ],
   "lux_modul.fitur": [
    "alat.teori.uji_kelas",
@@ -625,7 +636,7 @@
   ]
  },
  "modul_lux": 52,
- "modul_total": 105,
+ "modul_total": 107,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -1056,6 +1067,7 @@
    "lux_modul.live_runner"
   ],
   "tests.test_live_runner_saklar": [
+   "lux_modul.eksekusi_aman.inti",
    "lux_modul.kontrak",
    "lux_modul.live_runner"
   ],
@@ -1078,6 +1090,10 @@
    "lux_modul.governor"
   ],
   "tests.test_saklar_eksekusi": [
+   "lux_modul.eksekusi_aman.saklar"
+  ],
+  "tests.test_saklar_otomatis": [
+   "lux_modul.eksekusi_aman",
    "lux_modul.eksekusi_aman.saklar"
   ],
   "tests.test_serialisasi_order": [
@@ -1137,13 +1153,13 @@
   "tests.test_portofolio",
   "tests.test_portofolio_governor",
   "tests.test_saklar_eksekusi",
+  "tests.test_saklar_otomatis",
   "tests.test_serialisasi_order",
   "tests.test_spesifikasi",
   "tests.test_strategi_arbiter",
   "lux_modul"
  ],
  "yatim": [
-  "lux_modul.eksekusi_aman.inti",
   "lux_modul.eksekusi_aman.proteksi"
  ]
 }

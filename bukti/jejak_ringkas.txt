@@ -33,7 +33,7 @@
   "dataset_masuk_total": 3,
   "py_lux_modul": 52,
   "py_scripts": 18,
-  "py_tests": 19,
+  "py_tests": 20,
   "py_tools": 8
  },
  "fix_ref": null,
@@ -50,16 +50,17 @@
    "kontrak.yml",
    "rakit.yml",
    "saklar.yml",
+   "tambal.yml",
    "teori.yml",
    "teori3.yml"
   ]
  },
  "pytest_ekor": [
-  "FAILED tests/test_saklar_eksekusi.py::test_nilai_asing_jatuh_ke_lama - AssertionError: assert 'otomatis' == 'lama'",
-  "  ",
-  "  - lama",
-  "  + otomatis",
-  "4 failed, 249 passed in 42.82s",
+  "lux_modul/live_runner.py:672: AttributeError",
+  "=========================== short test summary info ============================",
+  "FAILED tests/test_live_runner.py::test_entry_terisi_memasang_sl_dan_tp_lalu_lapor_notifier - AttributeError: 'LiveRunner' object has no attribute '_tidur'",
+  "FAILED tests/test_live_runner.py::test_entry_tanpa_tp_hanya_kirim_sl - AttributeError: 'LiveRunner' object has no attribute '_tidur'",
+  "2 failed, 270 passed in 22.61s",
   "rc_pytest=1"
  ]
 }
