@@ -1,0 +1,221 @@
+{
+ "vonis": {
+  "stop_order_ditolak": true,
+  "uji_tipe_order": {
+   "STOP_MARKET": {
+    "diterima": false,
+    "galat": {
+     "jenis": "BinanceAPIError",
+     "pesan": "BinanceAPIError(status=400, kode=-4120): Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.",
+     "api_status": 400,
+     "api_kode": -4120,
+     "api_pesan": "Order type not supported for this endpoint. Please use the Algo Order API endpoints instead."
+    }
+   },
+   "TAKE_PROFIT_MARKET": {
+    "diterima": false,
+    "galat": {
+     "jenis": "BinanceAPIError",
+     "pesan": "BinanceAPIError(status=400, kode=-4120): Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.",
+     "api_status": 400,
+     "api_kode": -4120,
+     "api_pesan": "Order type not supported for this endpoint. Please use the Algo Order API endpoints instead."
+    }
+   }
+  },
+  "posisi_terbuka": true,
+  "qty_terisi": 0.0018,
+  "aman_aktif": true,
+  "sl_order_id_none": true,
+  "tp_order_id": 28518320620,
+  "siklus_order_sl": {
+   "mode": "sl_dipantau_perangkat_lunak",
+   "sl_harga": 62599.5
+  },
+  "siklus_galat": null,
+  "open_orders": [
+   {
+    "orderId": 28518320620,
+    "type": "LIMIT",
+    "side": "SELL",
+    "price": "66471.70",
+    "stopPrice": "0",
+    "origQty": "0.0018",
+    "reduceOnly": true,
+    "closePosition": false,
+    "timeInForce": "GTC",
+    "status": "NEW"
+   }
+  ],
+  "tp_terlihat_limit_reduceonly": true,
+  "ada_tipe_stop_di_bursa": false,
+  "periksa_sl_galat": [],
+  "masih_dipantau": [
+   "BTCUSDT"
+  ],
+  "failsafe_gagal_terdeteksi": false,
+  "failsafe_posisi_ditutup": false,
+  "failsafe_detail": {
+   "mode": "aman",
+   "gagal": null,
+   "posisi_ditutup": null,
+   "failsafe": null,
+   "failsafe_gagal": null
+  },
+  "bersih_akhir": true,
+  "vonis": "GAGAL"
+ },
+ "jejak": [
+  {
+   "tahap": "kredensial",
+   "utc": "2026-08-06T01:41:15Z",
+   "ringkas": {
+    "mode": "testnet",
+    "base_url": "https://testnet.binancefuture.com",
+    "api_key_terlihat": "Yupu...pe"
+   }
+  },
+  {
+   "tahap": "koneksi",
+   "utc": "2026-08-06T01:41:16Z",
+   "saldo_usdt": 5027.360522,
+   "harga": 64535.6,
+   "simbol": "BTCUSDT"
+  },
+  {
+   "tahap": "uji_tipe_order",
+   "utc": "2026-08-06T01:41:16Z",
+   "tipe": "STOP_MARKET",
+   "hasil": {
+    "diterima": false,
+    "galat": {
+     "jenis": "BinanceAPIError",
+     "pesan": "BinanceAPIError(status=400, kode=-4120): Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.",
+     "api_status": 400,
+     "api_kode": -4120,
+     "api_pesan": "Order type not supported for this endpoint. Please use the Algo Order API endpoints instead."
+    }
+   }
+  },
+  {
+   "tahap": "uji_tipe_order",
+   "utc": "2026-08-06T01:41:16Z",
+   "tipe": "TAKE_PROFIT_MARKET",
+   "hasil": {
+    "diterima": false,
+    "galat": {
+     "jenis": "BinanceAPIError",
+     "pesan": "BinanceAPIError(status=400, kode=-4120): Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.",
+     "api_status": 400,
+     "api_kode": -4120,
+     "api_pesan": "Order type not supported for this endpoint. Please use the Algo Order API endpoints instead."
+    }
+   }
+  },
+  {
+   "tahap": "spek",
+   "utc": "2026-08-06T01:41:17Z",
+   "tick": 0.1,
+   "step": 0.0001,
+   "min_qty": 0.0001,
+   "min_notional": 50.0,
+   "qty_uji": 0.0018,
+   "notional_uji": 116.16408
+  },
+  {
+   "tahap": "bersihkan",
+   "utc": "2026-08-06T01:41:17Z",
+   "alasan": "pra_uji",
+   "sisa_awal": 0.0,
+   "sisa_akhir": 0.0
+  },
+  {
+   "tahap": "entry",
+   "utc": "2026-08-06T01:41:18Z",
+   "hasil": {
+    "terisi": 0.0018,
+    "sumber_qty": "executedQty",
+    "status": "FILLED",
+    "avgPrice": "64536.300000",
+    "orderId": 28518319657,
+    "cid": "lxe8355e81e94d3b916205",
+    "hasil": "OK",
+    "qty_minta": 0.0018,
+    "parsial": false
+   }
+  },
+  {
+   "tahap": "posisi_setelah_entry",
+   "utc": "2026-08-06T01:41:18Z",
+   "qty": 0.0018
+  },
+  {
+   "tahap": "mode",
+   "utc": "2026-08-06T01:41:18Z",
+   "aman_aktif": true,
+   "env": "aman"
+  },
+  {
+   "tahap": "siklus",
+   "utc": "2026-08-06T01:41:18Z",
+   "bentuk": "SiklusHasil()"
+  },
+  {
+   "tahap": "pasang_proteksi",
+   "utc": "2026-08-06T01:41:19Z",
+   "sl_order_id": null,
+   "tp_order_id": 28518320620,
+   "sl_harga": 62599.5,
+   "tp_harga": 66471.7,
+   "order_sl": {
+    "mode": "sl_dipantau_perangkat_lunak",
+    "sl_harga": 62599.5
+   },
+   "galat": null
+  },
+  {
+   "tahap": "open_orders",
+   "utc": "2026-08-06T01:41:19Z",
+   "jumlah": 1,
+   "order": [
+    {
+     "orderId": 28518320620,
+     "type": "LIMIT",
+     "side": "SELL",
+     "price": "66471.70",
+     "stopPrice": "0",
+     "origQty": "0.0018",
+     "reduceOnly": true,
+     "closePosition": false,
+     "timeInForce": "GTC",
+     "status": "NEW"
+    }
+   ]
+  },
+  {
+   "tahap": "periksa_sl_aman",
+   "utc": "2026-08-06T01:41:20Z",
+   "galat": [],
+   "masih_dipantau": [
+    "BTCUSDT"
+   ]
+  },
+  {
+   "tahap": "failsafe",
+   "utc": "2026-08-06T01:41:21Z",
+   "tp_mustahil": 645356.0,
+   "qty_sebelum": 0.0018,
+   "qty_sesudah": 0.0018,
+   "gagal": null,
+   "posisi_ditutup": null,
+   "failsafe": null
+  },
+  {
+   "tahap": "bersihkan",
+   "utc": "2026-08-06T01:41:21Z",
+   "alasan": "pasca_uji",
+   "sisa_awal": 0.0018,
+   "sisa_akhir": 0.0
+  }
+ ]
+}
