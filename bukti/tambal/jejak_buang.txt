@@ -1,4 +1,5 @@
-berkas_dipindai=139
-sasaran={"berkas": "lux_modul/eksekusi_aman/proteksi.py", "penyebut": {"alat/buang_mati.py": ["PenjagaProteksi", "eksekusi_aman.proteksi", "eksekusi_aman import proteksi", "from .proteksi import", "from . import proteksi"], "alat/kontrak/bedah_kontrak.py": ["PenjagaProteksi", "eksekusi_aman.proteksi"], "alat/pasang_v2.py": ["eksekusi_aman.proteksi"], "alat/periksa.sh": ["eksekusi_aman.proteksi"], "lux_modul/eksekusi_aman/__init__.py": ["PenjagaProteksi"]}, "status": "MASIH_DIPAKAI"}
+berkas_dipindai=126
+berkas_diabaikan=["alat/buang_mati.py", "alat/pasang_v2.py"]
+sasaran={"berkas": "lux_modul/eksekusi_aman/proteksi.py", "penyebut": {"alat/kontrak/bedah_kontrak.py": ["PenjagaProteksi", "eksekusi_aman.proteksi"]}, "status": "MASIH_DIPAKAI"}
 BUANG=DITAHAN
 rc=1
