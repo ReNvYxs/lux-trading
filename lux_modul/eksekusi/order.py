@@ -14,8 +14,8 @@ Aturan operator (3 Agu 2026):
 
 Verifikasi bursa nyata (GitHub Actions, 4 Agu 2026):
 - LIMIT GTX: DITERIMA (entry_post_only_harga_besar, entry_post_only_harga_kecil)
-- STOP_MARKET closePosition: DITERIMA saat posisi terbuka
-- TAKE_PROFIT_MARKET closePosition: DITERIMA saat posisi terbuka
+- STOP_MARKET closePosition: DITOLAK -4120 pada 6 Agu 2026, lihat bukti/live/
+- TAKE_PROFIT_MARKET closePosition: DITOLAK -4120 pada 6 Agu 2026, lihat bukti/live/
 - Serialisasi bool True->"true" (format_nilai): diperbaiki, terbukti -1111 mati
 """
 from __future__ import annotations

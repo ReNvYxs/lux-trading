@@ -1,0 +1,15 @@
+jangkar={"nama": "runner_impor", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "runner_entry_langsung", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "runner_entry_pending", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "runner_pemulihan", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "order_docstring_palsu", "jumlah": 2, "diharap": 2, "sudah": false}
+jangkar={"nama": "gerbang_modul_wajib", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "impor_dalam_sorot", "jumlah": 1, "diharap": 1, "sudah": false}
+TAMBAL=SELESAI
+diterapkan=["runner_impor", "runner_entry_langsung", "runner_entry_pending", "runner_pemulihan", "order_docstring_palsu", "gerbang_modul_wajib", "impor_dalam_sorot"]
+panjang_runner=32896
+punya_pulihkan=True
+punya_aman_untuk=True
+sisa_aman_aktif_polos=0
+order_klaim_palsu=0
+rc=0

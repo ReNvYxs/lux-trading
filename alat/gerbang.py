@@ -62,8 +62,12 @@ MODUL_WAJIB = [
     "lux_modul.kontrak",
     "lux_modul.plugin",
     "lux_modul.strategi",
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.kredensial",
+    "lux_modul.eksekusi.order",
     "lux_modul.eksekusi_aman.inti",
-    "lux_modul.eksekusi_aman.proteksi",
+    "lux_modul.eksekusi_aman.saklar",
+    "lux_modul.live_runner",
 ]
 
 masalah = []

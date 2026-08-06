@@ -1,0 +1,4 @@
+jangkar_jumlah=1
+ENV=SELESAI
+panjang=8737
+rc=0

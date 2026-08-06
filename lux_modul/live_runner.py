@@ -42,7 +42,7 @@ from .eksekusi.order import (
     payload_tp_market,
 )
 from .eksekusi.spesifikasi import SpesifikasiKontrak
-from .eksekusi_aman.saklar import aman_aktif, pasang_proteksi_aman
+from .eksekusi_aman.saklar import aman_aktif_untuk, pasang_proteksi_aman
 from .kontrak import Bars, HORIZON_INTRADAY, MODE_SIGNAL_ONLY, TFPlan, tf_ms
 from .pipeline import HasilBar, Pipeline
 from .strategi import Registry
@@ -619,7 +619,7 @@ class LiveRunner:
         sl_order_id: Optional[int] = None
         tp_order_id: Optional[int] = None
 
-        if aman_aktif():
+        if aman_aktif_untuk(self.client, self.simbol):
             hasil = pasang_proteksi_aman(
                 klien=self.client, simbol=self.simbol, arah=v.arah,
                 tp_harga=tp_price, sl_harga=sl_price, tidur=self._tidur,
@@ -666,7 +666,7 @@ class LiveRunner:
         sl_order_id: Optional[int] = None
         tp_order_id: Optional[int] = None
 
-        if aman_aktif():
+        if aman_aktif_untuk(self.client, ep.simbol):
             hasil = pasang_proteksi_aman(
                 klien=self.client, simbol=ep.simbol, arah=ep.arah,
                 tp_harga=ep.tp_price, sl_harga=ep.sl_price, tidur=self._tidur,
@@ -701,10 +701,51 @@ class LiveRunner:
 
         return sl_order_id, tp_order_id
 
+    # Pemulihan setelah restart atau reconnect. SL jalur aman hidup di dalam
+    # proses; kalau proses mati, SL ikut mati. Sekali saja, pada siklus
+    # pertama, keadaan bursa dibaca ulang supaya posisi lama tidak jadi yatim.
+    def _pulihkan_proteksi_aman(self) -> List[str]:
+        galat: List[str] = []
+        self._pulih_dijalankan = True
+        try:
+            if not aman_aktif_untuk(self.client, self.simbol):
+                return galat
+            from .eksekusi_aman.inti import (
+                DataPasar,
+                PengirimOrder,
+                Proteksi,
+                SpekSimbol,
+            )
+            tidur = getattr(self, "_tidur", None)
+            spek = SpekSimbol.dari_exchange_info(
+                self.client.exchange_info(self.simbol), self.simbol)
+            prot = Proteksi(
+                self.client,
+                PengirimOrder(self.client, tidur=tidur),
+                spek,
+                self.simbol,
+                data=DataPasar(self.client),
+                tidur=tidur,
+            )
+            self._pulih_hasil = prot.pulihkan_dari_bursa()
+            self._proteksi_aman[self.simbol] = prot
+            cek = prot.periksa_sl()
+            self._pulih_cek = cek
+            aksi = cek.get("aksi") if isinstance(cek, dict) else None
+            if aksi in ("sl_dieksekusi", "tidak_ada"):
+                self._proteksi_aman.pop(self.simbol, None)
+        except Exception as exc:  # noqa: BLE001
+            getattr(self, "_proteksi_aman", {}).pop(self.simbol, None)
+            galat.append("pulih_proteksi_" + str(self.simbol) + ": " + str(exc))
+        return galat
+
     # SL pada jalur aman tidak ada di bursa, jadi harus dipantau tiap siklus.
     def _periksa_sl_aman(self) -> List[str]:
         galat: List[str] = []
         peta = getattr(self, "_proteksi_aman", None)
+        if peta is not None and not peta and not getattr(
+                self, "_pulih_dijalankan", False):
+            galat.extend(self._pulihkan_proteksi_aman())
         if not peta:
             return galat
         for simbol, prot in list(peta.items()):

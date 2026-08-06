@@ -18,8 +18,8 @@ KELUARAN = os.environ.get("IMPOR_DALAM_KELUARAN", "bukti/ci/IMPOR_DALAM.json")
 PANTAU = ["pandas", "pyarrow", "yaml", "numpy", "pytest", "requests",
           "websocket", "websockets", "aiohttp", "httpx", "scipy",
           "matplotlib", "sklearn"]
-SOROT = ["lux_modul.eksekusi_aman.inti", "lux_modul.eksekusi_aman.proteksi",
-         "lux_modul.eksekusi_aman.saklar"]
+SOROT = ["lux_modul.eksekusi_aman.inti", "lux_modul.eksekusi_aman.saklar",
+         "lux_modul.live_runner"]
 
 
 def berkas_py(dasar):
