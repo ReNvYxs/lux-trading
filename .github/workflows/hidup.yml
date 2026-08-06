@@ -1,0 +1,69 @@
+name: hidup
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'alat/uji_hidup_saklar.py'
+      - '.github/workflows/hidup.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hidup
+  cancel-in-progress: false
+env:
+  GIT_TERMINAL_PROMPT: '0'
+jobs:
+  uji:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: detak awal
+        run: |
+          mkdir -p bukti/live
+          echo "hidup=MULAI" > bukti/live/DETAK_HIDUP.txt
+          date -u +"mulai_utc=%Y-%m-%dT%H:%M:%SZ" >> bukti/live/DETAK_HIDUP.txt
+          echo "commit=$GITHUB_SHA" >> bukti/live/DETAK_HIDUP.txt
+          cat bukti/live/DETAK_HIDUP.txt
+
+      - name: dependensi
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/live
+          set +e
+          python -m pip install --quiet --upgrade pip
+          python -m pip install --quiet -r requirements.txt 2>&1 | tee bukti/live/jejak_dependensi.txt
+          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/live/jejak_dependensi.txt
+
+      - name: uji hidup saklar
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/live
+          set +e
+          python3 alat/uji_hidup_saklar.py 2>&1 | tee bukti/live/jejak_saklar_hidup.txt
+          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/live/jejak_saklar_hidup.txt
+
+      - name: rekam bukti
+        if: always()
+        run: |
+          [ -d bukti ] || exit 0
+          git config user.name "hidup-bot"
+          git config user.email "hidup-bot@users.noreply.github.com"
+          git add -A -f bukti || true
+          git commit -q -m "[hidup] uji saklar aman di testnet $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash -q && git push -q && break
+            echo "push ulang percobaan $i"
+            sleep 5
+          done
+
+      - name: vonis
+        if: always()
+        run: |
+          grep -q "^SAKLAR_HIDUP=LULUS$" bukti/live/jejak_saklar_hidup.txt || exit 1
+          echo "UJI HIDUP LULUS"
