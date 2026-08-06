@@ -1,12 +1,12 @@
 """Tambalan berjangkar tahap 2 untuk kode.
 
 Isi: saklar otomatis di LiveRunner, pemulihan proteksi setelah restart,
-koreksi klaim palsu di docstring order.py, dan pelurusan MODUL_WAJIB gerbang.
-Blok .env.contoh ditangani terpisah oleh alat/pasang_env.py.
+ketahanan atribut _tidur, koreksi klaim palsu di docstring order.py, dan
+pelurusan MODUL_WAJIB gerbang. Blok .env.contoh ditangani alat/pasang_env.py.
 
-Aturan sama seperti alat/pasang_saklar.py: jangkar harus muncul PERSIS
-sejumlah yang dinyatakan, berkas .py dikompilasi sebelum ditulis, dan alat ini
-idempoten. Jumlah kemunculan SEMUA jangkar dilaporkan lebih dulu, baru
+Aturan: jangkar harus muncul PERSIS sejumlah yang dinyatakan (atau minimal
+satu bila 'semua' disetel), berkas .py dikompilasi sebelum ditulis, dan alat
+ini idempoten. Jumlah kemunculan SEMUA jangkar dilaporkan lebih dulu, baru
 diputuskan, supaya satu kali jalan cukup untuk tahu keadaan sebenarnya.
 """
 import json
@@ -64,16 +64,16 @@ GANTI_PULIH = """    # Pemulihan setelah restart atau reconnect. SL jalur aman h
                 Proteksi,
                 SpekSimbol,
             )
-            tidur = getattr(self, "_tidur", None)
+            jeda = getattr(self, "_tidur", None)
             spek = SpekSimbol.dari_exchange_info(
                 self.client.exchange_info(self.simbol), self.simbol)
             prot = Proteksi(
                 self.client,
-                PengirimOrder(self.client, tidur=tidur),
+                PengirimOrder(self.client, tidur=jeda),
                 spek,
                 self.simbol,
                 data=DataPasar(self.client),
-                tidur=tidur,
+                tidur=jeda,
             )
             self._pulih_hasil = prot.pulihkan_dari_bursa()
             self._proteksi_aman[self.simbol] = prot
@@ -131,6 +131,14 @@ TAMBALAN = [
     {"nama": "runner_pemulihan", "berkas": RUNNER, "cari": CARI_PULIH,
      "ganti": GANTI_PULIH, "jumlah": 1,
      "tanda": "_pulihkan_proteksi_aman"},
+    # LiveRunner dibangun lewat __new__ di sebagian tes lama, sehingga _tidur
+    # bisa tidak ada. Di produksi atribut itu selalu ada, jadi perubahan ini
+    # tidak mengubah perilaku - ia hanya menghapus satu cara gagal.
+    {"nama": "runner_tidur_tahan_banting", "berkas": RUNNER,
+     "cari": "tidur=self._tidur",
+     "ganti": "tidur=getattr(self, \"_tidur\", None)",
+     "jumlah": 1, "semua": True,
+     "tanda": "tidur=getattr(self,"},
     {"nama": "order_docstring_palsu", "berkas": ORDER,
      "cari": "DITERIMA saat posisi terbuka",
      "ganti": "DITOLAK -4120 pada 6 Agu 2026, lihat bukti/live/",
@@ -173,9 +181,16 @@ def main():
         teks = isi[t["berkas"]]
         sudah = t["tanda"] in teks
         n = teks.count(t["cari"])
+        semua = bool(t.get("semua"))
         laporan.append({"nama": t["nama"], "jumlah": n,
-                        "diharap": t["jumlah"], "sudah": sudah})
-        if not sudah and n != t["jumlah"]:
+                        "diharap": t["jumlah"], "semua": semua,
+                        "sudah": sudah})
+        if sudah:
+            continue
+        if semua:
+            if n < t["jumlah"]:
+                mismatch.append(t["nama"])
+        elif n != t["jumlah"]:
             mismatch.append(t["nama"])
 
     for r in laporan:
@@ -191,7 +206,10 @@ def main():
         teks = isi[t["berkas"]]
         if t["tanda"] in teks:
             continue
-        isi[t["berkas"]] = teks.replace(t["cari"], t["ganti"], t["jumlah"])
+        if t.get("semua"):
+            isi[t["berkas"]] = teks.replace(t["cari"], t["ganti"])
+        else:
+            isi[t["berkas"]] = teks.replace(t["cari"], t["ganti"], t["jumlah"])
         diterapkan.append(t["nama"])
 
     for b in sorted(isi):
@@ -215,6 +233,7 @@ def main():
     print("punya_pulihkan=" + str("_pulihkan_proteksi_aman" in isi[RUNNER]))
     print("punya_aman_untuk=" + str("aman_aktif_untuk" in isi[RUNNER]))
     print("sisa_aman_aktif_polos=" + str(isi[RUNNER].count("aman_aktif()")))
+    print("sisa_tidur_rapuh=" + str(isi[RUNNER].count("tidur=self._tidur")))
     print("order_klaim_palsu=" + str(
         isi[ORDER].count("DITERIMA saat posisi terbuka")))
     return 0
