@@ -8,6 +8,7 @@ on:
       - 'alat/graf_impor.py'
       - 'alat/permukaan.py'
       - 'alat/kontrak_klien.py'
+      - 'alat/impor_dalam.py'
       - 'alat/periksa.sh'
       - 'alat/temu_registry.py'
       - 'alat/ringkas_rakit.py'
@@ -71,6 +72,14 @@ jobs:
           python3 alat/graf_impor.py 2>&1 | tee bukti/ci/jejak_graf.txt
           echo "rc=${PIPESTATUS[0]}" | tee -a bukti/ci/jejak_graf.txt
 
+      - name: impor bersarang
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/ci
+          set +e
+          python3 alat/impor_dalam.py 2>&1 | tee bukti/ci/jejak_impor_dalam.txt
+          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/ci/jejak_impor_dalam.txt
+
       - name: peta permukaan eksekusi
         continue-on-error: true
         run: |
@@ -116,6 +125,12 @@ jobs:
             echo "GRAF LULUS"
           else
             echo "GRAF GAGAL, lihat bukti/ci/GRAF.json"
+            KODE=1
+          fi
+          if grep -q "^rc=0$" bukti/ci/jejak_kontrak_klien.txt; then
+            echo "KONTRAK KLIEN LULUS"
+          else
+            echo "KONTRAK KLIEN GAGAL, lihat bukti/ci/KONTRAK_KLIEN.json"
             KODE=1
           fi
           exit $KODE
