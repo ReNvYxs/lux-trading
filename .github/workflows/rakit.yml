@@ -3,8 +3,9 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/rakit.yml'
-      - 'alat/**'
+      - 'alat/klon.sh'
+      - 'alat/rakit.sh'
+      - 'alat/bedah_gabung.py'
   workflow_dispatch:
 permissions:
   contents: write

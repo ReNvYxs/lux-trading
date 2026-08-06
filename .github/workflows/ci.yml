@@ -1,0 +1,86 @@
+name: ci
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/ci.yml'
+      - 'alat/gerbang.py'
+      - 'alat/periksa.sh'
+      - 'alat/temu_registry.py'
+      - 'alat/ringkas_rakit.py'
+      - 'lux_modul/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'requirements.txt'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ci
+  cancel-in-progress: true
+env:
+  GIT_TERMINAL_PROMPT: '0'
+jobs:
+  jaga:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: detak awal
+        run: |
+          mkdir -p bukti/ci
+          echo "ci=MULAI" > bukti/ci/DETAK_CI.txt
+          date -u +"mulai_utc=%Y-%m-%dT%H:%M:%SZ" >> bukti/ci/DETAK_CI.txt
+          echo "commit=$GITHUB_SHA" >> bukti/ci/DETAK_CI.txt
+          python3 -V >> bukti/ci/DETAK_CI.txt 2>&1
+          cat bukti/ci/DETAK_CI.txt
+
+      - name: dependensi
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/ci
+          set +e
+          python -m pip install --quiet --upgrade pip
+          python -m pip install --quiet -r requirements.txt 2>&1 | tee bukti/ci/jejak_dependensi.txt
+          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/ci/jejak_dependensi.txt
+
+      - name: periksa modul
+        continue-on-error: true
+        run: bash alat/periksa.sh
+
+      - name: gerbang regresi
+        continue-on-error: true
+        run: |
+          mkdir -p bukti/ci
+          set +e
+          python3 alat/gerbang.py 2>&1 | tee bukti/ci/jejak_gerbang.txt
+          echo "rc=${PIPESTATUS[0]}" | tee -a bukti/ci/jejak_gerbang.txt
+
+      - name: rekam bukti
+        if: always()
+        run: |
+          rm -rf .pytest_cache || true
+          [ -d bukti ] || exit 0
+          git config user.name "ci-bot"
+          git config user.email "ci-bot@users.noreply.github.com"
+          git add -A -f bukti || true
+          git commit -q -m "[ci] gerbang regresi $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash -q && git push -q && break
+            echo "push ulang percobaan $i"
+            sleep 5
+          done
+
+      - name: vonis
+        if: always()
+        run: |
+          if grep -q "^rc=0$" bukti/ci/jejak_gerbang.txt; then
+            echo "GERBANG LULUS"
+          else
+            echo "GERBANG GAGAL, lihat bukti/ci/GERBANG.json"
+            exit 1
+          fi
