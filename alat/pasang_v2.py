@@ -1,14 +1,13 @@
-"""Tambalan berjangkar tahap 2.
+"""Tambalan berjangkar tahap 2 untuk kode.
 
 Isi: saklar otomatis di LiveRunner, pemulihan proteksi setelah restart,
-koreksi klaim palsu di docstring order.py, pelurusan MODUL_WAJIB gerbang,
-dan penambahan blok LUX_EKSEKUSI di .env.contoh.
+koreksi klaim palsu di docstring order.py, dan pelurusan MODUL_WAJIB gerbang.
+Blok .env.contoh ditangani terpisah oleh alat/pasang_env.py.
 
 Aturan sama seperti alat/pasang_saklar.py: jangkar harus muncul PERSIS
-sejumlah yang dinyatakan, seluruh berkas .py dikompilasi sebelum ditulis, dan
-alat ini idempoten. Lebih baik tidak mengubah apa pun daripada mengubah
-tempat yang salah. Jumlah kemunculan SEMUA jangkar dilaporkan lebih dulu,
-baru diputuskan, supaya satu kali jalan cukup untuk tahu keadaan sebenarnya.
+sejumlah yang dinyatakan, berkas .py dikompilasi sebelum ditulis, dan alat ini
+idempoten. Jumlah kemunculan SEMUA jangkar dilaporkan lebih dulu, baru
+diputuskan, supaya satu kali jalan cukup untuk tahu keadaan sebenarnya.
 """
 import json
 import os
@@ -18,7 +17,6 @@ RUNNER = "lux_modul/live_runner.py"
 ORDER = "lux_modul/eksekusi/order.py"
 GERBANG = "alat/gerbang.py"
 IMPOR_DALAM = "alat/impor_dalam.py"
-ENVC = ".env.contoh"
 
 CARI_IMPOR = "from .eksekusi_aman.saklar import aman_aktif, pasang_proteksi_aman\n"
 GANTI_IMPOR = (
@@ -120,41 +118,6 @@ GANTI_SOROT = """SOROT = ["lux_modul.eksekusi_aman.inti", "lux_modul.eksekusi_am
          "lux_modul.live_runner"]
 """
 
-BLOK_ENV = """LUX_RR_BERSIH_MIN=
-
-# ---------------------------------------------------------------------
-# 7. LAPISAN EKSEKUSI PROTEKSI TP/SL   (baru 6 Agu 2026)
-# ---------------------------------------------------------------------
-# Menentukan CARA TP dan SL dipasang di bursa. Ini bukan setelan strategi:
-# logika sinyal, ukuran posisi, dan harga TP/SL tidak berubah sedikit pun.
-#
-#   otomatis  (BAWAAN, disarankan)
-#       Sekali di awal, bursa ditanya lewat endpoint order/test - tanpa order
-#       nyata - apakah tipe stop kondisional diterima.
-#         diterima  -> jalur lama: STOP_MARKET/TAKE_PROFIT_MARKET di bursa,
-#                      stop tetap hidup walau proses mati.
-#         ditolak   -> jalur aman: TP = LIMIT reduceOnly di bursa, SL dipantau
-#                      perangkat lunak, gagal pasang proteksi = posisi DITUTUP.
-#         tak jelas -> jalur aman (fail-closed).
-#   lama      Paksa jalur lama. Pakai HANYA bila Anda sudah membuktikan sendiri
-#             bursa Anda menerima STOP_MARKET closePosition.
-#   aman      Paksa jalur aman.
-#
-# Latar: 6 Agu 2026 Binance Futures Testnet menolak STOP_MARKET DAN
-# TAKE_PROFIT_MARKET dengan -4120. Di bursa seperti itu jalur lama
-# meninggalkan posisi tanpa proteksi apa pun. Perilaku mainnet belum pernah
-# diverifikasi, karena itu bawaannya bertanya, bukan menebak.
-LUX_EKSEKUSI=otomatis
-
-# Batas kewajaran jarak TP/SL terhadap harga acuan, sebagai pecahan (0 - 5).
-# Kosong = 0.5 (50 persen). Bursa TIDAK menjaga hal ini: PRICE_FILTER.maxPrice
-# BTCUSDT tercatat 809484.0, sekitar 12.5x harga pasar, dan TP di 10x harga
-# pasar DITERIMA bursa. Order salah hitung tidak ditolak, ia hanya tidak pernah
-# tersentuh - posisi terlihat terlindungi padahal tidak. Pemeriksaan ini ada di
-# sisi kita justru karena tidak ada di sisi bursa.
-LUX_BATAS_JARAK_PROTEKSI=
-"""
-
 TAMBALAN = [
     {"nama": "runner_impor", "berkas": RUNNER, "cari": CARI_IMPOR,
      "ganti": GANTI_IMPOR, "jumlah": 1,
@@ -178,9 +141,6 @@ TAMBALAN = [
     {"nama": "impor_dalam_sorot", "berkas": IMPOR_DALAM, "cari": CARI_SOROT,
      "ganti": GANTI_SOROT, "jumlah": 1,
      "tanda": "lux_modul.live_runner"},
-    {"nama": "env_contoh_saklar", "berkas": ENVC,
-     "cari": "LUX_RR_BERSIH_MIN=\n", "ganti": BLOK_ENV, "jumlah": 1,
-     "tanda": "LUX_EKSEKUSI="},
 ]
 
 
@@ -193,18 +153,18 @@ def baca(jalur):
 
 def main():
     isi = {}
-    berkas_hilang = []
+    hilang = []
     for t in TAMBALAN:
         b = t["berkas"]
         if b in isi:
             continue
         if not os.path.isfile(b):
-            berkas_hilang.append(b)
+            hilang.append(b)
             continue
         isi[b] = baca(b)
-    if berkas_hilang:
+    if hilang:
         print("TAMBAL=GAGAL")
-        print("berkas_hilang=" + json.dumps(sorted(set(berkas_hilang))))
+        print("berkas_hilang=" + json.dumps(sorted(set(hilang))))
         return 2
 
     laporan = []
@@ -213,12 +173,9 @@ def main():
         teks = isi[t["berkas"]]
         sudah = t["tanda"] in teks
         n = teks.count(t["cari"])
-        laporan.append({"nama": t["nama"], "berkas": t["berkas"],
-                        "jumlah": n, "diharap": t["jumlah"],
-                        "sudah": sudah})
-        if sudah:
-            continue
-        if n != t["jumlah"]:
+        laporan.append({"nama": t["nama"], "jumlah": n,
+                        "diharap": t["jumlah"], "sudah": sudah})
+        if not sudah and n != t["jumlah"]:
             mismatch.append(t["nama"])
 
     for r in laporan:
@@ -257,4 +214,11 @@ def main():
     print("panjang_runner=" + str(len(isi[RUNNER])))
     print("punya_pulihkan=" + str("_pulihkan_proteksi_aman" in isi[RUNNER]))
     print("punya_aman_untuk=" + str("aman_aktif_untuk" in isi[RUNNER]))
-    print("order
+    print("sisa_aman_aktif_polos=" + str(isi[RUNNER].count("aman_aktif()")))
+    print("order_klaim_palsu=" + str(
+        isi[ORDER].count("DITERIMA saat posisi terbuka")))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
