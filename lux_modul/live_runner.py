@@ -622,7 +622,7 @@ class LiveRunner:
         if aman_aktif_untuk(self.client, self.simbol):
             hasil = pasang_proteksi_aman(
                 klien=self.client, simbol=self.simbol, arah=v.arah,
-                tp_harga=tp_price, sl_harga=sl_price, tidur=self._tidur,
+                tp_harga=tp_price, sl_harga=sl_price, tidur=getattr(self, "_tidur", None),
             )
             self._proteksi_aman[self.simbol] = hasil.get("proteksi")
             siklus.order_tp = hasil.get("tp")
@@ -669,7 +669,7 @@ class LiveRunner:
         if aman_aktif_untuk(self.client, ep.simbol):
             hasil = pasang_proteksi_aman(
                 klien=self.client, simbol=ep.simbol, arah=ep.arah,
-                tp_harga=ep.tp_price, sl_harga=ep.sl_price, tidur=self._tidur,
+                tp_harga=ep.tp_price, sl_harga=ep.sl_price, tidur=getattr(self, "_tidur", None),
             )
             self._proteksi_aman[ep.simbol] = hasil.get("proteksi")
             tp_order_id = (hasil.get("tp") or {}).get("orderId")

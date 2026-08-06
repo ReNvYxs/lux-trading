@@ -1,5 +1,5 @@
-berkas_dipindai=126
+berkas_dipindai=127
 berkas_diabaikan=["alat/buang_mati.py", "alat/pasang_v2.py"]
-sasaran={"berkas": "lux_modul/eksekusi_aman/proteksi.py", "penyebut": {"alat/kontrak/bedah_kontrak.py": ["PenjagaProteksi", "eksekusi_aman.proteksi"]}, "status": "MASIH_DIPAKAI"}
-BUANG=DITAHAN
-rc=1
+sasaran={"berkas": "lux_modul/eksekusi_aman/proteksi.py", "status": "DIHAPUS", "ukuran": 8179}
+BUANG=SELESAI
+rc=0
