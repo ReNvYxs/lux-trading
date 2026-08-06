@@ -1,7 +1,5 @@
-GERBANG=GAGAL
+GERBANG=LULUS
 registry_jumlah=26
-pytest={"ada": true, "lulus": 270, "gagal": 2, "galat": 0, "dilewati": 0, "rc": 1}
+pytest={"ada": true, "lulus": 272, "gagal": 0, "galat": 0, "dilewati": 0, "rc": 0}
 baseline_ada=True
-MASALAH: pytest gagal: 2
-MASALAH: rc_pytest bukan nol: 1
-rc=1
+rc=0

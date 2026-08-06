@@ -1,76 +1,7 @@
 === pytest baseline ===
 ........................................................................ [ 26%]
-....................................................FF.................. [ 52%]
+........................................................................ [ 52%]
 ........................................................................ [ 79%]
 ........................................................                 [100%]
-=================================== FAILURES ===================================
-___________ test_entry_terisi_memasang_sl_dan_tp_lalu_lapor_notifier ___________
-
-    def test_entry_terisi_memasang_sl_dan_tp_lalu_lapor_notifier():
-        client = _ClientTiruan()
-        client.status[1] = {"status": "FILLED", "avgPrice": "50000.0", "executedQty": "0.01"}
-        notifier = _NotifierTiruan()
-        r = _runner_kosong(client=client, notifier=notifier, sekarang_ms=lambda: 10_000)
-        r._pending_entry[1] = _entry_pending(order_id=1, dibuat_ms=0)
-    
->       galat = r._periksa_entry_pending()
-
-tests/test_live_runner.py:119: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-lux_modul/live_runner.py:363: in _periksa_entry_pending
-    sl_order_id, tp_order_id = self._pasang_proteksi_pending(ep, oid, galat)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <lux_modul.live_runner.LiveRunner object at 0x7f0fc3bdb710>
-ep = _EntryPending(order_id=1, simbol='BTCUSDT', arah='LONG', sl_price=49000.0, tp_price=51000.0, qty=0.01, entry_price=50000.0, dibuat_ms=0, skor=0.0, strategi='', setup_teks='')
-oid = 1, galat = []
-
-    def _pasang_proteksi_pending(self, ep, oid, galat):
-        sl_order_id: Optional[int] = None
-        tp_order_id: Optional[int] = None
-    
-        if aman_aktif_untuk(self.client, ep.simbol):
-            hasil = pasang_proteksi_aman(
-                klien=self.client, simbol=ep.simbol, arah=ep.arah,
->               tp_harga=ep.tp_price, sl_harga=ep.sl_price, tidur=self._tidur,
-            )
-E           AttributeError: 'LiveRunner' object has no attribute '_tidur'
-
-lux_modul/live_runner.py:672: AttributeError
-______________________ test_entry_tanpa_tp_hanya_kirim_sl ______________________
-
-    def test_entry_tanpa_tp_hanya_kirim_sl():
-        client = _ClientTiruan()
-        client.status[1] = {"status": "FILLED", "avgPrice": "50000.0", "executedQty": "0.01"}
-        r = _runner_kosong(client=client, sekarang_ms=lambda: 10_000)
-        r._pending_entry[1] = _entry_pending(order_id=1, tp=0.0, dibuat_ms=0)
-    
->       r._periksa_entry_pending()
-
-tests/test_live_runner.py:138: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-lux_modul/live_runner.py:363: in _periksa_entry_pending
-    sl_order_id, tp_order_id = self._pasang_proteksi_pending(ep, oid, galat)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <lux_modul.live_runner.LiveRunner object at 0x7f0fc3b0b8d0>
-ep = _EntryPending(order_id=1, simbol='BTCUSDT', arah='LONG', sl_price=49000.0, tp_price=0.0, qty=0.01, entry_price=50000.0, dibuat_ms=0, skor=0.0, strategi='', setup_teks='')
-oid = 1, galat = []
-
-    def _pasang_proteksi_pending(self, ep, oid, galat):
-        sl_order_id: Optional[int] = None
-        tp_order_id: Optional[int] = None
-    
-        if aman_aktif_untuk(self.client, ep.simbol):
-            hasil = pasang_proteksi_aman(
-                klien=self.client, simbol=ep.simbol, arah=ep.arah,
->               tp_harga=ep.tp_price, sl_harga=ep.sl_price, tidur=self._tidur,
-            )
-E           AttributeError: 'LiveRunner' object has no attribute '_tidur'
-
-lux_modul/live_runner.py:672: AttributeError
-=========================== short test summary info ============================
-FAILED tests/test_live_runner.py::test_entry_terisi_memasang_sl_dan_tp_lalu_lapor_notifier - AttributeError: 'LiveRunner' object has no attribute '_tidur'
-FAILED tests/test_live_runner.py::test_entry_tanpa_tp_hanya_kirim_sl - AttributeError: 'LiveRunner' object has no attribute '_tidur'
-2 failed, 270 passed in 33.25s
-rc_pytest=1
+272 passed in 40.74s
+rc_pytest=0

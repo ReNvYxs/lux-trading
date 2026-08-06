@@ -810,6 +810,10 @@
    "time",
    "traceback"
   ],
+  "tests.conftest": [
+   "lux_modul.eksekusi_aman",
+   "pytest"
+  ],
   "tests.test_auto_entry_dua_mode": [
    "__future__",
    "lux_modul.governor",
@@ -1113,6 +1117,7 @@
   "scripts.uji_kondisional": [],
   "scripts.uji_sl_tp_posisi": [],
   "scripts.uji_testnet": [],
+  "tests.conftest": [],
   "tests.test_auto_entry_dua_mode": [],
   "tests.test_backtest": [],
   "tests.test_biaya": [],
@@ -1134,7 +1139,7 @@
   "tests.test_spesifikasi": [],
   "tests.test_strategi_arbiter": []
  },
- "modul_jumlah": 108,
+ "modul_jumlah": 109,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",
@@ -1247,6 +1252,7 @@
     "scripts.jalankan_uji"
    ],
    "tingkat_atas": [
+    "tests.conftest",
     "tests.test_backtest",
     "tests.test_binance_client",
     "tests.test_inti",

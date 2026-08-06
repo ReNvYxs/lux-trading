@@ -28,6 +28,7 @@
    "tests.test_inti"
   ],
   "pytest": [
+   "tests.conftest",
    "tests.test_backtest",
    "tests.test_binance_client",
    "tests.test_inti",
@@ -189,6 +190,10 @@
   ],
   "pengimpor_luar": {
    "lux_modul.live_runner": [
+    "lux_modul.eksekusi_aman.saklar"
+   ],
+   "tests.conftest": [
+    "lux_modul.eksekusi_aman",
     "lux_modul.eksekusi_aman.saklar"
    ],
    "tests.test_live_runner_saklar": [
@@ -368,6 +373,7 @@
    "tests.test_spesifikasi"
   ],
   "lux_modul.eksekusi_aman": [
+   "tests.conftest",
    "tests.test_saklar_otomatis"
   ],
   "lux_modul.eksekusi_aman.inti": [
@@ -375,6 +381,7 @@
   ],
   "lux_modul.eksekusi_aman.saklar": [
    "lux_modul.live_runner",
+   "tests.conftest",
    "tests.test_saklar_eksekusi",
    "tests.test_saklar_otomatis"
   ],
@@ -636,7 +643,7 @@
   ]
  },
  "modul_lux": 52,
- "modul_total": 108,
+ "modul_total": 109,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -1010,6 +1017,10 @@
    "lux_modul.eksekusi.spesifikasi",
    "lux_modul.governor"
   ],
+  "tests.conftest": [
+   "lux_modul.eksekusi_aman",
+   "lux_modul.eksekusi_aman.saklar"
+  ],
   "tests.test_auto_entry_dua_mode": [
    "lux_modul.governor",
    "lux_modul.kontrak"
@@ -1137,6 +1148,7 @@
   "scripts.uji_kondisional",
   "scripts.uji_sl_tp_posisi",
   "scripts.uji_testnet",
+  "tests.conftest",
   "tests.test_auto_entry_dua_mode",
   "tests.test_backtest",
   "tests.test_biaya",
