@@ -7,6 +7,8 @@ on:
       - 'alat/pasang_inti.py'
       - 'alat/pasang_proteksi.py'
       - 'alat/pasang_icebreaker.py'
+      - 'alat/pasang_tes.py'
+      - 'alat/pasang_tes_inti.py'
       - 'lux_modul/eksekusi/jejak.py'
       - 'lux_modul/eksekusi/klasifikasi.py'
       - 'lux_modul/eksekusi/ukuran_mikro.py'
@@ -57,10 +59,20 @@ jobs:
           set +e
           python3 alat/pasang_icebreaker.py 2>&1 | tee -a bukti/mesin/jejak_mesin.txt
           echo "rc_ib=${PIPESTATUS[0]}" | tee -a bukti/mesin/jejak_mesin.txt
+      - name: tambal uji order
+        run: |
+          set +e
+          python3 alat/pasang_tes.py 2>&1 | tee -a bukti/mesin/jejak_mesin.txt
+          echo "rc_tes_order=${PIPESTATUS[0]}" | tee -a bukti/mesin/jejak_mesin.txt
+      - name: tambal uji inti
+        run: |
+          set +e
+          python3 alat/pasang_tes_inti.py 2>&1 | tee -a bukti/mesin/jejak_mesin.txt
+          echo "rc_tes_inti=${PIPESTATUS[0]}" | tee -a bukti/mesin/jejak_mesin.txt
       - name: kompilasi ulang seluruh pohon
         run: |
           set +e
-          python3 -m compileall -q lux_modul alat 2>&1 | tail -n 20 | tee -a bukti/mesin/jejak_mesin.txt
+          python3 -m compileall -q lux_modul alat tests 2>&1 | tail -n 20 | tee -a bukti/mesin/jejak_mesin.txt
           echo "rc_kompilasi=${PIPESTATUS[0]}" | tee -a bukti/mesin/jejak_mesin.txt
       - name: pytest seluruh suite
         run: |
@@ -74,7 +86,7 @@ jobs:
           set +e
           git config user.name "mesin-bot"
           git config user.email "mesin-bot@users.noreply.github.com"
-          git add -A -f bukti lux_modul alat
+          git add -A -f bukti lux_modul alat tests
           git commit -q -m "[mesin] hardening eksekusi order $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
           for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push -q && break; sleep 5; done
       - name: vonis
@@ -83,5 +95,7 @@ jobs:
           grep -q "^rc_inti=0$" bukti/mesin/jejak_mesin.txt
           grep -q "^rc_proteksi=0$" bukti/mesin/jejak_mesin.txt
           grep -q "^rc_ib=0$" bukti/mesin/jejak_mesin.txt
+          grep -q "^rc_tes_order=0$" bukti/mesin/jejak_mesin.txt
+          grep -q "^rc_tes_inti=0$" bukti/mesin/jejak_mesin.txt
           grep -q "^rc_kompilasi=0$" bukti/mesin/jejak_mesin.txt
           grep -q "^rc_pytest=0$" bukti/mesin/jejak_mesin.txt
