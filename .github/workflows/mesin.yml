@@ -1,0 +1,87 @@
+name: mesin
+on:
+  push:
+    paths:
+      - '.github/workflows/mesin.yml'
+      - 'alat/pasang_mesin.py'
+      - 'alat/pasang_inti.py'
+      - 'alat/pasang_proteksi.py'
+      - 'alat/pasang_icebreaker.py'
+      - 'lux_modul/eksekusi/jejak.py'
+      - 'lux_modul/eksekusi/klasifikasi.py'
+      - 'lux_modul/eksekusi/ukuran_mikro.py'
+  workflow_dispatch:
+concurrency:
+  group: mesin
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  mesin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: detak awal
+        run: |
+          mkdir -p bukti/mesin
+          echo "mulai" > bukti/mesin/jejak_mesin.txt
+          python3 -V >> bukti/mesin/jejak_mesin.txt
+      - name: dependensi
+        run: |
+          set +e
+          python3 -m pip install -q -r requirements.txt 2>&1 | tail -n 5
+          echo "rc_pip=$?" >> bukti/mesin/jejak_mesin.txt
+      - name: tambal klien rest
+        run: |
+          set +e
+          python3 alat/pasang_mesin.py 2>&1 | tee -a bukti/mesin/jejak_mesin.txt
+          echo "rc_mesin=${PIPESTATUS[0]}" | tee -a bukti/mesin/jejak_mesin.txt
+      - name: tambal pengirim order
+        run: |
+          set +e
+          python3 alat/pasang_inti.py 2>&1 | tee -a bukti/mesin/jejak_mesin.txt
+          echo "rc_inti=${PIPESTATUS[0]}" | tee -a bukti/mesin/jejak_mesin.txt
+      - name: tambal proteksi
+        run: |
+          set +e
+          python3 alat/pasang_proteksi.py 2>&1 | tee -a bukti/mesin/jejak_mesin.txt
+          echo "rc_proteksi=${PIPESTATUS[0]}" | tee -a bukti/mesin/jejak_mesin.txt
+      - name: tambal icebreaker
+        run: |
+          set +e
+          python3 alat/pasang_icebreaker.py 2>&1 | tee -a bukti/mesin/jejak_mesin.txt
+          echo "rc_ib=${PIPESTATUS[0]}" | tee -a bukti/mesin/jejak_mesin.txt
+      - name: kompilasi ulang seluruh pohon
+        run: |
+          set +e
+          python3 -m compileall -q lux_modul alat 2>&1 | tail -n 20 | tee -a bukti/mesin/jejak_mesin.txt
+          echo "rc_kompilasi=${PIPESTATUS[0]}" | tee -a bukti/mesin/jejak_mesin.txt
+      - name: pytest seluruh suite
+        run: |
+          set +e
+          python3 -m pytest -q tests 2>&1 | tee bukti/mesin/jejak_pytest_mesin.txt
+          echo "rc_pytest=${PIPESTATUS[0]}" | tee -a bukti/mesin/jejak_mesin.txt
+          tail -n 60 bukti/mesin/jejak_pytest_mesin.txt >> bukti/mesin/jejak_mesin.txt
+      - name: rekam bukti
+        if: always()
+        run: |
+          set +e
+          git config user.name "mesin-bot"
+          git config user.email "mesin-bot@users.noreply.github.com"
+          git add -A -f bukti lux_modul alat
+          git commit -q -m "[mesin] hardening eksekusi order $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push -q && break; sleep 5; done
+      - name: vonis
+        run: |
+          grep -q "^rc_mesin=0$" bukti/mesin/jejak_mesin.txt
+          grep -q "^rc_inti=0$" bukti/mesin/jejak_mesin.txt
+          grep -q "^rc_proteksi=0$" bukti/mesin/jejak_mesin.txt
+          grep -q "^rc_ib=0$" bukti/mesin/jejak_mesin.txt
+          grep -q "^rc_kompilasi=0$" bukti/mesin/jejak_mesin.txt
+          grep -q "^rc_pytest=0$" bukti/mesin/jejak_mesin.txt
