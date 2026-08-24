@@ -31,6 +31,9 @@
    "alat.pasang_icebreaker",
    "alat.pasang_proteksi"
   ],
+  "pasang_tes": [
+   "alat.pasang_tes_inti"
+  ],
   "pytest": [
    "tests.conftest",
    "tests.test_backtest",
@@ -44,7 +47,8 @@
    "tests.test_saklar_otomatis",
    "tests.test_spesifikasi",
    "tests.test_strategi_arbiter",
-   "tests.test_stres_klasifikasi"
+   "tests.test_stres_klasifikasi",
+   "tests.test_ukuran_mikro"
   ],
   "referensi": [
    "alat.teori.uji_teori"
@@ -73,6 +77,9 @@
    ],
    "lux_modul.backtest_portofolio": [
     "lux_modul.eksekusi.mode"
+   ],
+   "lux_modul.eksekusi_aman.inti": [
+    "lux_modul.eksekusi.klasifikasi"
    ],
    "lux_modul.live_runner": [
     "lux_modul.eksekusi.ice_breaker",
@@ -181,6 +188,9 @@
     "lux_modul.eksekusi.binance_client",
     "lux_modul.eksekusi.jejak",
     "lux_modul.eksekusi.klasifikasi"
+   ],
+   "tests.test_ukuran_mikro": [
+    "lux_modul.eksekusi.ukuran_mikro"
    ]
   },
   "terjangkau": [
@@ -194,7 +204,8 @@
    "lux_modul.eksekusi.mode",
    "lux_modul.eksekusi.order",
    "lux_modul.eksekusi.risiko",
-   "lux_modul.eksekusi.spesifikasi"
+   "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.eksekusi.ukuran_mikro"
   ]
  },
  "eksekusi_aman": {
@@ -220,6 +231,9 @@
    "tests.test_saklar_otomatis": [
     "lux_modul.eksekusi_aman",
     "lux_modul.eksekusi_aman.saklar"
+   ],
+   "tests.test_ukuran_mikro": [
+    "lux_modul.eksekusi_aman.inti"
    ]
   },
   "terjangkau": [
@@ -338,9 +352,12 @@
    "tests.test_order_postonly"
   ],
   "lux_modul.eksekusi.jejak": [
+   "lux_modul.eksekusi.binance_client",
    "tests.test_stres_klasifikasi"
   ],
   "lux_modul.eksekusi.klasifikasi": [
+   "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.eksekusi_aman.inti",
    "tests.test_stres_klasifikasi"
   ],
   "lux_modul.eksekusi.kredensial": [
@@ -395,12 +412,16 @@
    "scripts.uji_testnet",
    "tests.test_spesifikasi"
   ],
+  "lux_modul.eksekusi.ukuran_mikro": [
+   "tests.test_ukuran_mikro"
+  ],
   "lux_modul.eksekusi_aman": [
    "tests.conftest",
    "tests.test_saklar_otomatis"
   ],
   "lux_modul.eksekusi_aman.inti": [
-   "tests.test_live_runner_saklar"
+   "tests.test_live_runner_saklar",
+   "tests.test_ukuran_mikro"
   ],
   "lux_modul.eksekusi_aman.saklar": [
    "lux_modul.live_runner",
@@ -666,7 +687,7 @@
   ]
  },
  "modul_lux": 54,
- "modul_total": 116,
+ "modul_total": 119,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -748,9 +769,11 @@
    "lux_modul.eksekusi.risiko"
   ],
   "lux_modul.eksekusi.binance_client": [
+   "lux_modul.eksekusi.jejak",
    "lux_modul.eksekusi.kredensial"
   ],
   "lux_modul.eksekusi.ice_breaker": [
+   "lux_modul.eksekusi.klasifikasi",
    "lux_modul.eksekusi.order",
    "lux_modul.kontrak"
   ],
@@ -764,6 +787,9 @@
    "lux_modul.eksekusi.biaya",
    "lux_modul.eksekusi.risiko",
    "lux_modul.kontrak"
+  ],
+  "lux_modul.eksekusi_aman.inti": [
+   "lux_modul.eksekusi.klasifikasi"
   ],
   "lux_modul.fitur": [
    "lux_modul.fitur",
@@ -1156,6 +1182,10 @@
    "lux_modul.eksekusi.binance_client",
    "lux_modul.eksekusi.jejak",
    "lux_modul.eksekusi.klasifikasi"
+  ],
+  "tests.test_ukuran_mikro": [
+   "lux_modul.eksekusi.ukuran_mikro",
+   "lux_modul.eksekusi_aman.inti"
   ]
  },
  "titik_awal": [
@@ -1199,9 +1229,8 @@
   "tests.test_spesifikasi",
   "tests.test_strategi_arbiter",
   "tests.test_stres_klasifikasi",
+  "tests.test_ukuran_mikro",
   "lux_modul"
  ],
- "yatim": [
-  "lux_modul.eksekusi.ukuran_mikro"
- ]
+ "yatim": []
 }

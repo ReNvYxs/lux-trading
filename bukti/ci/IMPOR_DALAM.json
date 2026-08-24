@@ -137,6 +137,17 @@
    "os",
    "sys"
   ],
+  "alat.pasang_tes": [
+   "__future__",
+   "json",
+   "os"
+  ],
+  "alat.pasang_tes_inti": [
+   "__future__",
+   "os",
+   "pasang_tes",
+   "sys"
+  ],
   "alat.pasang_v2": [
    "json",
    "os",
@@ -292,6 +303,7 @@
    "hashlib",
    "hmac",
    "json",
+   "lux_modul.eksekusi.jejak",
    "lux_modul.eksekusi.kredensial",
    "re",
    "time",
@@ -304,6 +316,8 @@
    "__future__",
    "asyncio",
    "dataclasses",
+   "hashlib",
+   "lux_modul.eksekusi.klasifikasi",
    "lux_modul.eksekusi.order",
    "lux_modul.kontrak",
    "time",
@@ -355,6 +369,7 @@
   "lux_modul.eksekusi_aman": [],
   "lux_modul.eksekusi_aman.inti": [
    "hashlib",
+   "lux_modul.eksekusi.klasifikasi",
    "math",
    "time"
   ],
@@ -1016,6 +1031,14 @@
    "lux_modul.eksekusi",
    "lux_modul.eksekusi.binance_client",
    "pytest"
+  ],
+  "tests.test_ukuran_mikro": [
+   "__future__",
+   "lux_modul.eksekusi.ukuran_mikro",
+   "lux_modul.eksekusi_aman.inti",
+   "os",
+   "pytest",
+   "sys"
   ]
  },
  "impor_dalam": {
@@ -1035,6 +1058,8 @@
   "alat.pasang_mesin": [],
   "alat.pasang_proteksi": [],
   "alat.pasang_saklar": [],
+  "alat.pasang_tes": [],
+  "alat.pasang_tes_inti": [],
   "alat.pasang_v2": [],
   "alat.permukaan": [],
   "alat.ringkas_rakit": [],
@@ -1182,9 +1207,10 @@
   "tests.test_serialisasi_order": [],
   "tests.test_spesifikasi": [],
   "tests.test_strategi_arbiter": [],
-  "tests.test_stres_klasifikasi": []
+  "tests.test_stres_klasifikasi": [],
+  "tests.test_ukuran_mikro": []
  },
- "modul_jumlah": 116,
+ "modul_jumlah": 119,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",
@@ -1214,6 +1240,7 @@
   "numpy",
   "os",
   "pasang_inti",
+  "pasang_tes",
   "pathlib",
   "pkgutil",
   "pytest",
@@ -1252,6 +1279,7 @@
   "numpy",
   "os",
   "pasang_inti",
+  "pasang_tes",
   "pathlib",
   "pkgutil",
   "pytest",
@@ -1313,7 +1341,8 @@
     "tests.test_saklar_otomatis",
     "tests.test_spesifikasi",
     "tests.test_strategi_arbiter",
-    "tests.test_stres_klasifikasi"
+    "tests.test_stres_klasifikasi",
+    "tests.test_ukuran_mikro"
    ]
   }
  },
@@ -1326,7 +1355,8 @@
    ],
    "dipakai": true,
    "tingkat_atas": [
-    "tests.test_live_runner_saklar"
+    "tests.test_live_runner_saklar",
+    "tests.test_ukuran_mikro"
    ]
   },
   "lux_modul.eksekusi_aman.saklar": {

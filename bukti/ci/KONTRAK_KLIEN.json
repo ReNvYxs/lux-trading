@@ -16,6 +16,7 @@
   "kirim_order",
   "posisi",
   "saldo_usdt",
+  "sinkron_waktu",
   "status_order"
  ],
  "butuh_dari_klien": {
@@ -27,6 +28,7 @@
   "kirim_order": 1,
   "posisi": 2,
   "saldo_usdt": 1,
+  "sinkron_waktu": 1,
   "status_order": 1
  },
  "butuh_nama": [
@@ -38,6 +40,7 @@
   "kirim_order",
   "posisi",
   "saldo_usdt",
+  "sinkron_waktu",
   "status_order"
  ],
  "galat_impor": null,
@@ -65,6 +68,7 @@
     "kirim_order": 1,
     "posisi": 2,
     "saldo_usdt": 1,
+    "sinkron_waktu": 1,
     "status_order": 1
    },
    "pengirim": {
@@ -122,6 +126,10 @@
   "saldo_usdt": {
    "jenis": "metode",
    "tanda_tangan": "(self) -> 'float'"
+  },
+  "sinkron_waktu": {
+   "jenis": "metode",
+   "tanda_tangan": "(self) -> 'int'"
   },
   "status_order": {
    "jenis": "metode",

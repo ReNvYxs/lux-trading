@@ -2,16 +2,22 @@
  "aman_nama_publik": [
   "ARAH_LONG",
   "ARAH_SHORT",
+  "BATAS_GAGAL_HARGA",
   "BATAS_JARAK_BAWAAN",
   "DataPasar",
   "ENV_BATAS_JARAK",
   "ENV_NAMA",
   "Entry",
   "FAKTOR_STOP_PROBE",
+  "GagalKonfirmasi",
   "GagalProteksi",
   "JALUR_UJI_ORDER",
   "JARAK_MIN_REL",
   "JEDA_PROBE_ULANG_DETIK",
+  "KELAS_KREDENSIAL",
+  "KELAS_LAJU",
+  "KELAS_PERMANEN",
+  "KELAS_TAK_DIKETAHUI",
   "KODE_CID_DUPLIKAT",
   "KODE_ORDER_TIDAK_ADA",
   "KODE_PERMANEN",
@@ -35,6 +41,9 @@
   "deteksi_dukungan_stop",
   "hitung_ukuran",
   "jalankan_siklus",
+  "klasifikasikan",
+  "konfirmasi_batal",
+  "konfirmasi_order",
   "mode_efektif",
   "mode_eksekusi",
   "pasang_proteksi_aman",
@@ -366,15 +375,29 @@
    "lux_modul.eksekusi.binance_client": [
     "BinanceAPIError"
    ]
+  },
+  "tests.test_ukuran_mikro": {
+   "lux_modul.eksekusi.ukuran_mikro": [
+    "BASE_PER_SETUP_BAWAAN",
+    "BATAS_MODAL_KECIL_BAWAAN",
+    "TolakUkuranMikro",
+    "modal_mikro",
+    "naik_qty",
+    "notional_minimum_efektif",
+    "pilih_ukuran",
+    "rencana_mikro"
+   ]
   }
  },
  "galat_impor_aman": {},
  "galat_impor_lama": {},
- "konsumen_jumlah": 27,
+ "konsumen_jumlah": 28,
  "nama_lama_dipakai": [
   "AMBANG_NOTIONAL_ICEBREAKER",
+  "BASE_PER_SETUP_BAWAAN",
   "BASE_URL_LIVE",
   "BASE_URL_TESTNET",
+  "BATAS_MODAL_KECIL_BAWAAN",
   "BinanceAPIError",
   "BinanceFuturesClient",
   "ENV_LIVE_KEY",
@@ -413,6 +436,7 @@
   "TOLAK_NOTIONAL_MIN",
   "TOLAK_QTY_NOL",
   "TOLAK_RR_BERSIH",
+  "TolakUkuranMikro",
   "_PATH_DEPTH",
   "_PATH_KLINES",
   "_PATH_TICKER_24J",
@@ -435,9 +459,12 @@
   "jumlah_fill",
   "kirim_order_async",
   "klasifikasi",
+  "modal_mikro",
   "mode_untuk",
   "ms_ban_dari_pesan",
   "muat_kredensial",
+  "naik_qty",
+  "notional_minimum_efektif",
   "pastikan_boleh_eksekusi",
   "pastikan_tanpa_market",
   "payload_bracket",
@@ -445,7 +472,9 @@
   "payload_sl",
   "payload_tp",
   "payload_tp_market",
+  "pilih_ukuran",
   "plan_execution",
+  "rencana_mikro",
   "rencana_posisi",
   "rencana_requote",
   "ringkas_kurva",
@@ -465,6 +494,10 @@
     "jenis": "str",
     "nilai": "'SHORT'"
    },
+   "BATAS_GAGAL_HARGA": {
+    "jenis": "int",
+    "nilai": "3"
+   },
    "DataPasar": {
     "jenis": "kelas",
     "metode": [
@@ -482,6 +515,14 @@
     ],
     "tanda_tangan": "(klien, pengirim, spek, simbol, data=None, tidur=None)"
    },
+   "GagalKonfirmasi": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
    "GagalProteksi": {
     "jenis": "kelas",
     "metode": [
@@ -489,6 +530,22 @@
      "with_traceback"
     ],
     "tanda_tangan": "?"
+   },
+   "KELAS_KREDENSIAL": {
+    "jenis": "str",
+    "nilai": "'kredensial'"
+   },
+   "KELAS_LAJU": {
+    "jenis": "str",
+    "nilai": "'laju'"
+   },
+   "KELAS_PERMANEN": {
+    "jenis": "str",
+    "nilai": "'permanen'"
+   },
+   "KELAS_TAK_DIKETAHUI": {
+    "jenis": "str",
+    "nilai": "'tak_diketahui'"
    },
    "KODE_CID_DUPLIKAT": {
     "jenis": "int",
@@ -500,7 +557,7 @@
    },
    "KODE_PERMANEN": {
     "jenis": "set",
-    "nilai": "{-5022, -1116, -4120, -1111, -4014, -1102, -2022, -4003, -1121}"
+    "nilai": "{-1022, -4014, -2028, -2027, -1130, -2025, -2024, -2023, -2022, -2021, -2020, -2019, -2018, -1121, -4003, -4131, -5022, -1117, -1116, -2010, -4120, -1111, -1106..."
    },
    "KebijakanRisiko": {
     "jenis": "kelas",
@@ -567,6 +624,18 @@
    "jalankan_siklus": {
     "jenis": "fungsi",
     "tanda_tangan": "(klien, simbol, arah, sl_harga, tp_harga, kebijakan, spek=None, data=None, log=None, tidur=None, saldo=None, pengirim=None)"
+   },
+   "klasifikasikan": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(exc, jalur=None, metode='GET', dana=None)"
+   },
+   "konfirmasi_batal": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(jawaban, simbol=None)"
+   },
+   "konfirmasi_order": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(jawaban, simbol=None, sisi=None, cid=None)"
    }
   },
   "lux_modul.eksekusi_aman.saklar": {
@@ -668,8 +737,10 @@
    },
    "HasilEksekusi": {
     "jenis": "kelas",
-    "metode": [],
-    "tanda_tangan": "(terkirim: 'List[Dict[str, Any]]' = <factory>, dibatalkan: 'List[int]' = <factory>, qty_terisi: 'float' = 0.0, alasan_batal: 'Optional[str]' = None) -> None"
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(terkirim: 'List[Dict[str, Any]]' = <factory>, dibatalkan: 'List[int]' = <factory>, qty_terisi: 'float' = 0.0, alasan_batal: 'Optional[str]' = None, qty_diminta: 'float' = 0.0, galat: 'List[Dict[str, Any]]' = <factory>) -> None"
    },
    "IceBreakerExecutor": {
     "jenis": "kelas",
@@ -853,6 +924,7 @@
      "harga_sekarang",
      "kirim_order",
      "klines",
+     "order_terbuka",
      "posisi",
      "saldo",
      "saldo_usdt",
@@ -860,6 +932,7 @@
      "sisa_ban_ms",
      "status_order",
      "ticker_24jam",
+     "ubah_order",
      "waktu_server"
     ],
     "tanda_tangan": "(kredensial: 'KredensialBinance', recv_window: 'int' = 5000, timeout: 'float' = 10, jam_ms: 'Optional[callable]' = None, pembuka_url: 'Optional[callable]' = None, pengatur_laju: \"Optional['PengaturLaju']\" = None, tidur: 'Optional[callable]' = None, jam_mono: 'Optional[callable]' = None) -> 'None'"
@@ -938,6 +1011,10 @@
    "ms_ban_dari_pesan": {
     "jenis": "fungsi",
     "tanda_tangan": "(pesan: 'str') -> 'Optional[int]'"
+   },
+   "perekam": {
+    "jenis": "fungsi",
+    "tanda_tangan": "()"
    }
   },
   "lux_modul.eksekusi.ice_breaker": {
@@ -953,10 +1030,20 @@
     "jenis": "str",
     "nilai": "'SHORT'"
    },
+   "GagalKonfirmasi": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
    "HasilEksekusi": {
     "jenis": "kelas",
-    "metode": [],
-    "tanda_tangan": "(terkirim: 'List[Dict[str, Any]]' = <factory>, dibatalkan: 'List[int]' = <factory>, qty_terisi: 'float' = 0.0, alasan_batal: 'Optional[str]' = None) -> None"
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(terkirim: 'List[Dict[str, Any]]' = <factory>, dibatalkan: 'List[int]' = <factory>, qty_terisi: 'float' = 0.0, alasan_batal: 'Optional[str]' = None, qty_diminta: 'float' = 0.0, galat: 'List[Dict[str, Any]]' = <factory>) -> None"
    },
    "IceBreakerExecutor": {
     "jenis": "kelas",
@@ -1027,6 +1114,10 @@
     "jenis": "fungsi",
     "tanda_tangan": "(arah: 'str', harga_acuan: 'float', best_bid: 'Optional[float]' = None, best_ask: 'Optional[float]' = None, kebijakan: 'KebijakanOrder' = KebijakanOrder(post_only_wajib=True, izinkan_market_untuk_sl=True, izinkan_tp_market=True, offset_tick=1, maks_requote=3, tick_size=0.0)) -> 'float'"
    },
+   "konfirmasi_order": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(jawaban, simbol=None, sisi=None, cid=None)"
+   },
    "pastikan_tanpa_market": {
     "jenis": "fungsi",
     "tanda_tangan": "(payload: 'Dict[str, Any]', kebijakan: 'KebijakanOrder' = KebijakanOrder(post_only_wajib=True, izinkan_market_untuk_sl=True, izinkan_tp_market=True, offset_tick=1, maks_requote=3, tick_size=0.0)) -> 'Dict[str, Any]'"
@@ -1063,7 +1154,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v1/order', '/fapi/v2/balance', '/fapi/v1/leverage', '/fapi/v1/positionMargin', '/fapi/v1/openOrders', '/fapi/v1/order/test', '/fapi/v1/marginT..."
+    "nilai": "frozenset({'/fapi/v2/balance', '/fapi/v1/leverage', '/fapi/v1/allOpenOrders', '/fapi/v2/positionRisk', '/fapi/v1/openOrders', '/fapi/v1/order', '/fapi/v1/order/..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1216,7 +1307,7 @@
    },
    "STATUS_DIKENAL": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'NEW_ADL', 'EXPIRED_IN_MATCH', 'EXPIRED', 'PARTIALLY_FILLED', 'NEW_INSURANCE', 'NEW', 'REJECTED', 'FILLED', 'CANCELED'})"
+    "nilai": "frozenset({'CANCELED', 'NEW', 'EXPIRED_IN_MATCH', 'FILLED', 'NEW_ADL', 'EXPIRED', 'NEW_INSURANCE', 'REJECTED', 'PARTIALLY_FILLED'})"
    },
    "STATUS_HIDUP": {
     "jenis": "frozenset",
@@ -1228,7 +1319,7 @@
    },
    "STATUS_SELESAI": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'EXPIRED_IN_MATCH', 'REJECTED', 'EXPIRED', 'FILLED', 'CANCELED'})"
+    "nilai": "frozenset({'CANCELED', 'EXPIRED_IN_MATCH', 'REJECTED', 'FILLED', 'EXPIRED'})"
    },
    "STATUS_TAK_DIKETAHUI": {
     "jenis": "tuple",
@@ -1691,8 +1782,10 @@
  },
  "tanpa_padanan_di_aman": [
   "AMBANG_NOTIONAL_ICEBREAKER",
+  "BASE_PER_SETUP_BAWAAN",
   "BASE_URL_LIVE",
   "BASE_URL_TESTNET",
+  "BATAS_MODAL_KECIL_BAWAAN",
   "BinanceAPIError",
   "BinanceFuturesClient",
   "ENV_LIVE_KEY",
@@ -1731,6 +1824,7 @@
   "TOLAK_NOTIONAL_MIN",
   "TOLAK_QTY_NOL",
   "TOLAK_RR_BERSIH",
+  "TolakUkuranMikro",
   "_PATH_DEPTH",
   "_PATH_KLINES",
   "_PATH_TICKER_24J",
@@ -1753,9 +1847,12 @@
   "jumlah_fill",
   "kirim_order_async",
   "klasifikasi",
+  "modal_mikro",
   "mode_untuk",
   "ms_ban_dari_pesan",
   "muat_kredensial",
+  "naik_qty",
+  "notional_minimum_efektif",
   "pastikan_boleh_eksekusi",
   "pastikan_tanpa_market",
   "payload_bracket",
@@ -1763,7 +1860,9 @@
   "payload_sl",
   "payload_tp",
   "payload_tp_market",
+  "pilih_ukuran",
   "plan_execution",
+  "rencana_mikro",
   "rencana_posisi",
   "rencana_requote",
   "ringkas_kurva",
