@@ -33,6 +33,7 @@ import urllib.request
 from decimal import ROUND_HALF_UP, Decimal
 from typing import Any, Dict, List, Optional, Tuple
 
+from .jejak import perekam
 from .kredensial import KredensialBinance
 
 RECV_WINDOW_DEFAULT = 5000
@@ -79,6 +80,7 @@ _PATH_LEVERAGE = "/fapi/v1/leverage"
 _PATH_BRACKET_LEVERAGE = "/fapi/v1/leverageBracket"
 _PATH_ORDER = "/fapi/v1/order"
 _PATH_ALL_OPEN_ORDERS = "/fapi/v1/allOpenOrders"
+_PATH_OPEN_ORDERS = "/fapi/v1/openOrders"
 
 _POLA_BAN = re.compile(r"banned until (\d{10,})")
 
@@ -382,6 +384,12 @@ class BinanceFuturesClient:
         elif query:
             url = f"{url}?{query}"
         req = urllib.request.Request(url, data=data, headers=headers, method=method)
+        # Satu korelasi dipakai baris permintaan, jawaban, dan galat, supaya
+        # satu order bermasalah bisa ditarik utuh dengan satu grep.
+        _jj = perekam()
+        _kor = _jj.catat_permintaan(method, path, params, signed,
+                                   bobot=bobot_permintaan(path, params))
+        _t0 = time.monotonic()
         try:
             with self._buka_url(req, timeout=self.timeout) as resp:
                 mentah = resp.read()
@@ -394,24 +402,53 @@ class BinanceFuturesClient:
             except (json.JSONDecodeError, UnicodeDecodeError):
                 payload = {}
             self._catat_pembatasan(status, payload)
+            _jj.catat_galat(_kor, method, path, status=status,
+                            kode=payload.get("code"),
+                            pesan=payload.get("msg", str(exc)), jawaban=payload,
+                            ms=(time.monotonic() - _t0) * 1000.0,
+                            parameter=params)
             raise BinanceAPIError(
                 status=status,
                 kode=payload.get("code"),
                 pesan=payload.get("msg", str(exc)),
                 payload=payload,
             ) from exc
-        except urllib.error.URLError as exc:
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            # TimeoutError dan OSError sengaja ikut ditangkap. resp.read() yang
+            # kehabisan waktu melempar TimeoutError MENTAH, bukan URLError,
+            # sehingga dulu ia lolos dari seluruh penanganan BinanceAPIError.
+            # HTTPError sudah ditangani di blok sebelumnya, jadi tidak tertelan.
+            _jj.catat_galat(_kor, method, path, status=None, kode=None,
+                            pesan="jaringan gagal: " + str(exc),
+                            ms=(time.monotonic() - _t0) * 1000.0,
+                            parameter=params)
             raise BinanceAPIError(status=None, kode=None, pesan=f"jaringan gagal: {exc}") from exc
 
+        _ms = (time.monotonic() - _t0) * 1000.0
         if not mentah:
+            # Badan jawaban kosong. Pada jalur dana ini BUKAN sukses: kita tidak
+            # tahu apa yang terjadi pada order. Ditandai eksplisit supaya
+            # lapisan atas merekonsiliasi, bukan meneruskannya sebagai hasil.
+            _jj.catat_jawaban(_kor, method, path, status=status, jawaban={},
+                              ms=_ms, konteks={"badan_kosong": True})
             return {}
         try:
             hasil = json.loads(mentah.decode("utf-8"))
         except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+            # Cuplikan mentah dicatat: tanpa itu, jawaban rusak dari proxy atau
+            # halaman galat HTML tidak bisa dibedakan dari galat Binance.
+            _jj.catat_galat(_kor, method, path, status=status, kode=None,
+                            pesan="respons bukan JSON sah: " + str(exc),
+                            ms=_ms, parameter=params,
+                            konteks={"mentah": mentah[:400].decode("utf-8", "replace")})
             raise BinanceAPIError(status, None, f"respons bukan JSON sah: {exc}") from exc
         if isinstance(hasil, dict) and "code" in hasil and "msg" in hasil and status >= 400:
             self._catat_pembatasan(status, hasil)
+            _jj.catat_galat(_kor, method, path, status=status,
+                            kode=hasil.get("code"), pesan=hasil.get("msg", ""),
+                            jawaban=hasil, ms=_ms, parameter=params)
             raise BinanceAPIError(status, hasil.get("code"), hasil.get("msg", ""), hasil)
+        _jj.catat_jawaban(_kor, method, path, status=status, jawaban=hasil, ms=_ms)
         return hasil
 
     # ------------------------------------------------------------------ #
@@ -587,6 +624,52 @@ class BinanceFuturesClient:
 
     def batalkan_semua_order(self, simbol: str) -> Dict[str, Any]:
         return self._permintaan("DELETE", _PATH_ALL_OPEN_ORDERS, {"symbol": simbol}, signed=True)
+
+    def order_terbuka(self, simbol: Optional[str] = None) -> List[Dict[str, Any]]:
+        # Pembaca openOrders bertipe. Sebelum ini Proteksi memanggil
+        # _permintaan mentah, sehingga tidak ada satu tempat pun yang bisa
+        # diuji atau dibatasi. Catatan bobot: 1 dengan simbol, 40 tanpa simbol,
+        # jadi JANGAN dipanggil tanpa simbol di dalam loop per pair.
+        params = {"symbol": simbol} if simbol else {}
+        hasil = self._permintaan("GET", _PATH_OPEN_ORDERS, params, signed=True)
+        if isinstance(hasil, list):
+            return hasil
+        return [hasil] if hasil else []
+
+    def ubah_order(
+        self,
+        simbol: str,
+        sisi: str,
+        quantity: Any,
+        price: Any,
+        order_id: Optional[int] = None,
+        orig_client_order_id: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        # Amend order LIMIT lewat PUT /fapi/v1/order.
+        #
+        # Sebelum ini TIDAK ADA jalur modify di seluruh modul: satu-satunya
+        # cara mengubah order adalah batal lalu kirim baru, dan itu membuka
+        # jendela tanpa proteksi di antara keduanya.
+        #
+        # Menurut dokumentasi Binance USD-M, symbol, side, quantity, dan price
+        # semuanya wajib, ditambah salah satu dari orderId atau
+        # origClientOrderId. Keempatnya diwajibkan di sini dan TIDAK ditebak;
+        # perilaku nyatanya diverifikasi di uji hidup testnet.
+        if order_id is None and not orig_client_order_id:
+            raise ValueError("ubah_order butuh order_id atau orig_client_order_id")
+        if quantity is None or price is None:
+            raise ValueError("ubah_order butuh quantity DAN price (keduanya wajib)")
+        params: Dict[str, Any] = {
+            "symbol": simbol,
+            "side": str(sisi).upper(),
+            "quantity": quantity,
+            "price": price,
+        }
+        if order_id is not None:
+            params["orderId"] = int(order_id)
+        if orig_client_order_id:
+            params["origClientOrderId"] = orig_client_order_id
+        return self._permintaan("PUT", _PATH_ORDER, params, signed=True)
 
 
 async def kirim_order_async(client: BinanceFuturesClient, payload: Dict[str, Any]) -> Dict[str, Any]:

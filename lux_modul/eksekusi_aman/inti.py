@@ -34,12 +34,33 @@ import hashlib
 import math
 import time
 
+from ..eksekusi.klasifikasi import KODE_PERMANEN as _KODE_PERMANEN_RUJUKAN
+from ..eksekusi.klasifikasi import (
+    GagalKonfirmasi,
+    KELAS_KREDENSIAL,
+    KELAS_LAJU,
+    KELAS_PERMANEN,
+    KELAS_TAK_DIKETAHUI,
+    klasifikasikan,
+    konfirmasi_batal,
+    konfirmasi_order,
+)
+
 ARAH_LONG = "LONG"
 ARAH_SHORT = "SHORT"
 
 # Galat permanen: mengulang hanya menghasilkan galat yang sama. Semua terbukti
 # nyata di p01-p10.
-KODE_PERMANEN = {-1102, -1111, -4003, -4014, -4120, -2022, -5022, -1116, -1121}
+# DIPERLUAS 25 Agu 2026. Daftar lama hanya memuat 9 kode yang pernah kita lihat
+# sendiri di p01-p10. Kode yang jelas permanen seperti -2019 (margin tidak
+# cukup) dan -4164 (notional di bawah minimum) tidak ada di dalamnya, sehingga
+# diulang 3x dengan backoff - membuang waktu tepat saat fail-safe harus cepat.
+# Sumber tunggal sekarang eksekusi/klasifikasi.py, lengkap dengan rujukannya.
+KODE_PERMANEN = set(_KODE_PERMANEN_RUJUKAN)
+# Berapa kali harga boleh gagal dibaca berturut-turut sebelum posisi ditutup.
+# SL perangkat lunak tanpa harga BUKAN proteksi, jadi buta berulang harus
+# berakhir pada penutupan, bukan pada siklus yang dilewati diam-diam.
+BATAS_GAGAL_HARGA = 3
 KODE_CID_DUPLIKAT = -4116
 KODE_ORDER_TIDAK_ADA = -2013  # p10: muncul saat query status terlalu dini
 
@@ -266,7 +287,15 @@ class PengirimOrder:
             except Exception as exc:
                 terakhir = exc
                 kode = getattr(exc, "kode", None)
-                if kode is not None and kode != KODE_ORDER_TIDAK_ADA:
+                # Versi lama BERHENTI pada galat non -2013 apa pun, sehingga
+                # satu timeout sesaat membatalkan seluruh pembacaan status -
+                # padahal status order paling dibutuhkan justru saat jaringan
+                # sedang buruk. Sekarang hanya galat permanen yang menghentikan;
+                # galat sementara dan status tak diketahui tetap dicoba lagi.
+                kep_st = klasifikasikan(exc, jalur="/fapi/v1/order",
+                                        metode="GET")
+                if (kode is not None and kode != KODE_ORDER_TIDAK_ADA
+                        and kep_st.kelas in (KELAS_PERMANEN, KELAS_KREDENSIAL)):
                     break
                 if cid and order_id is not None:
                     r = self.cari_lewat_cid(simbol, cid)
@@ -287,10 +316,39 @@ class PengirimOrder:
             try:
                 self.jumlah_permintaan += 1
                 order = self.klien.kirim_order(payload)
+                # Jawaban apa pun TIDAK cukup untuk menyebut order berhasil.
+                # Klien REST mengembalikan {} untuk badan jawaban kosong, dan
+                # blok ini dulu mengembalikan OK untuk {} itu juga, dengan
+                # orderId None. Sekarang jawaban wajib lolos konfirmasi:
+                # ada orderId atau clientOrderId, DAN status yang dikenal.
+                try:
+                    ringkas = konfirmasi_order(
+                        order, simbol=payload.get("symbol"),
+                        sisi=payload.get("side"), cid=cid)
+                except GagalKonfirmasi as gk:
+                    self._catat("tidak_terkonfirmasi", niat=niat, cid=cid,
+                                percobaan=percobaan, pesan=str(gk)[:200])
+                    # Belum tentu gagal: order bisa sudah masuk. Tanya bursa.
+                    ada = self.cari_lewat_cid(payload["symbol"], cid)
+                    if ada:
+                        try:
+                            ringkas2 = konfirmasi_order(ada, cid=cid)
+                        except GagalKonfirmasi:
+                            ringkas2 = None
+                        if ringkas2 is not None:
+                            self._catat("terkonfirmasi_lewat_cid", niat=niat,
+                                        cid=cid, status=ringkas2.get("status"))
+                            return {"hasil": "PULIH_LEWAT_CID", "order": ada,
+                                    "ringkas": ringkas2, "cid": cid,
+                                    "percobaan": percobaan}
+                    return {"hasil": "TIDAK_TERKONFIRMASI", "order": order,
+                            "cid": cid, "percobaan": percobaan,
+                            "pesan": str(gk)[:300]}
                 self._catat("order_terkirim", niat=niat, cid=cid,
-                            percobaan=percobaan, orderId=order.get("orderId"))
-                return {"hasil": "OK", "order": order, "cid": cid,
-                        "percobaan": percobaan}
+                            percobaan=percobaan, orderId=ringkas.get("orderId"),
+                            status=ringkas.get("status"))
+                return {"hasil": "OK", "order": order, "ringkas": ringkas,
+                        "cid": cid, "percobaan": percobaan}
             except Exception as exc:
                 kode = getattr(exc, "kode", None)
                 if kode == KODE_CID_DUPLIKAT:
@@ -310,6 +368,30 @@ class PengirimOrder:
                     return {"hasil": "PULIH_LEWAT_CID", "order": ada, "cid": cid,
                             "percobaan": percobaan}
                 galat = exc
+                # Tidak semua galat boleh diulang. Dibatasi laju: mengulang
+                # memperpanjang pembatasan dan bisa memicu ban IP. Status tak
+                # diketahui: mengulang bisa MENGGANDAKAN order, karena
+                # permintaan pertama mungkin sudah mencapai matching engine.
+                # Keduanya dihentikan di sini dan diserahkan ke rekonsiliasi.
+                kep = klasifikasikan(exc, jalur="/fapi/v1/order",
+                                     metode="POST", dana=True)
+                if kep.kelas in (KELAS_LAJU, KELAS_TAK_DIKETAHUI):
+                    self._catat("berhenti_tanpa_ulang", niat=niat, cid=cid,
+                                kelas=kep.kelas, alasan=kep.alasan,
+                                jeda_disarankan_ms=kep.jeda_ms)
+                    return {"hasil": "TIDAK_TERKONFIRMASI", "cid": cid,
+                            "percobaan": percobaan, "kelas": kep.kelas,
+                            "pesan": kep.alasan, "galat": str(exc)[:200],
+                            "wajib_rekonsiliasi": kep.wajib_rekonsiliasi}
+                if kep.wajib_sinkron_waktu:
+                    # -1021 tidak akan pernah sembuh dengan diulang saja:
+                    # offset waktu harus disinkronkan lebih dulu.
+                    try:
+                        self.klien.sinkron_waktu()
+                        self._catat("waktu_disinkronkan", niat=niat, cid=cid)
+                    except Exception as exc_w:
+                        self._catat("sinkron_waktu_gagal", niat=niat, cid=cid,
+                                    pesan=str(exc_w)[:160])
                 if percobaan < self.coba_maks:
                     self.jumlah_retry += 1
                     self._catat("backoff", niat=niat, cid=cid, jeda=jeda,
@@ -393,8 +475,22 @@ class Proteksi:
         return None
 
     def order_terbuka(self):
-        return self.klien._permintaan("GET", "/fapi/v1/openOrders",
-                                      {"symbol": self.simbol}, signed=True)
+        # Bentuk jawaban DIJAMIN larik objek. Tanpa jaminan ini, jawaban
+        # berbentuk objek membuat iterasi menghasilkan string, lalu pemanggil
+        # jatuh dengan AttributeError persis di jalur proteksi.
+        # Metode bertipe klien dipakai bila ada; _permintaan tetap jadi cadangan
+        # supaya klien uji lama tidak ikut rusak.
+        fn = getattr(self.klien, "order_terbuka", None)
+        if callable(fn):
+            hasil = fn(self.simbol)
+        else:
+            hasil = self.klien._permintaan("GET", "/fapi/v1/openOrders",
+                                           {"symbol": self.simbol}, signed=True)
+        if isinstance(hasil, dict):
+            return [hasil] if hasil.get("orderId") is not None else []
+        if not hasil:
+            return []
+        return [o for o in hasil if isinstance(o, dict)]
 
     def tutup_posisi(self, alasan, ember=None):
         """LIMIT IOC (batasi slippage) -> VERIFIKASI -> MARKET (jaminan).
@@ -444,11 +540,40 @@ class Proteksi:
                 "posisi_setelah": akhir, "bersih": akhir is None}
 
     def batalkan_proteksi(self):
+        # Versi lama menelan galat lalu mengosongkan state lokal seolah
+        # pembatalan berhasil. Sekarang: hasilnya dikembalikan, dikonfirmasi
+        # dari jawaban bursa, DAN diverifikasi ulang dengan membaca openOrders.
+        # Yang menentukan bukan jawaban, tapi keadaan.
+        h = {"diminta": True, "terkonfirmasi": False, "galat": None,
+             "sisa_order": None, "bersih": None}
         try:
-            self.klien.batalkan_semua_order(self.simbol)
+            jawaban = self.klien.batalkan_semua_order(self.simbol)
+            h["konfirmasi"] = konfirmasi_batal(jawaban, simbol=self.simbol)
+            h["terkonfirmasi"] = True
         except Exception as exc:
-            self._catat("gagal_batalkan", pesan=str(exc)[:140])
+            h["galat"] = str(exc)[:200]
+            try:
+                h["kelas"] = klasifikasikan(
+                    exc, jalur="/fapi/v1/allOpenOrders", metode="DELETE",
+                    dana=True).ringkas()
+            except Exception:
+                h["kelas"] = None
+            self._catat("gagal_batalkan", pesan=h["galat"], kelas=h["kelas"])
+        try:
+            sisa = [o for o in self.order_terbuka() if o.get("reduceOnly")]
+            h["sisa_order"] = len(sisa)
+            h["bersih"] = not sisa
+            if sisa:
+                h["masalah"] = "orphan_proteksi_masih_hidup"
+                h["order_yatim"] = [
+                    {"orderId": o.get("orderId"), "type": o.get("type"),
+                     "side": o.get("side"), "origQty": o.get("origQty"),
+                     "price": o.get("price")} for o in sisa[:8]]
+        except Exception as exc:
+            h["galat_verifikasi"] = str(exc)[:200]
+        self._catat("proteksi_dibatalkan", **h)
         self.order_tp = None
+        return h
 
     def pasang(self, tp_harga, sl_harga, ember=None):
         """TP dipasang di bursa; SL dicatat untuk dipantau. Kalau TP tidak bisa
@@ -498,17 +623,62 @@ class Proteksi:
         pos = self.posisi_nyata()
         if not pos or self.sl_harga is None:
             return {"aksi": "tidak_ada"}
-        m = mark_harga if mark_harga is not None else (
-            self.data.mark(self.simbol) if self.data
-            else float(self.klien.harga_sekarang(self.simbol)))
+        # Harga bisa gagal dibaca. Versi lama membiarkan galat merambat ke
+        # pemanggil, sehingga siklus itu MELEWATI pemeriksaan SL tanpa jejak:
+        # posisi tetap terbuka sementara SL-nya tidak dievaluasi. Sekarang
+        # kegagalan dihitung, dan setelah BATAS_GAGAL_HARGA kali berturut-turut
+        # posisi ditutup - SL perangkat lunak tanpa harga bukan proteksi.
+        if mark_harga is not None:
+            m = mark_harga
+        else:
+            try:
+                m = (self.data.mark(self.simbol) if self.data
+                     else float(self.klien.harga_sekarang(self.simbol)))
+            except Exception as exc:
+                self._gagal_harga = getattr(self, "_gagal_harga", 0) + 1
+                self._catat("harga_gagal_dibaca", berturut=self._gagal_harga,
+                            batas=BATAS_GAGAL_HARGA, pesan=str(exc)[:160])
+                if self._gagal_harga >= BATAS_GAGAL_HARGA:
+                    batal = self.batalkan_proteksi()
+                    tutup = self.tutup_posisi("harga_tidak_terbaca")
+                    return {"aksi": "failsafe_harga_buta",
+                            "berturut": self._gagal_harga,
+                            "pembatalan": batal, "penutupan": tutup,
+                            "alasan": "mark price gagal dibaca berulang; SL "
+                                      "perangkat lunak tidak dapat dievaluasi"}
+                return {"aksi": "harga_tidak_terbaca",
+                        "berturut": self._gagal_harga,
+                        "pesan": str(exc)[:160]}
+        if m is None:
+            self._gagal_harga = getattr(self, "_gagal_harga", 0) + 1
+            return {"aksi": "harga_tidak_terbaca", "berturut": self._gagal_harga,
+                    "pesan": "mark price None"}
+        self._gagal_harga = 0
         tersentuh = (m <= self.sl_harga if pos["arah"] == ARAH_LONG
                      else m >= self.sl_harga)
         if not tersentuh:
             return {"aksi": "aman", "mark": m, "sl": self.sl_harga}
         self._catat("sl_tersentuh", mark=m, sl=self.sl_harga)
-        self.batalkan_proteksi()
-        return {"aksi": "sl_dieksekusi", "mark": m, "sl": self.sl_harga,
-                "penutupan": self.tutup_posisi("sl_tersentuh")}
+        # Urutan disengaja: TP dibatalkan dulu supaya tidak ada dua order
+        # reduceOnly berebut posisi yang sama. Tetapi kalau pembatalan gagal,
+        # penutupan TETAP dijalankan - posisi terbuka jauh lebih berbahaya
+        # daripada order TP yatim - dan kegagalannya DILAPORKAN, bukan ditelan.
+        batal = self.batalkan_proteksi()
+        tutup = self.tutup_posisi("sl_tersentuh")
+        h = {"aksi": "sl_dieksekusi", "mark": m, "sl": self.sl_harga,
+             "pembatalan": batal, "penutupan": tutup}
+        if not batal.get("terkonfirmasi") or batal.get("bersih") is False:
+            h["peringatan"] = (
+                "pembatalan proteksi tidak terkonfirmasi; periksa order yatim "
+                "di bursa untuk " + str(self.simbol))
+            h["perlu_diperbaiki"] = "Proteksi.batalkan_proteksi"
+        if not tutup.get("bersih"):
+            h["aksi"] = "sl_gagal_menutup"
+            h["dampak"] = (
+                "SL tersentuh tetapi posisi BELUM terbukti tertutup; risiko "
+                "masih berjalan di pasar")
+            h["perlu_diperbaiki"] = "Proteksi.tutup_posisi"
+        return h
 
     def rekonsiliasi(self):
         """p07: Binance otomatis membatalkan reduceOnly saat posisi habis, dan
@@ -699,5 +869,35 @@ def jalankan_siklus(klien, simbol, arah, sl_harga, tp_harga, kebijakan,
         h["rekonsiliasi"] = proteksi.rekonsiliasi()
     except Exception as exc:
         h["rekonsiliasi"] = {"galat": str(exc)[:140]}
+    # DULU hasil rekonsiliasi hanya DISIMPAN dan tidak pernah ditindaklanjuti
+    # siapa pun: masalah terdeteksi, lalu didiamkan. Sekarang dua temuan paling
+    # berbahaya diambil tindakannya, dan tindakannya ikut tercatat.
+    masalah = (h.get("rekonsiliasi") or {}).get("masalah")
+    if masalah == "posisi_tanpa_proteksi":
+        try:
+            h["tindakan_rekonsiliasi"] = {
+                "masalah": masalah,
+                "alasan": "posisi terbuka tanpa order proteksi di bursa",
+                "penutupan": proteksi.tutup_posisi(
+                    "rekonsiliasi_posisi_tanpa_proteksi")}
+            h["kesimpulan"] = "posisi_tanpa_proteksi_ditutup"
+        except Exception as exc:
+            h["tindakan_rekonsiliasi"] = {"masalah": masalah,
+                                          "galat": str(exc)[:160]}
+            h["kesimpulan"] = "BAHAYA_posisi_mungkin_telanjang"
+    elif masalah == "orphan_proteksi":
+        try:
+            h["tindakan_rekonsiliasi"] = {
+                "masalah": masalah,
+                "alasan": "order proteksi hidup tanpa posisi",
+                "pembatalan": proteksi.batalkan_proteksi()}
+        except Exception as exc:
+            h["tindakan_rekonsiliasi"] = {"masalah": masalah,
+                                          "galat": str(exc)[:160]}
+    elif masalah:
+        h["tindakan_rekonsiliasi"] = {
+            "masalah": masalah, "tindakan": "dilaporkan_saja",
+            "alasan": "tidak ada tindakan otomatis yang jelas lebih aman "
+                      "daripada melaporkan"}
     h["objek_proteksi"] = proteksi
     return h

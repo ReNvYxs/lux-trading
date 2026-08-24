@@ -1,0 +1,123 @@
+mulai
+Python 3.11.16
+rc_pip=0
+jangkar={"nama": "klien_impor_jejak", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "klien_jalur_open_orders", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "permintaan_mulai", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "permintaan_galat_http", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "permintaan_galat_jaringan", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "permintaan_ekor", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "klien_modify_dan_open_orders", "jumlah": 1, "diharap": 1, "sudah": false}
+MESIN=SELESAI
+diterapkan=["klien_impor_jejak", "klien_jalur_open_orders", "permintaan_mulai", "permintaan_galat_http", "permintaan_galat_jaringan", "permintaan_ekor", "klien_modify_dan_open_orders"]
+panjang_klien=29841
+punya_ubah_order=True
+punya_order_terbuka=True
+jumlah_catat_permintaan=1
+jumlah_catat_jawaban=2
+jumlah_catat_galat=4
+tangkap_timeout=True
+rc_mesin=0
+jangkar={"nama": "inti_impor_klasifikasi", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "inti_kode_permanen_diperluas", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "kirim_wajib_konfirmasi", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "retry_hormati_klasifikasi", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "baca_status_tahan_sementara", "jumlah": 1, "diharap": 1, "sudah": false}
+INTI=SELESAI
+diterapkan=["inti_impor_klasifikasi", "inti_kode_permanen_diperluas", "kirim_wajib_konfirmasi", "retry_hormati_klasifikasi", "baca_status_tahan_sementara"]
+panjang_inti=37418
+punya_konfirmasi=True
+punya_berhenti_tanpa_ulang=True
+punya_batas_gagal_harga=True
+sisa_klaim_ok_polos=0
+rc_inti=0
+jangkar={"nama": "order_terbuka_bentuk_dijamin", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "batalkan_proteksi_terverifikasi", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "periksa_sl_tahan_harga_buta", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "periksa_sl_lapor_kegagalan", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "rekonsiliasi_bertindak", "jumlah": 1, "diharap": 1, "sudah": false}
+PROTEKSI=SELESAI
+diterapkan=["order_terbuka_bentuk_dijamin", "batalkan_proteksi_terverifikasi", "periksa_sl_tahan_harga_buta", "periksa_sl_lapor_kegagalan", "rekonsiliasi_bertindak"]
+panjang_inti=43725
+punya_batal_terverifikasi=True
+punya_failsafe_harga=True
+punya_tindakan_rekonsiliasi=True
+sisa_batal_polos=0
+rc_proteksi=0
+jangkar={"nama": "ib_impor_hashlib", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "ib_impor_konfirmasi", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "ib_payload_tanda_tangan", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "ib_buang_parameter_hantu", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "ib_hasil_diperluas", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "ib_qty_dari_konfirmasi", "jumlah": 1, "diharap": 1, "sudah": false}
+ICEBREAKER=SELESAI
+diterapkan=["ib_impor_hashlib", "ib_impor_konfirmasi", "ib_payload_tanda_tangan", "ib_buang_parameter_hantu", "ib_hasil_diperluas", "ib_qty_dari_konfirmasi"]
+panjang_ib=12192
+sisa_visible_qty_dikirim=0
+sisa_iceberg_dikirim=0
+sisa_qty_terisi_buta=0
+punya_cid=True
+punya_konfirmasi=True
+rc_ib=0
+rc_kompilasi=0
+rc_pytest=1
+            return {"status": "NEW"}
+    
+        async def tidur_cepat(_d):
+            return None
+    
+        ex = IceBreakerExecutor(kirim, harga_kini=lambda: keadaan["harga"], tidur=tidur_cepat)
+        hasil = asyncio.run(ex.jalankan(r))
+>       assert hasil.alasan_batal == "entry_invalidated"
+E       AssertionError: assert 'slice_tidak_terkonfirmasi' == 'entry_invalidated'
+E         
+E         - entry_invalidated
+E         + slice_tidak_terkonfirmasi
+
+tests/test_inti.py:312: AssertionError
+___________________ test_slice_payload_postonly_dan_iceberg ____________________
+
+    def test_slice_payload_postonly_dan_iceberg():
+        s = Slice(urutan=0, qty=1.0, visible_qty=0.25, jeda_detik=0.0)
+        p = s.payload("BTCUSDT", "BUY", 100.0)
+        assert p["type"] == TIPE_LIMIT
+        assert p["timeInForce"] == TIF_POST_ONLY
+>       assert p["icebergQty"] == 0.25
+E       KeyError: 'icebergQty'
+
+tests/test_order_postonly.py:99: KeyError
+______________ test_eksekutor_icebreaker_mengirim_semua_postonly _______________
+
+    def test_eksekutor_icebreaker_mengirim_semua_postonly():
+        rencana = plan_execution("BTCUSDT", ARAH_LONG, qty=1.0, harga=20_000.0, sl=19_000.0)
+        assert rencana.memakai_icebreaker
+        terkirim = []
+    
+        async def kirim(p):
+            terkirim.append(p)
+            return {"orderId": len(terkirim)}
+    
+        async def tidur(_d):
+            return None
+    
+        hasil = IceBreakerExecutor(kirim, harga_kini=lambda: 20_000.0, tidur=tidur).jalankan_sinkron(
+            rencana
+        )
+>       assert hasil.selesai_penuh
+E       AssertionError: assert False
+E        +  where False = HasilEksekusi(terkirim=[], dibatalkan=[0, 1, 2, 3, 4, 5, 6, 7], qty_terisi=0.0, alasan_batal='slice_tidak_terkonfirmas...DAK dihitung terisi; posisi nyata wajib dibaca dari positionRisk', 'perlu_diperbaiki': 'IceBreakerExecutor.jalankan'}]).selesai_penuh
+
+tests/test_order_postonly.py:118: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_inti.py::test_visible_qty_benar_benar_dikirim - AssertionError: assert 1 == 12
+ +  where 1 = len([{'newClientOrderId': 'lxsfe7c6525e65ec4e03', 'price': 50000.0, 'quantity': 0.166666666667, 'side': 'SELL', ...}])
+ +  and   12 = RencanaEksekusi(simbol='BTCUSDT', arah='SHORT', qty_total=2.0, harga_acuan=50000.0, notional=100000.0, slices=(Slice(u...urutan=11, qty=0.1666666666666665, visible_qty=0.04166666666666662, jeda_detik=1.5)), memakai_icebreaker=True, sl=None).jumlah_slice
+FAILED tests/test_inti.py::test_eksekusi_non_blocking - assert ([])
+FAILED tests/test_inti.py::test_entry_invalidated_membatalkan_sisa_slice - AssertionError: assert 'slice_tidak_terkonfirmasi' == 'entry_invalidated'
+  
+  - entry_invalidated
+  + slice_tidak_terkonfirmasi
+FAILED tests/test_order_postonly.py::test_slice_payload_postonly_dan_iceberg - KeyError: 'icebergQty'
+FAILED tests/test_order_postonly.py::test_eksekutor_icebreaker_mengirim_semua_postonly - AssertionError: assert False
+ +  where False = HasilEksekusi(terkirim=[], dibatalkan=[0, 1, 2, 3, 4, 5, 6, 7], qty_terisi=0.0, alasan_batal='slice_tidak_terkonfirmas...DAK dihitung terisi; posisi nyata wajib dibaca dari positionRisk', 'perlu_diperbaiki': 'IceBreakerExecutor.jalankan'}]).selesai_penuh
+5 failed, 305 passed in 43.04s
