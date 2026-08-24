@@ -1,5 +1,5 @@
 GRAF=LULUS
-modul_total=119
+modul_total=120
 modul_lux=54
 impor_rusak_modul=0
 nama_hilang_modul=0
@@ -10,7 +10,7 @@ dependensi_luar=["numpy", "pasang_inti", "pasang_tes", "pytest", "referensi"]
 dependensi_hilang=["referensi"]
 yatim_jumlah=0
 yatim=[]
-eksekusi_pengimpor_luar=["lux_modul.backtest", "lux_modul.backtest_portofolio", "lux_modul.eksekusi_aman.inti", "lux_modul.live_runner", "lux_modul.mesin_multi", "lux_modul.pipeline", "scripts.asap_e2e", "scripts.asap_multi_e2e", "scripts.dashboard_data", "scripts.demo_sintetis", "scripts.diagnosa_kondisional", "scripts.live_run", "scripts.uji_bracket_penuh", "scripts.uji_kondisional", "scripts.uji_sl_tp_posisi", "scripts.uji_testnet", "tests.test_backtest", "tests.test_biaya", "tests.test_binance_client", "tests.test_inti", "tests.test_konfigurasi", "tests.test_kredensial", "tests.test_laju_dan_tp", "tests.test_live_runner", "tests.test_order_postonly", "tests.test_serialisasi_order", "tests.test_spesifikasi", "tests.test_stres_klasifikasi", "tests.test_ukuran_mikro"]
-eksekusi_aman_pengimpor_luar=["lux_modul.live_runner", "tests.conftest", "tests.test_live_runner_saklar", "tests.test_saklar_eksekusi", "tests.test_saklar_otomatis", "tests.test_ukuran_mikro"]
+eksekusi_pengimpor_luar=["lux_modul.backtest", "lux_modul.backtest_portofolio", "lux_modul.eksekusi_aman.inti", "lux_modul.live_runner", "lux_modul.mesin_multi", "lux_modul.pipeline", "scripts.asap_e2e", "scripts.asap_multi_e2e", "scripts.dashboard_data", "scripts.demo_sintetis", "scripts.diagnosa_kondisional", "scripts.live_run", "scripts.uji_bracket_penuh", "scripts.uji_kondisional", "scripts.uji_sl_tp_posisi", "scripts.uji_testnet", "tests.test_backtest", "tests.test_biaya", "tests.test_binance_client", "tests.test_inti", "tests.test_konfigurasi", "tests.test_kredensial", "tests.test_laju_dan_tp", "tests.test_live_runner", "tests.test_order_postonly", "tests.test_serialisasi_order", "tests.test_spesifikasi", "tests.test_stres_eksekusi", "tests.test_stres_klasifikasi", "tests.test_ukuran_mikro"]
+eksekusi_aman_pengimpor_luar=["lux_modul.live_runner", "tests.conftest", "tests.test_live_runner_saklar", "tests.test_saklar_eksekusi", "tests.test_saklar_otomatis", "tests.test_stres_eksekusi", "tests.test_ukuran_mikro"]
 eksekusi_aman_terjangkau=["lux_modul.eksekusi_aman", "lux_modul.eksekusi_aman.inti", "lux_modul.eksekusi_aman.saklar"]
 rc=0

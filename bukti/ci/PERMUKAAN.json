@@ -367,6 +367,15 @@
     "rencana_posisi"
    ]
   },
+  "tests.test_stres_eksekusi": {
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceAPIError"
+   ],
+   "lux_modul.eksekusi.klasifikasi": [
+    "KELAS_LAJU",
+    "KELAS_TAK_DIKETAHUI"
+   ]
+  },
   "tests.test_stres_klasifikasi": {
    "lux_modul.eksekusi": [
     "jejak",
@@ -391,7 +400,7 @@
  },
  "galat_impor_aman": {},
  "galat_impor_lama": {},
- "konsumen_jumlah": 28,
+ "konsumen_jumlah": 29,
  "nama_lama_dipakai": [
   "AMBANG_NOTIONAL_ICEBREAKER",
   "BASE_PER_SETUP_BAWAAN",
@@ -410,6 +419,8 @@
   "HasilEksekusi",
   "IceBreakerExecutor",
   "JEDA_DETIK",
+  "KELAS_LAJU",
+  "KELAS_TAK_DIKETAHUI",
   "KODE_BIAYA_VS_RISIKO",
   "KODE_TP1_TERLALU_DEKAT",
   "KebijakanOrder",
@@ -482,7 +493,14 @@
   "risiko_usd",
   "ukuran_posisi"
  ],
- "padanan_nama_di_aman": {},
+ "padanan_nama_di_aman": {
+  "KELAS_LAJU": [
+   "lux_modul.eksekusi_aman.inti"
+  ],
+  "KELAS_TAK_DIKETAHUI": [
+   "lux_modul.eksekusi_aman.inti"
+  ]
+ },
  "permukaan_aman": {
   "lux_modul.eksekusi_aman": {},
   "lux_modul.eksekusi_aman.inti": {
@@ -1154,7 +1172,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v2/balance', '/fapi/v1/leverage', '/fapi/v1/allOpenOrders', '/fapi/v2/positionRisk', '/fapi/v1/openOrders', '/fapi/v1/order', '/fapi/v1/order/..."
+    "nilai": "frozenset({'/fapi/v1/leverage', '/fapi/v2/positionRisk', '/fapi/v1/batchOrders', '/fapi/v1/marginType', '/fapi/v1/openOrders', '/fapi/v1/order', '/fapi/v2/balan..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1307,11 +1325,11 @@
    },
    "STATUS_DIKENAL": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'CANCELED', 'NEW', 'EXPIRED_IN_MATCH', 'FILLED', 'NEW_ADL', 'EXPIRED', 'NEW_INSURANCE', 'REJECTED', 'PARTIALLY_FILLED'})"
+    "nilai": "frozenset({'FILLED', 'NEW_ADL', 'NEW_INSURANCE', 'CANCELED', 'REJECTED', 'EXPIRED', 'EXPIRED_IN_MATCH', 'PARTIALLY_FILLED', 'NEW'})"
    },
    "STATUS_HIDUP": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'NEW', 'PARTIALLY_FILLED'})"
+    "nilai": "frozenset({'PARTIALLY_FILLED', 'NEW'})"
    },
    "STATUS_LAJU": {
     "jenis": "tuple",
@@ -1319,7 +1337,7 @@
    },
    "STATUS_SELESAI": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'CANCELED', 'EXPIRED_IN_MATCH', 'REJECTED', 'FILLED', 'EXPIRED'})"
+    "nilai": "frozenset({'FILLED', 'EXPIRED', 'CANCELED', 'EXPIRED_IN_MATCH', 'REJECTED'})"
    },
    "STATUS_TAK_DIKETAHUI": {
     "jenis": "tuple",

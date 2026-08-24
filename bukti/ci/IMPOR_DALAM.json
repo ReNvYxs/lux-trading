@@ -1026,6 +1026,15 @@
    "pytest",
    "typing"
   ],
+  "tests.test_stres_eksekusi": [
+   "__future__",
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.klasifikasi",
+   "lux_modul.eksekusi_aman.inti",
+   "os",
+   "pytest",
+   "sys"
+  ],
   "tests.test_stres_klasifikasi": [
    "json",
    "lux_modul.eksekusi",
@@ -1207,10 +1216,11 @@
   "tests.test_serialisasi_order": [],
   "tests.test_spesifikasi": [],
   "tests.test_strategi_arbiter": [],
+  "tests.test_stres_eksekusi": [],
   "tests.test_stres_klasifikasi": [],
   "tests.test_ukuran_mikro": []
  },
- "modul_jumlah": 119,
+ "modul_jumlah": 120,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",
@@ -1341,6 +1351,7 @@
     "tests.test_saklar_otomatis",
     "tests.test_spesifikasi",
     "tests.test_strategi_arbiter",
+    "tests.test_stres_eksekusi",
     "tests.test_stres_klasifikasi",
     "tests.test_ukuran_mikro"
    ]
@@ -1356,6 +1367,7 @@
    "dipakai": true,
    "tingkat_atas": [
     "tests.test_live_runner_saklar",
+    "tests.test_stres_eksekusi",
     "tests.test_ukuran_mikro"
    ]
   },

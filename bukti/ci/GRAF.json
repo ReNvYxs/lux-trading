@@ -47,6 +47,7 @@
    "tests.test_saklar_otomatis",
    "tests.test_spesifikasi",
    "tests.test_strategi_arbiter",
+   "tests.test_stres_eksekusi",
    "tests.test_stres_klasifikasi",
    "tests.test_ukuran_mikro"
   ],
@@ -183,6 +184,10 @@
     "lux_modul.eksekusi.risiko",
     "lux_modul.eksekusi.spesifikasi"
    ],
+   "tests.test_stres_eksekusi": [
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.klasifikasi"
+   ],
    "tests.test_stres_klasifikasi": [
     "lux_modul.eksekusi",
     "lux_modul.eksekusi.binance_client",
@@ -231,6 +236,9 @@
    "tests.test_saklar_otomatis": [
     "lux_modul.eksekusi_aman",
     "lux_modul.eksekusi_aman.saklar"
+   ],
+   "tests.test_stres_eksekusi": [
+    "lux_modul.eksekusi_aman.inti"
    ],
    "tests.test_ukuran_mikro": [
     "lux_modul.eksekusi_aman.inti"
@@ -342,6 +350,7 @@
    "tests.test_binance_client",
    "tests.test_laju_dan_tp",
    "tests.test_serialisasi_order",
+   "tests.test_stres_eksekusi",
    "tests.test_stres_klasifikasi"
   ],
   "lux_modul.eksekusi.ice_breaker": [
@@ -358,6 +367,7 @@
   "lux_modul.eksekusi.klasifikasi": [
    "lux_modul.eksekusi.ice_breaker",
    "lux_modul.eksekusi_aman.inti",
+   "tests.test_stres_eksekusi",
    "tests.test_stres_klasifikasi"
   ],
   "lux_modul.eksekusi.kredensial": [
@@ -421,6 +431,7 @@
   ],
   "lux_modul.eksekusi_aman.inti": [
    "tests.test_live_runner_saklar",
+   "tests.test_stres_eksekusi",
    "tests.test_ukuran_mikro"
   ],
   "lux_modul.eksekusi_aman.saklar": [
@@ -687,7 +698,7 @@
   ]
  },
  "modul_lux": 54,
- "modul_total": 119,
+ "modul_total": 120,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -1177,6 +1188,11 @@
    "lux_modul.strategi",
    "lux_modul.strategi.basis"
   ],
+  "tests.test_stres_eksekusi": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.klasifikasi",
+   "lux_modul.eksekusi_aman.inti"
+  ],
   "tests.test_stres_klasifikasi": [
    "lux_modul.eksekusi",
    "lux_modul.eksekusi.binance_client",
@@ -1228,6 +1244,7 @@
   "tests.test_serialisasi_order",
   "tests.test_spesifikasi",
   "tests.test_strategi_arbiter",
+  "tests.test_stres_eksekusi",
   "tests.test_stres_klasifikasi",
   "tests.test_ukuran_mikro",
   "lux_modul"
