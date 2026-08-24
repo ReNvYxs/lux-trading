@@ -91,13 +91,18 @@ def test_slice_tanpa_harga_ditolak():
         s.payload("BTCUSDT", "BUY", None)
 
 
-def test_slice_payload_postonly_dan_iceberg():
+def test_slice_payload_postonly_tanpa_parameter_hantu():
     s = Slice(urutan=0, qty=1.0, visible_qty=0.25, jeda_detik=0.0)
     p = s.payload("BTCUSDT", "BUY", 100.0)
     assert p["type"] == TIPE_LIMIT
     assert p["timeInForce"] == TIF_POST_ONLY
-    assert p["icebergQty"] == 0.25
-    assert p["visible_qty"] == 0.25
+    # p01: icebergQty diabaikan Futures, visible_qty bukan parameter
+    # Binance. Keduanya ditandatangani, jadi mengirimnya = risiko -1104.
+    assert "icebergQty" not in p
+    assert "visible_qty" not in p
+    assert s.visible_qty == 0.25
+    p2 = s.payload("BTCUSDT", "BUY", 100.0, cid="lxsujicid")
+    assert p2["newClientOrderId"] == "lxsujicid"
 
 
 def test_eksekutor_icebreaker_mengirim_semua_postonly():
@@ -107,7 +112,14 @@ def test_eksekutor_icebreaker_mengirim_semua_postonly():
 
     async def kirim(p):
         terkirim.append(p)
-        return {"orderId": len(terkirim)}
+        # Bentuk jawaban Binance USD-M sebenarnya: ada orderId DAN status,
+        # angka berupa string. Tanpa keduanya konfirmasi wajib gagal.
+        return {"orderId": 1000 + len(terkirim), "symbol": p["symbol"],
+                "side": p["side"], "status": "FILLED", "type": p["type"],
+                "clientOrderId": p.get("newClientOrderId"),
+                "origQty": str(p["quantity"]),
+                "executedQty": str(p["quantity"]),
+                "avgPrice": str(p["price"])}
 
     async def tidur(_d):
         return None

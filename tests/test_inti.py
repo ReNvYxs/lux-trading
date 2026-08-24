@@ -244,14 +244,23 @@ def test_order_besar_dipecah_dan_qty_terjaga():
     assert sum(s.qty for s in r.slices) == pytest.approx(2.0)
 
 
-def test_visible_qty_benar_benar_dikirim():
-    """BUG LAMA 1: visible_qty hanya dihitung, tidak dikirim. Sekarang wajib ada di payload."""
+def test_parameter_hantu_tidak_dikirim_dan_qty_dari_konfirmasi():
+    # Klaim lama BUG LAMA 1 (visible_qty wajib dikirim) terbukti salah.
+    # p01: icebergQty diabaikan Binance Futures, dan visible_qty sama
+    # sekali bukan parameter Binance. Yang benar diuji di sini: parameter
+    # hantu TIDAK dikirim, cid deterministik ADA, dan qty_terisi hanya
+    # boleh berasal dari executedQty jawaban bursa.
     r = plan_execution("BTCUSDT", ARAH_SHORT, qty=2.0, harga=50_000.0)
     terkirim = []
 
     async def kirim(payload):
         terkirim.append(payload)
-        return {"status": "NEW"}
+        return {"orderId": 900 + len(terkirim), "symbol": payload["symbol"],
+                "side": payload["side"], "status": "FILLED",
+                "clientOrderId": payload.get("newClientOrderId"),
+                "origQty": str(payload["quantity"]),
+                "executedQty": str(payload["quantity"]),
+                "avgPrice": str(payload["price"])}
 
     async def tidur_cepat(_d):
         return None
@@ -261,11 +270,14 @@ def test_visible_qty_benar_benar_dikirim():
     )
     assert len(terkirim) == r.jumlah_slice
     for p, s in zip(terkirim, r.slices):
-        assert "visible_qty" in p and p["visible_qty"] == pytest.approx(s.visible_qty)
-        assert p["icebergQty"] == pytest.approx(s.visible_qty)
-        assert 0 < p["visible_qty"] <= p["quantity"]
+        assert "visible_qty" not in p
+        assert "icebergQty" not in p
+        assert p["newClientOrderId"].startswith("lxs")
+        assert 0 < p["quantity"] <= r.qty_total
+    assert len(set(p["newClientOrderId"] for p in terkirim)) == r.jumlah_slice
     assert hasil.qty_terisi == pytest.approx(2.0)
     assert hasil.selesai_penuh
+    assert hasil.aman
 
 
 def test_eksekusi_non_blocking():
@@ -275,7 +287,12 @@ def test_eksekusi_non_blocking():
 
     async def kirim(payload):
         await asyncio.sleep(0)
-        return {"status": "NEW"}
+        # NEW = order limit post-only sudah diterima bursa tetapi belum
+        # terisi. executedQty 0 memang harus terbaca 0, bukan qty penuh.
+        return {"orderId": 800, "symbol": payload["symbol"],
+                "side": payload["side"], "status": "NEW",
+                "clientOrderId": payload.get("newClientOrderId"),
+                "origQty": str(payload["quantity"]), "executedQty": "0"}
 
     async def tidur_palsu(d):
         jejak.append(d)
@@ -302,7 +319,10 @@ def test_entry_invalidated_membatalkan_sisa_slice():
         keadaan["n"] += 1
         if keadaan["n"] == 2:
             keadaan["harga"] = 48_900.0  # harga tembus SL di tengah eksekusi
-        return {"status": "NEW"}
+        return {"orderId": 700 + keadaan["n"], "symbol": payload["symbol"],
+                "side": payload["side"], "status": "NEW",
+                "clientOrderId": payload.get("newClientOrderId"),
+                "origQty": str(payload["quantity"]), "executedQty": "0"}
 
     async def tidur_cepat(_d):
         return None
