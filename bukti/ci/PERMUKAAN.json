@@ -357,11 +357,20 @@
     "harga_break_even",
     "rencana_posisi"
    ]
+  },
+  "tests.test_stres_klasifikasi": {
+   "lux_modul.eksekusi": [
+    "jejak",
+    "klasifikasi"
+   ],
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceAPIError"
+   ]
   }
  },
  "galat_impor_aman": {},
  "galat_impor_lama": {},
- "konsumen_jumlah": 26,
+ "konsumen_jumlah": 27,
  "nama_lama_dipakai": [
   "AMBANG_NOTIONAL_ICEBREAKER",
   "BASE_URL_LIVE",
@@ -422,8 +431,10 @@
   "format_nilai",
   "harga_break_even",
   "harga_post_only",
+  "jejak",
   "jumlah_fill",
   "kirim_order_async",
+  "klasifikasi",
   "mode_untuk",
   "ms_ban_dari_pesan",
   "muat_kredensial",
@@ -1052,7 +1063,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v1/leverage', '/fapi/v1/order/test', '/fapi/v2/balance', '/fapi/v2/positionRisk', '/fapi/v1/openOrders', '/fapi/v1/allOpenOrders', '/fapi/v1/m..."
+    "nilai": "frozenset({'/fapi/v1/order', '/fapi/v2/balance', '/fapi/v1/leverage', '/fapi/v1/positionMargin', '/fapi/v1/openOrders', '/fapi/v1/order/test', '/fapi/v1/marginT..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1205,11 +1216,11 @@
    },
    "STATUS_DIKENAL": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'EXPIRED', 'EXPIRED_IN_MATCH', 'NEW_ADL', 'NEW', 'CANCELED', 'NEW_INSURANCE', 'PARTIALLY_FILLED', 'REJECTED', 'FILLED'})"
+    "nilai": "frozenset({'NEW_ADL', 'EXPIRED_IN_MATCH', 'EXPIRED', 'PARTIALLY_FILLED', 'NEW_INSURANCE', 'NEW', 'REJECTED', 'FILLED', 'CANCELED'})"
    },
    "STATUS_HIDUP": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'PARTIALLY_FILLED', 'NEW'})"
+    "nilai": "frozenset({'NEW', 'PARTIALLY_FILLED'})"
    },
    "STATUS_LAJU": {
     "jenis": "tuple",
@@ -1217,7 +1228,7 @@
    },
    "STATUS_SELESAI": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'EXPIRED', 'EXPIRED_IN_MATCH', 'CANCELED', 'REJECTED', 'FILLED'})"
+    "nilai": "frozenset({'EXPIRED_IN_MATCH', 'REJECTED', 'EXPIRED', 'FILLED', 'CANCELED'})"
    },
    "STATUS_TAK_DIKETAHUI": {
     "jenis": "tuple",
@@ -1738,8 +1749,10 @@
   "format_nilai",
   "harga_break_even",
   "harga_post_only",
+  "jejak",
   "jumlah_fill",
   "kirim_order_async",
+  "klasifikasi",
   "mode_untuk",
   "ms_ban_dari_pesan",
   "muat_kredensial",

@@ -27,6 +27,10 @@
    "lux_modul.strategi.volatilitas",
    "tests.test_inti"
   ],
+  "pasang_inti": [
+   "alat.pasang_icebreaker",
+   "alat.pasang_proteksi"
+  ],
   "pytest": [
    "tests.conftest",
    "tests.test_backtest",
@@ -39,7 +43,8 @@
    "tests.test_portofolio",
    "tests.test_saklar_otomatis",
    "tests.test_spesifikasi",
-   "tests.test_strategi_arbiter"
+   "tests.test_strategi_arbiter",
+   "tests.test_stres_klasifikasi"
   ],
   "referensi": [
    "alat.teori.uji_teori"
@@ -170,6 +175,12 @@
    "tests.test_spesifikasi": [
     "lux_modul.eksekusi.risiko",
     "lux_modul.eksekusi.spesifikasi"
+   ],
+   "tests.test_stres_klasifikasi": [
+    "lux_modul.eksekusi",
+    "lux_modul.eksekusi.binance_client",
+    "lux_modul.eksekusi.jejak",
+    "lux_modul.eksekusi.klasifikasi"
    ]
   },
   "terjangkau": [
@@ -177,6 +188,8 @@
    "lux_modul.eksekusi.biaya",
    "lux_modul.eksekusi.binance_client",
    "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.klasifikasi",
    "lux_modul.eksekusi.kredensial",
    "lux_modul.eksekusi.mode",
    "lux_modul.eksekusi.order",
@@ -295,7 +308,8 @@
    "scripts.dashboard_data",
    "scripts.demo_sintetis",
    "tests.test_backtest",
-   "tests.test_inti"
+   "tests.test_inti",
+   "tests.test_stres_klasifikasi"
   ],
   "lux_modul.eksekusi.biaya": [
    "lux_modul.backtest",
@@ -313,7 +327,8 @@
    "scripts.uji_testnet",
    "tests.test_binance_client",
    "tests.test_laju_dan_tp",
-   "tests.test_serialisasi_order"
+   "tests.test_serialisasi_order",
+   "tests.test_stres_klasifikasi"
   ],
   "lux_modul.eksekusi.ice_breaker": [
    "lux_modul.eksekusi",
@@ -321,6 +336,12 @@
    "lux_modul.pipeline",
    "scripts.dashboard_data",
    "tests.test_order_postonly"
+  ],
+  "lux_modul.eksekusi.jejak": [
+   "tests.test_stres_klasifikasi"
+  ],
+  "lux_modul.eksekusi.klasifikasi": [
+   "tests.test_stres_klasifikasi"
   ],
   "lux_modul.eksekusi.kredensial": [
    "lux_modul.eksekusi.binance_client",
@@ -645,7 +666,7 @@
   ]
  },
  "modul_lux": 54,
- "modul_total": 111,
+ "modul_total": 116,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -1129,6 +1150,12 @@
    "lux_modul.sintetis",
    "lux_modul.strategi",
    "lux_modul.strategi.basis"
+  ],
+  "tests.test_stres_klasifikasi": [
+   "lux_modul.eksekusi",
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.klasifikasi"
   ]
  },
  "titik_awal": [
@@ -1171,11 +1198,10 @@
   "tests.test_serialisasi_order",
   "tests.test_spesifikasi",
   "tests.test_strategi_arbiter",
+  "tests.test_stres_klasifikasi",
   "lux_modul"
  ],
  "yatim": [
-  "lux_modul.eksekusi.jejak",
-  "lux_modul.eksekusi.klasifikasi",
   "lux_modul.eksekusi.ukuran_mikro"
  ]
 }
