@@ -1052,7 +1052,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v1/batchOrders', '/fapi/v2/positionRisk', '/fapi/v1/openOrders', '/fapi/v1/allOpenOrders', '/fapi/v1/positionMargin', '/fapi/v2/balance', '/fa..."
+    "nilai": "frozenset({'/fapi/v1/order/test', '/fapi/v1/order', '/fapi/v1/marginType', '/fapi/v1/openOrders', '/fapi/v1/allOpenOrders', '/fapi/v1/batchOrders', '/fapi/v1/po..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1113,6 +1113,127 @@
    "ringkas_jawaban": {
     "jenis": "fungsi",
     "tanda_tangan": "(path, jawaban)"
+   }
+  },
+  "lux_modul.eksekusi.klasifikasi": {
+   "GagalKonfirmasi": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
+   "KELAS_DUPLIKAT": {
+    "jenis": "str",
+    "nilai": "'duplikat'"
+   },
+   "KELAS_KREDENSIAL": {
+    "jenis": "str",
+    "nilai": "'kredensial'"
+   },
+   "KELAS_LAJU": {
+    "jenis": "str",
+    "nilai": "'laju'"
+   },
+   "KELAS_PERMANEN": {
+    "jenis": "str",
+    "nilai": "'permanen'"
+   },
+   "KELAS_SEMENTARA": {
+    "jenis": "str",
+    "nilai": "'sementara'"
+   },
+   "KELAS_TAK_DIKETAHUI": {
+    "jenis": "str",
+    "nilai": "'tak_diketahui'"
+   },
+   "KELAS_TIDAK_ADA": {
+    "jenis": "str",
+    "nilai": "'tidak_ada'"
+   },
+   "KELAS_WAKTU": {
+    "jenis": "str",
+    "nilai": "'waktu'"
+   },
+   "KODE_BATAL_DITOLAK": {
+    "jenis": "int",
+    "nilai": "-2011"
+   },
+   "KODE_DUPLIKAT": {
+    "jenis": "int",
+    "nilai": "-4116"
+   },
+   "KODE_KREDENSIAL": {
+    "jenis": "dict",
+    "nilai": "{-1002: 'tidak terotorisasi (dok)', -2014: 'format kunci API salah (dok)', -2015: 'kunci ditolak: IP tidak diizinkan atau kunci mati (dok)'}"
+   },
+   "KODE_LAJU": {
+    "jenis": "dict",
+    "nilai": "{-1003: 'terlalu banyak permintaan; IP bisa dibanned (p13)', -1015: 'terlalu banyak order (dok)'}"
+   },
+   "KODE_ORDER_TIDAK_ADA": {
+    "jenis": "int",
+    "nilai": "-2013"
+   },
+   "KODE_PERMANEN": {
+    "jenis": "dict",
+    "nilai": "{-1022: 'tanda tangan tidak sah (dok)', -1100: 'karakter ilegal di parameter (dok)', -1101: 'parameter terlalu banyak (dok)', -1102: 'parameter wajib kosong ata..."
+   },
+   "KODE_SEMENTARA": {
+    "jenis": "dict",
+    "nilai": "{-1001: 'koneksi terputus di tengah permintaan (dok)', -1008: 'dicekik proteksi tingkat sistem; reduce-only dan cancel dikecualikan (dok)', -1016: 'layanan seda..."
+   },
+   "KODE_TAK_DIKETAHUI": {
+    "jenis": "dict",
+    "nilai": "{-1000: 'galat tak dikenal di sisi bursa; status eksekusi tidak diketahui (dok)', -1006: 'jawaban tak terduga dari message bus; status eksekusi tidak diketahui ..."
+   },
+   "KODE_WAKTU": {
+    "jenis": "int",
+    "nilai": "-1021"
+   },
+   "Keputusan": {
+    "jenis": "kelas",
+    "metode": [
+     "ringkas"
+    ],
+    "tanda_tangan": "(kelas, kode=None, status=None, pesan='', alasan='', boleh_ulang=False, wajib_rekonsiliasi=False, wajib_sinkron_waktu=False, jeda_ms=0)"
+   },
+   "METODE_TULIS": {
+    "jenis": "tuple",
+    "nilai": "('POST', 'PUT', 'DELETE')"
+   },
+   "STATUS_DIKENAL": {
+    "jenis": "frozenset",
+    "nilai": "frozenset({'EXPIRED', 'REJECTED', 'PARTIALLY_FILLED', 'NEW', 'FILLED', 'NEW_INSURANCE', 'CANCELED', 'NEW_ADL', 'EXPIRED_IN_MATCH'})"
+   },
+   "STATUS_HIDUP": {
+    "jenis": "frozenset",
+    "nilai": "frozenset({'PARTIALLY_FILLED', 'NEW'})"
+   },
+   "STATUS_LAJU": {
+    "jenis": "tuple",
+    "nilai": "(418, 429)"
+   },
+   "STATUS_SELESAI": {
+    "jenis": "frozenset",
+    "nilai": "frozenset({'EXPIRED', 'REJECTED', 'FILLED', 'CANCELED', 'EXPIRED_IN_MATCH'})"
+   },
+   "STATUS_TAK_DIKETAHUI": {
+    "jenis": "tuple",
+    "nilai": "(503,)"
+   },
+   "klasifikasikan": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(exc, jalur=None, metode='GET', dana=None)"
+   },
+   "konfirmasi_batal": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(jawaban, simbol=None)"
+   },
+   "konfirmasi_order": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(jawaban, simbol=None, sisi=None, cid=None)"
    }
   },
   "lux_modul.eksekusi.kredensial": {

@@ -52,6 +52,7 @@
    "lux_modul.eksekusi.binance_client",
    "lux_modul.eksekusi.ice_breaker",
    "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.klasifikasi",
    "lux_modul.eksekusi.kredensial",
    "lux_modul.eksekusi.mode",
    "lux_modul.eksekusi.order",
@@ -642,8 +643,8 @@
    "lux_modul.strategi"
   ]
  },
- "modul_lux": 52,
- "modul_total": 109,
+ "modul_lux": 53,
+ "modul_total": 110,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -1172,6 +1173,7 @@
   "lux_modul"
  ],
  "yatim": [
-  "lux_modul.eksekusi.jejak"
+  "lux_modul.eksekusi.jejak",
+  "lux_modul.eksekusi.klasifikasi"
  ]
 }

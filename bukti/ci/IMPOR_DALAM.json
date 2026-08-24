@@ -29,6 +29,9 @@
   "lux_modul.eksekusi.binance_client": [
    "asyncio"
   ],
+  "lux_modul.eksekusi.klasifikasi": [
+   "lux_modul.eksekusi.jejak"
+  ],
   "lux_modul.eksekusi_aman.inti": [
    "inspect"
   ],
@@ -292,6 +295,7 @@
    "time",
    "uuid"
   ],
+  "lux_modul.eksekusi.klasifikasi": [],
   "lux_modul.eksekusi.kredensial": [
    "__future__",
    "dataclasses",
@@ -1039,6 +1043,9 @@
   ],
   "lux_modul.eksekusi.ice_breaker": [],
   "lux_modul.eksekusi.jejak": [],
+  "lux_modul.eksekusi.klasifikasi": [
+   "lux_modul.eksekusi.jejak"
+  ],
   "lux_modul.eksekusi.kredensial": [],
   "lux_modul.eksekusi.mode": [],
   "lux_modul.eksekusi.order": [],
@@ -1142,7 +1149,7 @@
   "tests.test_spesifikasi": [],
   "tests.test_strategi_arbiter": []
  },
- "modul_jumlah": 109,
+ "modul_jumlah": 110,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",
