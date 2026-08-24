@@ -1052,7 +1052,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v1/order/test', '/fapi/v1/order', '/fapi/v1/marginType', '/fapi/v1/openOrders', '/fapi/v1/allOpenOrders', '/fapi/v1/batchOrders', '/fapi/v1/po..."
+    "nilai": "frozenset({'/fapi/v1/leverage', '/fapi/v1/order/test', '/fapi/v2/balance', '/fapi/v2/positionRisk', '/fapi/v1/openOrders', '/fapi/v1/allOpenOrders', '/fapi/v1/m..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1205,7 +1205,7 @@
    },
    "STATUS_DIKENAL": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'EXPIRED', 'REJECTED', 'PARTIALLY_FILLED', 'NEW', 'FILLED', 'NEW_INSURANCE', 'CANCELED', 'NEW_ADL', 'EXPIRED_IN_MATCH'})"
+    "nilai": "frozenset({'EXPIRED', 'EXPIRED_IN_MATCH', 'NEW_ADL', 'NEW', 'CANCELED', 'NEW_INSURANCE', 'PARTIALLY_FILLED', 'REJECTED', 'FILLED'})"
    },
    "STATUS_HIDUP": {
     "jenis": "frozenset",
@@ -1217,7 +1217,7 @@
    },
    "STATUS_SELESAI": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'EXPIRED', 'REJECTED', 'FILLED', 'CANCELED', 'EXPIRED_IN_MATCH'})"
+    "nilai": "frozenset({'EXPIRED', 'EXPIRED_IN_MATCH', 'CANCELED', 'REJECTED', 'FILLED'})"
    },
    "STATUS_TAK_DIKETAHUI": {
     "jenis": "tuple",
@@ -1625,6 +1625,56 @@
    "risiko_usd": {
     "jenis": "fungsi",
     "tanda_tangan": "(balance: 'float') -> 'float'"
+   }
+  },
+  "lux_modul.eksekusi.ukuran_mikro": {
+   "BASE_PER_SETUP_BAWAAN": {
+    "jenis": "float",
+    "nilai": "0.2"
+   },
+   "BATAS_MODAL_KECIL_BAWAAN": {
+    "jenis": "float",
+    "nilai": "20.0"
+   },
+   "LEVERAGE_MAKS_BAWAAN": {
+    "jenis": "int",
+    "nilai": "125"
+   },
+   "PORSI_MARGIN_MAKS_BAWAAN": {
+    "jenis": "float",
+    "nilai": "0.35"
+   },
+   "RISIKO_MAKS_BAWAAN": {
+    "jenis": "float",
+    "nilai": "0.05"
+   },
+   "TolakUkuranMikro": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "?"
+   },
+   "modal_mikro": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(saldo, batas=None)"
+   },
+   "naik_qty": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(spek, x)"
+   },
+   "notional_minimum_efektif": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(harga, spek)"
+   },
+   "pilih_ukuran": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(saldo, harga, spek, sl_harga=None, arah=None, **opsi)"
+   },
+   "rencana_mikro": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(saldo, harga, spek, sl_harga=None, arah=None, base_per_setup=None, batas_modal=None, leverage_maks_bursa=None, porsi_margin_maks=None, risiko_maks=None)"
    }
   }
  },

@@ -57,7 +57,8 @@
    "lux_modul.eksekusi.mode",
    "lux_modul.eksekusi.order",
    "lux_modul.eksekusi.risiko",
-   "lux_modul.eksekusi.spesifikasi"
+   "lux_modul.eksekusi.spesifikasi",
+   "lux_modul.eksekusi.ukuran_mikro"
   ],
   "pengimpor_luar": {
    "lux_modul.backtest": [
@@ -643,8 +644,8 @@
    "lux_modul.strategi"
   ]
  },
- "modul_lux": 53,
- "modul_total": 110,
+ "modul_lux": 54,
+ "modul_total": 111,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -1174,6 +1175,7 @@
  ],
  "yatim": [
   "lux_modul.eksekusi.jejak",
-  "lux_modul.eksekusi.klasifikasi"
+  "lux_modul.eksekusi.klasifikasi",
+  "lux_modul.eksekusi.ukuran_mikro"
  ]
 }
