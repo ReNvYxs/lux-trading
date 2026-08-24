@@ -24,7 +24,6 @@
   "MODE_LAMA",
   "MODE_OTOMATIS",
   "PengirimOrder",
-  "PenjagaProteksi",
   "Proteksi",
   "SpekSimbol",
   "TolakUkuran",
@@ -559,29 +558,6 @@
     "tanda_tangan": "(klien, simbol, arah, sl_harga, tp_harga, kebijakan, spek=None, data=None, log=None, tidur=None, saldo=None, pengirim=None)"
    }
   },
-  "lux_modul.eksekusi_aman.proteksi": {
-   "GagalProteksi": {
-    "jenis": "kelas",
-    "metode": [
-     "add_note",
-     "with_traceback"
-    ],
-    "tanda_tangan": "?"
-   },
-   "PenjagaProteksi": {
-    "jenis": "kelas",
-    "metode": [
-     "batalkan_proteksi",
-     "order_terbuka",
-     "pasang",
-     "periksa_sl",
-     "posisi_nyata",
-     "rekonsiliasi",
-     "tutup_posisi"
-    ],
-    "tanda_tangan": "(klien, simbol, tick, step, log=None)"
-   }
-  },
   "lux_modul.eksekusi_aman.saklar": {
    "BATAS_JARAK_BAWAAN": {
     "jenis": "float",
@@ -1047,6 +1023,96 @@
    "plan_execution": {
     "jenis": "fungsi",
     "tanda_tangan": "(simbol: 'str', arah: 'str', qty: 'float', harga: 'float', sl: 'Optional[float]' = None, ambang_notional: 'float' = 5000.0, notional_per_slice: 'float' = 2500.0, slice_maks: 'int' = 12, rasio_visible: 'float' = 0.25, jeda_detik: 'float' = 1.5) -> 'RencanaEksekusi'"
+   }
+  },
+  "lux_modul.eksekusi.jejak": {
+   "BATAS_INGATAN_BAWAAN": {
+    "jenis": "int",
+    "nilai": "500"
+   },
+   "BATAS_TEKS": {
+    "jenis": "int",
+    "nilai": "1400"
+   },
+   "DIREKTORI_BAWAAN": {
+    "jenis": "str",
+    "nilai": "'jejak'"
+   },
+   "ENV_AKTIF": {
+    "jenis": "str",
+    "nilai": "'LUX_JEJAK_AKTIF'"
+   },
+   "ENV_DIREKTORI": {
+    "jenis": "str",
+    "nilai": "'LUX_JEJAK_DIR'"
+   },
+   "ENV_STDOUT": {
+    "jenis": "str",
+    "nilai": "'LUX_JEJAK_STDOUT'"
+   },
+   "JALUR_DANA": {
+    "jenis": "frozenset",
+    "nilai": "frozenset({'/fapi/v1/batchOrders', '/fapi/v2/positionRisk', '/fapi/v1/openOrders', '/fapi/v1/allOpenOrders', '/fapi/v1/positionMargin', '/fapi/v2/balance', '/fa..."
+   },
+   "PERISTIWA_FAILSAFE": {
+    "jenis": "str",
+    "nilai": "'failsafe'"
+   },
+   "PERISTIWA_GALAT": {
+    "jenis": "str",
+    "nilai": "'galat'"
+   },
+   "PERISTIWA_JAWABAN": {
+    "jenis": "str",
+    "nilai": "'jawaban'"
+   },
+   "PERISTIWA_KEPUTUSAN": {
+    "jenis": "str",
+    "nilai": "'keputusan'"
+   },
+   "PERISTIWA_PERMINTAAN": {
+    "jenis": "str",
+    "nilai": "'permintaan'"
+   },
+   "PerekamJejak": {
+    "jenis": "kelas",
+    "metode": [
+     "cari_korelasi",
+     "catat",
+     "catat_failsafe",
+     "catat_galat",
+     "catat_jawaban",
+     "catat_keputusan",
+     "catat_permintaan",
+     "korelasi_baru",
+     "ringkas",
+     "terakhir"
+    ],
+    "tanda_tangan": "(direktori=None, nama_berkas=None, ke_stdout=None, aktif=None, batas_ingatan=500, jam=None, env=None)"
+   },
+   "jalur_dana": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(path)"
+   },
+   "pasang_perekam": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(p)"
+   },
+   "perekam": {
+    "jenis": "fungsi",
+    "tanda_tangan": "()"
+   },
+   "perekam_senyap": {
+    "jenis": "fungsi",
+    "tanda_tangan": "()"
+   },
+   "redaksi": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(params)"
+   },
+   "ringkas_jawaban": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(path, jawaban)"
    }
   },
   "lux_modul.eksekusi.kredensial": {

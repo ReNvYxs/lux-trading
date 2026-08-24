@@ -286,6 +286,12 @@
    "time",
    "typing"
   ],
+  "lux_modul.eksekusi.jejak": [
+   "json",
+   "os",
+   "time",
+   "uuid"
+  ],
   "lux_modul.eksekusi.kredensial": [
    "__future__",
    "dataclasses",
@@ -323,9 +329,6 @@
   "lux_modul.eksekusi_aman.inti": [
    "hashlib",
    "math",
-   "time"
-  ],
-  "lux_modul.eksekusi_aman.proteksi": [
    "time"
   ],
   "lux_modul.eksekusi_aman.saklar": [
@@ -1035,6 +1038,7 @@
    "asyncio"
   ],
   "lux_modul.eksekusi.ice_breaker": [],
+  "lux_modul.eksekusi.jejak": [],
   "lux_modul.eksekusi.kredensial": [],
   "lux_modul.eksekusi.mode": [],
   "lux_modul.eksekusi.order": [],
@@ -1044,7 +1048,6 @@
   "lux_modul.eksekusi_aman.inti": [
    "inspect"
   ],
-  "lux_modul.eksekusi_aman.proteksi": [],
   "lux_modul.eksekusi_aman.saklar": [
    "lux_modul.eksekusi_aman.inti"
   ],
@@ -1181,7 +1184,8 @@
   "traceback",
   "types",
   "typing",
-  "urllib"
+  "urllib",
+  "uuid"
  ],
  "paket_luar_tingkat_atas": [
   "__future__",
@@ -1217,7 +1221,8 @@
   "traceback",
   "types",
   "typing",
-  "urllib"
+  "urllib",
+  "uuid"
  ],
  "pantau_dependensi": {
   "numpy": {

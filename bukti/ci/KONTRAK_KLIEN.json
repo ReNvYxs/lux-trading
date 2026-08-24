@@ -19,13 +19,13 @@
   "status_order"
  ],
  "butuh_dari_klien": {
-  "_permintaan": 6,
-  "batalkan_semua_order": 2,
+  "_permintaan": 5,
+  "batalkan_semua_order": 1,
   "bid_ask_terbaik": 3,
   "exchange_info": 3,
-  "harga_sekarang": 4,
-  "kirim_order": 3,
-  "posisi": 3,
+  "harga_sekarang": 3,
+  "kirim_order": 1,
+  "posisi": 2,
   "saldo_usdt": 1,
   "status_order": 1
  },
@@ -80,15 +80,6 @@
     "step": 1,
     "turun_harga": 2,
     "turun_qty": 4
-   }
-  },
-  "lux_modul/eksekusi_aman/proteksi.py": {
-   "klien": {
-    "_permintaan": 1,
-    "batalkan_semua_order": 1,
-    "harga_sekarang": 1,
-    "kirim_order": 2,
-    "posisi": 1
    }
   },
   "lux_modul/eksekusi_aman/saklar.py": {

@@ -51,6 +51,7 @@
    "lux_modul.eksekusi.biaya",
    "lux_modul.eksekusi.binance_client",
    "lux_modul.eksekusi.ice_breaker",
+   "lux_modul.eksekusi.jejak",
    "lux_modul.eksekusi.kredensial",
    "lux_modul.eksekusi.mode",
    "lux_modul.eksekusi.order",
@@ -185,7 +186,6 @@
   "berkas": [
    "lux_modul.eksekusi_aman",
    "lux_modul.eksekusi_aman.inti",
-   "lux_modul.eksekusi_aman.proteksi",
    "lux_modul.eksekusi_aman.saklar"
   ],
   "pengimpor_luar": {
@@ -1172,6 +1172,6 @@
   "lux_modul"
  ],
  "yatim": [
-  "lux_modul.eksekusi_aman.proteksi"
+  "lux_modul.eksekusi.jejak"
  ]
 }
