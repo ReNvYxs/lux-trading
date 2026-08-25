@@ -4,6 +4,7 @@
   ".pytest_cache",
   "ARSITEKTUR.md",
   "AUDIT_LEVERAGE_PRESISI.md",
+  "AUDIT_MESIN.md",
   "AUDIT_TOTAL.md",
   "CALON_STRATEGI.md",
   "KONFIGURASI.md",
@@ -62,7 +63,7 @@
   "........................................................................ [ 77%]",
   "........................................................................ [ 96%]",
   ".............                                                            [100%]",
-  "373 passed in 42.98s",
+  "373 passed in 41.82s",
   "rc_pytest=0"
  ]
 }
