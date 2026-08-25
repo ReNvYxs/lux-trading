@@ -1,0 +1,53 @@
+name: mikro
+on:
+  push:
+    paths:
+      - 'alat/peta_mikro.py'
+      - '.github/workflows/mikro.yml'
+  workflow_dispatch:
+concurrency:
+  group: mikro
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  peta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+      LUX_SALDO_MIKRO: '19'
+      LUX_SL_PCT: '1.0'
+      MIKRO_KELUARAN: bukti/mikro/PETA_MIKRO.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: detak awal
+        run: |
+          mkdir -p bukti/mikro
+          echo "mulai" > bukti/mikro/jejak_mikro.txt
+          python3 -V >> bukti/mikro/jejak_mikro.txt
+      - name: dependensi
+        run: |
+          set +e
+          python3 -m pip install -q -r requirements.txt 2>&1 | tail -n 5
+          echo "rc_pip=$?" >> bukti/mikro/jejak_mikro.txt
+      - name: peta kelayakan mikro
+        run: |
+          set +e
+          python3 alat/peta_mikro.py 2>&1 | tee -a bukti/mikro/jejak_mikro.txt
+          echo "rc_mikro=${PIPESTATUS[0]}" | tee -a bukti/mikro/jejak_mikro.txt
+      - name: rekam bukti
+        if: always()
+        run: |
+          set +e
+          git config user.name "mikro-bot"
+          git config user.email "mikro-bot@users.noreply.github.com"
+          git add -A -f bukti
+          git commit -q -m "[mikro] peta kelayakan base 0.20 $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push -q && break; sleep 5; done
+      - name: vonis
+        run: |
+          grep -q "^PETA_MIKRO=SELESAI$" bukti/mikro/jejak_mikro.txt
