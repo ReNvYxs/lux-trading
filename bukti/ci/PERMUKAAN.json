@@ -448,11 +448,18 @@
     "pilih_ukuran",
     "rencana_mikro"
    ]
+  },
+  "tests.test_ukuran_mikro_flat": {
+   "lux_modul.eksekusi.ukuran_mikro": [
+    "RISIKO_FLAT_BAWAAN",
+    "TOLERANSI_RISIKO_BAWAAN",
+    "rencana_mikro"
+   ]
   }
  },
  "galat_impor_aman": {},
  "galat_impor_lama": {},
- "konsumen_jumlah": 33,
+ "konsumen_jumlah": 34,
  "nama_lama_dipakai": [
   "AMBANG_NOTIONAL_ICEBREAKER",
   "ARAH_BERUBAH_USER",
@@ -1267,7 +1274,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v1/allOpenOrders', '/fapi/v1/leverage', '/fapi/v1/positionMargin', '/fapi/v1/order', '/fapi/v1/batchOrders', '/fapi/v1/order/test', '/fapi/v1/..."
+    "nilai": "frozenset({'/fapi/v1/positionMargin', '/fapi/v2/balance', '/fapi/v1/leverage', '/fapi/v1/openOrders', '/fapi/v2/positionRisk', '/fapi/v1/order/test', '/fapi/v1/..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1561,11 +1568,11 @@
    },
    "STATUS_DIKENAL": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'NEW_INSURANCE', 'PARTIALLY_FILLED', 'REJECTED', 'EXPIRED_IN_MATCH', 'FILLED', 'NEW', 'NEW_ADL', 'CANCELED', 'EXPIRED'})"
+    "nilai": "frozenset({'PARTIALLY_FILLED', 'FILLED', 'EXPIRED', 'EXPIRED_IN_MATCH', 'REJECTED', 'NEW_INSURANCE', 'NEW_ADL', 'NEW', 'CANCELED'})"
    },
    "STATUS_HIDUP": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'NEW', 'PARTIALLY_FILLED'})"
+    "nilai": "frozenset({'PARTIALLY_FILLED', 'NEW'})"
    },
    "STATUS_LAJU": {
     "jenis": "tuple",
@@ -1573,7 +1580,7 @@
    },
    "STATUS_SELESAI": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'FILLED', 'EXPIRED', 'REJECTED', 'CANCELED', 'EXPIRED_IN_MATCH'})"
+    "nilai": "frozenset({'EXPIRED_IN_MATCH', 'REJECTED', 'EXPIRED', 'CANCELED', 'FILLED'})"
    },
    "STATUS_TAK_DIKETAHUI": {
     "jenis": "tuple",

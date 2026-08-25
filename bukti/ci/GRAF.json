@@ -58,7 +58,8 @@
    "tests.test_stres_klasifikasi",
    "tests.test_stres_proteksi",
    "tests.test_stres_siklus_mikro",
-   "tests.test_ukuran_mikro"
+   "tests.test_ukuran_mikro",
+   "tests.test_ukuran_mikro_flat"
   ],
   "referensi": [
    "alat.teori.uji_teori"
@@ -220,6 +221,9 @@
    ],
    "tests.test_ukuran_mikro": [
     "lux_modul.eksekusi.ukuran_mikro"
+   ],
+   "tests.test_ukuran_mikro_flat": [
+    "lux_modul.eksekusi.ukuran_mikro"
    ]
   },
   "terjangkau": [
@@ -272,6 +276,9 @@
     "lux_modul.eksekusi_aman.inti"
    ],
    "tests.test_ukuran_mikro": [
+    "lux_modul.eksekusi_aman.inti"
+   ],
+   "tests.test_ukuran_mikro_flat": [
     "lux_modul.eksekusi_aman.inti"
    ]
   },
@@ -463,7 +470,8 @@
   ],
   "lux_modul.eksekusi.ukuran_mikro": [
    "lux_modul.eksekusi_aman.inti",
-   "tests.test_ukuran_mikro"
+   "tests.test_ukuran_mikro",
+   "tests.test_ukuran_mikro_flat"
   ],
   "lux_modul.eksekusi_aman": [
    "tests.conftest",
@@ -474,7 +482,8 @@
    "tests.test_stres_eksekusi",
    "tests.test_stres_proteksi",
    "tests.test_stres_siklus_mikro",
-   "tests.test_ukuran_mikro"
+   "tests.test_ukuran_mikro",
+   "tests.test_ukuran_mikro_flat"
   ],
   "lux_modul.eksekusi_aman.saklar": [
    "lux_modul.live_runner",
@@ -740,7 +749,7 @@
   ]
  },
  "modul_lux": 55,
- "modul_total": 133,
+ "modul_total": 134,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -1263,6 +1272,10 @@
   "tests.test_ukuran_mikro": [
    "lux_modul.eksekusi.ukuran_mikro",
    "lux_modul.eksekusi_aman.inti"
+  ],
+  "tests.test_ukuran_mikro_flat": [
+   "lux_modul.eksekusi.ukuran_mikro",
+   "lux_modul.eksekusi_aman.inti"
   ]
  },
  "titik_awal": [
@@ -1312,6 +1325,7 @@
   "tests.test_stres_proteksi",
   "tests.test_stres_siklus_mikro",
   "tests.test_ukuran_mikro",
+  "tests.test_ukuran_mikro_flat",
   "lux_modul"
  ],
  "yatim": []
