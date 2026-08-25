@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'alat/ambang_modal.py'
+      - 'alat/ambang_flat.py'
       - '.github/workflows/ambang.yml'
   workflow_dispatch:
 
@@ -18,10 +19,11 @@ permissions:
 jobs:
   ukur:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     env:
       LUX_SL_GRID: '0.5,1.0,1.5,2.0,3.0,5.0'
       AMBANG_KELUARAN: bukti/mikro/AMBANG_MODAL.json
+      FLAT_KELUARAN: bukti/mikro/AMBANG_FLAT.json
       LUX_JEJAK_DIR: bukti/jejak
       LUX_JEJAK_AKTIF: '1'
     steps:
@@ -38,16 +40,23 @@ jobs:
           set +e
           python3 alat/ambang_modal.py 2>&1 | tee bukti/mikro/jejak_ambang.txt
           echo "rc_ambang=${PIPESTATUS[0]}" | tee -a bukti/mikro/jejak_ambang.txt
+      - name: ukur ambang aturan flat
+        run: |
+          set +e
+          python3 alat/ambang_flat.py 2>&1 | tee bukti/mikro/jejak_flat.txt
+          echo "rc_flat=${PIPESTATUS[0]}" | tee -a bukti/mikro/jejak_flat.txt
       - name: rekam bukti
         if: always()
         run: |
           git config user.name ambang-bot
           git config user.email ambang-bot@users.noreply.github.com
           git add -A -f bukti
-          git commit -q -m "[ambang] peta ambang modal 1 USDT $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
+          git commit -q -m "[ambang] peta ambang modal aturan flat $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
           for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push -q && break; sleep 5; done
       - name: vonis
         if: always()
         run: |
           grep -q "^AMBANG_MODAL=SELESAI$" bukti/mikro/jejak_ambang.txt
           grep -q "^rc_ambang=0$" bukti/mikro/jejak_ambang.txt
+          grep -q "^AMBANG_FLAT=SELESAI$" bukti/mikro/jejak_flat.txt
+          grep -q "^rc_flat=0$" bukti/mikro/jejak_flat.txt
