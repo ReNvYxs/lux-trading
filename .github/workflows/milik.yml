@@ -1,0 +1,68 @@
+name: milik
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'alat/uji_hidup_milik.py'
+      - 'alat/milik_bantu.py'
+      - '.github/workflows/milik.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: milik
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  uji:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      LUX_SALDO_UJI: '1.0'
+      LUX_SL_PCT_UJI: '0.5'
+      LUX_JEJAK_DIR: bukti/jejak
+      LUX_JEJAK_AKTIF: '1'
+      LUX_BUKU_POSISI: bukti/live/buku_posisi.json
+      MILIK_KELUARAN: bukti/live/MESIN_MILIK.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: detak awal
+        run: |
+          mkdir -p bukti/live bukti/jejak
+          date -u +%FT%TZ | tee bukti/live/DETAK_MILIK.txt
+          python3 -V | tee -a bukti/live/DETAK_MILIK.txt
+      - name: dependensi
+        run: python3 -m pip install -q -r requirements.txt
+      - name: uji hidup kepemilikan
+        run: |
+          set +e
+          python3 alat/uji_hidup_milik.py 2>&1 | tee bukti/live/jejak_milik.txt
+          echo "rc_milik=${PIPESTATUS[0]}" | tee -a bukti/live/jejak_milik.txt
+      - name: contoh jejak jsonl
+        if: always()
+        run: |
+          for f in bukti/jejak/*.jsonl; do
+            echo "=== $f ==="
+            wc -c "$f"
+            head -c 2500 "$f"
+            echo
+          done
+      - name: rekam bukti
+        if: always()
+        run: |
+          git config user.name milik-bot
+          git config user.email milik-bot@users.noreply.github.com
+          git add -A -f bukti
+          git commit -q -m "[milik] uji kepemilikan posisi dan modal 1 USDT $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push -q && break; sleep 5; done
+      - name: vonis
+        if: always()
+        run: |
+          grep -q "^MESIN_MILIK=LULUS$" bukti/live/jejak_milik.txt
+          grep -q "^rc_milik=0$" bukti/live/jejak_milik.txt
