@@ -3,6 +3,13 @@
 Dipisah dari skenarionya supaya tiap berkas tetap kecil dan bisa dibaca ulang
 tanpa memuat seluruh uji. Berkas ini TIDAK mengimpor lux_modul di tingkat modul,
 supaya variabel lingkungan jejak bisa dipasang lebih dulu.
+
+TEMUAN 25 Agu 2026 yang membentuk berkas ini: pada simbol tipis di testnet,
+order MARKET DITOLAK -4131 (PERCENT_PRICE) karena tidak ada harga lawan yang
+sah. Ini penting jauh melampaui harness, sebab penutupan fail-safe mesin
+memakai MARKET reduceOnly. Karena itu setiap usaha buka/tutup di sini mencatat
+seluruh cara yang dicoba beserta galatnya, lalu menyediakan jalur cadangan
+LIMIT agresif yang terisi sebagai taker.
 """
 import base64
 import json
@@ -84,6 +91,61 @@ def order_terbuka(klien, simbol):
         return []
 
 
+def spek_dan_harga(klien, SpekSimbol, simbol):
+    info = klien.exchange_info(simbol)
+    return SpekSimbol.dari_exchange_info(info, simbol), klien.harga_sekarang(simbol)
+
+
+def _kirim_dengan_cadangan(klien, simbol, sisi, qty, cid_str, spek, harga,
+                           reduce_only, label):
+    """MARKET dulu; bila ditolak, LIMIT agresif menyeberang spread (taker).
+
+    Mengembalikan (jawaban, payload_terpakai, daftar_percobaan). Seluruh galat
+    dicatat apa adanya - tidak ada kegagalan yang dianggap sukses.
+    """
+    percobaan = []
+    p1 = {"symbol": simbol, "side": sisi, "type": "MARKET",
+          "quantity": qty, "newClientOrderId": cid_str}
+    if reduce_only:
+        p1["reduceOnly"] = True
+    try:
+        r = klien.kirim_order(p1)
+        catat(label + "_market_ok", payload=p1, jawaban=r)
+        percobaan.append({"cara": "MARKET", "berhasil": True})
+        return r, p1, percobaan
+    except Exception as exc:  # noqa: BLE001
+        g = galat_dict(exc)
+        percobaan.append({"cara": "MARKET", "berhasil": False, "galat": g})
+        catat(label + "_market_galat", payload=p1, galat=g)
+
+    faktor = 1.003 if sisi == "BUY" else 0.997
+    p2 = {"symbol": simbol, "side": sisi, "type": "LIMIT",
+          "timeInForce": "GTC", "price": spek.bulat_harga(float(harga) * faktor),
+          "quantity": qty, "newClientOrderId": cid_str + "L"}
+    if reduce_only:
+        p2["reduceOnly"] = True
+    try:
+        r = klien.kirim_order(p2)
+        catat(label + "_limit_agresif_ok", payload=p2, jawaban=r)
+        percobaan.append({"cara": "LIMIT_AGRESIF", "berhasil": True})
+        return r, p2, percobaan
+    except Exception as exc:  # noqa: BLE001
+        g = galat_dict(exc)
+        percobaan.append({"cara": "LIMIT_AGRESIF", "berhasil": False, "galat": g})
+        catat(label + "_limit_agresif_galat", payload=p2, galat=g)
+    return None, None, percobaan
+
+
+def buka_posisi(klien, simbol, sisi, qty, cid_str, spek, harga):
+    return _kirim_dengan_cadangan(klien, simbol, sisi, qty, cid_str, spek,
+                                  harga, False, "buka")
+
+
+def kurangi_posisi(klien, simbol, sisi, qty, cid_str, spek, harga, label="kurangi"):
+    return _kirim_dengan_cadangan(klien, simbol, sisi, qty, cid_str, spek,
+                                  harga, True, label)
+
+
 def semesta_mikro(klien, SpekSimbol, rencana_mikro, saldo, sl_pct, batas=12):
     """Simbol yang LAYAK pada saldo tertentu, diurutkan dari margin termurah.
 
@@ -129,14 +191,8 @@ def semesta_mikro(klien, SpekSimbol, rencana_mikro, saldo, sl_pct, batas=12):
             continue
         if not r.get("layak"):
             continue
-        # Uji kepemilikan butuh posisi yang bisa ditutup SEPARUH dan separuhnya
-        # masih di atas minimum notional, jadi butuh ruang 3x minimum.
-        target = 3.0 * float(r.get("notional_minimum_efektif") or 0.0)
-        if float(spek.maks_qty or 0.0) and target / harga > float(spek.maks_qty):
-            continue
         calon.append({"simbol": sim, "harga": harga, "spek": spek, "lev": lev,
-                      "rencana": r, "margin": float(r.get("margin_nyata") or 9e9),
-                      "notional_uji": target})
+                      "rencana": r, "margin": float(r.get("margin_nyata") or 9e9)})
     calon.sort(key=lambda c: (c["margin"], c["simbol"]))
     return info, calon[:batas]
 
