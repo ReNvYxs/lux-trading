@@ -1,0 +1,362 @@
+{
+ "vonis": {
+  "mikro_10": {
+   "qty": 0.0007,
+   "notional": 55.21467,
+   "leverage": 125,
+   "margin": 0.44171736,
+   "risiko_pct": 5.5215,
+   "layak": false,
+   "alasan": "risiko 0.552147 USDT = 5.5215% saldo, melebihi batas 5.0%. Ukuran ini dipaksa oleh minimum notional bursa, bukan oleh kebijakan risiko kita, jadi setup ini harus dilewati - bukan dipaksakan"
+  },
+  "mikro_19": {
+   "qty": 0.0007,
+   "notional": 55.21467,
+   "leverage": 125,
+   "margin": 0.44171736,
+   "risiko_pct": 2.906,
+   "layak": false,
+   "alasan": "leverage 125 membuat jarak likuidasi 0.8% lebih dekat daripada SL 1.0% - posisi akan terlikuidasi sebelum SL bekerja"
+  },
+  "limit_entry_terkonfirmasi": true,
+  "limit_entry": {
+   "orderId": 28554851344,
+   "clientOrderId": "lxujimesin87616962",
+   "status": "NEW",
+   "simbol": "BTCUSDT",
+   "sisi": "BUY",
+   "tipe": "LIMIT",
+   "harga_rata": 0.0,
+   "qty_diminta": 0.0016,
+   "qty_terisi": 0.0,
+   "hidup": true,
+   "selesai": false,
+   "terisi_penuh": false,
+   "parsial": false
+  },
+  "order_terlihat": true,
+  "modify_diterima": true,
+  "modify_jawaban": {
+   "orderId": 28554851344,
+   "symbol": "BTCUSDT",
+   "status": "NEW",
+   "clientOrderId": "lxujimesin87616962",
+   "price": "74145.40",
+   "origQty": "0.0017",
+   "executedQty": "0.0000",
+   "cumQty": "0.0000",
+   "timeInForce": "GTC",
+   "type": "LIMIT",
+   "reduceOnly": false,
+   "closePosition": false,
+   "side": "BUY",
+   "positionSide": "BOTH",
+   "stopPrice": "0.00",
+   "workingType": "CONTRACT_PRICE",
+   "priceProtect": false,
+   "origType": "LIMIT",
+   "priceMatch": "NONE",
+   "selfTradePreventionMode": "EXPIRE_MAKER",
+   "goodTillDate": 0,
+   "updateTime": 1787616962979
+  },
+  "modify_harga_di_bursa": 74145.4,
+  "modify_qty_di_bursa": 0.0017,
+  "modify_terverifikasi": true,
+  "modify_order_id_baru": 28554851344,
+  "cancel_terkonfirmasi": true,
+  "cancel_konfirmasi": {
+   "bentuk": "satu_order",
+   "orderId": 28554851344,
+   "clientOrderId": "lxujimesin87616962",
+   "status": "CANCELED",
+   "terkonfirmasi": true
+  },
+  "cancel_terverifikasi_hilang": true,
+  "cancel_ulang_ditolak": true,
+  "cancel_ulang_galat": {
+   "jenis": "BinanceAPIError",
+   "pesan": "BinanceAPIError(status=400, kode=-2011): Unknown order sent.",
+   "api_status": 400,
+   "api_kode": -2011,
+   "api_pesan": "Unknown order sent."
+  },
+  "cancel_ulang_kelas": {
+   "kelas": "tidak_ada",
+   "kode": -2011,
+   "status": 400,
+   "pesan": "Unknown order sent.",
+   "alasan": "order tidak ditemukan matching engine; bisa belum terlihat, bisa sudah selesai (p10/dok)",
+   "boleh_ulang": false,
+   "wajib_rekonsiliasi": true,
+   "wajib_sinkron_waktu": false,
+   "jeda_ms": 0
+  },
+  "modify_setelah_batal_ditolak": true,
+  "modify_setelah_batal_galat": {
+   "jenis": "BinanceAPIError",
+   "pesan": "BinanceAPIError(status=400, kode=-2013): Order does not exist.",
+   "api_status": 400,
+   "api_kode": -2013,
+   "api_pesan": "Order does not exist."
+  },
+  "modify_setelah_batal_kelas": {
+   "kelas": "tidak_ada",
+   "kode": -2013,
+   "status": 400,
+   "pesan": "Order does not exist.",
+   "alasan": "order tidak ditemukan matching engine; bisa belum terlihat, bisa sudah selesai (p10/dok)",
+   "boleh_ulang": false,
+   "wajib_rekonsiliasi": true,
+   "wajib_sinkron_waktu": false,
+   "jeda_ms": 0
+  },
+  "jejak_ringkas": {
+   "jumlah": {
+    "permintaan": 13,
+    "jawaban": 11,
+    "galat": 2
+   },
+   "gagal_tulis": 0,
+   "berkas": "bukti/jejak/jejak-20260825.jsonl",
+   "aktif": true,
+   "di_ingatan": 26
+  },
+  "jejak_berkas": "bukti/jejak/jejak-20260825.jsonl",
+  "jejak_baris": 26,
+  "jejak_gagal_tulis": 0,
+  "jejak_tertulis": true,
+  "bersih_akhir": true,
+  "vonis": "LULUS"
+ },
+ "jejak": [
+  {
+   "tahap": "koneksi",
+   "utc": "2026-08-25T00:16:01Z",
+   "simbol": "BTCUSDT",
+   "harga": 78878.1,
+   "saldo_usdt": 4179.81481529
+  },
+  {
+   "tahap": "sizing_mikro_nyata",
+   "utc": "2026-08-25T00:16:01Z",
+   "saldo": 10.0,
+   "qty": 0.0007,
+   "notional": 55.21467,
+   "leverage": 125,
+   "margin": 0.44171736,
+   "base_tercapai": false,
+   "risiko_pct": 5.5215,
+   "layak": false,
+   "alasan": "risiko 0.552147 USDT = 5.5215% saldo, melebihi batas 5.0%. Ukuran ini dipaksa oleh minimum notional bursa, bukan oleh kebijakan risiko kita, jadi setup ini harus dilewati - bukan dipaksakan"
+  },
+  {
+   "tahap": "sizing_mikro_nyata",
+   "utc": "2026-08-25T00:16:01Z",
+   "saldo": 19.0,
+   "qty": 0.0007,
+   "notional": 55.21467,
+   "leverage": 125,
+   "margin": 0.44171736,
+   "base_tercapai": false,
+   "risiko_pct": 2.906,
+   "layak": false,
+   "alasan": "leverage 125 membuat jarak likuidasi 0.8% lebih dekat daripada SL 1.0% - posisi akan terlikuidasi sebelum SL bekerja"
+  },
+  {
+   "tahap": "bersihkan",
+   "utc": "2026-08-25T00:16:02Z",
+   "alasan": "pra_uji",
+   "sisa": 0.0
+  },
+  {
+   "tahap": "limit_entry_permintaan",
+   "utc": "2026-08-25T00:16:02Z",
+   "payload": {
+    "symbol": "BTCUSDT",
+    "side": "BUY",
+    "type": "LIMIT",
+    "timeInForce": "GTC",
+    "price": 74934.2,
+    "quantity": 0.0016,
+    "newClientOrderId": "lxujimesin87616962"
+   }
+  },
+  {
+   "tahap": "limit_entry_jawaban",
+   "utc": "2026-08-25T00:16:02Z",
+   "ringkas": {
+    "orderId": 28554851344,
+    "clientOrderId": "lxujimesin87616962",
+    "status": "NEW",
+    "simbol": "BTCUSDT",
+    "sisi": "BUY",
+    "tipe": "LIMIT",
+    "harga_rata": 0.0,
+    "qty_diminta": 0.0016,
+    "qty_terisi": 0.0,
+    "hidup": true,
+    "selesai": false,
+    "terisi_penuh": false,
+    "parsial": false
+   }
+  },
+  {
+   "tahap": "open_orders",
+   "utc": "2026-08-25T00:16:02Z",
+   "jumlah": 1,
+   "ids": [
+    28554851344
+   ],
+   "dicari": 28554851344
+  },
+  {
+   "tahap": "modify_permintaan",
+   "utc": "2026-08-25T00:16:02Z",
+   "order_id": 28554851344,
+   "harga_lama": 74934.2,
+   "harga_baru": 74145.4,
+   "qty_lama": 0.0016,
+   "qty_baru": 0.0017
+  },
+  {
+   "tahap": "modify_jawaban",
+   "utc": "2026-08-25T00:16:03Z",
+   "jawaban": {
+    "orderId": 28554851344,
+    "symbol": "BTCUSDT",
+    "status": "NEW",
+    "clientOrderId": "lxujimesin87616962",
+    "price": "74145.40",
+    "origQty": "0.0017",
+    "executedQty": "0.0000",
+    "cumQty": "0.0000",
+    "timeInForce": "GTC",
+    "type": "LIMIT",
+    "reduceOnly": false,
+    "closePosition": false,
+    "side": "BUY",
+    "positionSide": "BOTH",
+    "stopPrice": "0.00",
+    "workingType": "CONTRACT_PRICE",
+    "priceProtect": false,
+    "origType": "LIMIT",
+    "priceMatch": "NONE",
+    "selfTradePreventionMode": "EXPIRE_MAKER",
+    "goodTillDate": 0,
+    "updateTime": 1787616962979
+   }
+  },
+  {
+   "tahap": "modify_verifikasi",
+   "utc": "2026-08-25T00:16:03Z",
+   "harga_di_bursa": 74145.4,
+   "qty_di_bursa": 0.0017,
+   "cocok": true,
+   "order_id_dipakai": 28554851344,
+   "status": "NEW"
+  },
+  {
+   "tahap": "cancel_jawaban",
+   "utc": "2026-08-25T00:16:03Z",
+   "jawaban": {
+    "orderId": 28554851344,
+    "symbol": "BTCUSDT",
+    "status": "CANCELED",
+    "clientOrderId": "lxujimesin87616962",
+    "price": "74145.40",
+    "origQty": "0.0017",
+    "executedQty": "0.0000",
+    "cumQty": "0.0000",
+    "timeInForce": "GTC",
+    "type": "LIMIT",
+    "reduceOnly": false,
+    "closePosition": false,
+    "side": "BUY",
+    "positionSide": "BOTH",
+    "stopPrice": "0.00",
+    "workingType": "CONTRACT_PRICE",
+    "priceProtect": false,
+    "origType": "LIMIT",
+    "priceMatch": "NONE",
+    "selfTradePreventionMode": "EXPIRE_MAKER",
+    "goodTillDate": 0,
+    "updateTime": 1787616963506
+   }
+  },
+  {
+   "tahap": "cancel_verifikasi",
+   "utc": "2026-08-25T00:16:03Z",
+   "sisa_ids": [],
+   "order_id": 28554851344,
+   "hilang": true
+  },
+  {
+   "tahap": "cancel_ulang_ditolak",
+   "utc": "2026-08-25T00:16:04Z",
+   "galat": {
+    "jenis": "BinanceAPIError",
+    "pesan": "BinanceAPIError(status=400, kode=-2011): Unknown order sent.",
+    "api_status": 400,
+    "api_kode": -2011,
+    "api_pesan": "Unknown order sent."
+   },
+   "kelas": {
+    "kelas": "tidak_ada",
+    "kode": -2011,
+    "status": 400,
+    "pesan": "Unknown order sent.",
+    "alasan": "order tidak ditemukan matching engine; bisa belum terlihat, bisa sudah selesai (p10/dok)",
+    "boleh_ulang": false,
+    "wajib_rekonsiliasi": true,
+    "wajib_sinkron_waktu": false,
+    "jeda_ms": 0
+   }
+  },
+  {
+   "tahap": "modify_setelah_batal_ditolak",
+   "utc": "2026-08-25T00:16:04Z",
+   "galat": {
+    "jenis": "BinanceAPIError",
+    "pesan": "BinanceAPIError(status=400, kode=-2013): Order does not exist.",
+    "api_status": 400,
+    "api_kode": -2013,
+    "api_pesan": "Order does not exist."
+   },
+   "kelas": {
+    "kelas": "tidak_ada",
+    "kode": -2013,
+    "status": 400,
+    "pesan": "Order does not exist.",
+    "alasan": "order tidak ditemukan matching engine; bisa belum terlihat, bisa sudah selesai (p10/dok)",
+    "boleh_ulang": false,
+    "wajib_rekonsiliasi": true,
+    "wajib_sinkron_waktu": false,
+    "jeda_ms": 0
+   }
+  },
+  {
+   "tahap": "jejak",
+   "utc": "2026-08-25T00:16:04Z",
+   "berkas": "bukti/jejak/jejak-20260825.jsonl",
+   "baris": 26,
+   "ringkas": {
+    "jumlah": {
+     "permintaan": 13,
+     "jawaban": 11,
+     "galat": 2
+    },
+    "gagal_tulis": 0,
+    "berkas": "bukti/jejak/jejak-20260825.jsonl",
+    "aktif": true,
+    "di_ingatan": 26
+   }
+  },
+  {
+   "tahap": "bersihkan",
+   "utc": "2026-08-25T00:16:04Z",
+   "alasan": "pasca_uji",
+   "sisa": 0.0
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+mulai
+Python 3.11.16
+rc_pip=0
+tahap=koneksi {"simbol": "BTCUSDT", "harga": 78878.1, "saldo_usdt": 4179.81481529}
+tahap=sizing_mikro_nyata {"saldo": 10.0, "qty": 0.0007, "notional": 55.21467, "leverage": 125, "margin": 0.44171736, "base_tercapai": false, "risiko_pct": 5.5215, "layak": false, "alasan": "risiko 0.552147 USDT = 5.5215% saldo, melebihi batas 5.0%. Ukuran ini dipaksa oleh minimum notional bursa, bukan oleh kebijakan risiko kita, jadi setup ini harus dilewati - bukan dipaksakan"}
+tahap=sizing_mikro_nyata {"saldo": 19.0, "qty": 0.0007, "notional": 55.21467, "leverage": 125, "margin": 0.44171736, "base_tercapai": false, "risiko_pct": 2.906, "layak": false, "alasan": "leverage 125 membuat jarak likuidasi 0.8% lebih dekat daripada SL 1.0% - posisi akan terlikuidasi sebelum SL bekerja"}
+tahap=bersihkan {"alasan": "pra_uji", "sisa": 0.0}
+tahap=limit_entry_permintaan {"payload": {"symbol": "BTCUSDT", "side": "BUY", "type": "LIMIT", "timeInForce": "GTC", "price": 74934.2, "quantity": 0.0016, "newClientOrderId": "lxujimesin87616962"}}
+tahap=limit_entry_jawaban {"ringkas": {"orderId": 28554851344, "clientOrderId": "lxujimesin87616962", "status": "NEW", "simbol": "BTCUSDT", "sisi": "BUY", "tipe": "LIMIT", "harga_rata": 0.0, "qty_diminta": 0.0016, "qty_terisi": 0.0, "hidup": true, "selesai": false, "terisi_penuh": false, "parsial": false}}
+tahap=open_orders {"jumlah": 1, "ids": [28554851344], "dicari": 28554851344}
+tahap=modify_permintaan {"order_id": 28554851344, "harga_lama": 74934.2, "harga_baru": 74145.4, "qty_lama": 0.0016, "qty_baru": 0.0017}
+tahap=modify_jawaban {"jawaban": {"orderId": 28554851344, "symbol": "BTCUSDT", "status": "NEW", "clientOrderId": "lxujimesin87616962", "price": "74145.40", "origQty": "0.0017", "executedQty": "0.0000", "cumQty": "0.0000", "timeInForce": "GTC", "type": "LIMIT", "reduceOnly": false, "closePosition": false, "side": "BUY", "positionSide": "BOTH", "stopPrice": "0.00", "workingType": "CONTRACT_PRICE", "priceProtect": false, "origType": "LIMIT", "priceMatch": "NONE", "selfTradePreventionMode": "EXPIRE_MAKER", "goodTillDate": 0, "updateTime": 1787616962979}}
+tahap=modify_verifikasi {"harga_di_bursa": 74145.4, "qty_di_bursa": 0.0017, "cocok": true, "order_id_dipakai": 28554851344, "status": "NEW"}
+tahap=cancel_jawaban {"jawaban": {"orderId": 28554851344, "symbol": "BTCUSDT", "status": "CANCELED", "clientOrderId": "lxujimesin87616962", "price": "74145.40", "origQty": "0.0017", "executedQty": "0.0000", "cumQty": "0.0000", "timeInForce": "GTC", "type": "LIMIT", "reduceOnly": false, "closePosition": false, "side": "BUY", "positionSide": "BOTH", "stopPrice": "0.00", "workingType": "CONTRACT_PRICE", "priceProtect": false, "origType": "LIMIT", "priceMatch": "NONE", "selfTradePreventionMode": "EXPIRE_MAKER", "goodTillDate": 0, "updateTime": 1787616963506}}
+tahap=cancel_verifikasi {"sisa_ids": [], "order_id": 28554851344, "hilang": true}
+tahap=cancel_ulang_ditolak {"galat": {"jenis": "BinanceAPIError", "pesan": "BinanceAPIError(status=400, kode=-2011): Unknown order sent.", "api_status": 400, "api_kode": -2011, "api_pesan": "Unknown order sent."}, "kelas": {"kelas": "tidak_ada", "kode": -2011, "status": 400, "pesan": "Unknown order sent.", "alasan": "order tidak ditemukan matching engine; bisa belum terlihat, bisa sudah selesai (p10/dok)", "boleh_ulang": false, "wajib_rekonsiliasi": true, "wajib_sinkron_waktu": false, "jeda_ms": 0}}
+tahap=modify_setelah_batal_ditolak {"galat": {"jenis": "BinanceAPIError", "pesan": "BinanceAPIError(status=400, kode=-2013): Order does not exist.", "api_status": 400, "api_kode": -2013, "api_pesan": "Order does not exist."}, "kelas": {"kelas": "tidak_ada", "kode": -2013, "status": 400, "pesan": "Order does not exist.", "alasan": "order tidak ditemukan matching engine; bisa belum terlihat, bisa sudah selesai (p10/dok)", "boleh_ulang": false, "wajib_rekonsiliasi": true, "wajib_sinkron_waktu": false, "jeda_ms": 0}}
+tahap=jejak {"berkas": "bukti/jejak/jejak-20260825.jsonl", "baris": 26, "ringkas": {"jumlah": {"permintaan": 13, "jawaban": 11, "galat": 2}, "gagal_tulis": 0, "berkas": "bukti/jejak/jejak-20260825.jsonl", "aktif": true, "di_ingatan": 26}}
+tahap=bersihkan {"alasan": "pasca_uji", "sisa": 0.0}
+MESIN_HIDUP=LULUS
+limit_entry_terkonfirmasi=true
+order_terlihat=true
+modify_diterima=true
+modify_terverifikasi=true
+modify_harga_di_bursa=74145.4
+modify_qty_di_bursa=0.0017
+modify_order_id_baru=28554851344
+cancel_terkonfirmasi=true
+cancel_terverifikasi_hilang=true
+cancel_ulang_ditolak=true
+modify_setelah_batal_ditolak=true
+jejak_berkas="bukti/jejak/jejak-20260825.jsonl"
+jejak_baris=26
+jejak_gagal_tulis=0
+bersih_akhir=true
+modify_galat=null
+modify_kelas=null
+cancel_ulang_kelas={"kelas": "tidak_ada", "kode": -2011, "status": 400, "pesan": "Unknown order sent.", "alasan": "order tidak ditemukan matching engine; bisa belum terlihat, bisa sudah selesai (p10/dok)", "boleh_ulang": false, "wajib_rekonsiliasi": true, "wajib_sinkron_waktu": false, "jeda_ms": 0}
+modify_setelah_batal_kelas={"kelas": "tidak_ada", "kode": -2013, "status": 400, "pesan": "Order does not exist.", "alasan": "order tidak ditemukan matching engine; bisa belum terlihat, bisa sudah selesai (p10/dok)", "boleh_ulang": false, "wajib_rekonsiliasi": true, "wajib_sinkron_waktu": false, "jeda_ms": 0}
+mikro_10={"qty": 0.0007, "notional": 55.21467, "leverage": 125, "margin": 0.44171736, "risiko_pct": 5.5215, "layak": false, "alasan": "risiko 0.552147 USDT = 5.5215% saldo, melebihi batas 5.0%. Ukuran ini dipaksa oleh minimum notional bursa, bukan oleh kebijakan risiko kita, jadi setup ini harus dilewati - bukan dipaksakan"}
+mikro_19={"qty": 0.0007, "notional": 55.21467, "leverage": 125, "margin": 0.44171736, "risiko_pct": 2.906, "layak": false, "alasan": "leverage 125 membuat jarak likuidasi 0.8% lebih dekat daripada SL 1.0% - posisi akan terlikuidasi sebelum SL bekerja"}
+jejak_ringkas={"jumlah": {"permintaan": 13, "jawaban": 11, "galat": 2}, "gagal_tulis": 0, "berkas": "bukti/jejak/jejak-20260825.jsonl", "aktif": true, "di_ingatan": 26}
+rc_hidup=0
+total 24
+drwxr-xr-x  2 runner runner  4096 Aug 25 00:16 .
+drwxr-xr-x 11 runner runner  4096 Aug 25 00:15 ..
+-rw-r--r--  1 runner runner 12619 Aug 25 00:16 jejak-20260825.jsonl
+--- bukti/jejak/jejak-20260825.jsonl ---
+{"bertanda_tangan": false, "bobot": 1, "dana": false, "jalur": "/fapi/v1/ticker/price", "konteks": null, "korelasi": "74f4ce08b832", "metode": "GET", "parameter": {"symbol": "BTCUSDT"}, "peristiwa": "permintaan", "t": 1787616960.31587}
+{"dana": false, "jalur": "/fapi/v1/ticker/price", "jawaban": {"jumlah_kunci": 3, "kunci": ["price", "symbol", "time"], "tipe": "dict"}, "konteks": null, "korelasi": "74f4ce08b832", "metode": "GET", "ms": 382.14, "peristiwa": "jawaban", "status": 200, "t": 1787616960.698357}
+{"bertanda_tangan": true, "bobot": 5, "dana": true, "jalur": "/fapi/v2/balance", "konteks": null, "korelasi": "15063a43ba7e", "metode": "GET", "parameter": {}, "peristiwa": "permintaan", "t": 1787616960.698662}
+{"dana": true, "jalur": "/fapi/v2/balance", "jawaban": {"tak_terserialisasi": "[{'accountAlias': 'XqXqXqSguXAuoC', 'asset': 'FDUSD', 'balance': '0.00000000', 'crossWalletBalance': '0.00000000', 'crossUnPnl': '0.00000000', 'availableBalance': '0.00000000', 'maxWithdrawAmount': '0.00000000', 'marginAvailable': True, 'updateTime': 0}, {'accountAlias': 'XqXqXqSguXAuoC', 'asset': 'U', 'balance': '0.00000000', 'crossWalletBalance': '0.00000000', 'crossUnPnl': '0.00000000', 'availableBalance': '0.00000000', 'maxWithdrawAmount': '0.00000000', 'marginAvailable': True, 'updateTime': 0}, {'accountAlias': 'XqXqXqSguXAuoC', 'asset': 'BNB', 'balance': '0.00000000', 'crossWalletBalance': '0.00000000', 'crossUnPnl': '0.00000000', 'availableBalance': '0.00000000', 'maxWithdrawAmount': '0.00000000', 'marginAvailable': True, 'updateTime': 0}, {'accountAlias': 'XqXqXqSguXAuoC', 'asset': 'ETH', 'balance': '0.00000000', 'crossWalletBalance': '0.00000000', 'crossUnPnl': '0.00000000', 'availableBalance': '0.00000000', 'maxWithdrawAmount': '0.00000000', 'marginAvailable': True, 'updateTime': 0}, {'accountAlias': 'XqXqXqSguXAuoC', 'asset': 'BTC', 'balance': '0.01000000', 'crossWalletBalance': '0.01000000', 'crossUnPnl': '0.00000000', 'availableBalance': '0.01000000', 'maxWithdrawAmount': '0.01000000', 'marginAvailable': True, 'updateTime': 1771708805218}, {'accountAlias': 'XqXqXqSguXAuoC', 'asset': 'USDT', 'balance': '4179.81481529', 'crossWalletBalance': '4179.81481529', 'crossUn...[dipotong 679 karakter]"}, "konteks": null, "korelasi": "15063a43ba7e", "metode": "GET", "ms": 521.82, "peristiwa": "jawaban", "status": 200, "t": 1787616961.220963}
+{"bertanda_tangan": false, "bobot": 1, "dana": false, "jalur": "/fapi/v1/exchangeInfo", "konteks": null, "korelasi": "d68b930f62ff", "metode": "GET", "parameter": {"symbol": "BTCUSDT"}, "peristiwa": "permintaan", "t": 1787616961.221333}
+{"dana": false, "jalur": "/fapi/v1/exchangeInfo", "jawaban": {"jumlah_kunci": 7, "kunci": ["assets", "exchangeFilters", "futuresType", "rateLimits", "serverTime", "symbols", "timezone"], "tipe": "dict"}, "konteks": null, "korelasi": "d68b930f62ff", "metode": "GET", "ms": 449.92, "peristiwa": "jawaban", "status": 200, "t": 1787616961.68125}
+{"bertanda_tangan": true, "bobot": 1, "dana": true,
