@@ -36,45 +36,45 @@
    "layak": 504,
    "flat": 0,
    "susut": 504,
-   "risiko_min": 0.026804,
-   "risiko_p50": 0.087453,
-   "risiko_maks": 0.193908
+   "risiko_min": 0.026803,
+   "risiko_p50": 0.087462,
+   "risiko_maks": 0.194057
   },
   "1.0|1.0": {
    "layak": 504,
-   "flat": 9,
-   "susut": 360,
-   "risiko_min": 0.053609,
-   "risiko_p50": 0.174905,
-   "risiko_maks": 0.200306
+   "flat": 142,
+   "susut": 361,
+   "risiko_min": 0.053606,
+   "risiko_p50": 0.174924,
+   "risiko_maks": 0.231552
   },
   "1.0|1.5": {
    "layak": 503,
-   "flat": 14,
+   "flat": 380,
    "susut": 121,
-   "risiko_min": 0.080413,
-   "risiko_p50": 0.199656,
-   "risiko_maks": 0.2
+   "risiko_min": 0.080409,
+   "risiko_p50": 0.200056,
+   "risiko_maks": 0.22839
   },
   "1.0|2.0": {
    "layak": 502,
-   "flat": 13,
-   "susut": 119,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.199576,
-   "risiko_maks": 0.2
+   "flat": 377,
+   "susut": 120,
+   "risiko_min": 0.107212,
+   "risiko_p50": 0.200077,
+   "risiko_maks": 0.23376
   },
   "1.0|3.0": {
    "layak": 500,
-   "flat": 17,
-   "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199764,
-   "risiko_maks": 0.2283
+   "flat": 494,
+   "susut": 4,
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200291,
+   "risiko_maks": 0.23376
   },
   "1.0|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -82,47 +82,47 @@
   },
   "1.25|0.5": {
    "layak": 504,
-   "flat": 0,
+   "flat": 3,
    "susut": 501,
-   "risiko_min": 0.03298,
-   "risiko_p50": 0.10934,
-   "risiko_maks": 0.19998
+   "risiko_min": 0.0331,
+   "risiko_p50": 0.109337,
+   "risiko_maks": 0.20089
   },
   "1.25|1.0": {
    "layak": 504,
-   "flat": 20,
-   "susut": 127,
-   "risiko_min": 0.06596,
-   "risiko_p50": 0.199795,
-   "risiko_maks": 0.200306
+   "flat": 374,
+   "susut": 129,
+   "risiko_min": 0.0662,
+   "risiko_p50": 0.200038,
+   "risiko_maks": 0.231552
   },
   "1.25|1.5": {
    "layak": 503,
-   "flat": 14,
-   "susut": 120,
-   "risiko_min": 0.09894,
-   "risiko_p50": 0.199656,
-   "risiko_maks": 0.2
+   "flat": 380,
+   "susut": 121,
+   "risiko_min": 0.0993,
+   "risiko_p50": 0.200056,
+   "risiko_maks": 0.22839
   },
   "1.25|2.0": {
    "layak": 502,
-   "flat": 15,
-   "susut": 51,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.199749,
-   "risiko_maks": 0.2
+   "flat": 445,
+   "susut": 52,
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.200135,
+   "risiko_maks": 0.23376
   },
   "1.25|3.0": {
    "layak": 500,
-   "flat": 17,
+   "flat": 498,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199764,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200299,
+   "risiko_maks": 0.23376
   },
   "1.25|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -130,47 +130,47 @@
   },
   "1.5|0.5": {
    "layak": 509,
-   "flat": 0,
-   "susut": 503,
-   "risiko_min": 0.025826,
+   "flat": 3,
+   "susut": 506,
+   "risiko_min": 0.025718,
    "risiko_p50": 0.131206,
-   "risiko_maks": 0.19998
+   "risiko_maks": 0.20089
   },
   "1.5|1.0": {
    "layak": 509,
-   "flat": 20,
+   "flat": 382,
    "susut": 126,
-   "risiko_min": 0.051651,
-   "risiko_p50": 0.199795,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.051436,
+   "risiko_p50": 0.200038,
+   "risiko_maks": 0.231552
   },
   "1.5|1.5": {
    "layak": 508,
-   "flat": 14,
-   "susut": 120,
-   "risiko_min": 0.077477,
-   "risiko_p50": 0.199653,
-   "risiko_maks": 0.2
+   "flat": 380,
+   "susut": 126,
+   "risiko_min": 0.077154,
+   "risiko_p50": 0.200055,
+   "risiko_maks": 0.22839
   },
   "1.5|2.0": {
    "layak": 507,
-   "flat": 16,
-   "susut": 5,
-   "risiko_min": 0.103302,
-   "risiko_p50": 0.199803,
-   "risiko_maks": 0.2
+   "flat": 496,
+   "susut": 6,
+   "risiko_min": 0.102872,
+   "risiko_p50": 0.200174,
+   "risiko_maks": 0.2341
   },
   "1.5|3.0": {
    "layak": 505,
-   "flat": 17,
+   "flat": 498,
    "susut": 5,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199754,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.154308,
+   "risiko_p50": 0.200294,
+   "risiko_maks": 0.23376
   },
   "1.5|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -178,47 +178,47 @@
   },
   "1.75|0.5": {
    "layak": 510,
-   "flat": 14,
+   "flat": 142,
    "susut": 368,
-   "risiko_min": 0.029538,
-   "risiko_p50": 0.153082,
-   "risiko_maks": 0.2
+   "risiko_min": 0.029619,
+   "risiko_p50": 0.153083,
+   "risiko_maks": 0.21387
   },
   "1.75|1.0": {
    "layak": 510,
-   "flat": 20,
+   "flat": 382,
    "susut": 127,
-   "risiko_min": 0.059076,
-   "risiko_p50": 0.199795,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.059238,
+   "risiko_p50": 0.200038,
+   "risiko_maks": 0.231552
   },
   "1.75|1.5": {
    "layak": 509,
-   "flat": 17,
-   "susut": 57,
-   "risiko_min": 0.088614,
-   "risiko_p50": 0.199815,
-   "risiko_maks": 0.2
+   "flat": 448,
+   "susut": 58,
+   "risiko_min": 0.088857,
+   "risiko_p50": 0.200092,
+   "risiko_maks": 0.22839
   },
   "1.75|2.0": {
    "layak": 508,
-   "flat": 16,
+   "flat": 497,
    "susut": 6,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.199803,
-   "risiko_maks": 0.2
+   "risiko_min": 0.118476,
+   "risiko_p50": 0.200174,
+   "risiko_maks": 0.2341
   },
   "1.75|3.0": {
    "layak": 506,
-   "flat": 17,
+   "flat": 498,
    "susut": 6,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199754,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200294,
+   "risiko_maks": 0.23376
   },
   "1.75|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -226,47 +226,47 @@
   },
   "2.0|0.5": {
    "layak": 510,
-   "flat": 14,
+   "flat": 142,
    "susut": 367,
-   "risiko_min": 0.034434,
-   "risiko_p50": 0.174954,
-   "risiko_maks": 0.2
+   "risiko_min": 0.034486,
+   "risiko_p50": 0.174965,
+   "risiko_maks": 0.21387
   },
   "2.0|1.0": {
    "layak": 510,
-   "flat": 20,
-   "susut": 126,
-   "risiko_min": 0.068868,
-   "risiko_p50": 0.199795,
-   "risiko_maks": 0.200306
+   "flat": 382,
+   "susut": 127,
+   "risiko_min": 0.068971,
+   "risiko_p50": 0.200038,
+   "risiko_maks": 0.231552
   },
   "2.0|1.5": {
    "layak": 509,
-   "flat": 18,
-   "susut": 6,
-   "risiko_min": 0.103302,
-   "risiko_p50": 0.199865,
-   "risiko_maks": 0.2
+   "flat": 499,
+   "susut": 7,
+   "risiko_min": 0.103457,
+   "risiko_p50": 0.200137,
+   "risiko_maks": 0.241227
   },
   "2.0|2.0": {
    "layak": 508,
-   "flat": 16,
+   "flat": 497,
    "susut": 6,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.199803,
-   "risiko_maks": 0.2
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.200174,
+   "risiko_maks": 0.2341
   },
   "2.0|3.0": {
    "layak": 506,
-   "flat": 17,
+   "flat": 504,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199762,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200301,
+   "risiko_maks": 0.23376
   },
   "2.0|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -274,47 +274,47 @@
   },
   "2.5|0.5": {
    "layak": 510,
-   "flat": 26,
-   "susut": 133,
-   "risiko_min": 0.042666,
-   "risiko_p50": 0.199898,
-   "risiko_maks": 0.2
+   "flat": 373,
+   "susut": 135,
+   "risiko_min": 0.042783,
+   "risiko_p50": 0.200017,
+   "risiko_maks": 0.21387
   },
   "2.5|1.0": {
    "layak": 510,
-   "flat": 24,
+   "flat": 451,
    "susut": 57,
-   "risiko_min": 0.085332,
-   "risiko_p50": 0.199887,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.085566,
+   "risiko_p50": 0.200067,
+   "risiko_maks": 0.231552
   },
   "2.5|1.5": {
    "layak": 509,
-   "flat": 18,
+   "flat": 500,
    "susut": 6,
-   "risiko_min": 0.106937,
-   "risiko_p50": 0.199865,
-   "risiko_maks": 0.2
+   "risiko_min": 0.128349,
+   "risiko_p50": 0.20014,
+   "risiko_maks": 0.241227
   },
   "2.5|2.0": {
    "layak": 508,
-   "flat": 16,
+   "flat": 497,
    "susut": 6,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.199803,
-   "risiko_maks": 0.2
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.200174,
+   "risiko_maks": 0.2341
   },
   "2.5|3.0": {
    "layak": 506,
-   "flat": 17,
+   "flat": 504,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199762,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200301,
+   "risiko_maks": 0.23376
   },
   "2.5|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -322,47 +322,47 @@
   },
   "3.0|0.5": {
    "layak": 526,
-   "flat": 26,
+   "flat": 381,
    "susut": 143,
-   "risiko_min": 0.0259,
-   "risiko_p50": 0.199885,
-   "risiko_maks": 0.2
+   "risiko_min": 0.025174,
+   "risiko_p50": 0.200017,
+   "risiko_maks": 0.22839
   },
   "3.0|1.0": {
    "layak": 526,
-   "flat": 27,
-   "susut": 22,
-   "risiko_min": 0.051801,
-   "risiko_p50": 0.199919,
-   "risiko_maks": 0.200306
+   "flat": 501,
+   "susut": 23,
+   "risiko_min": 0.050347,
+   "risiko_p50": 0.200083,
+   "risiko_maks": 0.231552
   },
   "3.0|1.5": {
    "layak": 525,
-   "flat": 18,
+   "flat": 500,
    "susut": 22,
-   "risiko_min": 0.077702,
-   "risiko_p50": 0.199844,
-   "risiko_maks": 0.2
+   "risiko_min": 0.075521,
+   "risiko_p50": 0.200123,
+   "risiko_maks": 0.241227
   },
   "3.0|2.0": {
    "layak": 524,
-   "flat": 16,
+   "flat": 503,
    "susut": 16,
-   "risiko_min": 0.103602,
-   "risiko_p50": 0.199791,
-   "risiko_maks": 0.2
+   "risiko_min": 0.100694,
+   "risiko_p50": 0.20017,
+   "risiko_maks": 0.2341
   },
   "3.0|3.0": {
    "layak": 522,
-   "flat": 17,
+   "flat": 504,
    "susut": 16,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199739,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.151041,
+   "risiko_p50": 0.200278,
+   "risiko_maks": 0.23376
   },
   "3.0|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -370,47 +370,47 @@
   },
   "4.0|0.5": {
    "layak": 526,
-   "flat": 26,
+   "flat": 381,
    "susut": 143,
-   "risiko_min": 0.034256,
-   "risiko_p50": 0.199885,
-   "risiko_maks": 0.2
+   "risiko_min": 0.03393,
+   "risiko_p50": 0.200017,
+   "risiko_maks": 0.22839
   },
   "4.0|1.0": {
    "layak": 526,
-   "flat": 27,
+   "flat": 502,
    "susut": 22,
-   "risiko_min": 0.068511,
-   "risiko_p50": 0.199919,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.067859,
+   "risiko_p50": 0.200086,
+   "risiko_maks": 0.231552
   },
   "4.0|1.5": {
    "layak": 525,
-   "flat": 18,
+   "flat": 506,
    "susut": 16,
-   "risiko_min": 0.102766,
-   "risiko_p50": 0.199855,
-   "risiko_maks": 0.2
+   "risiko_min": 0.101789,
+   "risiko_p50": 0.200136,
+   "risiko_maks": 0.241227
   },
   "4.0|2.0": {
    "layak": 524,
-   "flat": 16,
+   "flat": 503,
    "susut": 16,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.199791,
-   "risiko_maks": 0.2
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.20017,
+   "risiko_maks": 0.2341
   },
   "4.0|3.0": {
    "layak": 522,
-   "flat": 17,
+   "flat": 520,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199757,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200304,
+   "risiko_maks": 0.23376
   },
   "4.0|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -418,47 +418,47 @@
   },
   "5.0|0.5": {
    "layak": 526,
-   "flat": 30,
-   "susut": 73,
-   "risiko_min": 0.043335,
-   "risiko_p50": 0.19994,
-   "risiko_maks": 0.2
+   "flat": 450,
+   "susut": 74,
+   "risiko_min": 0.042686,
+   "risiko_p50": 0.200029,
+   "risiko_maks": 0.22839
   },
   "5.0|1.0": {
    "layak": 526,
-   "flat": 27,
+   "flat": 502,
    "susut": 22,
-   "risiko_min": 0.08667,
-   "risiko_p50": 0.199919,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.085371,
+   "risiko_p50": 0.200086,
+   "risiko_maks": 0.231552
   },
   "5.0|1.5": {
    "layak": 525,
-   "flat": 18,
+   "flat": 506,
    "susut": 16,
-   "risiko_min": 0.106937,
-   "risiko_p50": 0.199855,
-   "risiko_maks": 0.2
+   "risiko_min": 0.128056,
+   "risiko_p50": 0.200136,
+   "risiko_maks": 0.241227
   },
   "5.0|2.0": {
    "layak": 524,
-   "flat": 16,
+   "flat": 503,
    "susut": 16,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.199791,
-   "risiko_maks": 0.2
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.20017,
+   "risiko_maks": 0.2341
   },
   "5.0|3.0": {
    "layak": 522,
-   "flat": 17,
+   "flat": 520,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199757,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200304,
+   "risiko_maks": 0.23376
   },
   "5.0|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -466,47 +466,47 @@
   },
   "6.0|0.5": {
    "layak": 526,
-   "flat": 33,
+   "flat": 501,
    "susut": 22,
-   "risiko_min": 0.051801,
-   "risiko_p50": 0.199956,
-   "risiko_maks": 0.2
+   "risiko_min": 0.051442,
+   "risiko_p50": 0.200038,
+   "risiko_maks": 0.2317
   },
   "6.0|1.0": {
    "layak": 526,
-   "flat": 27,
+   "flat": 508,
    "susut": 16,
-   "risiko_min": 0.103602,
-   "risiko_p50": 0.199919,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.102883,
+   "risiko_p50": 0.200089,
+   "risiko_maks": 0.231552
   },
   "6.0|1.5": {
    "layak": 525,
-   "flat": 18,
+   "flat": 506,
    "susut": 16,
-   "risiko_min": 0.106937,
-   "risiko_p50": 0.199855,
-   "risiko_maks": 0.2
+   "risiko_min": 0.154325,
+   "risiko_p50": 0.200136,
+   "risiko_maks": 0.241227
   },
   "6.0|2.0": {
    "layak": 524,
-   "flat": 17,
+   "flat": 519,
    "susut": 0,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.1998,
-   "risiko_maks": 0.2
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.2002,
+   "risiko_maks": 0.2341
   },
   "6.0|3.0": {
    "layak": 522,
-   "flat": 17,
+   "flat": 520,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199757,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200304,
+   "risiko_maks": 0.23376
   },
   "6.0|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -514,47 +514,47 @@
   },
   "8.0|0.5": {
    "layak": 526,
-   "flat": 33,
+   "flat": 501,
    "susut": 22,
-   "risiko_min": 0.069347,
-   "risiko_p50": 0.199956,
-   "risiko_maks": 0.2
+   "risiko_min": 0.068954,
+   "risiko_p50": 0.200038,
+   "risiko_maks": 0.2317
   },
   "8.0|1.0": {
    "layak": 526,
-   "flat": 27,
+   "flat": 508,
    "susut": 16,
-   "risiko_min": 0.13144,
-   "risiko_p50": 0.199919,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.13161,
+   "risiko_p50": 0.200089,
+   "risiko_maks": 0.231552
   },
   "8.0|1.5": {
    "layak": 525,
-   "flat": 18,
+   "flat": 522,
    "susut": 0,
-   "risiko_min": 0.106937,
-   "risiko_p50": 0.199865,
-   "risiko_maks": 0.2
+   "risiko_min": 0.197415,
+   "risiko_p50": 0.200147,
+   "risiko_maks": 0.241227
   },
   "8.0|2.0": {
    "layak": 524,
-   "flat": 17,
+   "flat": 519,
    "susut": 0,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.1998,
-   "risiko_maks": 0.2
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.2002,
+   "risiko_maks": 0.2341
   },
   "8.0|3.0": {
    "layak": 522,
-   "flat": 17,
+   "flat": 520,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199757,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200304,
+   "risiko_maks": 0.23376
   },
   "8.0|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -562,47 +562,47 @@
   },
   "10.0|0.5": {
    "layak": 526,
-   "flat": 33,
+   "flat": 501,
    "susut": 22,
-   "risiko_min": 0.086892,
-   "risiko_p50": 0.199956,
-   "risiko_maks": 0.2
+   "risiko_min": 0.086466,
+   "risiko_p50": 0.200038,
+   "risiko_maks": 0.2317
   },
   "10.0|1.0": {
    "layak": 526,
-   "flat": 27,
+   "flat": 508,
    "susut": 16,
-   "risiko_min": 0.13144,
-   "risiko_p50": 0.199919,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.13161,
+   "risiko_p50": 0.200089,
+   "risiko_maks": 0.231552
   },
   "10.0|1.5": {
    "layak": 525,
-   "flat": 18,
+   "flat": 522,
    "susut": 0,
-   "risiko_min": 0.106937,
-   "risiko_p50": 0.199865,
-   "risiko_maks": 0.2
+   "risiko_min": 0.197415,
+   "risiko_p50": 0.200147,
+   "risiko_maks": 0.241227
   },
   "10.0|2.0": {
    "layak": 524,
-   "flat": 17,
+   "flat": 519,
    "susut": 0,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.1998,
-   "risiko_maks": 0.2
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.2002,
+   "risiko_maks": 0.2341
   },
   "10.0|3.0": {
    "layak": 522,
-   "flat": 17,
+   "flat": 520,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199757,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200304,
+   "risiko_maks": 0.23376
   },
   "10.0|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -610,47 +610,47 @@
   },
   "12.0|0.5": {
    "layak": 526,
-   "flat": 33,
+   "flat": 507,
    "susut": 16,
-   "risiko_min": 0.104438,
-   "risiko_p50": 0.199956,
-   "risiko_maks": 0.2
+   "risiko_min": 0.103978,
+   "risiko_p50": 0.200039,
+   "risiko_maks": 0.2317
   },
   "12.0|1.0": {
    "layak": 526,
-   "flat": 28,
+   "flat": 524,
    "susut": 0,
-   "risiko_min": 0.13144,
-   "risiko_p50": 0.19992,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.13161,
+   "risiko_p50": 0.2001,
+   "risiko_maks": 0.231552
   },
   "12.0|1.5": {
    "layak": 525,
-   "flat": 18,
+   "flat": 522,
    "susut": 0,
-   "risiko_min": 0.106937,
-   "risiko_p50": 0.199865,
-   "risiko_maks": 0.2
+   "risiko_min": 0.197415,
+   "risiko_p50": 0.200147,
+   "risiko_maks": 0.241227
   },
   "12.0|2.0": {
    "layak": 524,
-   "flat": 17,
+   "flat": 519,
    "susut": 0,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.1998,
-   "risiko_maks": 0.2
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.2002,
+   "risiko_maks": 0.2341
   },
   "12.0|3.0": {
    "layak": 522,
-   "flat": 17,
+   "flat": 520,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199757,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200304,
+   "risiko_maks": 0.23376
   },
   "12.0|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -658,47 +658,47 @@
   },
   "15.0|0.5": {
    "layak": 526,
-   "flat": 33,
+   "flat": 507,
    "susut": 16,
-   "risiko_min": 0.130764,
-   "risiko_p50": 0.199956,
-   "risiko_maks": 0.2
+   "risiko_min": 0.130245,
+   "risiko_p50": 0.200039,
+   "risiko_maks": 0.2317
   },
   "15.0|1.0": {
    "layak": 526,
-   "flat": 28,
+   "flat": 524,
    "susut": 0,
-   "risiko_min": 0.13144,
-   "risiko_p50": 0.19992,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.13161,
+   "risiko_p50": 0.2001,
+   "risiko_maks": 0.231552
   },
   "15.0|1.5": {
    "layak": 525,
-   "flat": 18,
+   "flat": 522,
    "susut": 0,
-   "risiko_min": 0.106937,
-   "risiko_p50": 0.199865,
-   "risiko_maks": 0.2
+   "risiko_min": 0.197415,
+   "risiko_p50": 0.200147,
+   "risiko_maks": 0.241227
   },
   "15.0|2.0": {
    "layak": 524,
-   "flat": 17,
+   "flat": 519,
    "susut": 0,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.1998,
-   "risiko_maks": 0.2
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.2002,
+   "risiko_maks": 0.2341
   },
   "15.0|3.0": {
    "layak": 522,
-   "flat": 17,
+   "flat": 520,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199757,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200304,
+   "risiko_maks": 0.23376
   },
   "15.0|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -706,47 +706,47 @@
   },
   "19.0|0.5": {
    "layak": 526,
-   "flat": 33,
+   "flat": 507,
    "susut": 16,
    "risiko_min": 0.1565,
-   "risiko_p50": 0.199956,
-   "risiko_maks": 0.2
+   "risiko_p50": 0.200039,
+   "risiko_maks": 0.2317
   },
   "19.0|1.0": {
    "layak": 526,
-   "flat": 28,
+   "flat": 524,
    "susut": 0,
-   "risiko_min": 0.13144,
-   "risiko_p50": 0.19992,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.13161,
+   "risiko_p50": 0.2001,
+   "risiko_maks": 0.231552
   },
   "19.0|1.5": {
    "layak": 525,
-   "flat": 18,
+   "flat": 522,
    "susut": 0,
-   "risiko_min": 0.106937,
-   "risiko_p50": 0.199865,
-   "risiko_maks": 0.2
+   "risiko_min": 0.197415,
+   "risiko_p50": 0.200147,
+   "risiko_maks": 0.241227
   },
   "19.0|2.0": {
    "layak": 524,
-   "flat": 17,
+   "flat": 519,
    "susut": 0,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.1998,
-   "risiko_maks": 0.2
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.2002,
+   "risiko_maks": 0.2341
   },
   "19.0|3.0": {
    "layak": 522,
-   "flat": 17,
+   "flat": 520,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199757,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200304,
+   "risiko_maks": 0.23376
   },
   "19.0|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -754,47 +754,47 @@
   },
   "19.99|0.5": {
    "layak": 526,
-   "flat": 33,
+   "flat": 507,
    "susut": 16,
    "risiko_min": 0.1565,
-   "risiko_p50": 0.199956,
-   "risiko_maks": 0.2
+   "risiko_p50": 0.200039,
+   "risiko_maks": 0.2317
   },
   "19.99|1.0": {
    "layak": 526,
-   "flat": 28,
+   "flat": 524,
    "susut": 0,
-   "risiko_min": 0.13144,
-   "risiko_p50": 0.19992,
-   "risiko_maks": 0.200306
+   "risiko_min": 0.13161,
+   "risiko_p50": 0.2001,
+   "risiko_maks": 0.231552
   },
   "19.99|1.5": {
    "layak": 525,
-   "flat": 18,
+   "flat": 522,
    "susut": 0,
-   "risiko_min": 0.106937,
-   "risiko_p50": 0.199865,
-   "risiko_maks": 0.2
+   "risiko_min": 0.197415,
+   "risiko_p50": 0.200147,
+   "risiko_maks": 0.241227
   },
   "19.99|2.0": {
    "layak": 524,
-   "flat": 17,
+   "flat": 519,
    "susut": 0,
-   "risiko_min": 0.107218,
-   "risiko_p50": 0.1998,
-   "risiko_maks": 0.2
+   "risiko_min": 0.1324,
+   "risiko_p50": 0.2002,
+   "risiko_maks": 0.2341
   },
   "19.99|3.0": {
    "layak": 522,
-   "flat": 17,
+   "flat": 520,
    "susut": 0,
-   "risiko_min": 0.15255,
-   "risiko_p50": 0.199757,
-   "risiko_maks": 0.2283
+   "risiko_min": 0.160818,
+   "risiko_p50": 0.200304,
+   "risiko_maks": 0.23376
   },
   "19.99|5.0": {
-   "layak": 4,
-   "flat": 4,
+   "layak": 3,
+   "flat": 3,
    "susut": 0,
    "risiko_min": 0.25,
    "risiko_p50": 0.25,
@@ -850,7 +850,7 @@
   }
  },
  "ambang_per_sl": {
-  "0.5": 0.1336,
+  "0.5": 0.1337,
   "1.0": 0.2012,
   "1.5": 0.2747,
   "2.0": 0.3484,
@@ -859,7 +859,7 @@
  },
  "simbol_dievaluasi": 527,
  "layak_saldo_1_sl_1pct": 504,
- "flat_tercapai_saldo_1": 9,
+ "flat_tercapai_saldo_1": 142,
  "pelanggaran": {
   "risiko_di_atas_plafon": 0,
   "likuidasi_lebih_dekat_dari_sl": 0,
@@ -872,244 +872,244 @@
  "contoh": [],
  "termurah_saldo_1": [
   {
-   "simbol": "BNBUSDT",
-   "margin": 0.20081972
-  },
-  {
    "simbol": "BTCDOMUSDT",
-   "margin": 0.214436
-  },
-  {
-   "simbol": "PAXGUSDT",
-   "margin": 0.26094197
+   "margin": 0.214424
   },
   {
    "simbol": "AAVEUSDT",
-   "margin": 0.26288
+   "margin": 0.26322
   },
   {
    "simbol": "UNIUSDT",
-   "margin": 0.26382
+   "margin": 0.26472
   },
   {
    "simbol": "QNTUSDT",
-   "margin": 0.26384
+   "margin": 0.2648
   },
   {
    "simbol": "PENDLEUSDT",
-   "margin": 0.268575
-  },
-  {
-   "simbol": "HYPEUSDT",
-   "margin": 0.27657465
-  },
-  {
-   "simbol": "ALLUSDT",
-   "margin": 0.27932958
-  },
-  {
-   "simbol": "XRPUSDT",
-   "margin": 0.27967268
-  },
-  {
-   "simbol": "FLUIDUSDT",
-   "margin": 0.27975634
-  },
-  {
-   "simbol": "SPXUSDT",
-   "margin": 0.27988732
-  },
-  {
-   "simbol": "EULUSDT",
-   "margin": 0.28015915
-  },
-  {
-   "simbol": "\u6d4b\u8bd5\u6d4b\u8bd5USDT",
-   "margin": 0.28016239
-  },
-  {
-   "simbol": "DIAUSDT",
-   "margin": 0.28029296
-  },
-  {
-   "simbol": "MORPHOUSDT",
-   "margin": 0.28034535
-  },
-  {
-   "simbol": "SYRUPUSDT",
-   "margin": 0.28041803
+   "margin": 0.268485
   },
   {
    "simbol": "YFIUSDT",
-   "margin": 0.28044
+   "margin": 0.28092
   },
   {
-   "simbol": "COWUSDT",
-   "margin": 0.28050282
+   "simbol": "DFUSDT",
+   "margin": 0.28169014
   },
   {
-   "simbol": "ETCUSDT",
-   "margin": 0.28056338
+   "simbol": "SLPUSDT",
+   "margin": 0.28169014
   },
   {
-   "simbol": "BARDUSDT",
-   "margin": 0.28073239
+   "simbol": "1000WHYUSDT",
+   "margin": 0.28169016
   },
   {
-   "simbol": "ASRUSDT",
-   "margin": 0.28076338
+   "simbol": "DOGSUSDT",
+   "margin": 0.28169016
   },
   {
-   "simbol": "HOLOUSDT",
-   "margin": 0.28076338
+   "simbol": "HIPPOUSDT",
+   "margin": 0.28169093
   },
   {
-   "simbol": "BCHUSDT",
-   "margin": 0.28080324
+   "simbol": "SWELLUSDT",
+   "margin": 0.28169113
   },
   {
-   "simbol": "POLUSDT",
-   "margin": 0.28080958
+   "simbol": "HMSTRUSDT",
+   "margin": 0.28169115
   },
   {
-   "simbol": "POPCATUSDT",
-   "margin": 0.28082535
+   "simbol": "NEIROUSDT",
+   "margin": 0.28169121
   },
   {
-   "simbol": "REDUSDT",
-   "margin": 0.28082535
+   "simbol": "COSUSDT",
+   "margin": 0.28169141
   },
   {
-   "simbol": "AUSDT",
-   "margin": 0.2808338
-  },
-  {
-   "simbol": "HYPERUSDT",
-   "margin": 0.28087324
-  },
-  {
-   "simbol": "DOTUSDT",
-   "margin": 0.28087521
-  },
-  {
-   "simbol": "GHSTUSDT",
-   "margin": 0.28093239
-  },
-  {
-   "simbol": "VIRTUALUSDT",
-   "margin": 0.28104338
-  },
-  {
-   "simbol": "AEROUSDT",
-   "margin": 0.28104676
-  },
-  {
-   "simbol": "JSTUSDT",
-   "margin": 0.28108141
+   "simbol": "TOSHIUSDT",
+   "margin": 0.28169176
   },
   {
    "simbol": "AKTUSDT",
-   "margin": 0.28111437
+   "margin": 0.28169239
   },
   {
-   "simbol": "HIVEUSDT",
-   "margin": 0.2811831
+   "simbol": "CHESSUSDT",
+   "margin": 0.28169239
   },
   {
-   "simbol": "TREEUSDT",
-   "margin": 0.28120563
+   "simbol": "SLERFUSDT",
+   "margin": 0.28169239
   },
   {
-   "simbol": "SAFEUSDT",
-   "margin": 0.28121408
+   "simbol": "SONICUSDT",
+   "margin": 0.28169239
   },
   {
-   "simbol": "FLOCKUSDT",
-   "margin": 0.28123944
+   "simbol": "VTHOUSDT",
+   "margin": 0.28169239
   },
   {
-   "simbol": "PROMUSDT",
-   "margin": 0.28123944
+   "simbol": "1000CHEEMSUSDT",
+   "margin": 0.28169262
   },
   {
-   "simbol": "WCTUSDT",
-   "margin": 0.28123944
+   "simbol": "DEGENUSDT",
+   "margin": 0.28169313
   },
   {
-   "simbol": "EPICUSDT",
-   "margin": 0.28124169
+   "simbol": "NILUSDT",
+   "margin": 0.28169394
   },
   {
-   "simbol": "LINKUSDT",
-   "margin": 0.28129014
+   "simbol": "MOCAUSDT",
+   "margin": 0.28169479
   },
   {
-   "simbol": "CATIUSDT",
-   "margin": 0.28130141
+   "simbol": "LAYERUSDT",
+   "margin": 0.28169507
   },
   {
-   "simbol": "PNUTUSDT",
-   "margin": 0.28131155
+   "simbol": "1MBABYDOGEUSDT",
+   "margin": 0.28169525
   },
   {
-   "simbol": "MIRAUSDT",
-   "margin": 0.28133803
+   "simbol": "SOLVUSDT",
+   "margin": 0.28169577
   },
   {
-   "simbol": "KAIAUSDT",
-   "margin": 0.28134085
+   "simbol": "MBOXUSDT",
+   "margin": 0.28169873
   },
   {
-   "simbol": "RPLUSDT",
-   "margin": 0.28134507
+   "simbol": "FIOUSDT",
+   "margin": 0.28169915
   },
   {
-   "simbol": "PARTIUSDT",
-   "margin": 0.28134746
+   "simbol": "MEUSDT",
+   "margin": 0.28169915
+  },
+  {
+   "simbol": "ACXUSDT",
+   "margin": 0.28170368
+  },
+  {
+   "simbol": "DUSDT",
+   "margin": 0.2817038
   },
   {
    "simbol": "PONKEUSDT",
-   "margin": 0.28135211
+   "margin": 0.2817038
   },
   {
-   "simbol": "FLUXUSDT",
-   "margin": 0.28137042
+   "simbol": "GOATUSDT",
+   "margin": 0.28170423
   },
   {
-   "simbol": "CETUSUSDT",
-   "margin": 0.28138873
+   "simbol": "DRIFTUSDT",
+   "margin": 0.28170704
   },
   {
-   "simbol": "RAYSOLUSDT",
-   "margin": 0.28140085
+   "simbol": "USUALUSDT",
+   "margin": 0.28170817
   },
   {
-   "simbol": "PUNDIXUSDT",
-   "margin": 0.28140845
+   "simbol": "ANIMEUSDT",
+   "margin": 0.28171268
+  },
+  {
+   "simbol": "KMNOUSDT",
+   "margin": 0.28171394
+  },
+  {
+   "simbol": "PENGUUSDT",
+   "margin": 0.28171483
+  },
+  {
+   "simbol": "1000CATUSDT",
+   "margin": 0.28171586
+  },
+  {
+   "simbol": "PORT3USDT",
+   "margin": 0.28171648
+  },
+  {
+   "simbol": "SOPHUSDT",
+   "margin": 0.28171677
+  },
+  {
+   "simbol": "HEIUSDT",
+   "margin": 0.28171789
+  },
+  {
+   "simbol": "TOWNSUSDT",
+   "margin": 0.28171915
+  },
+  {
+   "simbol": "SKATEUSDT",
+   "margin": 0.28172085
+  },
+  {
+   "simbol": "ASRUSDT",
+   "margin": 0.28172113
+  },
+  {
+   "simbol": "THEUSDT",
+   "margin": 0.28172113
+  },
+  {
+   "simbol": "GRIFFAINUSDT",
+   "margin": 0.28172352
   },
   {
    "simbol": "SCRUSDT",
-   "margin": 0.28140845
+   "margin": 0.28172535
   },
   {
-   "simbol": "VELODROMEUSDT",
-   "margin": 0.28141972
+   "simbol": "GUNUSDT",
+   "margin": 0.28172662
   },
   {
-   "simbol": "ORCAUSDT",
-   "margin": 0.2814338
+   "simbol": "BANUSDT",
+   "margin": 0.2817307
   },
   {
-   "simbol": "EIGENUSDT",
-   "margin": 0.28145915
+   "simbol": "KAIAUSDT",
+   "margin": 0.28173521
   },
   {
-   "simbol": "ALPINEUSDT",
-   "margin": 0.28146549
+   "simbol": "PNUTUSDT",
+   "margin": 0.28173521
   },
   {
-   "simbol": "PHAUSDT",
-   "margin": 0.2814693
+   "simbol": "TREEUSDT",
+   "margin": 0.28173521
+  },
+  {
+   "simbol": "MOVEUSDT",
+   "margin": 0.28173915
+  },
+  {
+   "simbol": "REDUSDT",
+   "margin": 0.28174085
+  },
+  {
+   "simbol": "REIUSDT",
+   "margin": 0.28174113
+  },
+  {
+   "simbol": "LUMIAUSDT",
+   "margin": 0.28174408
+  },
+  {
+   "simbol": "DYDXUSDT",
+   "margin": 0.28174507
   }
  ]
 }

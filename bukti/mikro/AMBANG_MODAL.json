@@ -32,34 +32,34 @@
    "layak": 504,
    "base_tercapai": 0,
    "termurah_simbol": "BTCDOMUSDT",
-   "termurah_margin": 0.214436
+   "termurah_margin": 0.214424
   },
   "1.0|1.0": {
    "layak": 504,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "1.0|1.5": {
    "layak": 503,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "1.0|2.0": {
    "layak": 502,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "1.0|3.0": {
    "layak": 500,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "1.0|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -68,34 +68,34 @@
    "layak": 504,
    "base_tercapai": 0,
    "termurah_simbol": "AAVEUSDT",
-   "termurah_margin": 0.26288
+   "termurah_margin": 0.26322
   },
   "1.25|1.0": {
    "layak": 504,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "1.25|1.5": {
    "layak": 503,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "1.25|2.0": {
    "layak": 502,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "1.25|3.0": {
    "layak": 500,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "1.25|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -104,34 +104,34 @@
    "layak": 509,
    "base_tercapai": 0,
    "termurah_simbol": "AAVEUSDT",
-   "termurah_margin": 0.26288
+   "termurah_margin": 0.26322
   },
   "1.5|1.0": {
    "layak": 509,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "1.5|1.5": {
    "layak": 508,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "1.5|2.0": {
    "layak": 507,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "1.5|3.0": {
    "layak": 505,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "1.5|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -140,34 +140,34 @@
    "layak": 510,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "1.75|1.0": {
    "layak": 510,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "1.75|1.5": {
    "layak": 509,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "1.75|2.0": {
    "layak": 508,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "1.75|3.0": {
    "layak": 506,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "1.75|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -176,34 +176,34 @@
    "layak": 510,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "2.0|1.0": {
    "layak": 510,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "2.0|1.5": {
    "layak": 509,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "2.0|2.0": {
    "layak": 508,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "2.0|3.0": {
    "layak": 506,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "2.0|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -212,34 +212,34 @@
    "layak": 510,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "2.5|1.0": {
    "layak": 510,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "2.5|1.5": {
    "layak": 509,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "2.5|2.0": {
    "layak": 508,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "2.5|3.0": {
    "layak": 506,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "2.5|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -248,34 +248,34 @@
    "layak": 526,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "3.0|1.0": {
    "layak": 526,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "3.0|1.5": {
    "layak": 525,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "3.0|2.0": {
    "layak": 524,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "3.0|3.0": {
    "layak": 522,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "3.0|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -284,34 +284,34 @@
    "layak": 526,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "4.0|1.0": {
    "layak": 526,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "4.0|1.5": {
    "layak": 525,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "4.0|2.0": {
    "layak": 524,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "4.0|3.0": {
    "layak": 522,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "4.0|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -320,34 +320,34 @@
    "layak": 526,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "5.0|1.0": {
    "layak": 526,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "5.0|1.5": {
    "layak": 525,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "5.0|2.0": {
    "layak": 524,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "5.0|3.0": {
    "layak": 522,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "5.0|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -356,34 +356,34 @@
    "layak": 526,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "6.0|1.0": {
    "layak": 526,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "6.0|1.5": {
    "layak": 525,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "6.0|2.0": {
    "layak": 524,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "6.0|3.0": {
    "layak": 522,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "6.0|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -392,34 +392,34 @@
    "layak": 526,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "8.0|1.0": {
    "layak": 526,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "8.0|1.5": {
    "layak": 525,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "8.0|2.0": {
    "layak": 524,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "8.0|3.0": {
    "layak": 522,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "8.0|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -428,34 +428,34 @@
    "layak": 526,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "10.0|1.0": {
    "layak": 526,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "10.0|1.5": {
    "layak": 525,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "10.0|2.0": {
    "layak": 524,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "10.0|3.0": {
    "layak": 522,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "10.0|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -464,34 +464,34 @@
    "layak": 526,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "12.0|1.0": {
    "layak": 526,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "12.0|1.5": {
    "layak": 525,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "12.0|2.0": {
    "layak": 524,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "12.0|3.0": {
    "layak": 522,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "12.0|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -500,34 +500,34 @@
    "layak": 526,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "15.0|1.0": {
    "layak": 526,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "15.0|1.5": {
    "layak": 525,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "15.0|2.0": {
    "layak": 524,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "15.0|3.0": {
    "layak": 522,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "15.0|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -536,34 +536,34 @@
    "layak": 526,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "19.0|1.0": {
    "layak": 526,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "19.0|1.5": {
    "layak": 525,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "19.0|2.0": {
    "layak": 524,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "19.0|3.0": {
    "layak": 522,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "19.0|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -572,34 +572,34 @@
    "layak": 526,
    "base_tercapai": 0,
    "termurah_simbol": "BCHUSDT",
-   "termurah_margin": 0.35922577
+   "termurah_margin": 0.36196432
   },
   "19.99|1.0": {
    "layak": 526,
    "base_tercapai": 0,
-   "termurah_simbol": "BNBUSDT",
-   "termurah_margin": 0.20081972
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26322
   },
   "19.99|1.5": {
    "layak": 525,
-   "base_tercapai": 3,
-   "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "base_tercapai": 0,
+   "termurah_simbol": "DOGSUSDT",
+   "termurah_margin": 0.25641027
   },
   "19.99|2.0": {
    "layak": 524,
    "base_tercapai": 2,
    "termurah_simbol": "AVAXUSDT",
-   "termurah_margin": 0.19512821
+   "termurah_margin": 0.19520513
   },
   "19.99|3.0": {
    "layak": 522,
-   "base_tercapai": 4,
-   "termurah_simbol": "TRBUSDT",
-   "termurah_margin": 0.19354138
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214424
   },
   "19.99|5.0": {
-   "layak": 4,
+   "layak": 3,
    "base_tercapai": 0,
    "termurah_simbol": "SXPUSDT",
    "termurah_margin": 0.27777778
@@ -678,14 +678,14 @@
   }
  },
  "ambang_per_sl": {
-  "0.5": 0.1336,
+  "0.5": 0.1337,
   "1.0": 0.2012,
   "1.5": 0.2747,
   "2.0": 0.3484,
   "3.0": 0.4926,
   "5.0": 0.7937
  },
- "ambang_mesin_usdt": 0.1336,
+ "ambang_mesin_usdt": 0.1337,
  "validasi_saldo_1": {
   "diperiksa": 527,
   "pelanggaran": {
@@ -702,244 +702,244 @@
  },
  "layak_pada_saldo_1": [
   {
-   "simbol": "BNBUSDT",
-   "margin": 0.20081972
-  },
-  {
    "simbol": "BTCDOMUSDT",
-   "margin": 0.214436
-  },
-  {
-   "simbol": "PAXGUSDT",
-   "margin": 0.26094197
+   "margin": 0.214424
   },
   {
    "simbol": "AAVEUSDT",
-   "margin": 0.26288
+   "margin": 0.26322
   },
   {
    "simbol": "UNIUSDT",
-   "margin": 0.26382
+   "margin": 0.26472
   },
   {
    "simbol": "QNTUSDT",
-   "margin": 0.26384
+   "margin": 0.2648
   },
   {
    "simbol": "PENDLEUSDT",
-   "margin": 0.268575
-  },
-  {
-   "simbol": "HYPEUSDT",
-   "margin": 0.27657465
-  },
-  {
-   "simbol": "ALLUSDT",
-   "margin": 0.27932958
-  },
-  {
-   "simbol": "XRPUSDT",
-   "margin": 0.27967268
-  },
-  {
-   "simbol": "FLUIDUSDT",
-   "margin": 0.27975634
-  },
-  {
-   "simbol": "SPXUSDT",
-   "margin": 0.27988732
-  },
-  {
-   "simbol": "EULUSDT",
-   "margin": 0.28015915
-  },
-  {
-   "simbol": "\u6d4b\u8bd5\u6d4b\u8bd5USDT",
-   "margin": 0.28016239
-  },
-  {
-   "simbol": "DIAUSDT",
-   "margin": 0.28029296
-  },
-  {
-   "simbol": "MORPHOUSDT",
-   "margin": 0.28034535
-  },
-  {
-   "simbol": "SYRUPUSDT",
-   "margin": 0.28041803
+   "margin": 0.268485
   },
   {
    "simbol": "YFIUSDT",
-   "margin": 0.28044
+   "margin": 0.28092
   },
   {
-   "simbol": "COWUSDT",
-   "margin": 0.28050282
+   "simbol": "DFUSDT",
+   "margin": 0.28169014
   },
   {
-   "simbol": "ETCUSDT",
-   "margin": 0.28056338
+   "simbol": "SLPUSDT",
+   "margin": 0.28169014
   },
   {
-   "simbol": "BARDUSDT",
-   "margin": 0.28073239
+   "simbol": "1000WHYUSDT",
+   "margin": 0.28169016
   },
   {
-   "simbol": "ASRUSDT",
-   "margin": 0.28076338
+   "simbol": "DOGSUSDT",
+   "margin": 0.28169016
   },
   {
-   "simbol": "HOLOUSDT",
-   "margin": 0.28076338
+   "simbol": "HIPPOUSDT",
+   "margin": 0.28169093
   },
   {
-   "simbol": "BCHUSDT",
-   "margin": 0.28080324
+   "simbol": "SWELLUSDT",
+   "margin": 0.28169113
   },
   {
-   "simbol": "POLUSDT",
-   "margin": 0.28080958
+   "simbol": "HMSTRUSDT",
+   "margin": 0.28169115
   },
   {
-   "simbol": "POPCATUSDT",
-   "margin": 0.28082535
+   "simbol": "NEIROUSDT",
+   "margin": 0.28169121
   },
   {
-   "simbol": "REDUSDT",
-   "margin": 0.28082535
+   "simbol": "COSUSDT",
+   "margin": 0.28169141
   },
   {
-   "simbol": "AUSDT",
-   "margin": 0.2808338
-  },
-  {
-   "simbol": "HYPERUSDT",
-   "margin": 0.28087324
-  },
-  {
-   "simbol": "DOTUSDT",
-   "margin": 0.28087521
-  },
-  {
-   "simbol": "GHSTUSDT",
-   "margin": 0.28093239
-  },
-  {
-   "simbol": "VIRTUALUSDT",
-   "margin": 0.28104338
-  },
-  {
-   "simbol": "AEROUSDT",
-   "margin": 0.28104676
-  },
-  {
-   "simbol": "JSTUSDT",
-   "margin": 0.28108141
+   "simbol": "TOSHIUSDT",
+   "margin": 0.28169176
   },
   {
    "simbol": "AKTUSDT",
-   "margin": 0.28111437
+   "margin": 0.28169239
   },
   {
-   "simbol": "HIVEUSDT",
-   "margin": 0.2811831
+   "simbol": "CHESSUSDT",
+   "margin": 0.28169239
   },
   {
-   "simbol": "TREEUSDT",
-   "margin": 0.28120563
+   "simbol": "SLERFUSDT",
+   "margin": 0.28169239
   },
   {
-   "simbol": "SAFEUSDT",
-   "margin": 0.28121408
+   "simbol": "SONICUSDT",
+   "margin": 0.28169239
   },
   {
-   "simbol": "FLOCKUSDT",
-   "margin": 0.28123944
+   "simbol": "VTHOUSDT",
+   "margin": 0.28169239
   },
   {
-   "simbol": "PROMUSDT",
-   "margin": 0.28123944
+   "simbol": "1000CHEEMSUSDT",
+   "margin": 0.28169262
   },
   {
-   "simbol": "WCTUSDT",
-   "margin": 0.28123944
+   "simbol": "DEGENUSDT",
+   "margin": 0.28169313
   },
   {
-   "simbol": "EPICUSDT",
-   "margin": 0.28124169
+   "simbol": "NILUSDT",
+   "margin": 0.28169394
   },
   {
-   "simbol": "LINKUSDT",
-   "margin": 0.28129014
+   "simbol": "MOCAUSDT",
+   "margin": 0.28169479
   },
   {
-   "simbol": "CATIUSDT",
-   "margin": 0.28130141
+   "simbol": "LAYERUSDT",
+   "margin": 0.28169507
   },
   {
-   "simbol": "PNUTUSDT",
-   "margin": 0.28131155
+   "simbol": "1MBABYDOGEUSDT",
+   "margin": 0.28169525
   },
   {
-   "simbol": "MIRAUSDT",
-   "margin": 0.28133803
+   "simbol": "SOLVUSDT",
+   "margin": 0.28169577
   },
   {
-   "simbol": "KAIAUSDT",
-   "margin": 0.28134085
+   "simbol": "MBOXUSDT",
+   "margin": 0.28169873
   },
   {
-   "simbol": "RPLUSDT",
-   "margin": 0.28134507
+   "simbol": "FIOUSDT",
+   "margin": 0.28169915
   },
   {
-   "simbol": "PARTIUSDT",
-   "margin": 0.28134746
+   "simbol": "MEUSDT",
+   "margin": 0.28169915
+  },
+  {
+   "simbol": "ACXUSDT",
+   "margin": 0.28170368
+  },
+  {
+   "simbol": "DUSDT",
+   "margin": 0.2817038
   },
   {
    "simbol": "PONKEUSDT",
-   "margin": 0.28135211
+   "margin": 0.2817038
   },
   {
-   "simbol": "FLUXUSDT",
-   "margin": 0.28137042
+   "simbol": "GOATUSDT",
+   "margin": 0.28170423
   },
   {
-   "simbol": "CETUSUSDT",
-   "margin": 0.28138873
+   "simbol": "DRIFTUSDT",
+   "margin": 0.28170704
   },
   {
-   "simbol": "RAYSOLUSDT",
-   "margin": 0.28140085
+   "simbol": "USUALUSDT",
+   "margin": 0.28170817
   },
   {
-   "simbol": "PUNDIXUSDT",
-   "margin": 0.28140845
+   "simbol": "ANIMEUSDT",
+   "margin": 0.28171268
+  },
+  {
+   "simbol": "KMNOUSDT",
+   "margin": 0.28171394
+  },
+  {
+   "simbol": "PENGUUSDT",
+   "margin": 0.28171483
+  },
+  {
+   "simbol": "1000CATUSDT",
+   "margin": 0.28171586
+  },
+  {
+   "simbol": "PORT3USDT",
+   "margin": 0.28171648
+  },
+  {
+   "simbol": "SOPHUSDT",
+   "margin": 0.28171677
+  },
+  {
+   "simbol": "HEIUSDT",
+   "margin": 0.28171789
+  },
+  {
+   "simbol": "TOWNSUSDT",
+   "margin": 0.28171915
+  },
+  {
+   "simbol": "SKATEUSDT",
+   "margin": 0.28172085
+  },
+  {
+   "simbol": "ASRUSDT",
+   "margin": 0.28172113
+  },
+  {
+   "simbol": "THEUSDT",
+   "margin": 0.28172113
+  },
+  {
+   "simbol": "GRIFFAINUSDT",
+   "margin": 0.28172352
   },
   {
    "simbol": "SCRUSDT",
-   "margin": 0.28140845
+   "margin": 0.28172535
   },
   {
-   "simbol": "VELODROMEUSDT",
-   "margin": 0.28141972
+   "simbol": "GUNUSDT",
+   "margin": 0.28172662
   },
   {
-   "simbol": "ORCAUSDT",
-   "margin": 0.2814338
+   "simbol": "BANUSDT",
+   "margin": 0.2817307
   },
   {
-   "simbol": "EIGENUSDT",
-   "margin": 0.28145915
+   "simbol": "KAIAUSDT",
+   "margin": 0.28173521
   },
   {
-   "simbol": "ALPINEUSDT",
-   "margin": 0.28146549
+   "simbol": "PNUTUSDT",
+   "margin": 0.28173521
   },
   {
-   "simbol": "PHAUSDT",
-   "margin": 0.2814693
+   "simbol": "TREEUSDT",
+   "margin": 0.28173521
+  },
+  {
+   "simbol": "MOVEUSDT",
+   "margin": 0.28173915
+  },
+  {
+   "simbol": "REDUSDT",
+   "margin": 0.28174085
+  },
+  {
+   "simbol": "REIUSDT",
+   "margin": 0.28174113
+  },
+  {
+   "simbol": "LUMIAUSDT",
+   "margin": 0.28174408
+  },
+  {
+   "simbol": "DYDXUSDT",
+   "margin": 0.28174507
   }
  ],
  "simbol_dievaluasi": 527,
