@@ -25,7 +25,7 @@ jangkar={"nama": "retry_hormati_klasifikasi", "jumlah": 0, "diharap": 1, "sudah"
 jangkar={"nama": "baca_status_tahan_sementara", "jumlah": 0, "diharap": 1, "sudah": true}
 INTI=SELESAI
 diterapkan=[]
-panjang_inti=43725
+panjang_inti=45430
 punya_konfirmasi=True
 punya_berhenti_tanpa_ulang=True
 punya_batas_gagal_harga=True
@@ -38,7 +38,7 @@ jangkar={"nama": "periksa_sl_lapor_kegagalan", "jumlah": 0, "diharap": 1, "sudah
 jangkar={"nama": "rekonsiliasi_bertindak", "jumlah": 0, "diharap": 1, "sudah": true}
 PROTEKSI=SELESAI
 diterapkan=[]
-panjang_inti=43725
+panjang_inti=45430
 punya_batal_terverifikasi=True
 punya_failsafe_harga=True
 punya_tindakan_rekonsiliasi=True
@@ -59,15 +59,23 @@ sisa_qty_terisi_buta=0
 punya_cid=True
 punya_konfirmasi=True
 rc_ib=0
-jangkar={"nama": "inti_impor_ukuran_mikro", "berkas": "lux_modul/eksekusi_aman/inti.py", "jumlah": 1, "diharap": 1, "sudah": false}
-jangkar={"nama": "siklus_pakai_jalur_mikro", "berkas": "lux_modul/eksekusi_aman/inti.py", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "inti_impor_ukuran_mikro", "berkas": "lux_modul/eksekusi_aman/inti.py", "jumlah": 1, "diharap": 1, "sudah": true}
+jangkar={"nama": "siklus_pakai_jalur_mikro", "berkas": "lux_modul/eksekusi_aman/inti.py", "jumlah": 0, "diharap": 1, "sudah": true}
 MIKRO=SELESAI
-diterapkan=["inti_impor_ukuran_mikro", "siklus_pakai_jalur_mikro"]
+diterapkan=[]
 sisa_iceberg_dituntut=0
 sisa_visible_dituntut=0
 sisa_jawab_tanpa_status=0
 jumlah_executedqty=2
 rc_mikro=0
+jangkar={"nama": "ringkas_jawaban_tidak_memotong_json", "berkas": "lux_modul/eksekusi/jejak.py", "jumlah": 1, "diharap": 1, "sudah": false}
+JEJAK=SELESAI
+diterapkan=["ringkas_jawaban_tidak_memotong_json"]
+sisa_iceberg_dituntut=0
+sisa_visible_dituntut=0
+sisa_jawab_tanpa_status=0
+jumlah_executedqty=1
+rc_jejak=0
 jangkar={"nama": "payload_tanpa_parameter_hantu", "berkas": "tests/test_order_postonly.py", "jumlah": 0, "diharap": 1, "sudah": true}
 jangkar={"nama": "jawaban_bursa_realistis", "berkas": "tests/test_order_postonly.py", "jumlah": 0, "diharap": 1, "sudah": true}
 TES_ORDER=SELESAI
@@ -92,9 +100,9 @@ rc_tes_inti=0
 rc_kompilasi=0
 rc_pytest=0
 ........................................................................ [ 19%]
-........................................................................ [ 39%]
-........................................................................ [ 58%]
-........................................................................ [ 78%]
-........................................................................ [ 97%]
-........                                                                 [100%]
-368 passed in 44.40s
+........................................................................ [ 38%]
+........................................................................ [ 57%]
+........................................................................ [ 77%]
+........................................................................ [ 96%]
+.............                                                            [100%]
+373 passed in 42.81s
