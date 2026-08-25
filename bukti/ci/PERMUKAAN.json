@@ -740,7 +740,7 @@
    },
    "rencana_mikro": {
     "jenis": "fungsi",
-    "tanda_tangan": "(saldo, harga, spek, sl_harga=None, arah=None, base_per_setup=None, batas_modal=None, leverage_maks_bursa=None, porsi_margin_maks=None, risiko_maks=None)"
+    "tanda_tangan": "(saldo, harga, spek, sl_harga=None, arah=None, base_per_setup=None, batas_modal=None, leverage_maks_bursa=None, porsi_margin_maks=None, risiko_maks=None, risiko_flat=None, toleransi_risiko=None, mmr=None)"
    }
   },
   "lux_modul.eksekusi_aman.saklar": {
@@ -1259,7 +1259,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v1/leverage', '/fapi/v1/batchOrders', '/fapi/v1/positionMargin', '/fapi/v2/balance', '/fapi/v1/openOrders', '/fapi/v1/marginType', '/fapi/v1/o..."
+    "nilai": "frozenset({'/fapi/v1/order', '/fapi/v2/balance', '/fapi/v1/order/test', '/fapi/v1/leverage', '/fapi/v2/positionRisk', '/fapi/v1/allOpenOrders', '/fapi/v1/batchO..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1553,11 +1553,11 @@
    },
    "STATUS_DIKENAL": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'EXPIRED_IN_MATCH', 'NEW_INSURANCE', 'REJECTED', 'NEW_ADL', 'NEW', 'EXPIRED', 'CANCELED', 'PARTIALLY_FILLED', 'FILLED'})"
+    "nilai": "frozenset({'NEW', 'EXPIRED', 'CANCELED', 'PARTIALLY_FILLED', 'NEW_INSURANCE', 'FILLED', 'REJECTED', 'NEW_ADL', 'EXPIRED_IN_MATCH'})"
    },
    "STATUS_HIDUP": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'PARTIALLY_FILLED', 'NEW'})"
+    "nilai": "frozenset({'NEW', 'PARTIALLY_FILLED'})"
    },
    "STATUS_LAJU": {
     "jenis": "tuple",
@@ -1565,7 +1565,7 @@
    },
    "STATUS_SELESAI": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'REJECTED', 'EXPIRED', 'EXPIRED_IN_MATCH', 'CANCELED', 'FILLED'})"
+    "nilai": "frozenset({'CANCELED', 'FILLED', 'EXPIRED', 'REJECTED', 'EXPIRED_IN_MATCH'})"
    },
    "STATUS_TAK_DIKETAHUI": {
     "jenis": "tuple",
@@ -1988,13 +1988,25 @@
     "jenis": "int",
     "nilai": "125"
    },
+   "MMR_BAWAAN": {
+    "jenis": "float",
+    "nilai": "0.004"
+   },
    "PORSI_MARGIN_MAKS_BAWAAN": {
     "jenis": "float",
     "nilai": "0.35"
    },
+   "RISIKO_FLAT_BAWAAN": {
+    "jenis": "float",
+    "nilai": "0.2"
+   },
    "RISIKO_MAKS_BAWAAN": {
     "jenis": "float",
     "nilai": "0.05"
+   },
+   "TOLERANSI_RISIKO_BAWAAN": {
+    "jenis": "float",
+    "nilai": "0.25"
    },
    "TolakUkuranMikro": {
     "jenis": "kelas",
@@ -2003,6 +2015,10 @@
      "with_traceback"
     ],
     "tanda_tangan": "?"
+   },
+   "leverage_liq_maks": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(jarak_frac, mmr=None, lev_maks=None)"
    },
    "modal_mikro": {
     "jenis": "fungsi",
@@ -2022,7 +2038,7 @@
    },
    "rencana_mikro": {
     "jenis": "fungsi",
-    "tanda_tangan": "(saldo, harga, spek, sl_harga=None, arah=None, base_per_setup=None, batas_modal=None, leverage_maks_bursa=None, porsi_margin_maks=None, risiko_maks=None)"
+    "tanda_tangan": "(saldo, harga, spek, sl_harga=None, arah=None, base_per_setup=None, batas_modal=None, leverage_maks_bursa=None, porsi_margin_maks=None, risiko_maks=None, risiko_flat=None, toleransi_risiko=None, mmr=None)"
    }
   }
  },

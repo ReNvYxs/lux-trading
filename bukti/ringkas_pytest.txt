@@ -1,9 +1,30 @@
-=== pytest baseline ===
-........................................................................ [ 17%]
-........................................................................ [ 35%]
-........................................................................ [ 52%]
-........................................................................ [ 70%]
-........................................................................ [ 87%]
-...................................................                      [100%]
-411 passed in 42.10s
-rc_pytest=0
+FAILED tests/test_stres_siklus_mikro.py::test_saldo_mikro_memakai_jalur_mikro_dan_mencapai_base_020 - assert 0.2 == 0.05 ± 5.0e-08
+  
+  comparison failed
+  Obtained: 0.2
+  Expected: 0.05 ± 5.0e-08
+FAILED tests/test_ukuran_mikro.py::test_base_020_tercapai_saat_min_notional_5 - assert 0.2 == 0.05 ± 5.0e-08
+  
+  comparison failed
+  Obtained: 0.2
+  Expected: 0.05 ± 5.0e-08
+FAILED tests/test_ukuran_mikro.py::test_base_020_tidak_mungkin_dilaporkan_jujur - assert 124 == 125
+FAILED tests/test_ukuran_mikro.py::test_risiko_di_atas_batas_ditolak_bukan_dipaksakan - assert 1.4084507 == 0.8 ± 8.0e-07
+  
+  comparison failed
+  Obtained: 1.4084507
+  Expected: 0.8 ± 8.0e-07
+FAILED tests/test_ukuran_mikro.py::test_likuidasi_lebih_dekat_daripada_sl_ditolak - KeyError: 'jarak_likuidasi_pct'
+FAILED tests/test_ukuran_mikro.py::test_btcusdt_nyata_modal_10_sl_1_persen_ditolak - assert 0.7271707 == 0.41303296 ± 4.1e-07
+  
+  comparison failed
+  Obtained: 0.7271707
+  Expected: 0.41303296 ± 4.1e-07
+FAILED tests/test_ukuran_mikro.py::test_btcusdt_nyata_modal_19_ditolak_karena_likuidasi - KeyError: 'jarak_likuidasi_pct'
+FAILED tests/test_ukuran_mikro.py::test_pilih_ukuran_mengembalikan_qty_dan_leverage - assert 0.2 == 0.05 ± 5.0e-08
+  
+  comparison failed
+  Obtained: 0.2
+  Expected: 0.05 ± 5.0e-08
+8 failed, 403 passed in 43.12s
+rc_pytest=1

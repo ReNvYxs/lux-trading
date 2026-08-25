@@ -1,12 +1,12 @@
 GRAF=LULUS
-modul_total=130
+modul_total=132
 modul_lux=55
 impor_rusak_modul=0
 nama_hilang_modul=0
 galat_parse=0
 impor_rusak_alat=0
 nama_hilang_alat=0
-dependensi_luar=["numpy", "pasang_inti", "pasang_tes", "pytest", "referensi"]
+dependensi_luar=["milik_bantu", "numpy", "pasang_inti", "pasang_tes", "pytest", "referensi"]
 dependensi_hilang=["referensi"]
 yatim_jumlah=0
 yatim=[]

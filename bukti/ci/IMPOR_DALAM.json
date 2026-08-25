@@ -35,6 +35,15 @@
    "lux_modul.eksekusi.ukuran_mikro",
    "lux_modul.eksekusi_aman.inti"
   ],
+  "alat.uji_hidup_milik": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.kepemilikan",
+   "lux_modul.eksekusi.klasifikasi",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.ukuran_mikro",
+   "lux_modul.eksekusi_aman.inti"
+  ],
   "alat.uji_hidup_saklar": [
    "lux_modul.eksekusi.binance_client",
    "lux_modul.eksekusi.kredensial",
@@ -135,6 +144,13 @@
    "json",
    "os",
    "sys"
+  ],
+  "alat.milik_bantu": [
+   "base64",
+   "json",
+   "os",
+   "sys",
+   "time"
   ],
   "alat.pasang_env": [
    "os",
@@ -267,6 +283,13 @@
    "os",
    "sys",
    "time",
+   "traceback"
+  ],
+  "alat.uji_hidup_milik": [
+   "json",
+   "milik_bantu",
+   "os",
+   "sys",
    "traceback"
   ],
   "alat.uji_hidup_saklar": [
@@ -1159,6 +1182,7 @@
   "alat.impor_dalam": [],
   "alat.kontrak.bedah_kontrak": [],
   "alat.kontrak_klien": [],
+  "alat.milik_bantu": [],
   "alat.pasang_env": [],
   "alat.pasang_icebreaker": [],
   "alat.pasang_inti": [],
@@ -1192,6 +1216,15 @@
   "alat.uji_hidup_mesin": [
    "lux_modul.eksekusi.binance_client",
    "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.klasifikasi",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.ukuran_mikro",
+   "lux_modul.eksekusi_aman.inti"
+  ],
+  "alat.uji_hidup_milik": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.kepemilikan",
    "lux_modul.eksekusi.klasifikasi",
    "lux_modul.eksekusi.kredensial",
    "lux_modul.eksekusi.ukuran_mikro",
@@ -1339,7 +1372,7 @@
   "tests.test_stres_siklus_mikro": [],
   "tests.test_ukuran_mikro": []
  },
- "modul_jumlah": 130,
+ "modul_jumlah": 132,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",
@@ -1366,6 +1399,7 @@
   "io",
   "json",
   "math",
+  "milik_bantu",
   "numpy",
   "os",
   "pasang_inti",
@@ -1405,6 +1439,7 @@
   "io",
   "json",
   "math",
+  "milik_bantu",
   "numpy",
   "os",
   "pasang_inti",
@@ -1486,6 +1521,7 @@
     "alat.ambang_modal",
     "alat.peta_mikro",
     "alat.uji_hidup_mesin",
+    "alat.uji_hidup_milik",
     "alat.uji_hidup_saklar",
     "lux_modul.eksekusi_aman.saklar",
     "lux_modul.live_runner"
