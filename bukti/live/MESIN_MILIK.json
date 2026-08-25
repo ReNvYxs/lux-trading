@@ -1,0 +1,207 @@
+{
+ "vonis": {
+  "kandidat_layak": 12,
+  "sizing1_diterima_bursa": true,
+  "sizing1_order": {
+   "orderId": 233976766,
+   "clientOrderId": "lx76406731",
+   "status": "NEW",
+   "simbol": "1000WHYUSDT",
+   "sisi": "BUY",
+   "tipe": "LIMIT",
+   "harga_rata": 0.0,
+   "qty_diminta": 3125000.0,
+   "qty_terisi": 0.0,
+   "hidup": true,
+   "selesai": false,
+   "terisi_penuh": false,
+   "parsial": false
+  },
+  "sizing1_rencana": {
+   "saldo": 1.0,
+   "harga": 1.6e-06,
+   "base_per_setup": 0.2,
+   "batas_modal_mikro": 20.0,
+   "leverage_maks_bursa": 75,
+   "spek": {
+    "tick": 1e-07,
+    "step": 1.0,
+    "min_qty": 1.0,
+    "maks_qty": 400000000.0,
+    "min_notional": 5.0,
+    "presisi_harga": 7,
+    "presisi_qty": 0
+   },
+   "mikro_aktif": true,
+   "notional_minimum_efektif": 5.0,
+   "sumber_minimum": {
+    "min_notional": 5.0,
+    "min_qty_x_harga": 1.6e-06,
+    "step_x_harga": 1.6e-06
+   },
+   "qty": 3125000.0,
+   "notional": 5.0,
+   "iterasi_penambahan_step": 0,
+   "leverage_dibutuhkan_untuk_base": 25,
+   "leverage_dipakai": 25,
+   "margin_nyata": 0.2,
+   "base_tercapai": true,
+   "margin_minimum_mungkin": 0.06666667,
+   "margin_pct_dari_saldo": 20.0,
+   "jarak_sl_abs": 8e-09,
+   "jarak_sl_pct": 0.5,
+   "rugi_pada_sl_usdt": 0.025,
+   "risiko_pct_dari_saldo": 2.5,
+   "rasio_risiko_terhadap_margin": 0.125,
+   "jarak_likuidasi_pct": 4.0,
+   "likuidasi_lebih_jauh_dari_sl": true,
+   "layak": true,
+   "alasan": null
+  },
+  "simbol": "1000WHYUSDT",
+  "entry_mesin": false,
+  "vonis": "GAGAL_ENTRY_MESIN"
+ },
+ "jejak": [
+  {
+   "tahap": "koneksi",
+   "utc": "2026-08-25T06:51:11Z",
+   "saldo_nyata_usdt": 4179.81481529,
+   "saldo_uji": 1.0,
+   "catatan": "saldo uji disuntik sebagai parameter sizing; saldo akun testnet TIDAK diubah karena itu akan merusak akun uji"
+  },
+  {
+   "tahap": "kandidat",
+   "utc": "2026-08-25T06:51:12Z",
+   "jumlah": 12,
+   "teratas": [
+    {
+     "simbol": "1000WHYUSDT",
+     "margin": 0.19230771,
+     "qty": 2777778.0,
+     "lev": 26
+    },
+    {
+     "simbol": "1000SATSUSDT",
+     "margin": 0.19230804,
+     "qty": 408164.0,
+     "lev": 26
+    },
+    {
+     "simbol": "XPINUSDT",
+     "margin": 0.19230846,
+     "qty": 4717.0,
+     "lev": 26
+    },
+    {
+     "simbol": "DOGSUSDT",
+     "margin": 0.19230861,
+     "qty": 123366.0,
+     "lev": 26
+    },
+    {
+     "simbol": "COMMONUSDT",
+     "margin": 0.19230862,
+     "qty": 11062.0,
+     "lev": 26
+    }
+   ]
+  },
+  {
+   "tahap": "bersihkan",
+   "utc": "2026-08-25T06:51:13Z",
+   "simbol": "1000WHYUSDT",
+   "sisa": 0.0
+  },
+  {
+   "tahap": "sizing1_permintaan",
+   "utc": "2026-08-25T06:51:13Z",
+   "simbol": "1000WHYUSDT",
+   "saldo_uji": 1.0,
+   "rencana": {
+    "qty": 3125000.0,
+    "notional": 5.0,
+    "leverage_dipakai": 25,
+    "margin_nyata": 0.2,
+    "base_tercapai": true,
+    "risiko_pct_dari_saldo": 2.5,
+    "jarak_likuidasi_pct": 4.0,
+    "layak": true
+   },
+   "payload": {
+    "symbol": "1000WHYUSDT",
+    "side": "BUY",
+    "type": "LIMIT",
+    "timeInForce": "GTC",
+    "price": 1.6e-06,
+    "quantity": 3125000.0,
+    "newClientOrderId": "lx76406731"
+   }
+  },
+  {
+   "tahap": "sizing1_jawaban",
+   "utc": "2026-08-25T06:51:13Z",
+   "ringkas": {
+    "orderId": 233976766,
+    "clientOrderId": "lx76406731",
+    "status": "NEW",
+    "simbol": "1000WHYUSDT",
+    "sisi": "BUY",
+    "tipe": "LIMIT",
+    "harga_rata": 0.0,
+    "qty_diminta": 3125000.0,
+    "qty_terisi": 0.0,
+    "hidup": true,
+    "selesai": false,
+    "terisi_penuh": false,
+    "parsial": false
+   }
+  },
+  {
+   "tahap": "entry_mesin_permintaan",
+   "utc": "2026-08-25T06:51:13Z",
+   "payload": {
+    "symbol": "1000WHYUSDT",
+    "side": "BUY",
+    "type": "MARKET",
+    "quantity": 8333334.0,
+    "newClientOrderId": "lx76406732"
+   },
+   "notional": 15.0000012
+  },
+  {
+   "tahap": "entry_mesin_galat",
+   "utc": "2026-08-25T06:51:13Z",
+   "galat": {
+    "jenis": "BinanceAPIError",
+    "pesan": "BinanceAPIError(status=400, kode=-4131): The counterparty's best price does not meet the PERCENT_PRICE filter limit.",
+    "api_status": 400,
+    "api_kode": -4131
+   },
+   "payload": {
+    "symbol": "1000WHYUSDT",
+    "side": "BUY",
+    "type": "MARKET",
+    "quantity": 8333334.0,
+    "newClientOrderId": "lx76406732"
+   },
+   "kelas": {
+    "kelas": "permanen",
+    "kode": -4131,
+    "status": 400,
+    "pesan": "The counterparty's best price does not meet the PERCENT_PRICE filter limit.",
+    "alasan": "harga terbaik lawan melanggar filter PERCENT_PRICE (dok)",
+    "boleh_ulang": false,
+    "wajib_rekonsiliasi": false,
+    "wajib_sinkron_waktu": false,
+    "jeda_ms": 0
+   }
+  },
+  {
+   "tahap": "bersihkan",
+   "utc": "2026-08-25T06:51:14Z",
+   "simbol": "1000WHYUSDT",
+   "sisa": 0.0
+  }
+ ]
+}
