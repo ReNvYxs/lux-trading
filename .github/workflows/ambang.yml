@@ -1,5 +1,8 @@
 name: ambang
 
+# Sapuan 2: dijalankan ulang setelah arah pembulatan qty diperbaiki, supaya
+# angka flat-tercapai diukur pada implementasi yang sekarang - bukan yang lama.
+
 on:
   push:
     branches: [main]
@@ -51,7 +54,7 @@ jobs:
           git config user.name ambang-bot
           git config user.email ambang-bot@users.noreply.github.com
           git add -A -f bukti
-          git commit -q -m "[ambang] peta ambang modal aturan flat $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
+          git commit -q -m "[ambang] sapuan flat setelah perbaikan pembulatan $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
           for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push -q && break; sleep 5; done
       - name: vonis
         if: always()
