@@ -1,0 +1,65 @@
+name: mesin_hidup
+on:
+  push:
+    paths:
+      - 'alat/uji_hidup_mesin.py'
+      - '.github/workflows/mesin_hidup.yml'
+  workflow_dispatch:
+concurrency:
+  group: mesin_hidup
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  hidup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+      LUX_SIMBOL_UJI: BTCUSDT
+      LUX_NOTIONAL_UJI: '120'
+      LUX_JEJAK_DIR: bukti/jejak
+      LUX_JEJAK_AKTIF: '1'
+      HIDUP_KELUARAN: bukti/live/MESIN_HIDUP.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: detak awal
+        run: |
+          mkdir -p bukti/live bukti/jejak
+          echo "mulai" > bukti/live/jejak_mesin_hidup.txt
+          python3 -V >> bukti/live/jejak_mesin_hidup.txt
+      - name: dependensi
+        run: |
+          set +e
+          python3 -m pip install -q -r requirements.txt 2>&1 | tail -n 5
+          echo "rc_pip=$?" >> bukti/live/jejak_mesin_hidup.txt
+      - name: uji hidup mesin
+        run: |
+          set +e
+          python3 alat/uji_hidup_mesin.py 2>&1 | tee -a bukti/live/jejak_mesin_hidup.txt
+          echo "rc_hidup=${PIPESTATUS[0]}" | tee -a bukti/live/jejak_mesin_hidup.txt
+      - name: contoh jejak
+        if: always()
+        run: |
+          set +e
+          ls -la bukti/jejak 2>&1 | tee -a bukti/live/jejak_mesin_hidup.txt
+          for f in bukti/jejak/*.jsonl; do
+            echo "--- $f ---" >> bukti/live/jejak_mesin_hidup.txt
+            head -c 3000 "$f" >> bukti/live/jejak_mesin_hidup.txt
+            echo "" >> bukti/live/jejak_mesin_hidup.txt
+          done
+      - name: rekam bukti
+        if: always()
+        run: |
+          set +e
+          git config user.name "mesin-hidup-bot"
+          git config user.email "mesin-hidup-bot@users.noreply.github.com"
+          git add -A -f bukti
+          git commit -q -m "[mesin_hidup] uji cancel/modify testnet $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push -q && break; sleep 5; done
+      - name: vonis
+        run: |
+          grep -q "^MESIN_HIDUP=LULUS$" bukti/live/jejak_mesin_hidup.txt
