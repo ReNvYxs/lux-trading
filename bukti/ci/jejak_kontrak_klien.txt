@@ -1,13 +1,14 @@
 KONTRAK_KLIEN=LULUS
 kelas_klien=BinanceFuturesClient
 kelas_di_modul=["BinanceAPIError", "BinanceFuturesClient", "PengaturLaju"]
-butuh_jumlah=10
-butuh=["_permintaan", "batalkan_semua_order", "bid_ask_terbaik", "exchange_info", "harga_sekarang", "kirim_order", "posisi", "saldo_usdt", "sinkron_waktu", "status_order"]
-ada=["_permintaan", "batalkan_semua_order", "bid_ask_terbaik", "exchange_info", "harga_sekarang", "kirim_order", "posisi", "saldo_usdt", "sinkron_waktu", "status_order"]
+butuh_jumlah=11
+butuh=["_permintaan", "atur_leverage", "batalkan_semua_order", "bid_ask_terbaik", "exchange_info", "harga_sekarang", "kirim_order", "posisi", "saldo_usdt", "sinkron_waktu", "status_order"]
+ada=["_permintaan", "atur_leverage", "batalkan_semua_order", "bid_ask_terbaik", "exchange_info", "harga_sekarang", "kirim_order", "posisi", "saldo_usdt", "sinkron_waktu", "status_order"]
 hilang=[]
 galat_impor=null
 BinanceAPIError_tanda_tangan="(status: 'Optional[int]', kode: 'Optional[int]', pesan: 'str', payload: 'Optional[Dict[str, Any]]' = None) -> 'None'"
 metode=_permintaan(self, method: 'str', path: 'str', params: 'Optional[Dict[str, Any]]' = None, signed: 'bool' = False) -> 'Any'
+metode=atur_leverage(self, simbol: 'str', leverage: 'int') -> 'Dict[str, Any]'
 metode=batalkan_semua_order(self, simbol: 'str') -> 'Dict[str, Any]'
 metode=bid_ask_terbaik(self, simbol: 'str') -> 'Dict[str, float]'
 metode=exchange_info(self, simbol: 'Optional[str]' = None, ttl_detik: 'float' = 3600.0) -> 'Dict[str, Any]'

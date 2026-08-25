@@ -32,6 +32,7 @@
    "alat.pasang_proteksi"
   ],
   "pasang_tes": [
+   "alat.pasang_mikro",
    "alat.pasang_tes_inti"
   ],
   "pytest": [
@@ -50,6 +51,7 @@
    "tests.test_stres_eksekusi",
    "tests.test_stres_klasifikasi",
    "tests.test_stres_proteksi",
+   "tests.test_stres_siklus_mikro",
    "tests.test_ukuran_mikro"
   ],
   "referensi": [
@@ -81,7 +83,8 @@
     "lux_modul.eksekusi.mode"
    ],
    "lux_modul.eksekusi_aman.inti": [
-    "lux_modul.eksekusi.klasifikasi"
+    "lux_modul.eksekusi.klasifikasi",
+    "lux_modul.eksekusi.ukuran_mikro"
    ],
    "lux_modul.live_runner": [
     "lux_modul.eksekusi.ice_breaker",
@@ -198,6 +201,9 @@
    "tests.test_stres_proteksi": [
     "lux_modul.eksekusi.binance_client"
    ],
+   "tests.test_stres_siklus_mikro": [
+    "lux_modul.eksekusi.binance_client"
+   ],
    "tests.test_ukuran_mikro": [
     "lux_modul.eksekusi.ukuran_mikro"
    ]
@@ -245,6 +251,9 @@
     "lux_modul.eksekusi_aman.inti"
    ],
    "tests.test_stres_proteksi": [
+    "lux_modul.eksekusi_aman.inti"
+   ],
+   "tests.test_stres_siklus_mikro": [
     "lux_modul.eksekusi_aman.inti"
    ],
    "tests.test_ukuran_mikro": [
@@ -359,7 +368,8 @@
    "tests.test_serialisasi_order",
    "tests.test_stres_eksekusi",
    "tests.test_stres_klasifikasi",
-   "tests.test_stres_proteksi"
+   "tests.test_stres_proteksi",
+   "tests.test_stres_siklus_mikro"
   ],
   "lux_modul.eksekusi.ice_breaker": [
    "lux_modul.eksekusi",
@@ -431,6 +441,7 @@
    "tests.test_spesifikasi"
   ],
   "lux_modul.eksekusi.ukuran_mikro": [
+   "lux_modul.eksekusi_aman.inti",
    "tests.test_ukuran_mikro"
   ],
   "lux_modul.eksekusi_aman": [
@@ -441,6 +452,7 @@
    "tests.test_live_runner_saklar",
    "tests.test_stres_eksekusi",
    "tests.test_stres_proteksi",
+   "tests.test_stres_siklus_mikro",
    "tests.test_ukuran_mikro"
   ],
   "lux_modul.eksekusi_aman.saklar": [
@@ -707,7 +719,7 @@
   ]
  },
  "modul_lux": 54,
- "modul_total": 121,
+ "modul_total": 123,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -809,7 +821,8 @@
    "lux_modul.kontrak"
   ],
   "lux_modul.eksekusi_aman.inti": [
-   "lux_modul.eksekusi.klasifikasi"
+   "lux_modul.eksekusi.klasifikasi",
+   "lux_modul.eksekusi.ukuran_mikro"
   ],
   "lux_modul.fitur": [
    "lux_modul.fitur",
@@ -1212,6 +1225,10 @@
    "lux_modul.eksekusi.binance_client",
    "lux_modul.eksekusi_aman.inti"
   ],
+  "tests.test_stres_siklus_mikro": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi_aman.inti"
+  ],
   "tests.test_ukuran_mikro": [
    "lux_modul.eksekusi.ukuran_mikro",
    "lux_modul.eksekusi_aman.inti"
@@ -1260,6 +1277,7 @@
   "tests.test_stres_eksekusi",
   "tests.test_stres_klasifikasi",
   "tests.test_stres_proteksi",
+  "tests.test_stres_siklus_mikro",
   "tests.test_ukuran_mikro",
   "lux_modul"
  ],

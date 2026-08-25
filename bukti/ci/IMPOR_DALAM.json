@@ -127,6 +127,12 @@
    "os",
    "sys"
   ],
+  "alat.pasang_mikro": [
+   "__future__",
+   "os",
+   "pasang_tes",
+   "sys"
+  ],
   "alat.pasang_proteksi": [
    "os",
    "pasang_inti",
@@ -370,6 +376,7 @@
   "lux_modul.eksekusi_aman.inti": [
    "hashlib",
    "lux_modul.eksekusi.klasifikasi",
+   "lux_modul.eksekusi.ukuran_mikro",
    "math",
    "time"
   ],
@@ -1049,6 +1056,14 @@
    "pytest",
    "sys"
   ],
+  "tests.test_stres_siklus_mikro": [
+   "__future__",
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi_aman.inti",
+   "os",
+   "pytest",
+   "sys"
+  ],
   "tests.test_ukuran_mikro": [
    "__future__",
    "lux_modul.eksekusi.ukuran_mikro",
@@ -1073,6 +1088,7 @@
   "alat.pasang_icebreaker": [],
   "alat.pasang_inti": [],
   "alat.pasang_mesin": [],
+  "alat.pasang_mikro": [],
   "alat.pasang_proteksi": [],
   "alat.pasang_saklar": [],
   "alat.pasang_tes": [],
@@ -1227,9 +1243,10 @@
   "tests.test_stres_eksekusi": [],
   "tests.test_stres_klasifikasi": [],
   "tests.test_stres_proteksi": [],
+  "tests.test_stres_siklus_mikro": [],
   "tests.test_ukuran_mikro": []
  },
- "modul_jumlah": 121,
+ "modul_jumlah": 123,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",
@@ -1363,6 +1380,7 @@
     "tests.test_stres_eksekusi",
     "tests.test_stres_klasifikasi",
     "tests.test_stres_proteksi",
+    "tests.test_stres_siklus_mikro",
     "tests.test_ukuran_mikro"
    ]
   }
@@ -1379,6 +1397,7 @@
     "tests.test_live_runner_saklar",
     "tests.test_stres_eksekusi",
     "tests.test_stres_proteksi",
+    "tests.test_stres_siklus_mikro",
     "tests.test_ukuran_mikro"
    ]
   },

@@ -9,6 +9,7 @@
  },
  "ada": [
   "_permintaan",
+  "atur_leverage",
   "batalkan_semua_order",
   "bid_ask_terbaik",
   "exchange_info",
@@ -21,6 +22,7 @@
  ],
  "butuh_dari_klien": {
   "_permintaan": 5,
+  "atur_leverage": 1,
   "batalkan_semua_order": 1,
   "bid_ask_terbaik": 3,
   "exchange_info": 3,
@@ -33,6 +35,7 @@
  },
  "butuh_nama": [
   "_permintaan",
+  "atur_leverage",
   "batalkan_semua_order",
   "bid_ask_terbaik",
   "exchange_info",
@@ -61,6 +64,7 @@
    },
    "klien": {
     "_permintaan": 4,
+    "atur_leverage": 1,
     "batalkan_semua_order": 1,
     "bid_ask_terbaik": 3,
     "exchange_info": 1,
@@ -98,6 +102,10 @@
   "_permintaan": {
    "jenis": "metode",
    "tanda_tangan": "(self, method: 'str', path: 'str', params: 'Optional[Dict[str, Any]]' = None, signed: 'bool' = False) -> 'Any'"
+  },
+  "atur_leverage": {
+   "jenis": "metode",
+   "tanda_tangan": "(self, simbol: 'str', leverage: 'int') -> 'Dict[str, Any]'"
   },
   "batalkan_semua_order": {
    "jenis": "metode",

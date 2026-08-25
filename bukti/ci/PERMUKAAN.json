@@ -44,10 +44,12 @@
   "klasifikasikan",
   "konfirmasi_batal",
   "konfirmasi_order",
+  "modal_mikro",
   "mode_efektif",
   "mode_eksekusi",
   "pasang_proteksi_aman",
-  "periksa_kewajaran"
+  "periksa_kewajaran",
+  "rencana_mikro"
  ],
  "dipakai_dari_lama": {
   "lux_modul.backtest": {
@@ -390,6 +392,11 @@
     "BinanceAPIError"
    ]
   },
+  "tests.test_stres_siklus_mikro": {
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceAPIError"
+   ]
+  },
   "tests.test_ukuran_mikro": {
    "lux_modul.eksekusi.ukuran_mikro": [
     "BASE_PER_SETUP_BAWAAN",
@@ -405,7 +412,7 @@
  },
  "galat_impor_aman": {},
  "galat_impor_lama": {},
- "konsumen_jumlah": 30,
+ "konsumen_jumlah": 31,
  "nama_lama_dipakai": [
   "AMBANG_NOTIONAL_ICEBREAKER",
   "BASE_PER_SETUP_BAWAAN",
@@ -503,6 +510,12 @@
    "lux_modul.eksekusi_aman.inti"
   ],
   "KELAS_TAK_DIKETAHUI": [
+   "lux_modul.eksekusi_aman.inti"
+  ],
+  "modal_mikro": [
+   "lux_modul.eksekusi_aman.inti"
+  ],
+  "rencana_mikro": [
    "lux_modul.eksekusi_aman.inti"
   ]
  },
@@ -659,6 +672,14 @@
    "konfirmasi_order": {
     "jenis": "fungsi",
     "tanda_tangan": "(jawaban, simbol=None, sisi=None, cid=None)"
+   },
+   "modal_mikro": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(saldo, batas=None)"
+   },
+   "rencana_mikro": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(saldo, harga, spek, sl_harga=None, arah=None, base_per_setup=None, batas_modal=None, leverage_maks_bursa=None, porsi_margin_maks=None, risiko_maks=None)"
    }
   },
   "lux_modul.eksekusi_aman.saklar": {
@@ -1177,7 +1198,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v2/positionRisk', '/fapi/v1/openOrders', '/fapi/v1/leverage', '/fapi/v1/order/test', '/fapi/v1/marginType', '/fapi/v1/allOpenOrders', '/fapi/v..."
+    "nilai": "frozenset({'/fapi/v1/order', '/fapi/v1/marginType', '/fapi/v1/leverage', '/fapi/v2/positionRisk', '/fapi/v1/batchOrders', '/fapi/v1/allOpenOrders', '/fapi/v1/op..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1330,11 +1351,11 @@
    },
    "STATUS_DIKENAL": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'FILLED', 'EXPIRED', 'NEW', 'NEW_ADL', 'CANCELED', 'REJECTED', 'EXPIRED_IN_MATCH', 'NEW_INSURANCE', 'PARTIALLY_FILLED'})"
+    "nilai": "frozenset({'NEW', 'NEW_INSURANCE', 'NEW_ADL', 'EXPIRED_IN_MATCH', 'REJECTED', 'CANCELED', 'EXPIRED', 'PARTIALLY_FILLED', 'FILLED'})"
    },
    "STATUS_HIDUP": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'NEW', 'PARTIALLY_FILLED'})"
+    "nilai": "frozenset({'PARTIALLY_FILLED', 'NEW'})"
    },
    "STATUS_LAJU": {
     "jenis": "tuple",
@@ -1342,7 +1363,7 @@
    },
    "STATUS_SELESAI": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'FILLED', 'EXPIRED', 'EXPIRED_IN_MATCH', 'CANCELED', 'REJECTED'})"
+    "nilai": "frozenset({'FILLED', 'EXPIRED_IN_MATCH', 'REJECTED', 'CANCELED', 'EXPIRED'})"
    },
    "STATUS_TAK_DIKETAHUI": {
     "jenis": "tuple",
@@ -1870,7 +1891,6 @@
   "jumlah_fill",
   "kirim_order_async",
   "klasifikasi",
-  "modal_mikro",
   "mode_untuk",
   "ms_ban_dari_pesan",
   "muat_kredensial",
@@ -1885,7 +1905,6 @@
   "payload_tp_market",
   "pilih_ukuran",
   "plan_execution",
-  "rencana_mikro",
   "rencana_posisi",
   "rencana_requote",
   "ringkas_kurva",

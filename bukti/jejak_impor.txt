@@ -3,8 +3,8 @@ lux_modul OK
 rc_lux_modul=0
 
 === impor lapisan eksekusi aman ===
-inti OK, simbol publik= 29
-['ARAH_LONG', 'ARAH_SHORT', 'BATAS_GAGAL_HARGA', 'DataPasar', 'Entry', 'GagalKonfirmasi', 'GagalProteksi', 'KELAS_KREDENSIAL', 'KELAS_LAJU', 'KELAS_PERMANEN', 'KELAS_TAK_DIKETAHUI', 'KODE_CID_DUPLIKAT', 'KODE_ORDER_TIDAK_ADA', 'KODE_PERMANEN', 'KebijakanRisiko', 'KontrakEksekutor', 'PengirimOrder', 'Proteksi', 'SpekSimbol', 'TolakUkuran', 'buat_cid', 'hashlib', 'hitung_ukuran', 'jalankan_siklus', 'klasifikasikan', 'konfirmasi_batal', 'konfirmasi_order', 'math', 'time']
+inti OK, simbol publik= 31
+['ARAH_LONG', 'ARAH_SHORT', 'BATAS_GAGAL_HARGA', 'DataPasar', 'Entry', 'GagalKonfirmasi', 'GagalProteksi', 'KELAS_KREDENSIAL', 'KELAS_LAJU', 'KELAS_PERMANEN', 'KELAS_TAK_DIKETAHUI', 'KODE_CID_DUPLIKAT', 'KODE_ORDER_TIDAK_ADA', 'KODE_PERMANEN', 'KebijakanRisiko', 'KontrakEksekutor', 'PengirimOrder', 'Proteksi', 'SpekSimbol', 'TolakUkuran', 'buat_cid', 'hashlib', 'hitung_ukuran', 'jalankan_siklus', 'klasifikasikan', 'konfirmasi_batal', 'konfirmasi_order', 'math', 'modal_mikro', 'rencana_mikro', 'time']
 rc_inti=0
 
 saklar OK, mode bawaan= otomatis mode dikenal= ('lama', 'aman', 'otomatis')
