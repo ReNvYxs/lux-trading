@@ -35,6 +35,7 @@ import math
 import time
 
 from ..eksekusi.klasifikasi import KODE_PERMANEN as _KODE_PERMANEN_RUJUKAN
+from ..eksekusi.ukuran_mikro import modal_mikro, rencana_mikro
 from ..eksekusi.klasifikasi import (
     GagalKonfirmasi,
     KELAS_KREDENSIAL,
@@ -834,7 +835,39 @@ def jalankan_siklus(klien, simbol, arah, sl_harga, tp_harga, kebijakan,
     h = {"simbol": simbol, "arah": arah, "log": log}
     saldo = saldo if saldo is not None else float(klien.saldo_usdt())
     harga = data.mark(simbol)
-    h["ukuran"] = hitung_ukuran(saldo, harga, sl_harga, arah, spek, kebijakan)
+    # Modal mikro (< 20 USDT): hitung_ukuran menolak dengan TolakUkuran
+    # karena notional dari risiko jatuh di bawah minNotional bursa. Jalur
+    # mikro menaikkan qty ke minimum bursa lalu memakai leverage untuk
+    # menekan margin ke base 0,20 USDT per setup - dan TETAP memeriksa
+    # risiko nyatanya, karena base 0,20 mengatur MARGIN, bukan RISIKO.
+    if modal_mikro(saldo):
+        mikro = rencana_mikro(saldo, harga, spek, sl_harga=sl_harga,
+                              arah=arah,
+                              leverage_maks_bursa=kebijakan.leverage_maks_bursa)
+        h["ukuran"] = mikro
+        h["jalur_ukuran"] = "mikro"
+        if not mikro.get("layak"):
+            h["kesimpulan"] = "ukuran_tidak_layak"
+            h["alasan_tidak_layak"] = mikro.get("alasan")
+            h["dampak"] = "tidak ada order dikirim; setup dilewati"
+            return h
+        # Tanpa leverage yang benar, margin dan jarak likuidasi hasil jalur
+        # mikro TIDAK berlaku. Gagal memasangnya berarti asumsi risiko kita
+        # salah, jadi setup dibatalkan SEBELUM satu order pun dikirim.
+        lev = int(mikro.get("leverage_dipakai") or 1)
+        try:
+            klien.atur_leverage(simbol, lev)
+            h["leverage_dipasang"] = lev
+        except Exception as exc:
+            h["kesimpulan"] = "leverage_gagal_dipasang"
+            h["galat_leverage"] = str(exc)[:200]
+            h["dampak"] = "tidak ada order dikirim; posisi tidak dibuka"
+            h["perlu_diperbaiki"] = "BinanceFuturesClient.atur_leverage"
+            return h
+    else:
+        h["ukuran"] = hitung_ukuran(saldo, harga, sl_harga, arah, spek,
+                                    kebijakan)
+        h["jalur_ukuran"] = "risiko"
     ember = f"{simbol}{arah}{int(time.time()*1000)}"
     h["ember"] = ember
     entry = Entry(klien, pengirim, spek, simbol, data=data, tidur=tidur)

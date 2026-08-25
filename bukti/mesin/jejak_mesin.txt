@@ -59,22 +59,31 @@ sisa_qty_terisi_buta=0
 punya_cid=True
 punya_konfirmasi=True
 rc_ib=0
-jangkar={"nama": "payload_tanpa_parameter_hantu", "berkas": "tests/test_order_postonly.py", "jumlah": 1, "diharap": 1, "sudah": false}
-jangkar={"nama": "jawaban_bursa_realistis", "berkas": "tests/test_order_postonly.py", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "inti_impor_ukuran_mikro", "berkas": "lux_modul/eksekusi_aman/inti.py", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "siklus_pakai_jalur_mikro", "berkas": "lux_modul/eksekusi_aman/inti.py", "jumlah": 1, "diharap": 1, "sudah": false}
+MIKRO=SELESAI
+diterapkan=["inti_impor_ukuran_mikro", "siklus_pakai_jalur_mikro"]
+sisa_iceberg_dituntut=0
+sisa_visible_dituntut=0
+sisa_jawab_tanpa_status=0
+jumlah_executedqty=2
+rc_mikro=0
+jangkar={"nama": "payload_tanpa_parameter_hantu", "berkas": "tests/test_order_postonly.py", "jumlah": 0, "diharap": 1, "sudah": true}
+jangkar={"nama": "jawaban_bursa_realistis", "berkas": "tests/test_order_postonly.py", "jumlah": 0, "diharap": 1, "sudah": true}
 TES_ORDER=SELESAI
-diterapkan=["payload_tanpa_parameter_hantu", "jawaban_bursa_realistis"]
+diterapkan=[]
 sisa_iceberg_dituntut=0
 sisa_visible_dituntut=0
 sisa_jawab_tanpa_status=0
 jumlah_executedqty=1
 rc_tes_order=0
-jangkar={"nama": "nama_uji_jujur", "berkas": "tests/test_inti.py", "jumlah": 1, "diharap": 1, "sudah": false}
-jangkar={"nama": "docstring_klaim_palsu", "berkas": "tests/test_inti.py", "jumlah": 1, "diharap": 1, "sudah": false}
-jangkar={"nama": "jawaban_filled_realistis", "berkas": "tests/test_inti.py", "jumlah": 1, "diharap": 1, "sudah": false}
-jangkar={"nama": "jawaban_new_belum_terisi", "berkas": "tests/test_inti.py", "jumlah": 1, "diharap": 1, "sudah": false}
-jangkar={"nama": "jawaban_new_saat_entry_invalid", "berkas": "tests/test_inti.py", "jumlah": 1, "diharap": 1, "sudah": false}
+jangkar={"nama": "nama_uji_jujur", "berkas": "tests/test_inti.py", "jumlah": 0, "diharap": 1, "sudah": true}
+jangkar={"nama": "docstring_klaim_palsu", "berkas": "tests/test_inti.py", "jumlah": 0, "diharap": 1, "sudah": true}
+jangkar={"nama": "jawaban_filled_realistis", "berkas": "tests/test_inti.py", "jumlah": 0, "diharap": 1, "sudah": true}
+jangkar={"nama": "jawaban_new_belum_terisi", "berkas": "tests/test_inti.py", "jumlah": 0, "diharap": 1, "sudah": true}
+jangkar={"nama": "jawaban_new_saat_entry_invalid", "berkas": "tests/test_inti.py", "jumlah": 0, "diharap": 1, "sudah": true}
 TES_INTI=SELESAI
-diterapkan=["nama_uji_jujur", "docstring_klaim_palsu", "jawaban_filled_realistis", "jawaban_new_belum_terisi", "jawaban_new_saat_entry_invalid"]
+diterapkan=[]
 sisa_iceberg_dituntut=0
 sisa_visible_dituntut=0
 sisa_jawab_tanpa_status=0
@@ -82,9 +91,10 @@ jumlah_executedqty=5
 rc_tes_inti=0
 rc_kompilasi=0
 rc_pytest=0
-........................................................................ [ 23%]
-........................................................................ [ 46%]
-........................................................................ [ 69%]
-........................................................................ [ 92%]
-......................                                                   [100%]
-310 passed in 40.96s
+........................................................................ [ 19%]
+........................................................................ [ 39%]
+........................................................................ [ 58%]
+........................................................................ [ 78%]
+........................................................................ [ 97%]
+........                                                                 [100%]
+368 passed in 44.40s
