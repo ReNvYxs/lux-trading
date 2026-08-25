@@ -1,0 +1,53 @@
+name: ambang
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'alat/ambang_modal.py'
+      - '.github/workflows/ambang.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: ambang
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  ukur:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      LUX_SL_GRID: '0.5,1.0,1.5,2.0,3.0,5.0'
+      AMBANG_KELUARAN: bukti/mikro/AMBANG_MODAL.json
+      LUX_JEJAK_DIR: bukti/jejak
+      LUX_JEJAK_AKTIF: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - name: detak awal
+        run: |
+          mkdir -p bukti/mikro bukti/jejak
+          date -u +%FT%TZ | tee bukti/mikro/DETAK_AMBANG.txt
+          python3 -V | tee -a bukti/mikro/DETAK_AMBANG.txt
+      - name: dependensi
+        run: python3 -m pip install -q -r requirements.txt
+      - name: ukur ambang modal
+        run: |
+          set +e
+          python3 alat/ambang_modal.py 2>&1 | tee bukti/mikro/jejak_ambang.txt
+          echo "rc_ambang=${PIPESTATUS[0]}" | tee -a bukti/mikro/jejak_ambang.txt
+      - name: rekam bukti
+        if: always()
+        run: |
+          git config user.name ambang-bot
+          git config user.email ambang-bot@users.noreply.github.com
+          git add -A -f bukti
+          git commit -q -m "[ambang] peta ambang modal 1 USDT $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push -q && break; sleep 5; done
+      - name: vonis
+        if: always()
+        run: |
+          grep -q "^AMBANG_MODAL=SELESAI$" bukti/mikro/jejak_ambang.txt
+          grep -q "^rc_ambang=0$" bukti/mikro/jejak_ambang.txt
