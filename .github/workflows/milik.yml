@@ -1,5 +1,10 @@
 name: milik
 
+# Uji hidup v3. Jarak SL uji dinaikkan ke 1,0% karena sapuan 527 simbol
+# membuktikan pada SL 0,5% dengan modal 1 USDT aturan flat 0,20 selalu tertahan
+# batas porsi margin 35%, sedangkan pada SL 1,0% flat benar-benar tercapai di
+# 142 simbol. Jadi order yang dikirim ke bursa memang menguji aturan barunya.
+
 on:
   push:
     branches: [main]
@@ -22,7 +27,7 @@ jobs:
     timeout-minutes: 25
     env:
       LUX_SALDO_UJI: '1.0'
-      LUX_SL_PCT_UJI: '0.5'
+      LUX_SL_PCT_UJI: '1.0'
       LUX_JEJAK_DIR: bukti/jejak
       LUX_JEJAK_AKTIF: '1'
       LUX_BUKU_POSISI: bukti/live/buku_posisi.json
@@ -59,7 +64,7 @@ jobs:
           git config user.name milik-bot
           git config user.email milik-bot@users.noreply.github.com
           git add -A -f bukti
-          git commit -q -m "[milik] uji kepemilikan posisi dan modal 1 USDT $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
+          git commit -q -m "[milik] sizing flat 0,20 pada modal 1 USDT $GITHUB_SHA [skip ci]" || echo "tidak ada perubahan"
           for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push -q && break; sleep 5; done
       - name: vonis
         if: always()
