@@ -5,6 +5,12 @@
    "lux_modul.konfigurasi",
    "lux_modul.strategi"
   ],
+  "alat.peta_mikro": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.ukuran_mikro",
+   "lux_modul.eksekusi_aman.inti"
+  ],
   "alat.teori.uji_kelas": [
    "lux_modul"
   ],
@@ -13,6 +19,14 @@
   ],
   "alat.teori3.ukur": [
    "dataclasses"
+  ],
+  "alat.uji_hidup_mesin": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.klasifikasi",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.ukuran_mikro",
+   "lux_modul.eksekusi_aman.inti"
   ],
   "alat.uji_hidup_saklar": [
    "lux_modul.eksekusi.binance_client",
@@ -122,6 +136,12 @@
    "os",
    "sys"
   ],
+  "alat.pasang_jejak": [
+   "__future__",
+   "os",
+   "pasang_tes",
+   "sys"
+  ],
   "alat.pasang_mesin": [
    "json",
    "os",
@@ -167,6 +187,13 @@
    "os",
    "pkgutil",
    "sys"
+  ],
+  "alat.peta_mikro": [
+   "base64",
+   "json",
+   "os",
+   "sys",
+   "traceback"
   ],
   "alat.ringkas_rakit": [
    "json",
@@ -219,6 +246,14 @@
    "os",
    "statistics",
    "sys"
+  ],
+  "alat.uji_hidup_mesin": [
+   "base64",
+   "json",
+   "os",
+   "sys",
+   "time",
+   "traceback"
   ],
   "alat.uji_hidup_saklar": [
    "base64",
@@ -1042,6 +1077,12 @@
    "pytest",
    "sys"
   ],
+  "tests.test_stres_jejak": [
+   "json",
+   "lux_modul.eksekusi.jejak",
+   "os",
+   "pytest"
+  ],
   "tests.test_stres_klasifikasi": [
    "json",
    "lux_modul.eksekusi",
@@ -1087,6 +1128,7 @@
   "alat.pasang_env": [],
   "alat.pasang_icebreaker": [],
   "alat.pasang_inti": [],
+  "alat.pasang_jejak": [],
   "alat.pasang_mesin": [],
   "alat.pasang_mikro": [],
   "alat.pasang_proteksi": [],
@@ -1095,6 +1137,12 @@
   "alat.pasang_tes_inti": [],
   "alat.pasang_v2": [],
   "alat.permukaan": [],
+  "alat.peta_mikro": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.ukuran_mikro",
+   "lux_modul.eksekusi_aman.inti"
+  ],
   "alat.ringkas_rakit": [],
   "alat.temu_registry": [],
   "alat.teori.referensi": [],
@@ -1106,6 +1154,14 @@
   ],
   "alat.teori3.ukur": [
    "dataclasses"
+  ],
+  "alat.uji_hidup_mesin": [
+   "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.klasifikasi",
+   "lux_modul.eksekusi.kredensial",
+   "lux_modul.eksekusi.ukuran_mikro",
+   "lux_modul.eksekusi_aman.inti"
   ],
   "alat.uji_hidup_saklar": [
    "lux_modul.eksekusi.binance_client",
@@ -1241,12 +1297,13 @@
   "tests.test_spesifikasi": [],
   "tests.test_strategi_arbiter": [],
   "tests.test_stres_eksekusi": [],
+  "tests.test_stres_jejak": [],
   "tests.test_stres_klasifikasi": [],
   "tests.test_stres_proteksi": [],
   "tests.test_stres_siklus_mikro": [],
   "tests.test_ukuran_mikro": []
  },
- "modul_jumlah": 123,
+ "modul_jumlah": 127,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",
@@ -1378,6 +1435,7 @@
     "tests.test_spesifikasi",
     "tests.test_strategi_arbiter",
     "tests.test_stres_eksekusi",
+    "tests.test_stres_jejak",
     "tests.test_stres_klasifikasi",
     "tests.test_stres_proteksi",
     "tests.test_stres_siklus_mikro",
@@ -1388,6 +1446,8 @@
  "sorot": {
   "lux_modul.eksekusi_aman.inti": {
    "bersarang": [
+    "alat.peta_mikro",
+    "alat.uji_hidup_mesin",
     "alat.uji_hidup_saklar",
     "lux_modul.eksekusi_aman.saklar",
     "lux_modul.live_runner"

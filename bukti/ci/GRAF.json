@@ -32,6 +32,7 @@
    "alat.pasang_proteksi"
   ],
   "pasang_tes": [
+   "alat.pasang_jejak",
    "alat.pasang_mikro",
    "alat.pasang_tes_inti"
   ],
@@ -49,6 +50,7 @@
    "tests.test_spesifikasi",
    "tests.test_strategi_arbiter",
    "tests.test_stres_eksekusi",
+   "tests.test_stres_jejak",
    "tests.test_stres_klasifikasi",
    "tests.test_stres_proteksi",
    "tests.test_stres_siklus_mikro",
@@ -191,6 +193,9 @@
    "tests.test_stres_eksekusi": [
     "lux_modul.eksekusi.binance_client",
     "lux_modul.eksekusi.klasifikasi"
+   ],
+   "tests.test_stres_jejak": [
+    "lux_modul.eksekusi.jejak"
    ],
    "tests.test_stres_klasifikasi": [
     "lux_modul.eksekusi",
@@ -380,6 +385,7 @@
   ],
   "lux_modul.eksekusi.jejak": [
    "lux_modul.eksekusi.binance_client",
+   "tests.test_stres_jejak",
    "tests.test_stres_klasifikasi"
   ],
   "lux_modul.eksekusi.klasifikasi": [
@@ -719,7 +725,7 @@
   ]
  },
  "modul_lux": 54,
- "modul_total": 123,
+ "modul_total": 127,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -1215,6 +1221,9 @@
    "lux_modul.eksekusi.klasifikasi",
    "lux_modul.eksekusi_aman.inti"
   ],
+  "tests.test_stres_jejak": [
+   "lux_modul.eksekusi.jejak"
+  ],
   "tests.test_stres_klasifikasi": [
    "lux_modul.eksekusi",
    "lux_modul.eksekusi.binance_client",
@@ -1275,6 +1284,7 @@
   "tests.test_spesifikasi",
   "tests.test_strategi_arbiter",
   "tests.test_stres_eksekusi",
+  "tests.test_stres_jejak",
   "tests.test_stres_klasifikasi",
   "tests.test_stres_proteksi",
   "tests.test_stres_siklus_mikro",
