@@ -956,6 +956,13 @@
    "numpy",
    "pytest"
   ],
+  "tests.test_kepemilikan": [
+   "json",
+   "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.kepemilikan",
+   "os",
+   "pytest"
+  ],
   "tests.test_konfigurasi": [
    "__future__",
    "lux_modul.eksekusi.kredensial",
@@ -1288,6 +1295,7 @@
   "tests.test_biaya": [],
   "tests.test_binance_client": [],
   "tests.test_inti": [],
+  "tests.test_kepemilikan": [],
   "tests.test_konfigurasi": [],
   "tests.test_konfigurasi_tf_simbol": [],
   "tests.test_kredensial": [],
@@ -1310,7 +1318,7 @@
   "tests.test_stres_siklus_mikro": [],
   "tests.test_ukuran_mikro": []
  },
- "modul_jumlah": 128,
+ "modul_jumlah": 129,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",
@@ -1433,6 +1441,7 @@
     "tests.test_backtest",
     "tests.test_binance_client",
     "tests.test_inti",
+    "tests.test_kepemilikan",
     "tests.test_konfigurasi",
     "tests.test_kredensial",
     "tests.test_order_postonly",

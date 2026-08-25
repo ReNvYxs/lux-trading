@@ -41,6 +41,7 @@
    "tests.test_backtest",
    "tests.test_binance_client",
    "tests.test_inti",
+   "tests.test_kepemilikan",
    "tests.test_konfigurasi",
    "tests.test_kredensial",
    "tests.test_order_postonly",
@@ -166,6 +167,10 @@
    "tests.test_inti": [
     "lux_modul.eksekusi"
    ],
+   "tests.test_kepemilikan": [
+    "lux_modul.eksekusi.jejak",
+    "lux_modul.eksekusi.kepemilikan"
+   ],
    "tests.test_konfigurasi": [
     "lux_modul.eksekusi.kredensial"
    ],
@@ -220,6 +225,7 @@
    "lux_modul.eksekusi.binance_client",
    "lux_modul.eksekusi.ice_breaker",
    "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.kepemilikan",
    "lux_modul.eksekusi.klasifikasi",
    "lux_modul.eksekusi.kredensial",
    "lux_modul.eksekusi.mode",
@@ -387,8 +393,12 @@
   "lux_modul.eksekusi.jejak": [
    "lux_modul.eksekusi.binance_client",
    "lux_modul.eksekusi.kepemilikan",
+   "tests.test_kepemilikan",
    "tests.test_stres_jejak",
    "tests.test_stres_klasifikasi"
+  ],
+  "lux_modul.eksekusi.kepemilikan": [
+   "tests.test_kepemilikan"
   ],
   "lux_modul.eksekusi.klasifikasi": [
    "lux_modul.eksekusi.ice_breaker",
@@ -727,7 +737,7 @@
   ]
  },
  "modul_lux": 55,
- "modul_total": 128,
+ "modul_total": 129,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -1146,6 +1156,10 @@
    "lux_modul.kontrak",
    "lux_modul.sintetis"
   ],
+  "tests.test_kepemilikan": [
+   "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.kepemilikan"
+  ],
   "tests.test_konfigurasi": [
    "lux_modul.eksekusi.kredensial",
    "lux_modul.konfigurasi",
@@ -1273,6 +1287,7 @@
   "tests.test_biaya",
   "tests.test_binance_client",
   "tests.test_inti",
+  "tests.test_kepemilikan",
   "tests.test_konfigurasi",
   "tests.test_konfigurasi_tf_simbol",
   "tests.test_kredensial",
@@ -1296,7 +1311,5 @@
   "tests.test_ukuran_mikro",
   "lux_modul"
  ],
- "yatim": [
-  "lux_modul.eksekusi.kepemilikan"
- ]
+ "yatim": []
 }

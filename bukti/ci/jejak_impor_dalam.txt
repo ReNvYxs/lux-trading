@@ -1,11 +1,11 @@
 IMPOR_DALAM=SELESAI
-modul_jumlah=128
+modul_jumlah=129
 galat_parse=0
 paket_luar_tingkat_atas=["__future__", "abc", "argparse", "ast", "asyncio", "base64", "collections", "csv", "dataclasses", "decimal", "glob", "hashlib", "hmac", "importlib", "inspect", "io", "json", "math", "numpy", "os", "pasang_inti", "pasang_tes", "pathlib", "pkgutil", "pytest", "re", "referensi", "statistics", "subprocess", "sys", "tempfile", "time", "traceback", "types", "typing", "urllib", "uuid"]
 paket_luar_bersarang=["asyncio", "dataclasses", "inspect", "pytest", "time"]
 paket_luar_gabungan=["__future__", "abc", "argparse", "ast", "asyncio", "base64", "collections", "csv", "dataclasses", "decimal", "glob", "hashlib", "hmac", "importlib", "inspect", "io", "json", "math", "numpy", "os", "pasang_inti", "pasang_tes", "pathlib", "pkgutil", "pytest", "re", "referensi", "statistics", "subprocess", "sys", "tempfile", "time", "traceback", "types", "typing", "urllib", "uuid"]
 pantau=numpy atas=["alat.teori.referensi", "alat.teori.uji_kelas", "alat.teori.uji_teori", "alat.teori3.ukur", "lux_modul.data.loader", "lux_modul.data.resample", "lux_modul.fitur.dasar", "lux_modul.fitur.lanjutan", "lux_modul.fitur.store", "lux_modul.fitur.struktur", "lux_modul.kontrak", "lux_modul.live_runner", "lux_modul.sintetis", "lux_modul.strategi.aliran_volume", "lux_modul.strategi.indikator", "lux_modul.strategi.level_harga", "lux_modul.strategi.pola", "lux_modul.strategi.struktur_modern", "lux_modul.strategi.struktur_plus", "lux_modul.strategi.util", "lux_modul.strategi.volatilitas", "tests.test_inti"] bersarang=[]
-pantau=pytest atas=["tests.conftest", "tests.test_backtest", "tests.test_binance_client", "tests.test_inti", "tests.test_konfigurasi", "tests.test_kredensial", "tests.test_order_postonly", "tests.test_pemindai", "tests.test_portofolio", "tests.test_saklar_otomatis", "tests.test_spesifikasi", "tests.test_strategi_arbiter", "tests.test_stres_eksekusi", "tests.test_stres_jejak", "tests.test_stres_klasifikasi", "tests.test_stres_proteksi", "tests.test_stres_siklus_mikro", "tests.test_ukuran_mikro"] bersarang=["scripts.jalankan_uji"]
+pantau=pytest atas=["tests.conftest", "tests.test_backtest", "tests.test_binance_client", "tests.test_inti", "tests.test_kepemilikan", "tests.test_konfigurasi", "tests.test_kredensial", "tests.test_order_postonly", "tests.test_pemindai", "tests.test_portofolio", "tests.test_saklar_otomatis", "tests.test_spesifikasi", "tests.test_strategi_arbiter", "tests.test_stres_eksekusi", "tests.test_stres_jejak", "tests.test_stres_klasifikasi", "tests.test_stres_proteksi", "tests.test_stres_siklus_mikro", "tests.test_ukuran_mikro"] bersarang=["scripts.jalankan_uji"]
 pantau=pandas TIDAK_DIPAKAI
 pantau=pyarrow TIDAK_DIPAKAI
 pantau=yaml TIDAK_DIPAKAI
