@@ -1,0 +1,39 @@
+ambang_notional_icebreaker=5000.0
+batas_modal_mikro=20.0
+risiko_maks_bawaan=0.05
+simbol_dievaluasi=527
+--- jumlah simbol LAYAK per (saldo x jarak SL) ---
+saldo|sl0.5%|sl1.0%|sl1.5%|sl2.0%|sl3.0%|sl5.0%
+1.0|502|3|0|0|0|0
+1.25|502|496|0|0|0|0
+1.5|509|505|3|0|0|0
+1.75|509|507|499|0|0|0
+2.0|509|508|503|0|0|0
+2.5|510|508|506|502|0|0
+3.0|526|525|524|521|0|0
+4.0|526|525|525|524|519|0
+5.0|526|525|525|524|520|0
+6.0|527|525|525|524|520|22
+8.0|527|525|525|524|520|22
+10.0|527|525|525|524|520|22
+12.0|527|525|525|524|520|22
+15.0|527|525|525|524|520|22
+19.0|527|525|525|524|520|22
+19.99|527|525|525|524|520|22
+20.0|0|0|0|0|0|0
+25.0|0|0|0|0|0|0
+catatan_tangga=saldo >= 20.0 keluar dari rezim mikro; sizing beralih ke risiko biasa di inti.py sehingga kolom mikro wajar bernilai 0
+AMBANG_PER_SL={"0.5": 0.5495, "1.0": 1.0, "1.5": 1.5, "2.0": 2.0, "3.0": 3.0, "5.0": 5.0013}
+AMBANG_MESIN_USDT=0.5495
+VALIDASI_SALDO_1={"diperiksa": 527, "pelanggaran": {"bukan_kelipatan_step": 0, "di_bawah_min_qty": 0, "di_bawah_min_notional": 0, "di_atas_maks_qty": 0, "sl_tidak_kelipatan_tick": 0, "tp_tidak_kelipatan_tick": 0, "harga_sl_tidak_positif": 0, "margin_di_atas_saldo": 0}}
+layak_pada_saldo_1=3
+--- 10 setup termurah pada saldo 1,00 USDT, SL 1% ---
+simbol|minNotional|harga|qty|notional|lev|margin|risiko%|liq%|base
+DFUSDT|5.0|0.0016|3125.0|5.0|25|0.2|5.0|4.0|ok
+PTBUSDT|5.0|0.0008|6250.0|5.0|25|0.2|5.0|4.0|ok
+SXPUSDT|5.0|0.0001|50000.0|5.0|25|0.2|5.0|4.0|ok
+RENCANA_TERMURAH_SALDO_1={"saldo": 1.0, "harga": 0.0016, "base_per_setup": 0.2, "batas_modal_mikro": 20.0, "leverage_maks_bursa": 75, "spek": {"tick": 1e-05, "step": 1.0, "min_qty": 1.0, "maks_qty": 200000.0, "min_notional": 5.0, "presisi_harga": 7, "presisi_qty": 0}, "mikro_aktif": true, "notional_minimum_efektif": 5.0, "sumber_minimum": {"min_notional": 5.0, "min_qty_x_harga": 0.0016, "step_x_harga": 0.0016}, "qty": 3125.0, "notional": 5.0, "iterasi_penambahan_step": 0, "leverage_dibutuhkan_untuk_base": 25, "leverage_dipakai": 25, "margin_nyata": 0.2, "base_tercapai": true, "margin_minimum_mungkin": 0.06666667, "margin_pct_dari_saldo": 20.0, "jarak_sl_abs": 1.6e-05, "jarak_sl_pct": 1.0, "rugi_pada_sl_usdt": 0.05, "risiko_pct_dari_saldo": 5.0, "rasio_risiko_terhadap_margin": 0.25, "jarak_likuidasi_pct": 4.0, "likuidasi_lebih_jauh_dari_sl": true, "layak": true, "alasan": null}
+TOTAL_PELANGGARAN=0
+berkas=bukti/mikro/AMBANG_MODAL.json
+AMBANG_MODAL=SELESAI
+rc_ambang=0
