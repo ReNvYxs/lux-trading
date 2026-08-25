@@ -437,7 +437,11 @@
    "lux_modul.eksekusi.ukuran_mikro": [
     "BASE_PER_SETUP_BAWAAN",
     "BATAS_MODAL_KECIL_BAWAAN",
+    "MMR_BAWAAN",
+    "RISIKO_FLAT_BAWAAN",
+    "TOLERANSI_RISIKO_BAWAAN",
     "TolakUkuranMikro",
+    "leverage_liq_maks",
     "modal_mikro",
     "naik_qty",
     "notional_minimum_efektif",
@@ -486,6 +490,7 @@
   "MILIK_KOSONG",
   "MILIK_MESIN",
   "MILIK_USER",
+  "MMR_BAWAAN",
   "MODE_LIVE",
   "MODE_TESTNET",
   "ModeTerlarang",
@@ -497,6 +502,7 @@
   "PerekamJejak",
   "PosisiBukanMilikMesin",
   "RASIO_VISIBLE",
+  "RISIKO_FLAT_BAWAAN",
   "RencanaEksekusi",
   "RencanaPosisi",
   "SLICE_MAKS",
@@ -511,6 +517,7 @@
   "TOLAK_NOTIONAL_MIN",
   "TOLAK_QTY_NOL",
   "TOLAK_RR_BERSIH",
+  "TOLERANSI_RISIKO_BAWAAN",
   "TolakUkuranMikro",
   "UTUH",
   "_PATH_DEPTH",
@@ -538,6 +545,7 @@
   "kirim_order_async",
   "klasifikasi",
   "klasifikasi_posisi",
+  "leverage_liq_maks",
   "modal_mikro",
   "mode_untuk",
   "ms_ban_dari_pesan",
@@ -1259,7 +1267,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v1/order', '/fapi/v2/balance', '/fapi/v1/order/test', '/fapi/v1/leverage', '/fapi/v2/positionRisk', '/fapi/v1/allOpenOrders', '/fapi/v1/batchO..."
+    "nilai": "frozenset({'/fapi/v1/allOpenOrders', '/fapi/v1/leverage', '/fapi/v1/positionMargin', '/fapi/v1/order', '/fapi/v1/batchOrders', '/fapi/v1/order/test', '/fapi/v1/..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1553,7 +1561,7 @@
    },
    "STATUS_DIKENAL": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'NEW', 'EXPIRED', 'CANCELED', 'PARTIALLY_FILLED', 'NEW_INSURANCE', 'FILLED', 'REJECTED', 'NEW_ADL', 'EXPIRED_IN_MATCH'})"
+    "nilai": "frozenset({'NEW_INSURANCE', 'PARTIALLY_FILLED', 'REJECTED', 'EXPIRED_IN_MATCH', 'FILLED', 'NEW', 'NEW_ADL', 'CANCELED', 'EXPIRED'})"
    },
    "STATUS_HIDUP": {
     "jenis": "frozenset",
@@ -1565,7 +1573,7 @@
    },
    "STATUS_SELESAI": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'CANCELED', 'FILLED', 'EXPIRED', 'REJECTED', 'EXPIRED_IN_MATCH'})"
+    "nilai": "frozenset({'FILLED', 'EXPIRED', 'REJECTED', 'CANCELED', 'EXPIRED_IN_MATCH'})"
    },
    "STATUS_TAK_DIKETAHUI": {
     "jenis": "tuple",
@@ -2077,6 +2085,7 @@
   "MILIK_KOSONG",
   "MILIK_MESIN",
   "MILIK_USER",
+  "MMR_BAWAAN",
   "MODE_LIVE",
   "MODE_TESTNET",
   "ModeTerlarang",
@@ -2088,6 +2097,7 @@
   "PerekamJejak",
   "PosisiBukanMilikMesin",
   "RASIO_VISIBLE",
+  "RISIKO_FLAT_BAWAAN",
   "RencanaEksekusi",
   "RencanaPosisi",
   "SLICE_MAKS",
@@ -2102,6 +2112,7 @@
   "TOLAK_NOTIONAL_MIN",
   "TOLAK_QTY_NOL",
   "TOLAK_RR_BERSIH",
+  "TOLERANSI_RISIKO_BAWAAN",
   "TolakUkuranMikro",
   "UTUH",
   "_PATH_DEPTH",
@@ -2129,6 +2140,7 @@
   "kirim_order_async",
   "klasifikasi",
   "klasifikasi_posisi",
+  "leverage_liq_maks",
   "mode_untuk",
   "ms_ban_dari_pesan",
   "muat_kredensial",

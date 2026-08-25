@@ -2,30 +2,8 @@
 ........................................................................ [ 17%]
 ........................................................................ [ 34%]
 ........................................................................ [ 51%]
-........................................................................ [ 69%]
+........................................................................ [ 68%]
 ........................................................................ [ 86%]
-...........................F.............................                [100%]
-=================================== FAILURES ===================================
-__________ test_saldo_mikro_memakai_jalur_mikro_dan_mencapai_base_020 __________
-
-    def test_saldo_mikro_memakai_jalur_mikro_dan_mencapai_base_020():
-        # notional 5 (minimum bursa) x leverage 25 -> margin tepat 0,20 USDT.
-        k = Klien()
-        h = siklus(k, 10.0)
-        assert h["jalur_ukuran"] == "mikro"
->       assert h["ukuran"]["qty"] == pytest.approx(0.05)
-E       assert 0.2 == 0.05 ± 5.0e-08
-E         
-E         comparison failed
-E         Obtained: 0.2
-E         Expected: 0.05 ± 5.0e-08
-
-tests/test_stres_siklus_mikro.py:120: AssertionError
-=========================== short test summary info ============================
-FAILED tests/test_stres_siklus_mikro.py::test_saldo_mikro_memakai_jalur_mikro_dan_mencapai_base_020 - assert 0.2 == 0.05 ± 5.0e-08
-  
-  comparison failed
-  Obtained: 0.2
-  Expected: 0.05 ± 5.0e-08
-1 failed, 416 passed in 42.60s
-rc_pytest=1
+..........................................................               [100%]
+418 passed in 32.56s
+rc_pytest=0
