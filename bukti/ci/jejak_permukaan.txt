@@ -1,5 +1,5 @@
 PERMUKAAN=OK
-konsumen=29
+konsumen=30
 nama_lama_dipakai_jumlah=90
 padanan_jumlah=2
 tanpa_padanan_jumlah=88

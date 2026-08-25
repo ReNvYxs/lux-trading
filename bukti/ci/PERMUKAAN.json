@@ -385,6 +385,11 @@
     "BinanceAPIError"
    ]
   },
+  "tests.test_stres_proteksi": {
+   "lux_modul.eksekusi.binance_client": [
+    "BinanceAPIError"
+   ]
+  },
   "tests.test_ukuran_mikro": {
    "lux_modul.eksekusi.ukuran_mikro": [
     "BASE_PER_SETUP_BAWAAN",
@@ -400,7 +405,7 @@
  },
  "galat_impor_aman": {},
  "galat_impor_lama": {},
- "konsumen_jumlah": 29,
+ "konsumen_jumlah": 30,
  "nama_lama_dipakai": [
   "AMBANG_NOTIONAL_ICEBREAKER",
   "BASE_PER_SETUP_BAWAAN",
@@ -1172,7 +1177,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v1/leverage', '/fapi/v2/positionRisk', '/fapi/v1/batchOrders', '/fapi/v1/marginType', '/fapi/v1/openOrders', '/fapi/v1/order', '/fapi/v2/balan..."
+    "nilai": "frozenset({'/fapi/v2/positionRisk', '/fapi/v1/openOrders', '/fapi/v1/leverage', '/fapi/v1/order/test', '/fapi/v1/marginType', '/fapi/v1/allOpenOrders', '/fapi/v..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1325,11 +1330,11 @@
    },
    "STATUS_DIKENAL": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'FILLED', 'NEW_ADL', 'NEW_INSURANCE', 'CANCELED', 'REJECTED', 'EXPIRED', 'EXPIRED_IN_MATCH', 'PARTIALLY_FILLED', 'NEW'})"
+    "nilai": "frozenset({'FILLED', 'EXPIRED', 'NEW', 'NEW_ADL', 'CANCELED', 'REJECTED', 'EXPIRED_IN_MATCH', 'NEW_INSURANCE', 'PARTIALLY_FILLED'})"
    },
    "STATUS_HIDUP": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'PARTIALLY_FILLED', 'NEW'})"
+    "nilai": "frozenset({'NEW', 'PARTIALLY_FILLED'})"
    },
    "STATUS_LAJU": {
     "jenis": "tuple",
@@ -1337,7 +1342,7 @@
    },
    "STATUS_SELESAI": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'FILLED', 'EXPIRED', 'CANCELED', 'EXPIRED_IN_MATCH', 'REJECTED'})"
+    "nilai": "frozenset({'FILLED', 'EXPIRED', 'EXPIRED_IN_MATCH', 'CANCELED', 'REJECTED'})"
    },
    "STATUS_TAK_DIKETAHUI": {
     "jenis": "tuple",
