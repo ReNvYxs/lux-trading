@@ -1,13 +1,14 @@
-"""Stress test lapis 3b: base 0,20 USDT per setup DI DALAM siklus eksekusi.
+"""Stress test lapis 3b: risiko FLAT 0,20 USDT DI DALAM siklus eksekusi.
 
-Lapis 3 sebelumnya menguji perhitungannya. Berkas ini menguji bahwa perhitungan
-itu benar-benar DIPAKAI jalur hidup, karena modul yang sudah diuji tetapi tidak
+Lapis 3 menguji perhitungannya. Berkas ini menguji bahwa perhitungan itu
+benar-benar DIPAKAI jalur hidup, karena modul yang sudah diuji tetapi tidak
 tersambung sama saja dengan tidak ada.
 
-Tiga hal yang dikunci:
-1. Saldo di bawah 20 USDT memakai jalur mikro dan mencapai margin 0,20.
-2. Ketidaklayakan berhenti SEBELUM satu order pun dikirim.
-3. Saldo 20 USDT atau lebih tetap memakai sizing risiko - tanpa regresi.
+Empat hal yang dikunci:
+1. Saldo di bawah 20 USDT memakai jalur mikro dan mempertaruhkan 0,20 USDT.
+2. Saldo 1 USDT mempertaruhkan angka yang SAMA - aturannya flat, bukan persen.
+3. Ketidaklayakan berhenti SEBELUM satu order pun dikirim.
+4. Saldo 20 USDT atau lebih tetap memakai sizing risiko - tanpa regresi.
 """
 from __future__ import annotations
 
@@ -32,7 +33,7 @@ def spek(min_notional=5.0):
 
 
 class Klien:
-    def __init__(self, posisi_amt=0.05, entry=100.0, tp_terlihat=True,
+    def __init__(self, posisi_amt=0.2, entry=100.0, tp_terlihat=True,
                  leverage_galat=None):
         self.posisi_amt = posisi_amt
         self.entry = entry
@@ -89,9 +90,10 @@ class Klien:
         return {}
 
     def status_order(self, simbol, order_id=None, **lain):
+        qty = str(self.posisi_amt)
         return {"orderId": order_id or 1, "clientOrderId": None,
                 "symbol": "BTCUSDT", "side": "BUY", "status": "FILLED",
-                "type": "LIMIT", "origQty": "0.05", "executedQty": "0.05",
+                "type": "LIMIT", "origQty": qty, "executedQty": qty,
                 "price": "100", "avgPrice": "100"}
 
     def sinkron_waktu(self):
@@ -112,23 +114,40 @@ def siklus(k, saldo, min_notional=5.0):
                            data=DataStub(), tidur=lambda _d: None, saldo=saldo)
 
 
-def test_saldo_mikro_memakai_jalur_mikro_dan_mencapai_base_020():
-    # notional 5 (minimum bursa) x leverage 25 -> margin tepat 0,20 USDT.
-    k = Klien()
+def test_saldo_mikro_memakai_jalur_mikro_dan_risiko_flat_020():
+    # SL 1% pada harga 100 -> target notional 0,20/1% = 20 USDT -> qty 0,2.
+    # Leverage 71, bukan 100, karena dibatasi jarak likuidasi nyata.
+    k = Klien(posisi_amt=0.2)
     h = siklus(k, 10.0)
     assert h["jalur_ukuran"] == "mikro"
-    assert h["ukuran"]["qty"] == pytest.approx(0.05)
-    assert h["ukuran"]["notional"] == pytest.approx(5.0)
-    assert h["ukuran"]["margin_nyata"] == pytest.approx(0.20)
-    assert h["ukuran"]["base_tercapai"] is True
-    assert h["leverage_dipasang"] == 25
-    assert k.leverage_diatur == [("BTCUSDT", 25)]
+    assert h["ukuran"]["qty"] == pytest.approx(0.2)
+    assert h["ukuran"]["notional"] == pytest.approx(20.0)
+    assert h["ukuran"]["rugi_pada_sl_usdt"] == pytest.approx(0.20)
+    assert h["ukuran"]["risiko_flat_tercapai"] is True
+    assert h["ukuran"]["margin_nyata"] == pytest.approx(0.28169014)
+    assert h["ukuran"]["base_tercapai"] is False
+    assert h["leverage_dipasang"] == 71
+    assert k.leverage_diatur == [("BTCUSDT", 71)]
     assert h["kesimpulan"] == "terlindungi"
     assert h["rekonsiliasi"]["masalah"] is None
 
 
+def test_saldo_1_usdt_mempertaruhkan_angka_yang_sama():
+    # Bukti di jalur hidup bahwa aturannya flat: saldo 1 USDT memberi qty dan
+    # risiko identik dengan saldo 10 USDT. Pada saldo 1 itu 20% modal, dan
+    # angka itu memang yang diminta pemilik modul.
+    k = Klien(posisi_amt=0.2)
+    h = siklus(k, 1.0)
+    assert h["jalur_ukuran"] == "mikro"
+    assert h["ukuran"]["qty"] == pytest.approx(0.2)
+    assert h["ukuran"]["rugi_pada_sl_usdt"] == pytest.approx(0.20)
+    assert h["ukuran"]["risiko_pct_dari_saldo"] == pytest.approx(20.0)
+    assert h["leverage_dipasang"] == 71
+    assert h["kesimpulan"] == "terlindungi"
+
+
 def test_saldo_mikro_tidak_layak_tidak_mengirim_order_apa_pun():
-    # minNotional 100 pada saldo 10 dengan SL 1% = rugi 1 USDT = 10% modal.
+    # minNotional 100 pada SL 1% = rugi 1 USDT, empat kali plafon 0,25.
     # Setup HARUS dilewati, bukan dipaksakan.
     k = Klien()
     h = siklus(k, 10.0, min_notional=100.0)
@@ -155,7 +174,7 @@ def test_leverage_gagal_dipasang_membatalkan_setup_sebelum_ada_order():
 
 
 def test_saldo_normal_tetap_memakai_sizing_risiko_tanpa_regresi():
-    k = Klien()
+    k = Klien(posisi_amt=0.05)
     h = siklus(k, 5000.0)
     assert h["jalur_ukuran"] == "risiko"
     assert k.leverage_diatur == []
