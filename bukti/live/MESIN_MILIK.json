@@ -3,8 +3,8 @@
   "kandidat_layak": 12,
   "sizing1_diterima_bursa": true,
   "sizing1_order": {
-   "orderId": 233976766,
-   "clientOrderId": "lx76406731",
+   "orderId": 233977586,
+   "clientOrderId": "lx76408311",
    "status": "NEW",
    "simbol": "1000WHYUSDT",
    "sisi": "BUY",
@@ -59,20 +59,19 @@
    "alasan": null
   },
   "simbol": "1000WHYUSDT",
-  "entry_mesin": false,
-  "vonis": "GAGAL_ENTRY_MESIN"
+  "vonis": "GALAT_FATAL"
  },
  "jejak": [
   {
    "tahap": "koneksi",
-   "utc": "2026-08-25T06:51:11Z",
+   "utc": "2026-08-25T06:53:49Z",
    "saldo_nyata_usdt": 4179.81481529,
    "saldo_uji": 1.0,
    "catatan": "saldo uji disuntik sebagai parameter sizing; saldo akun testnet TIDAK diubah karena itu akan merusak akun uji"
   },
   {
    "tahap": "kandidat",
-   "utc": "2026-08-25T06:51:12Z",
+   "utc": "2026-08-25T06:53:51Z",
    "jumlah": 12,
    "teratas": [
     {
@@ -83,20 +82,20 @@
     },
     {
      "simbol": "1000SATSUSDT",
-     "margin": 0.19230804,
-     "qty": 408164.0,
-     "lev": 26
-    },
-    {
-     "simbol": "XPINUSDT",
-     "margin": 0.19230846,
-     "qty": 4717.0,
+     "margin": 0.19230781,
+     "qty": 408831.0,
      "lev": 26
     },
     {
      "simbol": "DOGSUSDT",
-     "margin": 0.19230861,
-     "qty": 123366.0,
+     "margin": 0.19230802,
+     "qty": 123457.0,
+     "lev": 26
+    },
+    {
+     "simbol": "HOTUSDT",
+     "margin": 0.19230831,
+     "qty": 12940.0,
      "lev": 26
     },
     {
@@ -109,13 +108,13 @@
   },
   {
    "tahap": "bersihkan",
-   "utc": "2026-08-25T06:51:13Z",
+   "utc": "2026-08-25T06:53:51Z",
    "simbol": "1000WHYUSDT",
    "sisa": 0.0
   },
   {
    "tahap": "sizing1_permintaan",
-   "utc": "2026-08-25T06:51:13Z",
+   "utc": "2026-08-25T06:53:51Z",
    "simbol": "1000WHYUSDT",
    "saldo_uji": 1.0,
    "rencana": {
@@ -135,15 +134,15 @@
     "timeInForce": "GTC",
     "price": 1.6e-06,
     "quantity": 3125000.0,
-    "newClientOrderId": "lx76406731"
+    "newClientOrderId": "lx76408311"
    }
   },
   {
    "tahap": "sizing1_jawaban",
-   "utc": "2026-08-25T06:51:13Z",
+   "utc": "2026-08-25T06:53:51Z",
    "ringkas": {
-    "orderId": 233976766,
-    "clientOrderId": "lx76406731",
+    "orderId": 233977586,
+    "clientOrderId": "lx76408311",
     "status": "NEW",
     "simbol": "1000WHYUSDT",
     "sisi": "BUY",
@@ -158,50 +157,13 @@
    }
   },
   {
-   "tahap": "entry_mesin_permintaan",
-   "utc": "2026-08-25T06:51:13Z",
-   "payload": {
-    "symbol": "1000WHYUSDT",
-    "side": "BUY",
-    "type": "MARKET",
-    "quantity": 8333334.0,
-    "newClientOrderId": "lx76406732"
-   },
-   "notional": 15.0000012
-  },
-  {
-   "tahap": "entry_mesin_galat",
-   "utc": "2026-08-25T06:51:13Z",
+   "tahap": "fatal",
+   "utc": "2026-08-25T06:53:51Z",
    "galat": {
-    "jenis": "BinanceAPIError",
-    "pesan": "BinanceAPIError(status=400, kode=-4131): The counterparty's best price does not meet the PERCENT_PRICE filter limit.",
-    "api_status": 400,
-    "api_kode": -4131
+    "jenis": "KeyError",
+    "pesan": "'notional_uji'"
    },
-   "payload": {
-    "symbol": "1000WHYUSDT",
-    "side": "BUY",
-    "type": "MARKET",
-    "quantity": 8333334.0,
-    "newClientOrderId": "lx76406732"
-   },
-   "kelas": {
-    "kelas": "permanen",
-    "kode": -4131,
-    "status": 400,
-    "pesan": "The counterparty's best price does not meet the PERCENT_PRICE filter limit.",
-    "alasan": "harga terbaik lawan melanggar filter PERCENT_PRICE (dok)",
-    "boleh_ulang": false,
-    "wajib_rekonsiliasi": false,
-    "wajib_sinkron_waktu": false,
-    "jeda_ms": 0
-   }
-  },
-  {
-   "tahap": "bersihkan",
-   "utc": "2026-08-25T06:51:14Z",
-   "simbol": "1000WHYUSDT",
-   "sisa": 0.0
+   "jejak": "Traceback (most recent call last):\n  File \"/home/runner/work/lux-trading/lux-trading/alat/uji_hidup_milik.py\", line 343, in <module>\n    kode = main()\n           ^^^^^^\n  File \"/home/runner/work/lux-trading/lux-trading/alat/uji_hidup_milik.py\", line 151, in main\n    notional_uji = dipakai[\"notional_uji\"]\n                   ~~~~~~~^^^^^^^^^^^^^^^^\nKeyError: 'notional_uji'\n"
   }
  ]
 }
