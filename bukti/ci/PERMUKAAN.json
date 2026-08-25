@@ -1274,7 +1274,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v1/positionMargin', '/fapi/v2/balance', '/fapi/v1/leverage', '/fapi/v1/openOrders', '/fapi/v2/positionRisk', '/fapi/v1/order/test', '/fapi/v1/..."
+    "nilai": "frozenset({'/fapi/v2/positionRisk', '/fapi/v1/leverage', '/fapi/v1/order/test', '/fapi/v1/openOrders', '/fapi/v1/marginType', '/fapi/v1/allOpenOrders', '/fapi/v..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1568,11 +1568,11 @@
    },
    "STATUS_DIKENAL": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'PARTIALLY_FILLED', 'FILLED', 'EXPIRED', 'EXPIRED_IN_MATCH', 'REJECTED', 'NEW_INSURANCE', 'NEW_ADL', 'NEW', 'CANCELED'})"
+    "nilai": "frozenset({'EXPIRED_IN_MATCH', 'NEW', 'NEW_ADL', 'PARTIALLY_FILLED', 'EXPIRED', 'FILLED', 'NEW_INSURANCE', 'REJECTED', 'CANCELED'})"
    },
    "STATUS_HIDUP": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'PARTIALLY_FILLED', 'NEW'})"
+    "nilai": "frozenset({'NEW', 'PARTIALLY_FILLED'})"
    },
    "STATUS_LAJU": {
     "jenis": "tuple",
@@ -1580,7 +1580,7 @@
    },
    "STATUS_SELESAI": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'EXPIRED_IN_MATCH', 'REJECTED', 'EXPIRED', 'CANCELED', 'FILLED'})"
+    "nilai": "frozenset({'FILLED', 'CANCELED', 'EXPIRED_IN_MATCH', 'REJECTED', 'EXPIRED'})"
    },
    "STATUS_TAK_DIKETAHUI": {
     "jenis": "tuple",
