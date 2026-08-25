@@ -29,580 +29,580 @@
  ],
  "matriks": {
   "1.0|0.5": {
-   "layak": 502,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 504,
+   "base_tercapai": 0,
+   "termurah_simbol": "BTCDOMUSDT",
+   "termurah_margin": 0.214436
   },
   "1.0|1.0": {
-   "layak": 3,
-   "base_tercapai": 3,
-   "termurah_simbol": "SXPUSDT",
-   "termurah_margin": 0.2
+   "layak": 504,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "1.0|1.5": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 503,
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "1.0|2.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 502,
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "1.0|3.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 500,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "1.0|5.0": {
-   "layak": 0,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "1.25|0.5": {
-   "layak": 502,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 504,
+   "base_tercapai": 0,
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26288
   },
   "1.25|1.0": {
-   "layak": 496,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 504,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "1.25|1.5": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 503,
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "1.25|2.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 502,
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "1.25|3.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 500,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "1.25|5.0": {
-   "layak": 0,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "1.5|0.5": {
    "layak": 509,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 0,
+   "termurah_simbol": "AAVEUSDT",
+   "termurah_margin": 0.26288
   },
   "1.5|1.0": {
-   "layak": 505,
-   "base_tercapai": 379,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 509,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "1.5|1.5": {
-   "layak": 3,
+   "layak": 508,
    "base_tercapai": 3,
-   "termurah_simbol": "SXPUSDT",
-   "termurah_margin": 0.2
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "1.5|2.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 507,
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "1.5|3.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 505,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "1.5|5.0": {
-   "layak": 0,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "1.75|0.5": {
-   "layak": 509,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 510,
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "1.75|1.0": {
-   "layak": 507,
-   "base_tercapai": 381,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 510,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "1.75|1.5": {
-   "layak": 499,
-   "base_tercapai": 375,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 509,
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "1.75|2.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 508,
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "1.75|3.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 506,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "1.75|5.0": {
-   "layak": 0,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "2.0|0.5": {
-   "layak": 509,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 510,
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "2.0|1.0": {
-   "layak": 508,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 510,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "2.0|1.5": {
-   "layak": 503,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 509,
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "2.0|2.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 508,
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "2.0|3.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 506,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "2.0|5.0": {
-   "layak": 0,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "2.5|0.5": {
    "layak": 510,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "2.5|1.0": {
-   "layak": 508,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 510,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "2.5|1.5": {
-   "layak": 506,
-   "base_tercapai": 380,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 509,
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "2.5|2.0": {
-   "layak": 502,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 508,
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "2.5|3.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 506,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "2.5|5.0": {
-   "layak": 0,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "3.0|0.5": {
    "layak": 526,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "3.0|1.0": {
-   "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "3.0|1.5": {
-   "layak": 524,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 525,
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "3.0|2.0": {
-   "layak": 521,
-   "base_tercapai": 379,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 524,
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "3.0|3.0": {
-   "layak": 0,
-   "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "layak": 522,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "3.0|5.0": {
-   "layak": 0,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "4.0|0.5": {
    "layak": 526,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "4.0|1.0": {
-   "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "4.0|1.5": {
    "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "4.0|2.0": {
    "layak": 524,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "4.0|3.0": {
-   "layak": 519,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 522,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "4.0|5.0": {
-   "layak": 0,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "5.0|0.5": {
    "layak": 526,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "5.0|1.0": {
-   "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "5.0|1.5": {
    "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "5.0|2.0": {
    "layak": 524,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "5.0|3.0": {
-   "layak": 520,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 522,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "5.0|5.0": {
-   "layak": 0,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": null,
-   "termurah_margin": null
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "6.0|0.5": {
-   "layak": 527,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "6.0|1.0": {
-   "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "6.0|1.5": {
    "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "6.0|2.0": {
    "layak": 524,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "6.0|3.0": {
-   "layak": 520,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 522,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "6.0|5.0": {
-   "layak": 22,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": "YGGUSDT",
-   "termurah_margin": 0.50095
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "8.0|0.5": {
-   "layak": 527,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "8.0|1.0": {
-   "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "8.0|1.5": {
    "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "8.0|2.0": {
    "layak": 524,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "8.0|3.0": {
-   "layak": 520,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 522,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "8.0|5.0": {
-   "layak": 22,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": "YGGUSDT",
-   "termurah_margin": 0.50095
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "10.0|0.5": {
-   "layak": 527,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "10.0|1.0": {
-   "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "10.0|1.5": {
    "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "10.0|2.0": {
    "layak": 524,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "10.0|3.0": {
-   "layak": 520,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 522,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "10.0|5.0": {
-   "layak": 22,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": "YGGUSDT",
-   "termurah_margin": 0.50095
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "12.0|0.5": {
-   "layak": 527,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "12.0|1.0": {
-   "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "12.0|1.5": {
    "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "12.0|2.0": {
    "layak": 524,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "12.0|3.0": {
-   "layak": 520,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 522,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "12.0|5.0": {
-   "layak": 22,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": "YGGUSDT",
-   "termurah_margin": 0.50095
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "15.0|0.5": {
-   "layak": 527,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "15.0|1.0": {
-   "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "15.0|1.5": {
    "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "15.0|2.0": {
    "layak": 524,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "15.0|3.0": {
-   "layak": 520,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 522,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "15.0|5.0": {
-   "layak": 22,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": "YGGUSDT",
-   "termurah_margin": 0.50095
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "19.0|0.5": {
-   "layak": 527,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "19.0|1.0": {
-   "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "19.0|1.5": {
    "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "19.0|2.0": {
    "layak": 524,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "19.0|3.0": {
-   "layak": 520,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 522,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "19.0|5.0": {
-   "layak": 22,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": "YGGUSDT",
-   "termurah_margin": 0.50095
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "19.99|0.5": {
-   "layak": 527,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BCHUSDT",
+   "termurah_margin": 0.35922577
   },
   "19.99|1.0": {
-   "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 526,
+   "base_tercapai": 0,
+   "termurah_simbol": "BNBUSDT",
+   "termurah_margin": 0.20081972
   },
   "19.99|1.5": {
    "layak": 525,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 3,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "19.99|2.0": {
    "layak": 524,
-   "base_tercapai": 382,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "base_tercapai": 2,
+   "termurah_simbol": "AVAXUSDT",
+   "termurah_margin": 0.19512821
   },
   "19.99|3.0": {
-   "layak": 520,
-   "base_tercapai": 378,
-   "termurah_simbol": "1000WHYUSDT",
-   "termurah_margin": 0.19230771
+   "layak": 522,
+   "base_tercapai": 4,
+   "termurah_simbol": "TRBUSDT",
+   "termurah_margin": 0.19354138
   },
   "19.99|5.0": {
-   "layak": 22,
+   "layak": 4,
    "base_tercapai": 0,
-   "termurah_simbol": "YGGUSDT",
-   "termurah_margin": 0.50095
+   "termurah_simbol": "SXPUSDT",
+   "termurah_margin": 0.27777778
   },
   "20.0|0.5": {
    "layak": 0,
@@ -678,14 +678,14 @@
   }
  },
  "ambang_per_sl": {
-  "0.5": 0.5495,
-  "1.0": 1.0,
-  "1.5": 1.5,
-  "2.0": 2.0,
-  "3.0": 3.0,
-  "5.0": 5.0013
+  "0.5": 0.1336,
+  "1.0": 0.2012,
+  "1.5": 0.2747,
+  "2.0": 0.3484,
+  "3.0": 0.4926,
+  "5.0": 0.7937
  },
- "ambang_mesin_usdt": 0.5495,
+ "ambang_mesin_usdt": 0.1336,
  "validasi_saldo_1": {
   "diperiksa": 527,
   "pelanggaran": {
@@ -702,16 +702,244 @@
  },
  "layak_pada_saldo_1": [
   {
-   "simbol": "DFUSDT",
-   "margin": 0.2
+   "simbol": "BNBUSDT",
+   "margin": 0.20081972
   },
   {
-   "simbol": "PTBUSDT",
-   "margin": 0.2
+   "simbol": "BTCDOMUSDT",
+   "margin": 0.214436
   },
   {
-   "simbol": "SXPUSDT",
-   "margin": 0.2
+   "simbol": "PAXGUSDT",
+   "margin": 0.26094197
+  },
+  {
+   "simbol": "AAVEUSDT",
+   "margin": 0.26288
+  },
+  {
+   "simbol": "UNIUSDT",
+   "margin": 0.26382
+  },
+  {
+   "simbol": "QNTUSDT",
+   "margin": 0.26384
+  },
+  {
+   "simbol": "PENDLEUSDT",
+   "margin": 0.268575
+  },
+  {
+   "simbol": "HYPEUSDT",
+   "margin": 0.27657465
+  },
+  {
+   "simbol": "ALLUSDT",
+   "margin": 0.27932958
+  },
+  {
+   "simbol": "XRPUSDT",
+   "margin": 0.27967268
+  },
+  {
+   "simbol": "FLUIDUSDT",
+   "margin": 0.27975634
+  },
+  {
+   "simbol": "SPXUSDT",
+   "margin": 0.27988732
+  },
+  {
+   "simbol": "EULUSDT",
+   "margin": 0.28015915
+  },
+  {
+   "simbol": "\u6d4b\u8bd5\u6d4b\u8bd5USDT",
+   "margin": 0.28016239
+  },
+  {
+   "simbol": "DIAUSDT",
+   "margin": 0.28029296
+  },
+  {
+   "simbol": "MORPHOUSDT",
+   "margin": 0.28034535
+  },
+  {
+   "simbol": "SYRUPUSDT",
+   "margin": 0.28041803
+  },
+  {
+   "simbol": "YFIUSDT",
+   "margin": 0.28044
+  },
+  {
+   "simbol": "COWUSDT",
+   "margin": 0.28050282
+  },
+  {
+   "simbol": "ETCUSDT",
+   "margin": 0.28056338
+  },
+  {
+   "simbol": "BARDUSDT",
+   "margin": 0.28073239
+  },
+  {
+   "simbol": "ASRUSDT",
+   "margin": 0.28076338
+  },
+  {
+   "simbol": "HOLOUSDT",
+   "margin": 0.28076338
+  },
+  {
+   "simbol": "BCHUSDT",
+   "margin": 0.28080324
+  },
+  {
+   "simbol": "POLUSDT",
+   "margin": 0.28080958
+  },
+  {
+   "simbol": "POPCATUSDT",
+   "margin": 0.28082535
+  },
+  {
+   "simbol": "REDUSDT",
+   "margin": 0.28082535
+  },
+  {
+   "simbol": "AUSDT",
+   "margin": 0.2808338
+  },
+  {
+   "simbol": "HYPERUSDT",
+   "margin": 0.28087324
+  },
+  {
+   "simbol": "DOTUSDT",
+   "margin": 0.28087521
+  },
+  {
+   "simbol": "GHSTUSDT",
+   "margin": 0.28093239
+  },
+  {
+   "simbol": "VIRTUALUSDT",
+   "margin": 0.28104338
+  },
+  {
+   "simbol": "AEROUSDT",
+   "margin": 0.28104676
+  },
+  {
+   "simbol": "JSTUSDT",
+   "margin": 0.28108141
+  },
+  {
+   "simbol": "AKTUSDT",
+   "margin": 0.28111437
+  },
+  {
+   "simbol": "HIVEUSDT",
+   "margin": 0.2811831
+  },
+  {
+   "simbol": "TREEUSDT",
+   "margin": 0.28120563
+  },
+  {
+   "simbol": "SAFEUSDT",
+   "margin": 0.28121408
+  },
+  {
+   "simbol": "FLOCKUSDT",
+   "margin": 0.28123944
+  },
+  {
+   "simbol": "PROMUSDT",
+   "margin": 0.28123944
+  },
+  {
+   "simbol": "WCTUSDT",
+   "margin": 0.28123944
+  },
+  {
+   "simbol": "EPICUSDT",
+   "margin": 0.28124169
+  },
+  {
+   "simbol": "LINKUSDT",
+   "margin": 0.28129014
+  },
+  {
+   "simbol": "CATIUSDT",
+   "margin": 0.28130141
+  },
+  {
+   "simbol": "PNUTUSDT",
+   "margin": 0.28131155
+  },
+  {
+   "simbol": "MIRAUSDT",
+   "margin": 0.28133803
+  },
+  {
+   "simbol": "KAIAUSDT",
+   "margin": 0.28134085
+  },
+  {
+   "simbol": "RPLUSDT",
+   "margin": 0.28134507
+  },
+  {
+   "simbol": "PARTIUSDT",
+   "margin": 0.28134746
+  },
+  {
+   "simbol": "PONKEUSDT",
+   "margin": 0.28135211
+  },
+  {
+   "simbol": "FLUXUSDT",
+   "margin": 0.28137042
+  },
+  {
+   "simbol": "CETUSUSDT",
+   "margin": 0.28138873
+  },
+  {
+   "simbol": "RAYSOLUSDT",
+   "margin": 0.28140085
+  },
+  {
+   "simbol": "PUNDIXUSDT",
+   "margin": 0.28140845
+  },
+  {
+   "simbol": "SCRUSDT",
+   "margin": 0.28140845
+  },
+  {
+   "simbol": "VELODROMEUSDT",
+   "margin": 0.28141972
+  },
+  {
+   "simbol": "ORCAUSDT",
+   "margin": 0.2814338
+  },
+  {
+   "simbol": "EIGENUSDT",
+   "margin": 0.28145915
+  },
+  {
+   "simbol": "ALPINEUSDT",
+   "margin": 0.28146549
+  },
+  {
+   "simbol": "PHAUSDT",
+   "margin": 0.2814693
   }
  ],
  "simbol_dievaluasi": 527,

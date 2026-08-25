@@ -4,35 +4,42 @@ risiko_maks_bawaan=0.05
 simbol_dievaluasi=527
 --- jumlah simbol LAYAK per (saldo x jarak SL) ---
 saldo|sl0.5%|sl1.0%|sl1.5%|sl2.0%|sl3.0%|sl5.0%
-1.0|502|3|0|0|0|0
-1.25|502|496|0|0|0|0
-1.5|509|505|3|0|0|0
-1.75|509|507|499|0|0|0
-2.0|509|508|503|0|0|0
-2.5|510|508|506|502|0|0
-3.0|526|525|524|521|0|0
-4.0|526|525|525|524|519|0
-5.0|526|525|525|524|520|0
-6.0|527|525|525|524|520|22
-8.0|527|525|525|524|520|22
-10.0|527|525|525|524|520|22
-12.0|527|525|525|524|520|22
-15.0|527|525|525|524|520|22
-19.0|527|525|525|524|520|22
-19.99|527|525|525|524|520|22
+1.0|504|504|503|502|500|4
+1.25|504|504|503|502|500|4
+1.5|509|509|508|507|505|4
+1.75|510|510|509|508|506|4
+2.0|510|510|509|508|506|4
+2.5|510|510|509|508|506|4
+3.0|526|526|525|524|522|4
+4.0|526|526|525|524|522|4
+5.0|526|526|525|524|522|4
+6.0|526|526|525|524|522|4
+8.0|526|526|525|524|522|4
+10.0|526|526|525|524|522|4
+12.0|526|526|525|524|522|4
+15.0|526|526|525|524|522|4
+19.0|526|526|525|524|522|4
+19.99|526|526|525|524|522|4
 20.0|0|0|0|0|0|0
 25.0|0|0|0|0|0|0
 catatan_tangga=saldo >= 20.0 keluar dari rezim mikro; sizing beralih ke risiko biasa di inti.py sehingga kolom mikro wajar bernilai 0
-AMBANG_PER_SL={"0.5": 0.5495, "1.0": 1.0, "1.5": 1.5, "2.0": 2.0, "3.0": 3.0, "5.0": 5.0013}
-AMBANG_MESIN_USDT=0.5495
+AMBANG_PER_SL={"0.5": 0.1336, "1.0": 0.2012, "1.5": 0.2747, "2.0": 0.3484, "3.0": 0.4926, "5.0": 0.7937}
+AMBANG_MESIN_USDT=0.1336
 VALIDASI_SALDO_1={"diperiksa": 527, "pelanggaran": {"bukan_kelipatan_step": 0, "di_bawah_min_qty": 0, "di_bawah_min_notional": 0, "di_atas_maks_qty": 0, "sl_tidak_kelipatan_tick": 0, "tp_tidak_kelipatan_tick": 0, "harga_sl_tidak_positif": 0, "margin_di_atas_saldo": 0}}
-layak_pada_saldo_1=3
+layak_pada_saldo_1=504
 --- 10 setup termurah pada saldo 1,00 USDT, SL 1% ---
 simbol|minNotional|harga|qty|notional|lev|margin|risiko%|liq%|base
-DFUSDT|5.0|0.0016|3125.0|5.0|25|0.2|5.0|4.0|ok
-PTBUSDT|5.0|0.0008|6250.0|5.0|25|0.2|5.0|4.0|ok
-SXPUSDT|5.0|0.0001|50000.0|5.0|25|0.2|5.0|4.0|ok
-RENCANA_TERMURAH_SALDO_1={"saldo": 1.0, "harga": 0.0016, "base_per_setup": 0.2, "batas_modal_mikro": 20.0, "leverage_maks_bursa": 75, "spek": {"tick": 1e-05, "step": 1.0, "min_qty": 1.0, "maks_qty": 200000.0, "min_notional": 5.0, "presisi_harga": 7, "presisi_qty": 0}, "mikro_aktif": true, "notional_minimum_efektif": 5.0, "sumber_minimum": {"min_notional": 5.0, "min_qty_x_harga": 0.0016, "step_x_harga": 0.0016}, "qty": 3125.0, "notional": 5.0, "iterasi_penambahan_step": 0, "leverage_dibutuhkan_untuk_base": 25, "leverage_dipakai": 25, "margin_nyata": 0.2, "base_tercapai": true, "margin_minimum_mungkin": 0.06666667, "margin_pct_dari_saldo": 20.0, "jarak_sl_abs": 1.6e-05, "jarak_sl_pct": 1.0, "rugi_pada_sl_usdt": 0.05, "risiko_pct_dari_saldo": 5.0, "rasio_risiko_terhadap_margin": 0.25, "jarak_likuidasi_pct": 4.0, "likuidasi_lebih_jauh_dari_sl": true, "layak": true, "alasan": null}
+BNBUSDT|5.0|712.91|0.02|14.2582|71|0.20082|14.2582|1.0085|tidak
+BTCDOMUSDT|5.0|5360.9|0.001|5.3609|25|0.214436|5.3609|3.6|tidak
+PAXGUSDT|5.0|4631.72|0.004|18.52688|71|0.260942|18.5269|1.0085|tidak
+AAVEUSDT|5.0|131.44|0.1|13.144|50|0.26288|13.144|1.6|tidak
+UNIUSDT|5.0|4.397|3.0|13.191|50|0.26382|13.191|1.6|tidak
+QNTUSDT|5.0|65.96|0.1|6.596|25|0.26384|6.596|3.6|tidak
+PENDLEUSDT|5.0|1.7905|3.0|5.3715|20|0.268575|5.3715|4.6|tidak
+HYPEUSDT|5.0|81.82|0.24|19.6368|71|0.276575|19.6368|1.0085|tidak
+ALLUSDT|5.0|0.5509|36.0|19.8324|71|0.27933|19.8324|1.0085|tidak
+XRPUSDT|5.0|1.5043|13.2|19.85676|71|0.279673|19.8568|1.0085|tidak
+RENCANA_TERMURAH_SALDO_1={"saldo": 1.0, "harga": 712.91, "base_per_setup": 0.2, "batas_modal_mikro": 20.0, "leverage_maks_bursa": 75, "risiko_flat": 0.2, "plafon_risiko": 0.25, "mmr": 0.004, "spek": {"tick": 0.01, "step": 0.01, "min_qty": 0.01, "maks_qty": 10000.0, "min_notional": 5.0, "presisi_harga": 3, "presisi_qty": 2}, "mikro_aktif": true, "notional_minimum_efektif": 7.1291, "sumber_minimum": {"min_notional": 5.0, "min_qty_x_harga": 7.1291, "step_x_harga": 7.1291}, "iterasi_penambahan_step": 0, "qty_lantai_bursa": 0.01, "qty": 0.02, "notional": 14.2582, "jarak_sl_abs": 7.1291, "jarak_sl_pct": 1.0, "notional_target_risiko": 20.0, "leverage_batas_likuidasi": 71, "leverage_dibutuhkan_untuk_base": 72, "leverage_dipakai": 71, "margin_nyata": 0.20081972, "base_tercapai": false, "margin_minimum_mungkin": 0.19010933, "margin_pct_dari_saldo": 20.082, "catatan_base": "base margin 0.2 USDT tidak tercapai: base butuh leverage 72 tetapi leverage dipakai 71 (batas bursa 75, batas likuidasi 71); margin termurah untuk simbol ini 0.19010933 USDT", "rugi_pada_sl_usdt": 0.142582, "risiko_pct_dari_saldo": 14.2582, "rasio_risiko_terhadap_margin": 0.71, "risiko_flat_tercapai": false, "jarak_likuidasi_pct": 1.0085, "likuidasi_lebih_jauh_dari_sl": true, "layak": true, "alasan": null}
 TOTAL_PELANGGARAN=0
 berkas=bukti/mikro/AMBANG_MODAL.json
 AMBANG_MODAL=SELESAI
