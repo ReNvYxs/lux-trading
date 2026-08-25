@@ -4,14 +4,14 @@
   "kandidat_layak": 12,
   "sizing1_diterima_bursa": true,
   "sizing1_order": {
-   "orderId": 233978236,
-   "clientOrderId": "lx76409531",
+   "orderId": 295484537,
+   "clientOrderId": "lx76429921",
    "status": "NEW",
-   "simbol": "1000WHYUSDT",
+   "simbol": "BTCDOMUSDT",
    "sisi": "BUY",
    "tipe": "LIMIT",
    "harga_rata": 0.0,
-   "qty_diminta": 3125000.0,
+   "qty_diminta": 0.005,
    "qty_terisi": 0.0,
    "hidup": true,
    "selesai": false,
@@ -20,46 +20,47 @@
   },
   "sizing1_rencana": {
    "saldo": 1.0,
-   "harga": 1.6e-06,
+   "harga": 4824.6,
    "base_per_setup": 0.2,
    "batas_modal_mikro": 20.0,
-   "leverage_maks_bursa": 75,
+   "leverage_maks_bursa": 25,
+   "risiko_flat": 0.2,
+   "plafon_risiko": 0.25,
+   "mmr": 0.004,
    "spek": {
-    "tick": 1e-07,
-    "step": 1.0,
-    "min_qty": 1.0,
-    "maks_qty": 400000000.0,
+    "tick": 0.1,
+    "step": 0.001,
+    "min_qty": 0.001,
+    "maks_qty": 10000.0,
     "min_notional": 5.0,
-    "presisi_harga": 7,
-    "presisi_qty": 0
+    "presisi_harga": 1,
+    "presisi_qty": 3
    },
    "mikro_aktif": true,
    "notional_minimum_efektif": 5.0,
    "sumber_minimum": {
     "min_notional": 5.0,
-    "min_qty_x_harga": 1.6e-06,
-    "step_x_harga": 1.6e-06
+    "min_qty_x_harga": 4.8246,
+    "step_x_harga": 4.8246
    },
-   "qty": 3125000.0,
-   "notional": 5.0,
    "iterasi_penambahan_step": 0,
-   "leverage_dibutuhkan_untuk_base": 25,
+   "qty_lantai_bursa": 0.002,
+   "qty": 0.005,
+   "notional": 24.123,
+   "jarak_sl_abs": 48.246,
+   "jarak_sl_pct": 1.0,
+   "notional_target_risiko": 20.0,
+   "arah_pembulatan_target": "atas",
+   "qty_target_bawah": 0.004,
+   "qty_target_atas": 0.005,
+   "leverage_batas_likuidasi": 25,
+   "leverage_dibutuhkan_untuk_base": 121,
    "leverage_dipakai": 25,
-   "margin_nyata": 0.2,
-   "base_tercapai": true,
-   "margin_minimum_mungkin": 0.06666667,
-   "margin_pct_dari_saldo": 20.0,
-   "jarak_sl_abs": 8e-09,
-   "jarak_sl_pct": 0.5,
-   "rugi_pada_sl_usdt": 0.025,
-   "risiko_pct_dari_saldo": 2.5,
-   "rasio_risiko_terhadap_margin": 0.125,
-   "jarak_likuidasi_pct": 4.0,
-   "likuidasi_lebih_jauh_dari_sl": true,
-   "layak": true,
-   "alasan": null
+   "margin_nyata": 0.96492,
+   "layak": false,
+   "alasan": "margin 0.96492 melebihi 35.0% saldo 1.0 walau qty sudah di lantai minimum bursa"
   },
-  "simbol_mikro": "1000WHYUSDT",
+  "simbol_mikro": "BTCDOMUSDT",
   "simbol_posisi": "BTCUSDT",
   "entry_cara": [
    {
@@ -153,7 +154,7 @@
   "user_tetap_bisa_menutup": true,
   "bersih_akhir": true,
   "jejak_berkas": "bukti/jejak/jejak-20260825.jsonl",
-  "jejak_baris": 184,
+  "jejak_baris": 318,
   "jejak_ringkas": {
    "jumlah": {
     "permintaan": 50,
@@ -171,87 +172,87 @@
  "jejak": [
   {
    "tahap": "koneksi",
-   "utc": "2026-08-25T06:55:50Z",
-   "saldo_nyata_usdt": 4179.62250759,
+   "utc": "2026-08-25T07:29:50Z",
+   "saldo_nyata_usdt": 4179.54762189,
    "saldo_uji": 1.0,
    "simbol_posisi": "BTCUSDT",
    "catatan": "saldo uji disuntik sebagai parameter sizing; saldo akun testnet TIDAK diubah karena itu akan merusak akun uji"
   },
   {
    "tahap": "kandidat",
-   "utc": "2026-08-25T06:55:52Z",
+   "utc": "2026-08-25T07:29:51Z",
    "jumlah": 12,
    "teratas": [
     {
-     "simbol": "1000WHYUSDT",
-     "margin": 0.19230771,
-     "qty": 2777778.0
+     "simbol": "BTCDOMUSDT",
+     "margin": 0.214428,
+     "qty": 0.001
     },
     {
-     "simbol": "NEIROUSDT",
-     "margin": 0.19230774,
-     "qty": 55371.0
+     "simbol": "AAVEUSDT",
+     "margin": 0.2632,
+     "qty": 0.1
     },
     {
-     "simbol": "DOGSUSDT",
-     "margin": 0.19230775,
-     "qty": 123640.0
+     "simbol": "UNIUSDT",
+     "margin": 0.26484,
+     "qty": 3.0
     },
     {
-     "simbol": "1000SATSUSDT",
-     "margin": 0.19230815,
-     "qty": 410510.0
+     "simbol": "QNTUSDT",
+     "margin": 0.2652,
+     "qty": 0.1
     },
     {
-     "simbol": "MEMEUSDT",
-     "margin": 0.19230831,
-     "qty": 9058.0
+     "simbol": "PENDLEUSDT",
+     "margin": 0.26856,
+     "qty": 3.0
     }
    ]
   },
   {
    "tahap": "bersihkan",
-   "utc": "2026-08-25T06:55:53Z",
-   "simbol": "1000WHYUSDT",
+   "utc": "2026-08-25T07:29:52Z",
+   "simbol": "BTCDOMUSDT",
    "sisa": 0.0
   },
   {
    "tahap": "sizing1_permintaan",
-   "utc": "2026-08-25T06:55:53Z",
-   "simbol": "1000WHYUSDT",
+   "utc": "2026-08-25T07:29:52Z",
+   "simbol": "BTCDOMUSDT",
    "saldo_uji": 1.0,
    "rencana": {
-    "qty": 3125000.0,
-    "notional": 5.0,
+    "qty": 0.005,
+    "notional": 24.123,
     "leverage_dipakai": 25,
-    "margin_nyata": 0.2,
-    "base_tercapai": true,
-    "risiko_pct_dari_saldo": 2.5,
-    "jarak_likuidasi_pct": 4.0,
-    "layak": true
+    "margin_nyata": 0.96492,
+    "base_tercapai": null,
+    "risiko_pct_dari_saldo": null,
+    "jarak_likuidasi_pct": null,
+    "layak": false
    },
    "payload": {
-    "symbol": "1000WHYUSDT",
+    "symbol": "BTCDOMUSDT",
     "side": "BUY",
     "type": "LIMIT",
     "timeInForce": "GTC",
-    "price": 1.6e-06,
-    "quantity": 3125000.0,
-    "newClientOrderId": "lx76409531"
+    "price": 4824.6,
+    "quantity": 0.005,
+    "newClientOrderId": "lx76429921"
    }
   },
   {
    "tahap": "sizing1_jawaban",
-   "utc": "2026-08-25T06:55:53Z",
+   "utc": "2026-08-25T07:29:52Z",
    "ringkas": {
-    "orderId": 233978236,
-    "clientOrderId": "lx76409531",
+    "orderId": 295484537,
+    "clientOrderId": "lx76429921",
     "status": "NEW",
-    "simbol": "1000WHYUSDT",
+    "simbol": "BTCDOMUSDT",
     "sisi": "BUY",
     "tipe": "LIMIT",
     "harga_rata": 0.0,
-    "qty_diminta": 3125000.0,
+    "qty_diminta": 0.005,
     "qty_terisi": 0.0,
     "hidup": true,
     "selesai": false,
@@ -261,33 +262,33 @@
   },
   {
    "tahap": "bersihkan",
-   "utc": "2026-08-25T06:55:54Z",
+   "utc": "2026-08-25T07:29:53Z",
    "simbol": "BTCUSDT",
    "sisa": 0.0
   },
   {
    "tahap": "entry_mesin_rencana",
-   "utc": "2026-08-25T06:55:54Z",
+   "utc": "2026-08-25T07:29:53Z",
    "simbol": "BTCUSDT",
    "qty": 0.0019,
-   "notional": 152.87760999999998,
-   "harga": 80461.9
+   "notional": 153.22474,
+   "harga": 80644.6
   },
   {
    "tahap": "buka_market_ok",
-   "utc": "2026-08-25T06:55:55Z",
+   "utc": "2026-08-25T07:29:53Z",
    "payload": {
     "symbol": "BTCUSDT",
     "side": "BUY",
     "type": "MARKET",
     "quantity": 0.0019,
-    "newClientOrderId": "lx76409542"
+    "newClientOrderId": "lx76429932"
    },
    "jawaban": {
-    "orderId": 28555181041,
+    "orderId": 28555204202,
     "symbol": "BTCUSDT",
     "status": "NEW",
-    "clientOrderId": "lx76409542",
+    "clientOrderId": "lx76429932",
     "price": "0.00",
     "origQty": "0.0019",
     "executedQty": "0.0000",
@@ -305,12 +306,12 @@
     "priceMatch": "NONE",
     "selfTradePreventionMode": "EXPIRE_MAKER",
     "goodTillDate": 0,
-    "updateTime": 1787640955079
+    "updateTime": 1787642993523
    }
   },
   {
    "tahap": "kepemilikan_posisi_mesin",
-   "utc": "2026-08-25T06:55:56Z",
+   "utc": "2026-08-25T07:29:54Z",
    "pemilik": "mesin",
    "boleh": true,
    "perubahan": "utuh",
@@ -322,26 +323,26 @@
   },
   {
    "tahap": "proteksi_permintaan",
-   "utc": "2026-08-25T06:55:56Z",
+   "utc": "2026-08-25T07:29:54Z",
    "payload": {
     "symbol": "BTCUSDT",
     "side": "SELL",
     "type": "LIMIT",
     "timeInForce": "GTC",
-    "price": 84485.0,
+    "price": 84676.8,
     "quantity": 0.0019,
     "reduceOnly": true,
-    "newClientOrderId": "lx76409563"
+    "newClientOrderId": "lx76429943"
    }
   },
   {
    "tahap": "proteksi_jawaban",
-   "utc": "2026-08-25T06:55:56Z",
-   "order_id": 28555181062
+   "utc": "2026-08-25T07:29:54Z",
+   "order_id": 28555204211
   },
   {
    "tahap": "kepemilikan_proteksi_terpasang",
-   "utc": "2026-08-25T06:55:56Z",
+   "utc": "2026-08-25T07:29:54Z",
    "pemilik": "mesin",
    "boleh": true,
    "perubahan": "utuh",
@@ -353,12 +354,12 @@
   },
   {
    "tahap": "user_batalkan_proteksi",
-   "utc": "2026-08-25T06:55:57Z",
-   "order_id": 28555181062
+   "utc": "2026-08-25T07:29:55Z",
+   "order_id": 28555204211
   },
   {
    "tahap": "kepemilikan_proteksi_dibatalkan_user",
-   "utc": "2026-08-25T06:55:57Z",
+   "utc": "2026-08-25T07:29:55Z",
    "pemilik": "mesin",
    "boleh": true,
    "perubahan": "proteksi_dihapus_user",
@@ -370,67 +371,67 @@
   },
   {
    "tahap": "order_user_dibuat",
-   "utc": "2026-08-25T06:55:57Z",
-   "order_id": 28555181116,
+   "utc": "2026-08-25T07:29:55Z",
+   "order_id": 28555204228,
    "payload": {
     "symbol": "BTCUSDT",
     "side": "BUY",
     "type": "LIMIT",
     "timeInForce": "GTC",
-    "price": 68392.6,
+    "price": 68547.9,
     "quantity": 0.0008,
-    "newClientOrderId": "manual76409574"
+    "newClientOrderId": "manual76429954"
    }
   },
   {
    "tahap": "order_mesin_dibuat",
-   "utc": "2026-08-25T06:55:57Z",
-   "order_id": 28555181126,
+   "utc": "2026-08-25T07:29:55Z",
+   "order_id": 28555204231,
    "payload": {
     "symbol": "BTCUSDT",
     "side": "BUY",
     "type": "LIMIT",
     "timeInForce": "GTC",
-    "price": 70806.5,
+    "price": 70967.2,
     "quantity": 0.0008,
-    "newClientOrderId": "lx76409575"
+    "newClientOrderId": "lx76429955"
    }
   },
   {
    "tahap": "pisah_order",
-   "utc": "2026-08-25T06:55:58Z",
+   "utc": "2026-08-25T07:29:56Z",
    "total": 2,
    "milik_mesin": 1,
    "id_mesin": [
-    28555181126
+    28555204231
    ],
-   "id_user": 28555181116
+   "id_user": 28555204228
   },
   {
    "tahap": "verifikasi_order_user",
-   "utc": "2026-08-25T06:55:58Z",
+   "utc": "2026-08-25T07:29:56Z",
    "sisa_ids": [
-    28555181116
+    28555204228
    ],
-   "id_user": 28555181116,
+   "id_user": 28555204228,
    "utuh": true
   },
   {
    "tahap": "user_separuh_market_ok",
-   "utc": "2026-08-25T06:55:58Z",
+   "utc": "2026-08-25T07:29:56Z",
    "payload": {
     "symbol": "BTCUSDT",
     "side": "SELL",
     "type": "MARKET",
     "quantity": 0.0009,
-    "newClientOrderId": "manual76409586",
+    "newClientOrderId": "manual76429966",
     "reduceOnly": true
    },
    "jawaban": {
-    "orderId": 28555181137,
+    "orderId": 28555204235,
     "symbol": "BTCUSDT",
     "status": "NEW",
-    "clientOrderId": "manual76409586",
+    "clientOrderId": "manual76429966",
     "price": "0.00",
     "origQty": "0.0009",
     "executedQty": "0.0000",
@@ -448,12 +449,12 @@
     "priceMatch": "NONE",
     "selfTradePreventionMode": "EXPIRE_MAKER",
     "goodTillDate": 0,
-    "updateTime": 1787640958787
+    "updateTime": 1787642996579
    }
   },
   {
    "tahap": "kepemilikan_partial_close_user",
-   "utc": "2026-08-25T06:55:59Z",
+   "utc": "2026-08-25T07:29:56Z",
    "pemilik": "mesin",
    "boleh": true,
    "perubahan": "dikurangi_user",
@@ -465,7 +466,7 @@
   },
   {
    "tahap": "kepemilikan_setelah_restart",
-   "utc": "2026-08-25T06:55:59Z",
+   "utc": "2026-08-25T07:29:57Z",
    "pemilik": "mesin",
    "qty_bursa": 0.001,
    "qty_buku": 0.001,
@@ -473,20 +474,20 @@
   },
   {
    "tahap": "user_penuh_market_ok",
-   "utc": "2026-08-25T06:56:00Z",
+   "utc": "2026-08-25T07:29:57Z",
    "payload": {
     "symbol": "BTCUSDT",
     "side": "SELL",
     "type": "MARKET",
     "quantity": 0.001,
-    "newClientOrderId": "manual76409607",
+    "newClientOrderId": "manual76429977",
     "reduceOnly": true
    },
    "jawaban": {
-    "orderId": 28555181157,
+    "orderId": 28555204250,
     "symbol": "BTCUSDT",
     "status": "NEW",
-    "clientOrderId": "manual76409607",
+    "clientOrderId": "manual76429977",
     "price": "0.00",
     "origQty": "0.0010",
     "executedQty": "0.0000",
@@ -504,12 +505,12 @@
     "priceMatch": "NONE",
     "selfTradePreventionMode": "EXPIRE_MAKER",
     "goodTillDate": 0,
-    "updateTime": 1787640960272
+    "updateTime": 1787642997747
    }
   },
   {
    "tahap": "kepemilikan_close_penuh_user",
-   "utc": "2026-08-25T06:56:00Z",
+   "utc": "2026-08-25T07:29:58Z",
    "pemilik": "kosong",
    "boleh": true,
    "perubahan": "ditutup_user",
@@ -521,19 +522,19 @@
   },
   {
    "tahap": "buka_market_ok",
-   "utc": "2026-08-25T06:56:01Z",
+   "utc": "2026-08-25T07:29:58Z",
    "payload": {
     "symbol": "BTCUSDT",
     "side": "BUY",
     "type": "MARKET",
     "quantity": 0.0019,
-    "newClientOrderId": "manual76409608"
+    "newClientOrderId": "manual76429988"
    },
    "jawaban": {
-    "orderId": 28555181163,
+    "orderId": 28555204258,
     "symbol": "BTCUSDT",
     "status": "NEW",
-    "clientOrderId": "manual76409608",
+    "clientOrderId": "manual76429988",
     "price": "0.00",
     "origQty": "0.0019",
     "executedQty": "0.0000",
@@ -551,12 +552,12 @@
     "priceMatch": "NONE",
     "selfTradePreventionMode": "EXPIRE_MAKER",
     "goodTillDate": 0,
-    "updateTime": 1787640960979
+    "updateTime": 1787642998265
    }
   },
   {
    "tahap": "kepemilikan_posisi_manual_user",
-   "utc": "2026-08-25T06:56:01Z",
+   "utc": "2026-08-25T07:29:58Z",
    "pemilik": "user",
    "boleh": false,
    "perubahan": "utuh",
@@ -568,7 +569,7 @@
   },
   {
    "tahap": "mesin_menolak_posisi_manual",
-   "utc": "2026-08-25T06:56:01Z",
+   "utc": "2026-08-25T07:29:59Z",
    "laporan": {
     "proses": "tutup_posisi",
     "simbol": "BTCUSDT",
@@ -589,21 +590,21 @@
   },
   {
    "tahap": "bersihkan",
-   "utc": "2026-08-25T06:56:02Z",
+   "utc": "2026-08-25T07:29:59Z",
    "simbol": "BTCUSDT",
    "sisa": 0.0
   },
   {
    "tahap": "bersihkan",
-   "utc": "2026-08-25T06:56:03Z",
-   "simbol": "1000WHYUSDT",
+   "utc": "2026-08-25T07:30:00Z",
+   "simbol": "BTCDOMUSDT",
    "sisa": 0.0
   },
   {
    "tahap": "jejak",
-   "utc": "2026-08-25T06:56:03Z",
+   "utc": "2026-08-25T07:30:00Z",
    "berkas": "bukti/jejak/jejak-20260825.jsonl",
-   "baris": 184,
+   "baris": 318,
    "ringkas": {
     "jumlah": {
      "permintaan": 50,
