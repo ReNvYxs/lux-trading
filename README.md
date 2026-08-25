@@ -2,13 +2,18 @@
 
 Modul trading multi-strategi untuk **Binance USDT-M Futures**. Satu arsitektur yang
 menampung strategi **single-timeframe** dan **multi-timeframe** sekaligus, dengan
-pembobotan skor (bukan bloker berurutan), risk management dinamis, dan eksekusi
-ice-breaker TWAP+iceberg.
+pembobotan skor (bukan bloker berurutan), risk management dinamis, dan lapisan
+eksekusi yang setiap kegagalannya wajib dikonfirmasi bursa.
 
 Status: **modul lengkap & terintegrasi**. Tiga mode jalan dari satu titik masuk
 (`main.py`): backtest historis, Binance Futures **Testnet**, dan **Live**. Uji
-otomatis: **242 lulus / 242**. Backtest 95 pair sudah pernah dijalankan lewat
-GitHub Actions (hasil di `reports/besar/` dan `reports/besar95/`).
+otomatis: **373 lulus / 373** (lantai gerbang CI `CI_MIN_PYTEST=373`). Backtest 95
+pair sudah dijalankan lewat GitHub Actions.
+
+Lapisan eksekusi sudah **diuji hidup** terhadap Binance Futures Testnet, bukan
+hanya dengan mock. Bukti dan angkanya ada di
+**[`BUKTI_MESIN.md`](BUKTI_MESIN.md)**; analisis temuannya di
+**[`AUDIT_MESIN.md`](AUDIT_MESIN.md)**.
 
 ---
 
@@ -31,11 +36,11 @@ python main.py             # menu interaktif - tidak perlu argumen apa pun
 6) Bangkitkan ulang data dashboard
 ```
 
-Semua kredensial (Telegram, Binance Testnet, Binance Live) diisi di **satu**
-tempat: berkas `.env`. Panduan lengkap ada di **[`KONFIGURASI.md`](KONFIGURASI.md)** -
-baca itu lebih dulu sebelum menjalankan mode testnet/live.
+Semua kredensial diisi di **satu** tempat: berkas `.env`. Panduan lengkap ada di
+**[`KONFIGURASI.md`](KONFIGURASI.md)** - baca itu lebih dulu sebelum menjalankan
+mode testnet/live.
 
-Pemakaian non-interaktif (cron/CI) tetap tersedia:
+Pemakaian non-interaktif (cron/CI):
 
 ```powershell
 python main.py --mode konfigurasi                  # periksa kesiapan kredensial
@@ -43,9 +48,6 @@ python main.py --mode uji
 python main.py --mode backtest --label single_15m
 python main.py --mode testnet                      # MULTI-PAIR: pindai 25-50 pair likuid
 python main.py --mode live --konfirmasi-live       # DANA ASLI, multi-pair
-
-# uji terarah satu pair saja (opsional, bukan mode default):
-python main.py --mode testnet --simbol-live BTCUSDT --tf-entry 15m
 ```
 
 ### Sistem ini TIDAK BTC-centric dan TIDAK 15m-centric
@@ -55,14 +57,66 @@ menyaring likuiditas (volume 24 jam, jumlah trade, spread, kedalaman buku), lalu
 menjalankan **25-50 pair paling likuid** secara paralel. Tidak ada daftar pair
 hardcode. TF entry mengikuti kontrak tiap strategi (STF & MTF), bukan 15m saja.
 
+---
+
+## Mesin eksekusi order
+
+Bagian ini yang paling menentukan apakah modal Anda aman. Tiga aturan yang
+dipegang tanpa pengecualian:
+
+1. **Order tidak pernah disebut berhasil sebelum bursa mengonfirmasinya.** Setiap
+   respons wajib lolos `konfirmasi_order` (orderId/clientOrderId ada, `status`
+   ada dan dikenal, simbol dan sisi cocok). Badan jawaban kosong BUKAN sukses.
+2. **Ada tiga keadaan, bukan dua**: berhasil, gagal, dan **TIDAK DIKETAHUI**.
+   Timeout dan HTTP 503 masuk keadaan ketiga - tidak pernah dikirim ulang buta,
+   melainkan diselesaikan lewat pencarian `clientOrderId` dan rekonsiliasi.
+3. **Gagal proteksi berarti posisi ditutup.** Bila TP/SL tidak berhasil terpasang
+   dan terlihat di bursa, posisi tidak dibiarkan terbuka.
+
+Status jalur eksekusi (semua sudah diuji terhadap testnet sungguhan):
+
+| jalur | status |
+|---|---|
+| Limit entry | terkonfirmasi bursa |
+| Take Profit | LIMIT reduceOnly, diverifikasi terlihat di `openOrders` |
+| Stop Loss | pemantau perangkat lunak + fallback MARKET; tipe stop bursa ditolak `-4120` |
+| Cancel | dikonfirmasi lalu diverifikasi hilang dari `openOrders` |
+| Modify | `PUT /fapi/v1/order`, diverifikasi ulang lewat `status_order` |
+| Rekonsiliasi | posisi tanpa proteksi ditutup, proteksi yatim dibatalkan |
+
+### Logging yang bisa ditelusuri
+
+`lux_modul/eksekusi/jejak.py` menulis JSONL di satu choke point REST. Satu
+`korelasi` menyatukan baris request, response, dan error untuk satu perintah,
+sehingga satu order bermasalah bisa ditarik utuh dengan satu grep. Jalur dana
+dicatat utuh; rahasia diredaksi tetapi **nama parameternya dipertahankan**, supaya
+perubahan API di masa depan tetap terlihat tanpa membocorkan nilainya.
+
+Atur lewat `.env`: `LUX_JEJAK_AKTIF`, `LUX_JEJAK_DIR`, `LUX_JEJAK_STDOUT`.
+
+### Base 0,20 USDT per setup (modal < 20 USDT)
+
+Yang dikendalikan sampai 0,20 USDT adalah **initial margin**, bukan notional -
+karena minimum notional dan minQty ditetapkan bursa per simbol:
+
+    notional = margin x leverage  ->  leverage = notional_minimum / 0,20
+
+Diukur pada 527 pair USDT perpetual sungguhan (saldo uji 19 USDT, SL 1%):
+**382 simbol benar-benar mencapai base 0,20**, dan **525 dari 527** layak
+ditradingkan. Simbol termurah memakai leverage 26 dengan margin `0,1923` dan
+risiko hanya 0,26% modal.
+
+Pada simbol bernotional-minimum tinggi seperti **BTCUSDT (minNotional 50) base
+0,20 tidak tercapai** - margin termurahnya `0,4417`. Mesin melaporkannya jujur
+dan **melewati setup** bila risikonya melewati batas atau likuidasi lebih dekat
+daripada SL. Angka lengkapnya di [`BUKTI_MESIN.md`](BUKTI_MESIN.md).
+
 ### Leverage dihitung otomatis per setup
 
 Urutan yang dipakai engine: **Risk -> Position Size/Notional -> Required Margin
 -> Optimal Leverage**. `LUX_LEVERAGE_MAKS` hanya BATAS ATAS, bukan leverage
-kerja; leverage nyata berbeda-beda tiap pair/setup dan tidak pernah statis x5/x10.
-RR yang dilaporkan adalah **RR bersih** setelah fee masuk, fee keluar, dan
-slippage; BEP dihitung sesuai arah posisi (long di atas entry, short di bawah).
-Rinciannya beserta bukti angka ada di
+kerja. RR yang dilaporkan adalah **RR bersih** setelah fee masuk, fee keluar, dan
+slippage. Rinciannya di
 **[`AUDIT_LEVERAGE_PRESISI.md`](AUDIT_LEVERAGE_PRESISI.md)**.
 
 ---
@@ -74,117 +128,72 @@ lux_modul/
   kontrak.py            Bars, TFPlan, StrategyVerdict, Penolakan, konstanta
   data/                 L0  loader CSV, resample, DataPlane (anti look-ahead)
   fitur/                L1  indikator dasar, struktur pasar, FeatureStore (cache)
-  strategi/             L2  12 strategi tunggal di 3 kelompok teknik
+  strategi/             L2  26 strategi terdaftar di 6 kelompok teknik
   arbiter/              L3  ambang, skor tertinggi, resolusi konflik arah
   eksekusi/             L4  risiko, ice-breaker, mode auto-entry / signal-only
-  eksekusi/spesifikasi.py   presisi tick/step, RR bersih, BEP, leverage otomatis
-  eksekusi/kredensial.py    pemisahan ketat kredensial testnet vs live
-  eksekusi/binance_client.py konektor REST Binance Futures (urllib, stdlib)
-  konfigurasi.py        L0  pemuat .env + status kredensial (satu sumber setelan)
-  notifikasi/           L6  notifier Telegram (opsional, kegagalan tidak fatal)
+  eksekusi/jejak.py         perekam JSONL request/response/error jalur dana
+  eksekusi/klasifikasi.py   taksonomi galat + konfirmasi order/pembatalan
+  eksekusi/ukuran_mikro.py  sizing base 0,20 untuk modal < 20 USDT
+  eksekusi/binance_client.py konektor REST (urllib) + pengatur laju + modify
+  eksekusi_aman/            pengirim order, proteksi, rekonsiliasi, saklar mode
+  konfigurasi.py        L0  pemuat .env + status kredensial
+  notifikasi/           L6  notifier Telegram (opsional)
   pemindai/             L0  pemindai likuiditas pasar (25-50 pair dinamis)
-  rencana_tf.py             rencana TF entry/konteks dari kontrak strategi
-  mesin_multi.py        L5  engine multi-pair multi-TF (banyak LiveRunner)
-  live_runner.py        L5  loop real-time testnet/live memakai Pipeline yang sama
-  pipeline.py               perangkai L0..L4
-  sintetis.py               generator data uji tanpa jaringan
+  mesin_multi.py        L5  engine multi-pair multi-TF
+  live_runner.py        L5  loop real-time testnet/live memakai Pipeline sama
 main.py                 titik masuk TUNGGAL (menu interaktif + CLI)
-.env.contoh             template kredensial (salin jadi .env)
-tests/                  242 uji
-scripts/                demo end-to-end + pelari uji minimal untuk sandbox
-.github/workflows/      ci.yml (unit test) + backtest95_metrik.yml (uji 95 pair)
+alat/                   penambal berbasis jangkar, gerbang, uji hidup, peta mikro
+bukti/                  bukti mentah: gerbang CI, uji hidup, jejak JSONL
+tests/                  373 uji
 ```
+
+Workflow GitHub Actions: `ci` (gerbang regresi), `mesin` (penambal + pytest),
+`mesin_hidup` (uji hidup cancel/modify di testnet), `mikro` (peta kelayakan base
+0,20), `hidup`, `saklar`, `tambal`, `kontrak`, `rakit`.
 
 Dokumen: [`KONFIGURASI.md`](KONFIGURASI.md) - kredensial & cara menjalankan.
 [`ARSITEKTUR.md`](ARSITEKTUR.md) - desain lengkap.
+[`AUDIT_MESIN.md`](AUDIT_MESIN.md) - audit mesin eksekusi.
+[`BUKTI_MESIN.md`](BUKTI_MESIN.md) - bukti pengukuran mesin.
 [`REFERENSI.md`](REFERENSI.md) - sumber aturan entry/SL/TP tiap strategi.
 [`STATE.md`](STATE.md) - status pekerjaan dan langkah berikutnya.
 
-## Pemakaian singkat
-
-```python
-from lux_modul.data import DataPlane, muat_csv
-from lux_modul.kontrak import HORIZON_INTRADAY, TFPlan
-from lux_modul.pipeline import Pipeline
-
-bars5m = muat_csv("data/BTCUSDT_5m.csv", tf="5m", simbol="BTCUSDT")
-plane = DataPlane.dari_dasar(bars5m, ("15m", "1h"))     # resample otomatis
-
-pipe = Pipeline(plane, TFPlan("5m", ("15m",)), HORIZON_INTRADAY, balance=50.0)
-hasil, stat = pipe.jalankan_rentang()
-
-for h in hasil:
-    print(h.verdict.ringkas(), h.sizing, h.rencana.ringkas())
-print(stat.ringkas())
-```
-
-Single-TF cukup ganti rencananya: `TFPlan("5m")` (tanpa TF konteks).
-Swing: `HORIZON_SWING` - keluarannya `Sinyal`, tanpa order dan tanpa sizing.
-
-## 12 strategi tunggal, 3 kelompok
-
-| kelompok | strategi |
-|---|---|
-| pola klasik | `double_top`, `double_bottom`, `head_shoulders`, `triangle_breakout`, `wedge_breakout`, `cup_and_handle` |
-| indikator / momentum | `ema_bounce_200`, `rsi_divergence`, `macd_rsi_trendbreak` (multi-TF) |
-| struktur modern | `smc_ob_fvg` (multi-TF), `ict_liquidity_sweep`, `breakout_volume` |
-
-Setiap strategi punya logika **entry, SL, dan TP sendiri**, skor 0-100, ambang sendiri,
-dan mendeklarasikan kebutuhan TF sebagai peran:
-`required_roles = {"entry": True, "context": 0..N}`.
-
-Catatan: sejak revisi CVD, arsitektur juga bersifat **plugin-based/extensible** lewat
-`lux_modul/plugin.py` (`KATALOG_STRATEGI`, `KATALOG_POLA`, `KATALOG_INDIKATOR`) -
-tabel di atas hanya 12 strategi kelas lama fase-1. Total unit yang benar-benar
-terdaftar sekarang 26 strategi terdaftar (lintas kelompok: struktur, pola, indikator, volatilitas, aliran volume) di 6 kelompok teknik.
-Lihat `ARSITEKTUR.md` untuk daftar lengkap dan `CALON_STRATEGI.md` untuk strategi
-yang sengaja belum dibuat karena keterbatasan data OHLCV.
-
 ## Aturan pemilihan (arbiter)
 
-1. Seluruh strategi dievaluasi tiap lilin, **tanpa short-circuit**. Satu strategi galat
-   tidak menjatuhkan yang lain.
+1. Seluruh strategi dievaluasi tiap lilin, **tanpa short-circuit**. Satu strategi
+   galat tidak menjatuhkan yang lain.
 2. Kandidat = `skor > ambang` (ketat lebih besar).
 3. Tidak ada kandidat -> tidak ada entry sama sekali.
-4. Ada kandidat -> **skor tertinggi** yang dieksekusi (tie-break deterministik oleh
-   `strategy_id`, bukan urutan pendaftaran).
+4. Ada kandidat -> **skor tertinggi** yang dieksekusi (tie-break deterministik
+   oleh `strategy_id`, bukan urutan pendaftaran).
 5. LONG dan SHORT sama-sama lolos ambang dengan selisih skor **< 5.0 poin**
    (`MARGIN_KONFLIK`) -> saling meniadakan, **tidak ada entry**.
 
 ## Risk management
 
-- Saldo `< $20` atau `<= 0`: `risk% = 3% * (20/balance)^0.55`, clamp `[0.5%, 3%]`,
-  `risk$ = max($0.20, balance * risk%)`. **$0.20 adalah lantai**, bukan nilai flat.
-- Saldo `>= $20`: tier 3% / 2.5% / 2% / 1.5% / 1%, lalu taper di atas $100rb sampai
-  lantai **0.25%**.
-- Order besar wajib lewat `plan_execution()`: TWAP + iceberg, maks 12 slice,
-  `visible_qty` 25% dan **benar-benar dikirim** ke exchange (`visible_qty` + `icebergQty`).
-  Order kecil (< $5.000 notional) tetap 1 order utuh.
-- Eksekusi slice **non-blocking** (`async`), dan `entry_invalidated()` membatalkan sisa
-  slice bila harga sudah menembus SL sebelum semua slice terkirim.
+- Saldo `< $20`: jalur mikro. Margin ditarget **0,20 USDT per setup**, qty
+  dibulatkan **ke atas** ke minimum bursa, dan risiko nyatanya tetap diperiksa -
+  setup ditolak bila rugi di SL melewati 5% modal atau bila jarak likuidasi lebih
+  dekat daripada SL. **0,20 mengatur MARGIN, bukan RISIKO.**
+- Saldo `>= $20`: sizing risiko biasa (tier 3% / 2.5% / 2% / 1.5% / 1%, taper di
+  atas $100rb sampai lantai 0.25%), qty dibulatkan **ke bawah**.
+- Order besar lewat `plan_execution()`: TWAP + iceberg, maks 12 slice. Setiap
+  slice memakai `newClientOrderId` deterministik, dan `qty_terisi` hanya dihitung
+  dari `executedQty` jawaban bursa - tidak pernah dari qty yang diminta.
+
+> Catatan koreksi: versi lama README mengklaim `visible_qty` dan `icebergQty`
+> ikut dikirim ke exchange. Itu **terbantah** oleh uji hidup - keduanya bukan
+> parameter sah `/fapi/v1/order`, ikut ditandatangani, dan berisiko `-1104`.
+> Keduanya sudah dihapus dari payload.
 
 ## Menjalankan uji dan demo
 
 ```bash
 python main.py --mode uji      # cara yang disarankan (jalan di mana saja)
-pytest -q                      # 242 uji (butuh pytest, dipakai di CI)
+pytest -q                      # 373 uji (dipakai di CI)
 python scripts/jalankan_uji.py # pelari minimal untuk lingkungan tanpa pytest
 python scripts/demo_sintetis.py
 ```
-
-`demo_sintetis.py` mendemonstrasikan seluruh kriteria selesai fase implementasi:
-verdict single-TF, verdict multi-TF, distribusi kandidat/menang per strategi,
-aturan ambang dan konflik arah, mode swing signal-only, kurva risiko, dan ice-breaker.
-
-## Alur validasi
-
-1. **Operator mengirim dataset kecil.** Pengujian data tidak dimulai sebelum ini.
-2. Uji tahap awal di sandbox dengan dataset kecil.
-3. Lolos -> dataset lebih besar.
-4. Uji skala besar lewat GitHub Actions.
-5. Baru di tahap ini `lux-ai-research` / `lux-trading-strategy` dipakai sebagai konteks
-   tambahan (struktur dataset, batasan format), bukan untuk mem-porting strategi lama.
-6. Semua pekerjaan tetap di repo ini.
 
 ## Tiga mode eksekusi
 
@@ -194,28 +203,30 @@ aturan ambang dan konflik arah, mode swing signal-only, kurva risiko, dan ice-br
 | `testnet` | REST klines testnet | ya, dana mainan | kredensial testnet terpisah total |
 | `live` | REST klines live | ya, **DANA ASLI** | dua gerbang wajib (lihat `KONFIGURASI.md`) |
 
-Ketiganya memanggil `Pipeline`/`Registry` strategi yang **sama persis** - tidak ada
-logika sinyal yang ditulis ulang per mode. Yang berbeda hanya sumber data dan
-apakah rencana eksekusi benar-benar dikirim ke exchange.
-
-Mode `live` hanya berjalan bila **KEDUA** gerbang lolos bersamaan: konfirmasi
-eksplisit (`--konfirmasi-live` atau ketik ulang frasa di menu) **DAN** variabel
-lingkungan `LUX_LIVE_KONFIRMASI`. Base URL exchange ditentukan murni oleh mode dan
-tidak bisa diubah lewat konfigurasi, sehingga kunci testnet mustahil terpakai di
-endpoint live.
+Ketiganya memanggil `Pipeline`/`Registry` strategi yang **sama persis**. Mode
+`live` hanya berjalan bila **KEDUA** gerbang lolos: konfirmasi eksplisit
+(`--konfirmasi-live` atau frasa di menu) **DAN** `LUX_LIVE_KONFIRMASI`. Base URL
+ditentukan murni oleh mode dan tidak bisa diubah lewat konfigurasi, sehingga
+kunci testnet mustahil terpakai di endpoint live.
 
 ## Ketergantungan
 
-Inti hanya butuh `numpy`. `pandas` opsional untuk loader dataset besar. Konektor
-Binance dan notifier Telegram memakai `urllib` dari pustaka standar - **tidak** ada
-dependency HTTP pihak ketiga. Versi CI dipin di `requirements.txt`.
+Inti hanya butuh `numpy`; `pytest` dipakai untuk uji. Keduanya dipin di
+`requirements.txt`. `pandas`, `pyarrow`, dan `PyYAML` **terbukti tidak dipakai**
+di seluruh kedalaman impor. Konektor Binance dan notifier Telegram memakai
+`urllib` pustaka standar - tidak ada dependency HTTP pihak ketiga.
 
 ## Batasan jujur yang perlu Anda tahu
 
-- Konektor Binance diuji dengan unit test bermock di lingkungan **tanpa akses
-  jaringan keluar**; ia belum pernah diadu dengan server Binance sungguhan.
-  Jalankan `--mode testnet` dengan `LUX_MAKS_SIKLUS` kecil lebih dulu.
-- Hasil backtest 95 pair saat ini menunjukkan PnL bersih **negatif** di kelima
+- **SL adalah pemantau perangkat lunak.** Binance testnet menolak `STOP_MARKET`
+  dan `TAKE_PROFIT_MARKET` dengan `-4120` (wajib lewat Algo Order API, yang tidak
+  ada di testnet). Konsekuensinya: bila proses mati, SL mati bersamanya sampai
+  pemulihan berjalan. Jendela ini tidak bisa dihilangkan lewat REST.
+- **Perilaku mainnet berpotensi berbeda.** Endpoint Algo mungkin ada di mainnet,
+  sehingga stop di bursa mungkin bisa dipakai. Saklar `LUX_EKSEKUSI=otomatis`
+  memutuskan dari jawaban bursa dan gagal ke sisi aman.
+- **Rate limit belum dioptimalkan penuh.** WebSocket belum menggantikan polling.
+- Hasil backtest 95 pair menunjukkan PnL bersih **negatif** di hampir seluruh
   konfigurasi TF setelah biaya, walau beberapa strategi punya edge kotor positif.
-  Jangan menjalankan mode live dengan modal berarti sebelum tahap seleksi strategi
+  Jangan menjalankan mode live dengan modal berarti sebelum seleksi strategi
   selesai.
