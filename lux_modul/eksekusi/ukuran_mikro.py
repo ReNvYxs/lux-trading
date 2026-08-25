@@ -12,6 +12,14 @@ bukan diam-diam. Konsekuensi yang tidak disembunyikan: pada saldo 1 USDT, 0,20
 USDT adalah 20% modal per trade. Itu memang yang diminta, dan setiap hasil
 memuat risiko_pct_dari_saldo supaya angka itu selalu terlihat.
 
+ARAH PEMBULATAN QTY ADALAH KEPUTUSAN PENTING, DAN DIUKUR. Membulatkan qty ke
+BAWAH saja terlihat aman, tetapi sweep 527 simbol membuktikan itu merusak
+aturan flat: pada BNBUSDT (step 0,01 x harga 712,91) qty turun dari 0,028 ke
+0,02 sehingga risikonya jatuh ke 0,1426 - cuma 71% dari 0,20. Hanya 9 dari 504
+simbol yang mencapai flat. Karena itu qty dibulatkan ke ATAS menuju target bila
+risikonya masih di dalam plafon, dan ke BAWAH hanya bila ke atas melewatinya.
+Izin "boleh sedikit dilampaui" dipakai persis di sini, bukan sebagai celah.
+
 BASE MARGIN 0,20 SEKARANG SEKUNDER. Dulu "base 0,20" berarti MARGIN. Sekarang
 yang dikunci adalah RISIKO, dan margin jadi akibat: leverage dipilih sekecil
 mungkin yang masih menekan margin ke base, TETAPI dibatasi jarak likuidasi.
@@ -29,9 +37,6 @@ Pada leverage 99 rumus lama mengaku 1,01% padahal nyatanya 0,61% - lebih dekat
 daripada SL 1%, jadi SL tidak akan pernah kepakai. Karena aturan flat mendorong
 leverage naik, kesalahan itu berubah dari sepele menjadi menentukan. Karena itu
 leverage sekarang DIBATASI agar likuidasi selalu lebih jauh daripada SL.
-
-PEMBULATAN DUA ARAH. qty ke ATAS untuk mencapai minimum bursa; ke BAWAH saat
-mengejar target risiko, supaya tidak melewati plafon. Sengaja dipisah.
 """
 import math
 
@@ -172,7 +177,8 @@ def rencana_mikro(saldo, harga, spek, sl_harga=None, arah=None,
     h["qty"] = qty
     h["notional"] = round(qty * float(harga), 8)
 
-    # 2) Target risiko flat. qty dibulatkan ke BAWAH supaya tidak lewat plafon.
+    # 2) Target risiko flat. Pilih sisi pembulatan yang paling dekat ke target
+    #    dan masih di dalam plafon - lihat catatan modul soal BNBUSDT.
     jarak_abs = None
     jarak_frac = None
     if sl_harga is not None and arah is not None:
@@ -183,9 +189,19 @@ def rencana_mikro(saldo, harga, spek, sl_harga=None, arah=None,
         if jarak_abs > 0:
             notional_target = flat / jarak_frac
             h["notional_target_risiko"] = round(notional_target, 8)
-            qty_target = spek.turun_qty(notional_target / float(harga))
-            if qty_target > qty:
-                qty = qty_target
+            mentah = notional_target / float(harga)
+            q_bawah = spek.turun_qty(mentah)
+            q_atas = naik_qty(spek, mentah)
+            if q_atas * jarak_abs <= plafon + _EPS:
+                q_pilih = q_atas
+                h["arah_pembulatan_target"] = "atas"
+            else:
+                q_pilih = q_bawah
+                h["arah_pembulatan_target"] = "bawah"
+            h["qty_target_bawah"] = q_bawah
+            h["qty_target_atas"] = q_atas
+            if q_pilih > qty:
+                qty = q_pilih
 
     # 3) Batas maxQty bursa.
     if float(spek.maks_qty) and qty_lantai > float(spek.maks_qty):
