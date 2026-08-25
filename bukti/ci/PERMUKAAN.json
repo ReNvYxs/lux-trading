@@ -1212,7 +1212,7 @@
    },
    "JALUR_DANA": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'/fapi/v2/balance', '/fapi/v1/order', '/fapi/v1/positionMargin', '/fapi/v1/leverage', '/fapi/v1/batchOrders', '/fapi/v1/allOpenOrders', '/fapi/v1/ope..."
+    "nilai": "frozenset({'/fapi/v1/allOpenOrders', '/fapi/v2/balance', '/fapi/v1/positionMargin', '/fapi/v1/order/test', '/fapi/v1/batchOrders', '/fapi/v2/positionRisk', '/fa..."
    },
    "PERISTIWA_FAILSAFE": {
     "jenis": "str",
@@ -1273,6 +1273,147 @@
    "ringkas_jawaban": {
     "jenis": "fungsi",
     "tanda_tangan": "(path, jawaban)"
+   }
+  },
+  "lux_modul.eksekusi.kepemilikan": {
+   "ARAH_BERUBAH_USER": {
+    "jenis": "str",
+    "nilai": "'arah_berubah_user'"
+   },
+   "AWALAN_MESIN_BAWAAN": {
+    "jenis": "tuple",
+    "nilai": "('lx',)"
+   },
+   "BUKU_BAWAAN": {
+    "jenis": "str",
+    "nilai": "'keadaan/buku_posisi.json'"
+   },
+   "BUKU_HILANG": {
+    "jenis": "str",
+    "nilai": "'buku_hilang'"
+   },
+   "BukuPosisi": {
+    "jenis": "kelas",
+    "metode": [
+     "ambil",
+     "catat_pembukaan",
+     "catat_proteksi",
+     "daftar",
+     "milik_mesin",
+     "muat",
+     "selaraskan_qty",
+     "simpan",
+     "tutup"
+    ],
+    "tanda_tangan": "(jalur=None, env=None, jam=None)"
+   },
+   "DIKURANGI_USER": {
+    "jenis": "str",
+    "nilai": "'dikurangi_user'"
+   },
+   "DITAMBAH_USER": {
+    "jenis": "str",
+    "nilai": "'ditambah_user'"
+   },
+   "DITUTUP_USER": {
+    "jenis": "str",
+    "nilai": "'ditutup_user'"
+   },
+   "ENV_AWALAN": {
+    "jenis": "str",
+    "nilai": "'LUX_CID_AWALAN'"
+   },
+   "ENV_BUKU": {
+    "jenis": "str",
+    "nilai": "'LUX_BUKU_POSISI'"
+   },
+   "MILIK_CAMPUR": {
+    "jenis": "str",
+    "nilai": "'campuran'"
+   },
+   "MILIK_KOSONG": {
+    "jenis": "str",
+    "nilai": "'kosong'"
+   },
+   "MILIK_MESIN": {
+    "jenis": "str",
+    "nilai": "'mesin'"
+   },
+   "MILIK_USER": {
+    "jenis": "str",
+    "nilai": "'user'"
+   },
+   "PROTEKSI_HILANG_USER": {
+    "jenis": "str",
+    "nilai": "'proteksi_dihapus_user'"
+   },
+   "PenjagaKepemilikan": {
+    "jenis": "kelas",
+    "metode": [
+     "boleh_batal_semua",
+     "boleh_batalkan_order",
+     "laporan_gagal",
+     "order_mesin",
+     "pastikan_boleh_kelola",
+     "periksa"
+    ],
+    "tanda_tangan": "(buku=None, awalan=None, rekam=None)"
+   },
+   "PosisiBukanMilikMesin": {
+    "jenis": "kelas",
+    "metode": [
+     "add_note",
+     "with_traceback"
+    ],
+    "tanda_tangan": "(laporan)"
+   },
+   "TOLERANSI_QTY": {
+    "jenis": "float",
+    "nilai": "1e-09"
+   },
+   "TOLERANSI_RELATIF": {
+    "jenis": "float",
+    "nilai": "1e-06"
+   },
+   "UTUH": {
+    "jenis": "str",
+    "nilai": "'utuh'"
+   },
+   "arah_dari_qty": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(qty)"
+   },
+   "awalan_mesin": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(env=None)"
+   },
+   "cid_dari_order": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(order)"
+   },
+   "cid_mesin": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(cid, awalan=None)"
+   },
+   "klasifikasi_posisi": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(simbol, posisi, catatan=None, order_terbuka=None, awalan=None)"
+   },
+   "pemilik_order": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(order, awalan=None)"
+   },
+   "perekam": {
+    "jenis": "fungsi",
+    "tanda_tangan": "()"
+   },
+   "pisahkan_order": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(daftar_order, awalan=None)"
+   },
+   "qty_posisi": {
+    "jenis": "fungsi",
+    "tanda_tangan": "(posisi)"
    }
   },
   "lux_modul.eksekusi.klasifikasi": {
@@ -1365,11 +1506,11 @@
    },
    "STATUS_DIKENAL": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'NEW_ADL', 'NEW_INSURANCE', 'PARTIALLY_FILLED', 'EXPIRED', 'NEW', 'REJECTED', 'CANCELED', 'EXPIRED_IN_MATCH', 'FILLED'})"
+    "nilai": "frozenset({'CANCELED', 'EXPIRED', 'FILLED', 'NEW_ADL', 'NEW_INSURANCE', 'NEW', 'REJECTED', 'EXPIRED_IN_MATCH', 'PARTIALLY_FILLED'})"
    },
    "STATUS_HIDUP": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'NEW', 'PARTIALLY_FILLED'})"
+    "nilai": "frozenset({'PARTIALLY_FILLED', 'NEW'})"
    },
    "STATUS_LAJU": {
     "jenis": "tuple",
@@ -1377,7 +1518,7 @@
    },
    "STATUS_SELESAI": {
     "jenis": "frozenset",
-    "nilai": "frozenset({'EXPIRED', 'REJECTED', 'CANCELED', 'EXPIRED_IN_MATCH', 'FILLED'})"
+    "nilai": "frozenset({'CANCELED', 'EXPIRED_IN_MATCH', 'EXPIRED', 'REJECTED', 'FILLED'})"
    },
    "STATUS_TAK_DIKETAHUI": {
     "jenis": "tuple",

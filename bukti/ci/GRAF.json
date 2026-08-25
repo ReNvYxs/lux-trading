@@ -67,6 +67,7 @@
    "lux_modul.eksekusi.binance_client",
    "lux_modul.eksekusi.ice_breaker",
    "lux_modul.eksekusi.jejak",
+   "lux_modul.eksekusi.kepemilikan",
    "lux_modul.eksekusi.klasifikasi",
    "lux_modul.eksekusi.kredensial",
    "lux_modul.eksekusi.mode",
@@ -385,6 +386,7 @@
   ],
   "lux_modul.eksekusi.jejak": [
    "lux_modul.eksekusi.binance_client",
+   "lux_modul.eksekusi.kepemilikan",
    "tests.test_stres_jejak",
    "tests.test_stres_klasifikasi"
   ],
@@ -724,8 +726,8 @@
    "lux_modul.strategi"
   ]
  },
- "modul_lux": 54,
- "modul_total": 127,
+ "modul_lux": 55,
+ "modul_total": 128,
  "nama_hilang_alat": [],
  "nama_hilang_modul": [],
  "sisi": {
@@ -814,6 +816,9 @@
    "lux_modul.eksekusi.klasifikasi",
    "lux_modul.eksekusi.order",
    "lux_modul.kontrak"
+  ],
+  "lux_modul.eksekusi.kepemilikan": [
+   "lux_modul.eksekusi.jejak"
   ],
   "lux_modul.eksekusi.mode": [
    "lux_modul.kontrak"
@@ -1291,5 +1296,7 @@
   "tests.test_ukuran_mikro",
   "lux_modul"
  ],
- "yatim": []
+ "yatim": [
+  "lux_modul.eksekusi.kepemilikan"
+ ]
 }

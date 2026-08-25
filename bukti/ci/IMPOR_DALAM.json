@@ -370,6 +370,12 @@
    "time",
    "uuid"
   ],
+  "lux_modul.eksekusi.kepemilikan": [
+   "json",
+   "lux_modul.eksekusi.jejak",
+   "os",
+   "time"
+  ],
   "lux_modul.eksekusi.klasifikasi": [],
   "lux_modul.eksekusi.kredensial": [
    "__future__",
@@ -1190,6 +1196,7 @@
   ],
   "lux_modul.eksekusi.ice_breaker": [],
   "lux_modul.eksekusi.jejak": [],
+  "lux_modul.eksekusi.kepemilikan": [],
   "lux_modul.eksekusi.klasifikasi": [
    "lux_modul.eksekusi.jejak"
   ],
@@ -1303,7 +1310,7 @@
   "tests.test_stres_siklus_mikro": [],
   "tests.test_ukuran_mikro": []
  },
- "modul_jumlah": 127,
+ "modul_jumlah": 128,
  "paket_luar_bersarang": [
   "asyncio",
   "dataclasses",
